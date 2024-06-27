@@ -13,32 +13,76 @@ header{
 	background: black;
 }
 
-#site_logo{
+
+#site_logo {
+	padding-top : 20px;
     height: 60px;
-    line-height: 60px;
-}
-#site_logo #logo{
-    padding-left: 30px;
-    float: left;
-}
-#site_logo #logo img{
-    text-decoration: none;
-    vertical-align: middle;
-    z-index: -1;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
 }
 
-.log{
-  width: 100px;
-  height: 100px;
-  background-size: contain;
-  background-position: center center;
+#logo {
+    padding-left: 30px;
 }
-.log img {
-	padding-left: 10px;
-	width : 100px;
-	height : 100px;
-	object-fit : cover;
+
+#logo img {
+    height: 200px; /* 로고 높이 조정 */
 }
+
+#menu {
+	padding-right : 70px;
+    display: flex;
+    justify-content: center; /* 메뉴를 중앙에 정렬 */
+}
+
+#menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li {
+    margin-left: 100px;
+}
+
+#menu ul a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+#search{
+    display: flex;
+    align-items: center;
+    margin-left: 200px;
+}
+
+#search-box {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    height: 20px;
+    justify-content: flex-end;
+}
+
+#search-button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #555;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    height: 30px;
+}
+
+#search-button:hover {
+    background-color: #777;
+}
+
 footer{
 	padding-top:25px;
 	height:35px;		
