@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="./resources/css/style.css" type="text/css">
 </head>
 <body>
+
 	<header>
 	<div id = "site_logo">
         <a href="#" id = "logo">
@@ -29,3 +30,4 @@
         </div>
     	</div>
 	</header>
+

@@ -5,7 +5,7 @@
 <section>
 <div id=title>	
 	<h3></h3>
-
+<c:import url="main_bottom.jsp" />
 </div>	
 </section>
 <c:import url="bottom.jsp" />
