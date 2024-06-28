@@ -1,41 +1,36 @@
 @charset "UTF-8";
 
 section {
-	margin-top:50px;
+   margin-top:50px;
     width: 100%;
-    height : 600px;
+    height : 500px;
     display: flex;
     background-color: black;
 }
 
 #slide {
-	position: relative;
+   position: relative;
     width: 100%;
     height: 100%;
+    animation: roll 15s infinite linear;
 }
 
 #slide_item1 {
-	width: 100%;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: roll 15s infinite linear;
 }
 
 #slide_item2 {
-	width: 100%;
+   width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: roll 15s infinite linear;
 }
 
 @keyframes roll {
@@ -46,5 +41,4 @@ section {
 #slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
