@@ -8,4 +8,5 @@
 
 </div>	
 </section>
+<c:import url="middle.jsp" />
 <c:import url="bottom.jsp" />
