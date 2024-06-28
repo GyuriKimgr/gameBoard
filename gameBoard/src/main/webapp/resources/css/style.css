@@ -11,6 +11,7 @@ header{
 	text-align: center;
 	height:80px;	
 	background: black;
+	padding-bottom : 30px;
 }
 
 
@@ -42,15 +43,34 @@ header{
     margin: 0;
     padding: 0;
 }
-
 #menu ul li {
-    margin-left: 100px;
+    margin-left: 100px; /* 초기 간격 설정 */
+    transition: margin-left 0.3s ease; /* margin-left 속성에 대한 0.3초의 ease 애니메이션 효과 */
+}
+
+@media (max-width: 1200px) {
+    #menu ul li{
+        margin-left: 50px; /* 1200px 이하의 화면 크기에서 간격을 줄임 */
+    }
+}
+
+@media (max-width: 900px) {
+    #menu ul li{
+        margin-left: 30px; /* 992px 이하의 화면 크기에서 더 작은 간격으로 줄임 */
+    }
+}
+
+@media (max-width: 768px) {
+    #menu ul li{
+        margin-left: 10px; /* 768px 이하의 화면 크기에서 더 작은 간격으로 줄임 */
+    }
 }
 
 #menu ul a {
     text-decoration: none;
     color: white;
     font-size: 20px;
+    white-space: nowrap;
 }
 
 #search{
@@ -70,13 +90,31 @@ header{
 
 #search-button {
     padding: 5px 10px;
-    font-size: 16px;
+    font-size: 10px;
+    white-space: nowrap;
     background-color: #555;
     color: white;
     border: 1px solid #ccc;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     height: 30px;
+}
+@media (max-width: 1200px) {
+    #search{
+        margin-left: 100px; /* 1200px 이하의 화면 크기에서 간격을 줄임 */
+    }
+}
+
+@media (max-width: 900px) {
+    #search{
+        margin-left:50px; /* 992px 이하의 화면 크기에서 더 작은 간격으로 줄임 */
+    }
+}
+
+@media (max-width: 768px) {
+    #search{
+        margin-left: 20px; /* 768px 이하의 화면 크기에서 더 작은 간격으로 줄임 */
+    }
 }
 
 #search-button:hover {

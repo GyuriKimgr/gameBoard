@@ -1,0 +1,53 @@
+/* Reset 기본 스타일 */
+body, html, h3, table {
+    margin: 0;
+    padding: 0;
+}
+.title{
+	height:35px;		
+	text-align:center;
+	background:#ca99e3;	
+}
+/* 전체 페이지 스타일링 */
+body {
+ 	background:black
+}
+
+/* 제목 스타일링 */
+h3 {
+	color : white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 테이블 스타일링 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* 짝수 행 배경색 지정 */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* 링크 스타일링 */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

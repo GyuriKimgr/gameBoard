@@ -17,7 +17,7 @@
         </a>
         <div id="menu">
             <ul>
-                <li><a href="#"><b>공략</b></a></li>
+                <li><a href="./walkThrough.jsp"><b>공략</b></a></li>
                 <li><a href="#"><b>모드</b></a></li>
                 <li><a href="#"><b>게임추천</b></a></li>
                 <li><a href="#"><b>FAQ</b></a></li>
