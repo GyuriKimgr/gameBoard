@@ -2,10 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <c:import url="top.jsp" />
-<section>
-<div id=title>	
-	<h3></h3>
 
-</div>	
+<link rel="stylesheet" href="./resources/css/slide.css" type="text/css">
+<section>
+	<div id=slide>
+        <div id="slide_item1">
+            <img src="./resources/images/slide.jpg">
+        </div>
+        <div id="slide_item2">
+            <img src="./resources/images/slide.jpg">
+        </div>
+	</div>
 </section>
+	
 <c:import url="bottom.jsp" />
