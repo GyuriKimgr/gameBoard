@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./resources/css/board.css" type="text/css">
 <section>
 	<div class="title">
-        <h3>공략게시판</h3>
+        <h3>게임추천</h3>
     </div>
 <div class = "table-container">
     <table class = "wtable" border="1">
