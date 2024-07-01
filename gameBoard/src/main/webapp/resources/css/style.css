@@ -1,16 +1,44 @@
 @charset "UTF-8";
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ca99e3, skyblue);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 10px;
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: linear-gradient(to right, #ca99e3, skyblue);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    display: none; /* 스크롤 버튼 숨김 */
+}
+
 body{
-	background:black;
+	background:#000000;
+    display: block;
+    margin: 0px;
 
 }
 
 header{
-	padding-top:20px;
+	padding-top:10px;
 	padding-left:30px;
 	font-size: 20px;
 	text-align: center;
 	height:80px;	
 	background: black;
+	padding-bottom : 30px;
 }
 
 
@@ -27,7 +55,7 @@ header{
 }
 
 #logo img {
-    height: 200px; /* 로고 높이 조정 */
+    height: 100px; /* 로고 높이 조정 */
 }
 
 #menu {
@@ -42,15 +70,34 @@ header{
     margin: 0;
     padding: 0;
 }
-
 #menu ul li {
-    margin-left: 100px;
+    margin-left: 100px; /* 초기 간격 설정 */
+    transition: margin-left 0.3s ease; /* margin-left 속성에 대한 0.3초의 ease 애니메이션 효과 */
+}
+
+@media (max-width: 1200px) {
+    #menu ul li{
+        margin-left: 50px; /* 1200px 이하의 화면 크기에서 간격을 줄임 */
+    }
+}
+
+@media (max-width: 900px) {
+    #menu ul li{
+        margin-left: 30px; /* 992px 이하의 화면 크기에서 더 작은 간격으로 줄임 */
+    }
+}
+
+@media (max-width: 768px) {
+    #menu ul li{
+        margin-left: 10px; /* 768px 이하의 화면 크기에서 더 작은 간격으로 줄임 */
+    }
 }
 
 #menu ul a {
     text-decoration: none;
     color: white;
     font-size: 20px;
+    white-space: nowrap;
 }
 
 #search{
@@ -70,13 +117,31 @@ header{
 
 #search-button {
     padding: 5px 10px;
-    font-size: 16px;
+    font-size: 10px;
+    white-space: nowrap;
     background-color: #555;
     color: white;
     border: 1px solid #ccc;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     height: 30px;
+}
+@media (max-width: 1200px) {
+    #search{
+        margin-left: 100px; /* 1200px 이하의 화면 크기에서 간격을 줄임 */
+    }
+}
+
+@media (max-width: 900px) {
+    #search{
+        margin-left:50px; /* 992px 이하의 화면 크기에서 더 작은 간격으로 줄임 */
+    }
+}
+
+@media (max-width: 768px) {
+    #search{
+        margin-left: 20px; /* 768px 이하의 화면 크기에서 더 작은 간격으로 줄임 */
+    }
 }
 
 #search-button:hover {
@@ -117,17 +182,6 @@ header{
 .option02 { 
 	font-size : 12px;
 }
-	
-
-	
-
-
-
-
-
-
-
-
 footer{
 	padding-top:25px;
 	height:35px;		
@@ -136,14 +190,12 @@ footer{
 	font-size: 12px;
 	color:LightCyan;	
 }
+#login{
+	font-size:13px;
+}
+#title{
+	text-align:center;	
+}
 
 
-.head:link{ color:lightcyan; text-decoration:none;}
-.head:visited{ color:lightcyan; text-decoration:none;}
-.head:active{ color:lightcyan; text-decoration:none;}
-.head:hover{ color:lightcyan; text-decoration:none;}
 
-A:link{ color:#555555; text-decoration:none;}
-A:visited{ color: #555555; text-decoration:none;}
-A:active{ color: #555555; text-decoration:none;}
-A:hover{ color: #000000; text-decoration:underline;}

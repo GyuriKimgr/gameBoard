@@ -13,20 +13,20 @@
 
 	<header>
 	<div id = "site_logo">
-        <a href="#" id = "logo">
+  <a href="./index.jsp" id = "logo">
          <img src="./resources/images/simple log3.png" height="200px">
         </a>
         <div id="menu">
             <ul>
-                <li><a href="#"><b>공략</b></a></li>
-                <li><a href="#"><b>모드</b></a></li>
-                <li><a href="#"><b>게임추천</b></a></li>
-                <li><a href="#"><b>FAQ</b></a></li>
+                <li><a href="./walkThrough.jsp"><b>공략</b></a></li>
+                <li><a href="./mod.jsp"><b>모드</b></a></li>
+                <li><a href="./suggest.jsp"><b>게임추천</b></a></li>
+                <li><a href="./FAQ.jsp"><b>FAQ</b></a></li>
             </ul>
-             <div id="search">
-                    <input type="text" id="search-box" placeholder="검색...">
-                    <button type="button" id="search-button">검색</button>
-             </div>
+            <div id="search">
+            	<input type="text" id="search-box" placeholder="검색...">
+            	<button type="button" id="search-button">검색</button>
+            </div>
         </div>
     	</div>
 	</header>
