@@ -1,20 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="./resources/css/middle2.css" type="text/css">
+<link rel="stylesheet" href="./resources/css/middle2.css"
+	type="text/css">
 
-<div class="box_battle2">
 
+<div class="area_util">
+	<div class="wrap_util">
+		<ul class="list_quick">
+			<li><a id="a_center_faq" target="_blank"
+				href="https://kakaogames.oqupie.com/portals/2215/categories/4752">
+					<span class="img_comm2 ico_faq"></span> <span class="text">FAQ</span>
+			</a></li>
+			<li><a id="a_center_ask" class="oqupie_login"
+				href="javascript:void(0)"> <span class="img_comm2 ico_help"></span>
+					<span class="text">1:1문의</span>
+			</a></li>
+			<li><a id="a_center_kakaotalk_coupon" href="javascript:void(0)">
+					<span class="img_comm2 ico_coupon_kakao"></span> <span class="text">카카오톡
+						선물하기 쿠폰 입력</span>
+			</a></li>
+		</ul>
+
+		<ul class="list_sns">
+			<li class="item_kakao"><a id="a_sns_kakao"
+				href="javascript:void(0);"> <span class="img_comm2 ico_kakao">
+						<span class="screen_out img_comm2">카카오톡 채널 추가하기</span>
+				</span>
+			</a></li>
+			<li><a id="a_sns_discord" href="https://discord.gg/U5G8TteA9F"
+				target="_blank"> <span class="img_comm2 ico_discord"> <span
+						class="screen_out img_comm2">디스코드</span>
+				</span>
+			</a></li>
+			<li><a id="a_sns_youtube"
+				href="https://www.youtube.com/playlist?list=PLJ6DLXkiRvoviUhYC7kckthpGZD54cdJ0"
+				target="_blank"> <span class="img_comm2 ico_youtube"> <span
+						class="screen_out img_comm2">유튜브</span>
+				</span>
+			</a></li>
+			<li><a id="a_sns_facebook"
+				href="https://www.facebook.com/kakaobattlegrounds" target="_blank">
+					<span class="img_comm2 ico_facebook"> <span
+						class="screen_out img_comm2">페이스북</span>
+				</span>
+			</a></li>
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+<div class="box">
 	<div class="inner_box">
-		<h3 class="screen_out">새소식</h3>
+		<h3 class="screen_out">게시판2</h3>
 		<ul class="list_news">
-			<li><a id="a_new_notice_more" class="link_card"
+
+			<li><a id="attack_board" class="link_card"
 				href="http://bbs.pubg.game.daum.net/gaia/do/pubg/notice/list?bbsId=PN001">
 					<strong class="noto-demi tit_cate">공략게시판</strong> <span
 					class="img_comm2">더보기</span>
 			</a>
 				<div class="card_info">
-
-
 					<a name="a_new_notice" class="link_thumb"
 						href="https://bbs.pubg.game.daum.net/gaia/do/pubg/notice/read?articleId=3564&amp;bbsId=PN001&amp;pageIndex=1"
 						target="_black" event-order="0"
@@ -33,10 +81,6 @@
 							여러 이슈로 인해 불편함을 드려 죄송합니다.</span>
 					</a>
 					<div class="group_tit">
-
-
-
-
 						<a name="a_new_notice" class="link_thumb"
 							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/notice/read?bbsId=PN001&amp;articleId=3559&amp;objCate1=201"
 							target="_black" event-order="1"
@@ -85,14 +129,12 @@
 
 
 				</div></li>
-			<li><a id="a_new_update_more"
+			<li><a id="mode_board"
 				href="http://bbs.pubg.game.daum.net/gaia/do/pubg/gm/list?bbsId=PN002&amp;objCate1=255"
 				class="link_card"> <strong class="noto-demi tit_cate">모드게시판</strong>
 					<span class="img_comm2">더보기</span>
 			</a>
 				<div class="card_info">
-
-
 					<a name="a_new_update" class="link_thumb"
 						href="https://bbs.pubg.game.daum.net/gaia/do/pubg/update/read?articleId=713&amp;bbsId=PN002&amp;objCate1=255&amp;pageIndex=1"
 						event-order="0"
@@ -108,10 +150,6 @@
 							그리고 건 플레이 조정 등 다양한 소식을 안내해 드립니다. 자세한 사항은 업데이트 공지사항을 확인해 주세요.</span>
 					</a>
 					<div class="group_tit">
-
-
-
-
 						<a name="a_new_update" class="link_thumb"
 							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/update/read?articleId=715&amp;bbsId=PN002&amp;objCate1=255&amp;pageIndex=1"
 							event-order="1" event-description="6월 배틀그라운드 상점 업데이트 안내"
@@ -145,14 +183,12 @@
 
 
 				</div></li>
-			<li><a id="a_new_gm_more"
+			<li><a id="recommand_board"
 				href="http://bbs.pubg.game.daum.net/gaia/do/pubg/gm/list?bbsId=PN002"
 				class="link_card"> <strong class="noto-demi tit_cate">추천게시판</strong>
 					<span class="img_comm2">더보기</span>
 			</a>
 				<div class="card_info">
-
-
 					<a name="a_new_gm" class="link_thumb"
 						href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?bbsId=PN002&amp;articleId=719&amp;objCate1=253"
 						target="_black" event-order="0" event-description="6월 추가 특별 보급"
