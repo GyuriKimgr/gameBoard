@@ -25,12 +25,14 @@
 }
 
 body{
-	background:black;
+	background:#000000;
+    display: block;
+    margin: 0px;
 
 }
 
 header{
-	padding-top:20px;
+	padding-top:10px;
 	padding-left:30px;
 	font-size: 20px;
 	text-align: center;
@@ -53,7 +55,7 @@ header{
 }
 
 #logo img {
-    height: 200px; /* 로고 높이 조정 */
+    height: 100px; /* 로고 높이 조정 */
 }
 
 #menu {
@@ -146,14 +148,7 @@ header{
     background-color: #777;
 }
 
-footer{
-	padding-top:25px;
-	height:35px;		
-	text-align:center;
-	background:#ca99e3;	
-	font-size: 12px;
-	color:LightCyan;	
-}
+
 #login{
 	font-size:13px;
 }
@@ -161,12 +156,5 @@ footer{
 	text-align:center;	
 }
 
-.head:link{ color:lightcyan; text-decoration:none;}
-.head:visited{ color:lightcyan; text-decoration:none;}
-.head:active{ color:lightcyan; text-decoration:none;}
-.head:hover{ color:lightcyan; text-decoration:none;}
 
-A:link{ color:#555555; text-decoration:none;}
-A:visited{ color: #555555; text-decoration:none;}
-A:active{ color: #555555; text-decoration:none;}
-A:hover{ color: #000000; text-decoration:underline;}
+

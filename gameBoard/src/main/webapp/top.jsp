@@ -12,7 +12,7 @@
 <body>
 	<header>
 	<div id = "site_logo">
-        <a href="./index.jsp" id = "logo">
+  <a href="./index.jsp" id = "logo">
          <img src="./resources/images/simple log3.png" height="200px">
         </a>
         <div id="menu">
