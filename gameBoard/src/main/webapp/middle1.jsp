@@ -8,12 +8,12 @@
 	<div class="inner_box1">
 		<h3 class="screen_out1">게시판1</h3>
 		<ul class="list_news1">
-		
+
 			<li><a id="game_news"
 				href="http://bbs.pubg.game.daum.net/gaia/do/pubg/competition/list?bbsId=PN001&amp;objCate1=223"
 				class="link_card1"> <strong class="noto-demi tit_cate1">게임소식</strong>
 					<span class="img_comm1">더보기</span>
-			</a>
+			</a> </a>
 				<div class="card_info1">
 
 					<a name="a_new_competition" class="link_thumb1"
@@ -47,12 +47,12 @@
 
 					</div>
 				</div></li>
-				
-				
-				<li><a id="today_board"
+
+
+			<li><a id="today_board"
 				href="http://bbs.pubg.game.daum.net/gaia/do/pubg/competition/list?bbsId=PN001&amp;objCate1=223"
-				class="link_card1"> <strong class="noto-demi tit_cate1">오늘의 게시판</strong>
-					<span class="img_comm1">더보기</span>
+				class="link_card1"> <strong class="noto-demi tit_cate1">오늘의
+						게시판</strong> <span class="img_comm1">더보기</span>
 			</a>
 				<div class="card_info1">
 
@@ -86,23 +86,30 @@
 					</div>
 
 
-				</div>
-				
-				
-                <!-- 로그인 폼 -->
-                <li>
-                <form class="login-form">
-                    <label for="username">사용자 이름:</label>
-                    <input type="text" id="username" name="username">
-                    
-                    <label for="password">비밀번호:</label>
-                    <input type="password" id="password" name="password">
-                    
-                    <button type="submit">로그인</button>
-                </form>
-                 </li>
-            </li>
+				</div> <!-- 로그인 폼 -->
+			<li>
+				<div class="login-wrapper">
+					<h2>Simple Login</h2>
+					<form method="post" action="서버의url" id="login-form">
+						<input type="text" name="userName" placeholder="Email"> <input
+							type="password" name="userPassword" placeholder="Password">
 
+						<label for="remember-check"> <input type="checkbox"
+							id="remember-check">아이디 저장하기
+						</label> <a href="회원가입 페이지 URL">회원가입</a> <input type="submit"
+							value="Login">
+					</form>
+					<form method="post" action="서버의url" id="Myboard-form">
+					  <input type="submit" value="Myboard">
+					 </form>
+				</div>
+
+
+
+				
+
+
+			</li>
 
 		</ul>
 	</div>

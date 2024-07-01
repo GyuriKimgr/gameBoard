@@ -79,21 +79,15 @@ a:-webkit-any-link {
 }
 
 .img_comm2 {
-    background-image: url('./images/´õº¸±â.png');
-}
-
-.img_comm2 {
-    display: block;
+    background-image: url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_comm2_210827.png);
+ 	display: block;
     overflow: hidden;
     font-size: 0;
     line-height: 0;
     text-indent: -9999px;
-    background: no-repeat;
+  
 }
 
-.noto-demi {
-    font-family: 'noto-demilight', '¸¼Àº °íµñ', 'Malgun Gothic', 'µ¸¿ò', dotum, sans-serif;
-}
 
 .list_news .card_info {
     background-color: #fff;

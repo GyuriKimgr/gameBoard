@@ -13,8 +13,8 @@
 
 			<li><a id="attack_board" class="link_card"
 				href="http://bbs.pubg.game.daum.net/gaia/do/pubg/notice/list?bbsId=PN001">
-					<strong class="noto-demi tit_cate">공략게시판</strong> <span
-					class="img_comm2">더보기</span>
+					<strong class="noto-demi tit_cate">공략게시판</strong>
+					<span class="img_comm2">더보기</span>
 			</a>
 				<div class="card_info">
 					<a name="a_new_notice" class="link_thumb"
