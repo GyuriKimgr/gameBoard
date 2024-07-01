@@ -28,17 +28,24 @@ body{
 	background:#000000;
     display: block;
     margin: 0px;
+    padding-top: 150px;
 
 }
 
 header{
+	position: fixed;
 	padding-top:10px;
 	padding-left:30px;
 	font-size: 20px;
 	text-align: center;
 	height:80px;	
-	background: black;
+	background: #decbed;
 	padding-bottom : 30px;
+	width: 100%;
+	top: 0px;
+	z-index: 1000;
+	
+	
 }
 
 

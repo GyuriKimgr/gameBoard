@@ -4,52 +4,6 @@
 	type="text/css">
 
 
-<div class="area_util">
-	<div class="wrap_util">
-		<ul class="list_quick">
-			<li><a id="a_center_faq" target="_blank"
-				href="https://kakaogames.oqupie.com/portals/2215/categories/4752">
-					<span class="img_comm2 ico_faq"></span> <span class="text">FAQ</span>
-			</a></li>
-			<li><a id="a_center_ask" class="oqupie_login"
-				href="javascript:void(0)"> <span class="img_comm2 ico_help"></span>
-					<span class="text">1:1문의</span>
-			</a></li>
-			<li><a id="a_center_kakaotalk_coupon" href="javascript:void(0)">
-					<span class="img_comm2 ico_coupon_kakao"></span> <span class="text">카카오톡
-						선물하기 쿠폰 입력</span>
-			</a></li>
-		</ul>
-
-		<ul class="list_sns">
-			<li class="item_kakao"><a id="a_sns_kakao"
-				href="javascript:void(0);"> <span class="img_comm2 ico_kakao">
-						<span class="screen_out img_comm2">카카오톡 채널 추가하기</span>
-				</span>
-			</a></li>
-			<li><a id="a_sns_discord" href="https://discord.gg/U5G8TteA9F"
-				target="_blank"> <span class="img_comm2 ico_discord"> <span
-						class="screen_out img_comm2">디스코드</span>
-				</span>
-			</a></li>
-			<li><a id="a_sns_youtube"
-				href="https://www.youtube.com/playlist?list=PLJ6DLXkiRvoviUhYC7kckthpGZD54cdJ0"
-				target="_blank"> <span class="img_comm2 ico_youtube"> <span
-						class="screen_out img_comm2">유튜브</span>
-				</span>
-			</a></li>
-			<li><a id="a_sns_facebook"
-				href="https://www.facebook.com/kakaobattlegrounds" target="_blank">
-					<span class="img_comm2 ico_facebook"> <span
-						class="screen_out img_comm2">페이스북</span>
-				</span>
-			</a></li>
-		</ul>
-	</div>
-</div>
-
-
-
 
 
 <div class="box">

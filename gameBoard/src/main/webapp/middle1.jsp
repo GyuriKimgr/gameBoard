@@ -8,6 +8,7 @@
 	<div class="inner_box1">
 		<h3 class="screen_out1">게시판1</h3>
 		<ul class="list_news1">
+		
 			<li><a id="game_news"
 				href="http://bbs.pubg.game.daum.net/gaia/do/pubg/competition/list?bbsId=PN001&amp;objCate1=223"
 				class="link_card1"> <strong class="noto-demi tit_cate1">게임소식</strong>
@@ -82,12 +83,25 @@
 							event="click_news" news_type="대회소식" news_title="2024 PLS: Cup 안내">
 							<strong class="card_tit1">2024 PLS: Cup 안내</strong>
 						</a>
-
-
 					</div>
 
 
-				</div></li>
+				</div>
+				
+				
+                <!-- 로그인 폼 -->
+                <li>
+                <form class="login-form">
+                    <label for="username">사용자 이름:</label>
+                    <input type="text" id="username" name="username">
+                    
+                    <label for="password">비밀번호:</label>
+                    <input type="password" id="password" name="password">
+                    
+                    <button type="submit">로그인</button>
+                </form>
+                 </li>
+            </li>
 
 
 		</ul>

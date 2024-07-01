@@ -3,7 +3,7 @@
 #kakaoFoot {
     position: relative;
     min-width: 1500px;
-    background-color: #ca99e3;	
+    background-color: #black;	
 }
 #kakaoFoot:before {
     position: absolute;

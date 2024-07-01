@@ -10,10 +10,10 @@
 <link rel="stylesheet" href="./resources/css/style.css" type="text/css">
 </head>
 <body>
-	<header>
+<header>
 	<div id = "site_logo">
   <a href="./index.jsp" id = "logo">
-         <img src="./resources/images/simple log3.png" height="200px">
+         <img src="./resources/images/로고1.png" height="200px">
         </a>
         <div id="menu">
             <ul>
@@ -29,3 +29,4 @@
         </div>
     	</div>
 	</header>
+	
