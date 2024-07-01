@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+body {
+    width: 100%;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#slide {
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    position: relative;
+    overflow: hidden; 
+}
+
+#merry {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    animation: roll 15s infinite linear;
+}
+
+@keyframes roll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.face {
+    width: 100%;
+    flex: 0 0 auto;
+    margin-right: 10px; 
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.cell {
+    width: 100%; 
+    height: 150px;
+    background: url('http://placehold.it/260x200');
+    background-size: cover;
+    transition: transform 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cell img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
