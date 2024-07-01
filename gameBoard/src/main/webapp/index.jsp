@@ -7,10 +7,10 @@
 <section>
    <div id=slide>
         <div id="slide_item1">
-            <img src="./resources/images/dd.jpg">
+            <img src="./resources/images/slide.jpg">
         </div>
         <div id="slide_item2">
-            <img src="./resources/images/dd.jpg">
+            <img src="./resources/images/slide.jpg">
         </div>
    </div>
 </section>
