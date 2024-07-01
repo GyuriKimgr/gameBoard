@@ -4,7 +4,7 @@
 	type="text/css">
 
 
-<div class="box1">
+<div id="box1">
 	<div class="inner_box1">
 		<h3 class="screen_out1">게시판1</h3>
 		<ul class="list_news1">
@@ -82,14 +82,35 @@
 							event="click_news" news_type="대회소식" news_title="2024 PLS: Cup 안내">
 							<strong class="card_tit1">2024 PLS: Cup 안내</strong>
 						</a>
-
-
 					</div>
-
-
 				</div></li>
-
-
 		</ul>
 	</div>
+	<li>
+	<div id= "main_logform">
+	 <div class="login-form">
+			<!-- 아이디 -->
+			<label for = "main_id"></label>
+			<input type ="text" id="main_id" name= "main_id" class ="input_id" title="아이디" placeholder="아이디"><br />
+			<!-- 비밀번호 -->
+			<label for ="main_password" ></label>
+			<input type ="text" id="main_password" name ="main_password" class = "input_password"  title ="비밀번호" placeholder="비밀번호"  
+			 	   maxlength="20">
+			<!-- 로그인 버튼 -->
+			<input type ="button" class="login_button" value= "로그인" onclick="alert('버튼이 클릭되었습니다!')" > <!-- 버튼이 작동하는지 확인.. -->
+			
+		<div class="option01">
+			<input type="checkbox" id="keeplogin" name="keeplogin" class="chk_saveid" onmousedown="함수이름('받아들이는 인자자리');" onclick="함수이름('받아들이는 인자자리')" /> 
+			<label for="keeplogin" class="set_saveid" onmousedown= "함수이름"('받아들이는 인자자리');">로그인 유지</label> </div>
+		
+		<span class="option02">
+			<a href=# title="아이디 찾기">아이디</a> /
+			<a href=# title="비밀번호 찾기">비밀번호 찾기</a> 
+			<i class="bar">|</i> 
+			<a href=# title="회원가입"><strong>회원가입</strong></a> 
+		</span>
+		</div>	
+	</li>
+ </div>
 </div>
+

@@ -1,0 +1,19 @@
+@charset "EUC-KR";
+
+body{
+	background:black;
+
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    font-size: 0
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%
+}

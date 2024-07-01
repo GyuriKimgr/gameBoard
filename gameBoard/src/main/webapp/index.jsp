@@ -6,7 +6,7 @@
 <section>
 <div id=title>	
 	<h3></h3>
-<c:import url="main_bottom.jsp" />
+
 </div>
    <div id=slide>
         <div id="slide_item1">
@@ -17,6 +17,7 @@
         </div>
    </div>
 </section>
+
 <c:import url="middle1.jsp" />
 <c:import url="middle2.jsp" />
 <c:import url="bottom.jsp" />

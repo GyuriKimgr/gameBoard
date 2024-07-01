@@ -1,8 +1,18 @@
 
-.box1 {
-    margin-top: 80px;
+#box1 {
+    display: flex;
+    flex-wrap: wrap; /* 요소가 가로 공간을 초과하면 다음 줄로 이동 */
 }
 
+.inner_box1, #today_board, #main_logform {
+    flex: 1; /* 각 요소가 동일한 비율로 가용 공간을 채우도록 설정 */
+    margin: 10px; /* 요소 간의 간격 설정 */
+}
+
+#main_logform {
+    display: flex;
+    flex-direction: column; /* 내부 요소들을 세로로 정렬 */
+}
 .inner_box1 {
     overflow: hidden;
     max-width: 1500px;
@@ -164,6 +174,68 @@ img {
     padding: 20px 0 16px;
     border-top: 1px solid #f7f7f7;
 }
+
+#main_logform {
+	
+	
+}
+
+.login-form{
+    flex: 0 0 auto; /* 로그인 폼이 컨테이너 크기에 영향을 주지 않도록 */
+    width: 200px; /* 로그인 폼의 너비 설정 */
+    margin-left: 20px; /* 로그인 폼과 섹션 사이의 간격 설정 */
+    margin-right: 20px;
+}
+
+#main_id {
+	width: 70%;
+  	height: 18px;
+  	margin-bottom: 10px;
+}
+
+#main_password {
+	width: 70%;
+  	height: 18px;
+  	margin-bottom: 8px;
+}
+
+.login-form {
+    width: 250px;
+    padding: 30px;
+    border-radius: 4px;
+    border: 1px solid #bbbbff;
+    background-color: #fbb90b;
+}
+
+.login_button {
+	background: #fff9c1;
+	border-radius;
+	border: none;
+	/* pointer-events: auto; */
+	width: 60px;
+	height: 18px;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+
+.option01 { 
+	font-size : 12px;
+}
+
+.bar{
+	color: #000000;
+}	
+
+.option02 { 
+	font-size : 12px;
+}
+
+.option02 a { 
+	color : #000000;
+}
+
+
 
 
 
