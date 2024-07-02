@@ -170,3 +170,10 @@ header{
 .darkMode {
   background-color: #f3f3f3;
 } 
+
+#darkModeButton:hover {
+    background-color: #f3f3f3;
+}
+
+
+

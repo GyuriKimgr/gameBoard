@@ -1,134 +1,47 @@
 
+footer {
+	padding-bottom:10px;
+	padding-left:30px;
+	text-align: center;
+	height:80px;	
+ 	background: #decbed;
+	padding-bottom : 30px;
+}
 
-#kakaoFoot {
+#foot {
     position: relative;
-    min-width: 1500px;
-    background-color: #ca99e3;	
-}
-#kakaoFoot:before {
-    position: absolute;
-    top: -55px;
-    left: 0;
-    right: 0;
-    height: 55px;
-    background: url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/bg_piece2.png) 50% 0 no-repeat;
-    content: '';
 }
 
-.inner_foot {
-    position: relative;
-    width: 1178px;
-    height: 435px;
-    margin: 0 auto;
-    padding: 130px 0 100px;
-    box-sizing: border-box;
-    letter-spacing: -1px;
-}
-.inner_foot {
-    max-width: none;
-}
-.screen_out {
-    overflow: hidden;
-    position: absolute;
-    width: 0;
-    height: 0;
-    line-height: 0;
-    text-indent: -9999px;
-}
-.inner_foot .logo_info {
-    float: left;
-    width: 502px;
-    padding-top: 7px;
+#simple {
+	padding-top: 20px;
+	padding-left: 30px;
+	display: flex;
+	align-items: center; 
+    justify-content: space-between;
 }
 
-.inner_foot .logo_info a {
-    float: left;
-    vertical-align: top;
-    color: #333;
-    text-decoration: none;
-}
-.inner_foot .logo_kakao {
-    padding-top: 1px;
+#simple img{
+	width: 100px;
+	hegitg: 80px;	
+	margin-right: 10px;
 }
 
-.inner_foot .logo_company {
-    margin-left: 55px;
-}
-.inner_foot .logo_company .img_logo {
-    vertical-align: top;
-}
-
-img {
-	border: 0 none;
-    overflow-clip-margin: content-box;
-    overflow: clip;
+#simple2 {
+	padding-right : 70px;
+    display: flex;
+    justify-content: center;
 }
 
-.inner_foot .info_service {
-    float: left;
+#simple2 ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-.inner_foot .list_service li {
-    float: left;
-}
-
-.inner_foot .list_service .link_info {
-    font-size: 14px;
-    line-height: 18px;
-    color: #e7e7e7;
-    text-decoration: none;
-    letter-spacing: -1.65px;
+#simple2 ul li {
+    margin-left: 100px;
+    font-size: 16;
+    color: white;
+    margin-top: -35px;
 }
 
-.inner_foot .list_service li + li {
-    position: relative;
-    padding-left: 24px;
-}
-
-.inner_foot .list_service li + li:before {
-    position: absolute;
-    top: 9px;
-    left: 13px;
-    width: 2px;
-    height: 5px;
-    background: #909090;
-    content: '';
-}
-
-.inner_foot .list_service .link_info strong {
-    color: #edc06a;
-    font-weight: bold;
-}
-.inner_foot .list_service:after {
-    display: block;
-    clear: both;
-    content: '';
-}
-
-.layer_grade {
-    display: none;
-    position: absolute;
-    left: 50%;
-    bottom: 131px;
-    margin-left: -329px;
-    padding: 39px 34px 38px;
-    border: 1px solid #373737;
-    background-color: #1e1e1e;
-}
-.inner_foot .info_company {
-    margin-top: 23px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #e7e7e7;
-}
-
-
-
-
-/* footer{
-	padding-top:25px;
-	height:35px;		
-	text-align:center;
-	background:#ca99e3;	
-	font-size: 12px;
-	color:LightCyan;	
-} */
