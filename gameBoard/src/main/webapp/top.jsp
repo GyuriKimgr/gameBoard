@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-	<div id = "site_logo">
+   <div id = "site_logo">
   <a href="./index.jsp" id = "logo">
          <img src="./resources/images/로고3.png" height="200px">
         </a>
@@ -23,10 +23,10 @@
                 <li><a href="./FAQ.jsp"><b>FAQ</b></a></li>
             </ul>
             <div id="search">
-            	<input type="text" id="search-box" placeholder="검색...">
-            	<button type="button" id="search-button">검색</button>
+               <input type="text" id="search-box" placeholder="검색...">
+               <button type="button" id="search-button">검색</button>
             </div>
         </div>
-    	</div>
-	</header>
-	
+       </div>
+   </header>
+   
