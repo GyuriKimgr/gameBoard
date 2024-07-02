@@ -5,15 +5,6 @@
     min-width: 1500px;
     background-color: #decbed;	
 }
-#kakaoFoot:before {
-    position: absolute;
-    top: -55px;
-    left: 0;
-    right: 0;
-    height: 55px;
-    background: url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/bg_piece2.png) 50% 0 no-repeat;
-    content: '';
-}
 
 .inner_foot {
     position: relative;

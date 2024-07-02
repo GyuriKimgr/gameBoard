@@ -104,6 +104,12 @@ a:-webkit-any-link {
     padding-top: 57.293%;
     margin-bottom: 23px;
 }
+
+.list_news .link_thumb:hover .thumb_g {
+	transform: scale(1.1);
+}
+	
+	
 .list_news .wrap_thumb .thumb_g {
     position: absolute;
     top: 0;
@@ -140,6 +146,11 @@ img {
     text-overflow: ellipsis;
     vertical-align: top;
     box-sizing: border-box;
+    transition: text-decoration 0.3s ease;
+}
+
+.list_news .card_tit:hover {
+    text-decoration: underline; /* 커서를 올렸을 때 밑줄 추가 */
 }
 
 .list_news .desc_thumb {

@@ -4,7 +4,7 @@
 <c:import url="top.jsp" />
 <link rel="stylesheet" href="./resources/css/slide.css" type="text/css">
 <section>
-   <div id=slide>
+   <div id="slide">
         <div id="slide_item1">
             <img src="./resources/images/slide.jpg">
         </div>
