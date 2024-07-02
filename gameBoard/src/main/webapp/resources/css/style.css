@@ -25,10 +25,9 @@
 }
 
 body{
-	background:#000000;
+ 	background:#000000;
     display: block;
     margin: 0px;
-
 }
 
 header{
@@ -37,7 +36,7 @@ header{
 	font-size: 20px;
 	text-align: center;
 	height:80px;	
-	background: black;
+ 	background: #decbed;
 	padding-bottom : 30px;
 }
 
@@ -158,3 +157,14 @@ header{
 
 
 
+#darkModeButton {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  cursor: pointer;
+  display :flex;
+}
+
+.darkMode {
+  background-color: #f3f3f3;
+} 

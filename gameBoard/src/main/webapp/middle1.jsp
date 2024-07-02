@@ -82,13 +82,9 @@
 							event="click_news" news_type="대회소식" news_title="2024 PLS: Cup 안내">
 							<strong class="card_tit1">2024 PLS: Cup 안내</strong>
 						</a>
-
-
 					</div>
-
-
 				</div></li>
-
+				
 
 		</ul>
 	</div>

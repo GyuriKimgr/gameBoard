@@ -53,7 +53,7 @@
     </table>
     </div>
     <div class="frame">
-     	<a href="./게시물작성.jsp"><button class="custom-btn btn"><span>게시물 작성</span></button></a>
+     	<button class="custom-btn btn"><span>게시물 작성</span></button>
     </div>
 </section>
 
