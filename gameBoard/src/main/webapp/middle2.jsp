@@ -88,40 +88,6 @@
 							event="click_news" news_type="공지사항"
 							news_title="불운 방지 문구 이슈 보상안 변경 및 신청 절차 안내"> <strong
 							class="card_tit">불운 방지 문구 이슈 보상안 변경 및 신청 절차 안내</strong>
-						</a> <a name="a_new_notice" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/notice/read?bbsId=PN001&amp;articleId=3561&amp;objCate1=201"
-							target="_black" event-order="2"
-							event-description="PUBG x 뉴진스 캐릭터 착용 아이템 관련 조치에 대한 안내"
-							event="click_news" news_type="공지사항"
-							news_title="PUBG x 뉴진스 캐릭터 착용 아이템 관련 조치에 대한 안내"> <strong
-							class="card_tit">PUBG x 뉴진스 캐릭터 착용 아이템 관련 조치에 대한 안내</strong>
-						</a> <a name="a_new_notice" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/notice/read?bbsId=PN001&amp;articleId=3560&amp;objCate1=201"
-							target="_black" event-order="3"
-							event-description="아티스트 보호를 위한 조치 안내" event="click_news"
-							news_type="공지사항" news_title="아티스트 보호를 위한 조치 안내"> <strong
-							class="card_tit">아티스트 보호를 위한 조치 안내</strong>
-						</a> <a name="a_new_notice" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/notice/read?articleId=3558&amp;bbsId=PN001&amp;pageIndex=1"
-							event-order="4"
-							event-description="토끼들의 사냥법 사격 이벤트 당첨자 및 제세공과금 납부 안내"
-							event="click_news" news_type="공지사항"
-							news_title="토끼들의 사냥법 사격 이벤트 당첨자 및 제세공과금 납부 안내"> <strong
-							class="card_tit">토끼들의 사냥법 사격 이벤트 당첨자 및 제세공과금 납부 안내</strong>
-						</a> <a name="a_new_notice" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/notice/read?articleId=3557&amp;bbsId=PN001&amp;pageIndex=1"
-							event-order="5" event-description="GUESS WHO! 이벤트 당첨자 안내"
-							event="click_news" news_type="공지사항"
-							news_title="GUESS WHO! 이벤트 당첨자 안내"> <strong class="card_tit">GUESS
-								WHO! 이벤트 당첨자 안내</strong>
-						</a> <a name="a_new_notice" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/notice/read?articleId=3553&amp;bbsId=PN001&amp;pageIndex=1"
-							target="_black" event-order="6"
-							event-description="[수정] PUBG X 뉴진스 최고급 꾸러미 불운 방지 문구 이슈 대응 안내"
-							event="click_news" news_type="공지사항"
-							news_title="[수정] PUBG X 뉴진스 최고급 꾸러미 불운 방지 문구 이슈 대응 안내"> <strong
-							class="card_tit">[수정] PUBG X 뉴진스 최고급 꾸러미 불운 방지 문구 이슈 대응
-								안내</strong>
 						</a>
 
 
@@ -156,26 +122,6 @@
 							event="click_news" news_type="업데이트"
 							news_title="6월 배틀그라운드 상점 업데이트 안내"> <strong class="card_tit">6월
 								배틀그라운드 상점 업데이트 안내</strong>
-						</a> <a name="a_new_update" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/update/read?articleId=699&amp;bbsId=PN002&amp;objCate1=255&amp;pageIndex=1"
-							event-order="2"
-							event-description="에란겔 클래식의 귀환 및 연승 도전 시스템 업데이트 안내"
-							event="click_news" news_type="업데이트"
-							news_title="에란겔 클래식의 귀환 및 연승 도전 시스템 업데이트 안내"> <strong
-							class="card_tit">에란겔 클래식의 귀환 및 연승 도전 시스템 업데이트 안내</strong>
-						</a> <a name="a_new_update" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/update/read?articleId=700&amp;bbsId=PN002&amp;objCate1=255&amp;pageIndex=1"
-							event-order="3" event-description="5월 배틀그라운드 상점 업데이트 안내"
-							event="click_news" news_type="업데이트"
-							news_title="5월 배틀그라운드 상점 업데이트 안내"> <strong class="card_tit">5월
-								배틀그라운드 상점 업데이트 안내</strong>
-						</a> <a name="a_new_update" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/update/read?articleId=675&amp;bbsId=PN002&amp;objCate1=255&amp;pageIndex=1"
-							event-order="4"
-							event-description="경쟁전 론도 맵 추가 및 지형 파괴 시스템 업데이트 안내"
-							event="click_news" news_type="업데이트"
-							news_title="경쟁전 론도 맵 추가 및 지형 파괴 시스템 업데이트 안내"> <strong
-							class="card_tit">경쟁전 론도 맵 추가 및 지형 파괴 시스템 업데이트 안내</strong>
 						</a>
 
 
@@ -213,76 +159,7 @@
 							event="click_news" news_type="GM소식"
 							news_title="배틀그라운드 x 뉴진스 콜라보레이션"> <strong class="card_tit">배틀그라운드
 								x 뉴진스 콜라보레이션</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?articleId=718&amp;bbsId=PN002&amp;pageIndex=1"
-							event-order="2" event-description="특별 보급 - 2024년 6월"
-							event="click_news" news_type="GM소식" news_title="특별 보급 - 2024년 6월">
-							<strong class="card_tit">특별 보급 - 2024년 6월</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?articleId=714&amp;bbsId=PN002&amp;pageIndex=1"
-							event-order="3" event-description="[개발일지] SMG 리밸런스"
-							event="click_news" news_type="GM소식" news_title="[개발일지] SMG 리밸런스">
-							<strong class="card_tit">[개발일지] SMG 리밸런스</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?bbsId=PN002&amp;articleId=712&amp;objCate1=256"
-							event-order="4" event-description="[개발일지] 경쟁전 개편"
-							event="click_news" news_type="GM소식" news_title="[개발일지] 경쟁전 개편">
-							<strong class="card_tit">[개발일지] 경쟁전 개편</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?articleId=711&amp;bbsId=PN002&amp;pageIndex=1"
-							event-order="5"
-							event-description="배틀그라운드 x NewJeans 콜라보레이션 기대평 이벤트"
-							event="click_news" news_type="GM소식"
-							news_title="배틀그라운드 x NewJeans 콜라보레이션 기대평 이벤트"> <strong
-							class="card_tit">배틀그라운드 x NewJeans 콜라보레이션 기대평 이벤트</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?bbsId=PN002&amp;articleId=710&amp;objCate1=254"
-							event-order="6" event-description="GUESS WHO! 이벤트 안내"
-							event="click_news" news_type="GM소식"
-							news_title="GUESS WHO! 이벤트 안내"> <strong class="card_tit">GUESS
-								WHO! 이벤트 안내</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?articleId=706&amp;bbsId=PN002&amp;pageIndex=1"
-							event-order="7" event-description="돌돌배 2주차 참가자 모집 및 이벤트 안내"
-							event="click_news" news_type="GM소식"
-							news_title="돌돌배 2주차 참가자 모집 및 이벤트 안내"> <strong
-							class="card_tit">돌돌배 2주차 참가자 모집 및 이벤트 안내</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?articleId=709&amp;bbsId=PN002&amp;pageIndex=1"
-							event-order="8" event-description="에란겔 클래식 아케이드 서비스 안내"
-							event="click_news" news_type="GM소식"
-							news_title="에란겔 클래식 아케이드 서비스 안내"> <strong class="card_tit">에란겔
-								클래식 아케이드 서비스 안내</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?bbsId=PN002&amp;articleId=701&amp;objCate1=253"
-							event-order="9" event-description="에란겔 클래식 축제" event="click_news"
-							news_type="GM소식" news_title="에란겔 클래식 축제"> <strong
-							class="card_tit">에란겔 클래식 축제</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?articleId=705&amp;bbsId=PN002&amp;pageIndex=1"
-							event-order="10" event-description="가족같은 팀원을 끝까지 지켜라 당첨자 발표"
-							event="click_news" news_type="GM소식"
-							news_title="가족같은 팀원을 끝까지 지켜라 당첨자 발표"> <strong
-							class="card_tit">가족같은 팀원을 끝까지 지켜라 당첨자 발표</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?articleId=708&amp;bbsId=PN002&amp;pageIndex=1"
-							target="_black" event-order="11"
-							event-description="순간포착, 돌돌배 2주차에 이런 일이! 이벤트 안내"
-							event="click_news" news_type="GM소식"
-							news_title="순간포착, 돌돌배 2주차에 이런 일이! 이벤트 안내"> <strong
-							class="card_tit">순간포착, 돌돌배 2주차에 이런 일이! 이벤트 안내</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?articleId=703&amp;bbsId=PN002&amp;pageIndex=1"
-							event-order="12" event-description="에란겔 레거시 복장 인증 이벤트"
-							event="click_news" news_type="GM소식"
-							news_title="에란겔 레거시 복장 인증 이벤트"> <strong class="card_tit">에란겔
-								레거시 복장 인증 이벤트</strong>
-						</a> <a name="a_new_gm" class="link_thumb"
-							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/gm/read?bbsId=PN002&amp;articleId=707&amp;objCate1=254"
-							event-order="13" event-description="5월 주말 특별 보급"
-							event="click_news" news_type="GM소식" news_title="5월 주말 특별 보급">
-							<strong class="card_tit">5월 주말 특별 보급</strong>
-						</a>
+						</a> 
 					</div>
 				</div></li>
 		</ul>

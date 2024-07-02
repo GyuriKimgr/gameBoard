@@ -20,6 +20,7 @@
     border-radius: 5px;
 }
 
+
 ::-webkit-scrollbar-track {
     display: none; /* 스크롤 버튼 숨김 */
 }
@@ -28,6 +29,8 @@ body{
  	background:#000000;
     display: block;
     margin: 0px;
+    overflow-x: hidden;
+	overflow-y: auto;
 }
 
 header{
