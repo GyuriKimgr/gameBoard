@@ -26,8 +26,10 @@
 		        <input type="text" id="search-box" placeholder="검색...">
 		        <button type="button" id="search-button">검색</button>
 			</div>
-		    <div id="darkModeButton"><img src="./resources/images/sun.png" height="30px"></div>
- 		</div>
+			<div id="theme">
+				<img src="./resources/images/sun.png" height="30px" id="darkModeButton">
+			</div>
+		</div> 
 	</div>
 </header>
    
