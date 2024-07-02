@@ -221,6 +221,7 @@ img {
 
 .option01 { 
 	font-size : 12px;
+	margin-top: 10px;
 }
 
 .bar{
@@ -228,12 +229,16 @@ img {
 }	
 
 .option02 { 
+	margin-top: 10px;
 	font-size : 12px;
+	text-align: center;
 }
 
 .option02 a { 
+	text-decoration: none;
 	color : #000000;
 }
+
 
 
 
