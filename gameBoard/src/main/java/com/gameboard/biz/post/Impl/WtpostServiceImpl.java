@@ -12,20 +12,20 @@ import com.gameboard.biz.post.WtpostService;
 @Service("WtpostService")
 public class WtpostServiceImpl implements WtpostService{
 	@Autowired
-	private WtpostDao WtpostDao;
+	private WtpostDao wtpostDao;
 	@Override
 	public void insertWtpost(Wtpost vo) {
-		WtpostDao.insertWtpost(vo);
+		wtpostDao.insertWtpost(vo);
 	}
 	@Override
 	public int getWtID() {
 		// TODO Auto-generated method stub
-		return WtpostDao.getWtID();
+		return wtpostDao.getWtID();
 	}
 	@Override
 	public List<Wtpost> getWtpostList(Wtpost vo) {
 		// TODO Auto-generated method stub
-		return WtpostDao.getWtpostList(vo);
+		return wtpostDao.getWtpostList(vo);
 	}
 	
 }

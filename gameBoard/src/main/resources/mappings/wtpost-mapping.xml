@@ -4,13 +4,14 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="WtpostDao">
-	<resultMap type="wtpost" id="wtIDResult">
+	<resultMap type="com.gameboard.biz.post.Wtpost" id="wtIDResult">
 		<id property="wtID" column="wtID"/>
 		<result property="wtTitle" column="wtTitle"/>
 		<result property="userID" column="userID"/>
 		<result property="wtDate" column="wtDate"/>
 		<result property="wtContent" column="wtContent"/>
 	</resultMap>
+	
 	
 	<insert id="insertWtpost">
 		<![CDATA[
@@ -39,28 +40,22 @@
 	
 	<select id="getWtID" resultType="int">
 		<![CDATA[
-			SELECT NVL(MAX(wtID), 100000) + 1
+			SELECT NVL(MAX(wtID), 0) + 1
 			FROM WT_BOARD_POST
 		]]>
 	</select>
 	
-	<select id="getWtpost" resultType="wtpost">
+	<select id="getWtpost" resultType="com.gameboard.biz.post.Wtpost">
 		<![CDATA[
 			SELECT * FROM WT_BOARD_POST
 			WHERE wtID = #{wtID}
 		]]>
 	</select>
 	
-	<select id="getWtpostList" resultType="wtpost">
+	<select id="getWtpostList" resultType="com.gameboard.biz.post.Wtpost">
 		<![CDATA[
 			SELECT * FROM WT_BOARD_POST WHERE 1 = 1
-			<if test="searchCondition == 'wtID'">
-				AND wtID LIKE '%' || #{searchKeyword} || '%'
-			</if>
-			<if test="searchCondition == 'wtTitle'">
-				AND wtTitle LIKE '%' || #{searchKeyword} || '%'
-			</if>
-			ORDER BY wtTitle DESC
+			ORDER BY wtID DESC
 		]]>
 	</select>
 </mapper>

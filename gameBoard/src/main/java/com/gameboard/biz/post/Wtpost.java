@@ -6,16 +6,23 @@ public class Wtpost{
     private String userID;
     private String wtDate;
     private String wtContent;
+    private String searchCondition;
+	private String searchKeyword;
     
     public Wtpost() {}
 
-	public Wtpost(int wtID, String wtTitle, String userID, String wtDate, String wtContent) {
+	public Wtpost(int wtID, String wtTitle, 
+			String userID, String wtDate, 
+			String wtContent,
+			String searchCondition, String searchKeyword) {
 		super();
 		this.wtID = wtID;
 		this.wtTitle = wtTitle;
 		this.userID = userID;
 		this.wtDate = wtDate;
 		this.wtContent = wtContent;
+		this.searchCondition = searchCondition;
+		this.searchKeyword = searchKeyword;
 	}
 
 	public int getWtID() {
@@ -56,5 +63,21 @@ public class Wtpost{
 
 	public void setWtContent(String wtContent) {
 		this.wtContent = wtContent;
+	}
+	
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
 	}
 }

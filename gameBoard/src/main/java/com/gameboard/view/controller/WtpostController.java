@@ -25,11 +25,11 @@ public class WtpostController{
 	
 	@RequestMapping(value = "insertWtpost.do")
 		public String insertWtpost(Wtpost vo) {
-		return "getWtpostList.do";
+		return "getWtpost.do";
 	}
 	
-	@RequestMapping(value = "getWtpostList.do")
-	public String getWtpostList(Wtpost vo, Model model) {
+	@RequestMapping(value = "getWtpost.do")
+	public String getWtpost(Wtpost vo, Model model) {
 		List<Wtpost> WtList = wt.getWtpostList(vo);
 		model.addAttribute("WtpostList", WtList);
 		return "walkThrough.jsp";

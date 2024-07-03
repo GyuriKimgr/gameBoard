@@ -10,21 +10,22 @@
         <h3>공략게시판</h3>
     </div>
 	<div class="form-container">
-        <form action="insertWtpost.do" method="post">
+        <form action="insertWtpost.do" method="post"
+        	enctype="multipart/form-data">
         <input type="hidden" id="userId" name="userId"
         	value="<%= session.getAttribute("userId") %>">
             <div class="form-group">
                 <label for="title">제목</label>
-                <input type="text" id="title" name="title" required value = "&{wtTitle}">
+                <input type="text" id="title" name="title" value = "&{wtTitle}">
             </div>
             <div class="form-group">
                 <label for="content">내용</label>
-                <textarea id="content" name="content" rows="8" required value = "&{wtContent}"></textarea>
+                <textarea id="content" name="content" rows="8" value = "&{wtContent}"></textarea>
             </div>
+            
+            <div class="frame">
+        		<button type="submit" class="custom-btn btn"><span>작성 완료</span></button>
+    		</div>
         </form>
-    </div>
-    
-    <div class="frame">
-        <button type="submit" class="custom-btn btn"><span>작성 완료</span></button>
     </div>
 </section>

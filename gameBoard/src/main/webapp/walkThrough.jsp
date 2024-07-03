@@ -38,13 +38,13 @@
                 </c:when>
                 <c:otherwise>
                     <!-- 실제 데이터 표시 -->
-                    <c:forEach var="wtpost" items="${posts}">
+                    <c:forEach var="WtpostList" items="${WtList}">
                         <tr class = "wtr">
-                            <td class = "wtd">${post.wtID}</td>
-                            <td class = "wtd"><a href="view.jsp?id=${post.wtID}">${post.wtTitle}</a></td>
-                            <td class = "wtd">${post.userID}</td>
-                            <td class = "wtd">${post.wtDate}</td>
-                            <td class = "wtd">${post.views}</td>
+                            <td class = "wtd">${WtList.wtID}</td>
+                            <td class = "wtd">${WtList.wtTitle}</a></td>
+                            <td class = "wtd">${WtList.userID}</td>
+                            <td class = "wtd">${WtList.wtDate}</td>
+                            <td class = "wtd">&nbsp;</td>
                         </tr>
                     </c:forEach>
                 </c:otherwise>
@@ -53,7 +53,7 @@
     </table>
     </div>
     <div class="frame">
-     	<a href = "getwtID.do" class="custom-btn btn"><span>게시물 작성</span></a>
+     	<a href = "getWtID.do" class="custom-btn btn"><span>게시물 작성</span></a>
     </div>
 </section>
 
