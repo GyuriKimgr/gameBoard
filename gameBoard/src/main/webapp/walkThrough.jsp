@@ -38,12 +38,12 @@
                 </c:when>
                 <c:otherwise>
                     <!-- 실제 데이터 표시 -->
-                    <c:forEach var="post" items="${posts}">
+                    <c:forEach var="wtpost" items="${posts}">
                         <tr class = "wtr">
-                            <td class = "wtd">${post.id}</td>
-                            <td class = "wtd"><a href="view.jsp?id=${post.id}">${post.title}</a></td>
-                            <td class = "wtd">${post.author}</td>
-                            <td class = "wtd">${post.date}</td>
+                            <td class = "wtd">${post.wtID}</td>
+                            <td class = "wtd"><a href="view.jsp?id=${post.wtID}">${post.wtTitle}</a></td>
+                            <td class = "wtd">${post.userID}</td>
+                            <td class = "wtd">${post.wtDate}</td>
                             <td class = "wtd">${post.views}</td>
                         </tr>
                     </c:forEach>
