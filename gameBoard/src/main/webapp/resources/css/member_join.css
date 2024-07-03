@@ -19,7 +19,6 @@ body {
 
 img {
 	padding-top : 30px; 
-	width: 97%;
 	height: 30%;
 }
 
@@ -43,11 +42,39 @@ a {
    	padding-bottom: 5px; 
 }
 
+#divId {
+	position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#divId > #user_id{
+	flex-grow: 1;
+    border-radius: 5px;
+    padding-right: 80px;
+    box-sizing: border-box;
+}
+
+#check_button {
+	position: absolute;
+	bottom: 5px;
+    right: 10px;
+    border-radius: 5px;
+    height: 60%;
+    bottom: 16px;
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+    background-color: #84c1ff;
+    border: none;
+    color: white;
+   
+}
+
 .form_content {
 	
 	paddig-top: 0px;
 }
-
 
 .input {
     width: calc(100% - 2px);
@@ -76,7 +103,6 @@ a {
 .adult_list li {
     display: inline-block; /* 인라인 블록 요소로 배치 */
     vertical-align: top; /* 위쪽 정렬 */
-     /* 각 항목 사이 간격 조정 (선택사항) */
 }
 
 ol, ul {

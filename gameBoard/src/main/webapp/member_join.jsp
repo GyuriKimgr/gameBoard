@@ -21,13 +21,12 @@
                 <input type="hidden" id="encKey" name="encKey" value="">
                 <input type="hidden" id="birthday" name="birthday" value="">
 
-                <div class="form_content">
-                
-                <!-- 첫번째 입력 문단 -->	
+                <div class="form_content">	
                         <div class="form_list">  
                         <!-- 아이디 -->   
-                      	  <div class="form_item user" id="divId">
+                      	  <div class="form_item_user" id="divId">
                             <input type="text" id="user_id" name="id" placeholder="아이디" class="input" value="" maxlength="20" autocapitalize="off"/>
+                            <button type="button" id="check_button"><h4>중복 확인</h4></button>
                           </div>   
                          
                          <!-- 비밀번호 --> 
@@ -84,8 +83,8 @@
    						
    			</form>  
    			<div class = "button_container" ></div>
-   				<div type ="button" id="join_button" name="join_button" ><h3>가입하기</h3></div>
-   				<div type ="button" id= "return_button" name = "return_button"><h3>돌아가기</h3></div>
+   				<div type ="button" id="join_button" name="join_button" ><h2>가입하기</h2></div>
+   				<div type ="button" id= "return_button" name = "return_button"><h2>돌아가기</h2></div>
    			</div>
    			
 		</div>
