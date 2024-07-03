@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="./resources/css/member_join.css"
 	type="text/css">
 
-
 <div class="container">
     <div class="inner">
         <h1 class="simple_logo4">
@@ -88,6 +87,3 @@
    			</div>
    			
 		</div>
-</div>
-</body>
-</html>

@@ -18,21 +18,21 @@ body {
 }
 
 img {
-	padding-top : 30px; 
+	padding-top : 20px; 
 	height: 30%;
+	padding-right: 5px;
 }
 
 a {
     text-decoration: none;
-    cursor: pointer;
 }
 
 .container {
 	
-    background-color: #ebebeb;
+    background-color: #000000;
     border-radius: 8px;
     overflow: hidden; 
-    width: 350px;
+    width: 400px;
   
 }
 
@@ -65,16 +65,12 @@ a {
     width: 30%;
     text-align: center;
     cursor: pointer;
-    background-color: #84c1ff;
+    background-color: #c080e8;
     border: none;
     color: white;
    
 }
 
-.form_content {
-	
-	paddig-top: 0px;
-}
 
 .input {
     width: calc(100% - 2px);
@@ -87,7 +83,7 @@ a {
 
 .input:focus {
     outline: none;
-    border-color: #e48ff3;
+    border-color: #ae59e1;
 }
 
 .adult_list {
@@ -97,7 +93,7 @@ a {
     padding-left:0px;
     white-space: nowrap;
    	display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .adult_list li {
@@ -151,8 +147,8 @@ ul {
     width: 100%;
     padding: 6px 0;
     border-radius: inherit;
-    border: 1px solid #c6c6c6;
-    font-size: 13px;
+    border: 2px solid #c6c6c6;
+    font-size: 14px;
     line-height: 18px;
     color: #929294;
     text-align: center;
@@ -176,9 +172,10 @@ ul {
 
 .radio_item input:checked+label {
     z-index: 1;
-    border-color: #e48ff3;
-    font-weight: 700;
-    color: #e2a0f8;
+    border-color: #ae59e1;
+    font-weight: 800;
+    color: #ae59e1;
+    border: 2px solid;
     
 }
 
@@ -205,7 +202,7 @@ label {
   background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
   background-size: 200% auto;
   margin: 10px;
-  padding: 30px;
+  padding: 20px;
   margin-bottom: 10px;
   cursor: pointer;
   border-radius: 10px;
@@ -226,7 +223,7 @@ label {
   background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
   background-size: 200% auto;
   margin: 10px;
-  padding: 30px;
+  padding: 20px;
   margin-bottom:10px;
   cursor: pointer;
   border-radius: 10px;
