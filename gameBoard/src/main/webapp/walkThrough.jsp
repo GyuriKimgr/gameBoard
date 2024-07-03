@@ -53,7 +53,7 @@
     </table>
     </div>
     <div class="frame">
-     	<a href = "insertWtpost.do" class="custom-btn btn"><span>게시물 작성</span></a>
+     	<a href = "getwtID.do" class="custom-btn btn"><span>게시물 작성</span></a>
     </div>
 </section>
 

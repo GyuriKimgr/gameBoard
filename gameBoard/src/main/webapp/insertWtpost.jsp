@@ -10,7 +10,7 @@
         <h3>공략게시판</h3>
     </div>
 	<div class="form-container">
-        <form action="insertWtpost.do" method="post">
+        <form action="insertWtpost.do" method="post" enctype="multipart/form-data">
         <input type="hidden" id="userId" name="userId"
         	value="<%= session.getAttribute("userId") %>">
             <div class="form-group">
