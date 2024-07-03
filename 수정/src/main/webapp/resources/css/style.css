@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 ::-webkit-scrollbar {
     width: 10px;
     background: #000000;
@@ -20,7 +19,6 @@
     border-radius: 5px;
 }
 
-
 ::-webkit-scrollbar-track {
     display: none; /* 스크롤 버튼 숨김 */
 }
@@ -29,9 +27,6 @@ body{
  	background:#000000;
     display: block;
     margin: 0px;
-   
-   /* overflow-x: hidden;
-	  overflow-y: auto;  x축 스크롤 숨김*/
 }
 
 header{
@@ -179,5 +174,7 @@ header{
     background-color: #f3f3f3;
 }
 
-
+.darkMode .rollingbanner {
+	background-color: #f3f3f3;
+}
 
