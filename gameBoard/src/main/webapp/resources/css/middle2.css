@@ -39,23 +39,12 @@ ul {
     margin-left: 3%;
 }
 
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-    unicode-bidi: isolate;
-}
+
 .list_news .link_card {
     display: block;
     overflow: hidden;
     height: 46px;
     text-decoration: none;
-}
-a {
-    color: #c0c0c0;
-}
-
-a:-webkit-any-link {
-    cursor: pointer;
 }
 
 .list_news .tit_cate {
@@ -120,15 +109,6 @@ a:-webkit-any-link {
 .thumb_g {
     width: 100%;
     vertical-align: top;
-}
-
-img {
-    border: 0 none;
-}
-
-img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
 }
 
 

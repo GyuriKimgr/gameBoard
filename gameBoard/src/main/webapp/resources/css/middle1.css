@@ -24,7 +24,7 @@
 	justify-content: space-between;
 }
 
-ul {
+ul .list_news1 {
 	list-style: none;
 	margin-block-start: 1em;
 	margin-block-end: 1em;
@@ -45,6 +45,7 @@ ul {
 }
 
 a:-webkit-any-link {
+	
 	cursor: pointer;
 }
 
@@ -63,7 +64,7 @@ li {
 
 a {
 	text-decoration: none;
-	color: #e6e6e6;
+	color: #cfcfcf;
 }
 
 .list_news1 .tit_cate1 {
@@ -130,7 +131,7 @@ a {
 	vertical-align: top;
 }
 
-img {
+.wrap_thumb, .wrap_thumb1 img {
 	border: 0 none;
 	overflow-clip-margin: content-box;
 	overflow: clip;
@@ -298,20 +299,6 @@ body {
 }
 
 
-.find_wrap li+li {
-    padding-left: 8px;
-}
-
-.find_wrap li+li::before {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 1px;
-    height: 12px;
-    border-radius: .05px;
-    background-color: #888;
-}
 
 .find_wrap .find_text {
    display: inline-block;
@@ -319,7 +306,20 @@ body {
     line-height: 17px;
     text-decoration: none;
     color: #888;
+   }
+
+.find_wrap li+li ::before {
+   content: '';
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    right: 4px;
+    width: 1px;
+    height: 12px;
+    border-radius: .5px;
+    background-color: #dadada;
 }
+
 
 ul#find_wrap_KR.find_wrap {
 	
@@ -344,11 +344,6 @@ ul#find_wrap_KR.find_wrap li {
     margin-left:0px;
     margin-right: 0px; 
 }
-
-ul#find_wrap_KR.find_wrap li:last-child {
-    margin-right: 0; /* 마지막 링크의 오른쪽 여백 제거 */
-}
-
 .find_wrap .find_text .accent {
     font-weight: 500;
     color: #8080ff;

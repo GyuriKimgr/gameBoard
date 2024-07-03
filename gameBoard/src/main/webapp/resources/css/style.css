@@ -13,6 +13,7 @@
 ::-webkit-scrollbar:horizontal {
     height: 10px;
     background: #000000;
+    
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
@@ -26,7 +27,8 @@
 
 
 body{
-   background:#000000;
+	overflow-x: hidden;
+    background:#000000;
     display: block;
     margin: 0px;
     padding-top: 150px;
