@@ -293,6 +293,10 @@ body {
     letter-spacing: -.5px;
 }
 
+.find_wrap li+li {
+    padding-left: 17px;
+}
+
 .find_wrap li{
     position: relative;
     display: inline-block;
@@ -308,16 +312,16 @@ body {
     color: #888;
    }
 
-.find_wrap li+li ::before {
+.find_wrap li+li::before {
    content: '';
     position: absolute;
     top: 4px;
-    left: 6px;
+    left: 7px;
     right: 4px;
     width: 1px;
     height: 12px;
     border-radius: .5px;
-    background-color: #dadada;
+    background-color: #888;
 }
 
 
@@ -328,8 +332,8 @@ ul#find_wrap_KR.find_wrap {
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
     margin-block-start: 10px;
-    margin-block-end: 0px;
-    padding-inline-start: 15px;
+    margin-block-end: 3px;
+    padding-inline-start: 0px;
 	padding-inline-end: 0px;
     width: 100%;
     height: 20px;

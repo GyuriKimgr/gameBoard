@@ -101,7 +101,7 @@
 						<ul class="find_wrap" id="find_wrap_KR" style="display: block;">
                                 <li><a target="_blank" id="idinquiry" href="https://nid.naver.com/user2/api/route?m=routeIdInquiry&amp;lang=ko_KR" class="find_text">아이디 찾기</a> </li>
                                 <li><a target="_blank" id="pwinquiry" href="https://nid.naver.com/user2/api/route?m=routePwInquiry&amp;lang=ko_KR" class="find_text">비밀번호 찾기</a> </li>
-                                <li><a target="_blank" id="join" href="https://nid.naver.com/user2/V2Join?m=agree&amp;lang=ko_KR&amp;realname=N" class="find_text"><span id="joinspan" class="accent">회원가입</span></a></li>
+                                <li><a target="_blank" id="join" href="https://nid.naver.com/user2/V2Join?m=agree&amp;lang=ko_KR&amp;realname=N" class="find_text"><span  class="accent">회원가입</span></a></li>
                          </ul>
 						
 
