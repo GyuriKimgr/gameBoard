@@ -4,6 +4,10 @@
 <c:import url="top.jsp" />
 <link rel="stylesheet" href="./resources/css/slide.css" type="text/css">
 <section>
+<div id=title>	
+	<h3></h3>
+<c:import url="main_bottom.jsp" />
+</div>
    <div id=slide>
         <div id="slide_item1">
             <img src="./resources/images/slide.jpg">
