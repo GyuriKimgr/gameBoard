@@ -16,12 +16,24 @@ public class WtpostDaoImpl implements WtpostDao{
 	
 	@Override
 	public void insertWtpost(Wtpost vo) {
+		String wtDate = vo.getWtDate();
+		Integer wtID = vo.getWtID();
+		System.out.println("wtID°ª:" + wtID);
 		mybatis.insert("WtpostDao.insertWtpost", vo);
 	}
 	
 	@Override
 	public int getWtID() {
+		Integer n = mybatis.selectOne("WtpostDao.getWtID");
+		System.out.println("wtID°ª:" + n);
 		return mybatis.selectOne("WtpostDao.getWtID");
+	}
+	
+	@Override
+	public String getWtDate() {
+		String na = mybatis.selectOne("WtpostDao.getWtDate");
+		System.out.println("wtDate:" + na);
+		return mybatis.selectOne("WtpostDao.getWtDate");
 	}
 	
 	@Override

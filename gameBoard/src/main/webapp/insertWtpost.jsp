@@ -7,7 +7,7 @@
 
 <section>
 	<div class="title">
-        <h3>공략게시판</h3>
+        <h3>공략게시판 ${wtID}</h3>
     </div>
 	<div class="form-container">
         <form action="insertWtpost.do" method="post"
@@ -16,11 +16,11 @@
         	value="<%= session.getAttribute("userId") %>">
             <div class="form-group">
                 <label for="title">제목</label>
-                <input type="text" id="title" name="title" value = "&{wtTitle}">
+                <input type="text" id="wtTitle" name="wtTitle">
             </div>
             <div class="form-group">
                 <label for="content">내용</label>
-                <textarea id="content" name="content" rows="8" value = "&{wtContent}"></textarea>
+                <textarea id="wtContent" name="wtContent" rows="8"></textarea>
             </div>
             
             <div class="frame">

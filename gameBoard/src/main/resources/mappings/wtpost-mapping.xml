@@ -45,6 +45,12 @@
 		]]>
 	</select>
 	
+	<select id="getWtDate" resultType="string">
+    <![CDATA[
+        SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI') AS currentDateTime FROM DUAL
+    ]]>
+	</select>
+	
 	<select id="getWtpost" resultType="com.gameboard.biz.post.Wtpost">
 		<![CDATA[
 			SELECT * FROM WT_BOARD_POST

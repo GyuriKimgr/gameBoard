@@ -20,18 +20,20 @@ public class WtpostController{
 	@RequestMapping(value = "getWtID.do")
 	public String getWtID(Model model) {
 		model.addAttribute("wtID", wt.getWtID());
+		model.addAttribute("wtDate", wt.getWtDate());
 		return "insertWtpost.jsp";
 	}
 	
 	@RequestMapping(value = "insertWtpost.do")
 		public String insertWtpost(Wtpost vo) {
-		return "getWtpost.do";
+		wt.insertWtpost(vo);
+		return "redirect:walkThrough.do";
 	}
 	
-	@RequestMapping(value = "getWtpost.do")
+	@RequestMapping(value = "walkThrough.do")
 	public String getWtpost(Wtpost vo, Model model) {
 		List<Wtpost> WtList = wt.getWtpostList(vo);
-		model.addAttribute("WtpostList", WtList);
+		model.addAttribute("WtList", WtList);
 		return "walkThrough.jsp";
 	}
 }

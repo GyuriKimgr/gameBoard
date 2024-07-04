@@ -13,14 +13,23 @@ import com.gameboard.biz.post.WtpostService;
 public class WtpostServiceImpl implements WtpostService{
 	@Autowired
 	private WtpostDao wtpostDao;
+	
 	@Override
 	public void insertWtpost(Wtpost vo) {
+		String date = wtpostDao.getWtDate();
+		Integer wtID = wtpostDao.getWtID();
+		vo.setWtDate(date);
+		vo.setWtID(wtID);
 		wtpostDao.insertWtpost(vo);
 	}
 	@Override
 	public int getWtID() {
 		// TODO Auto-generated method stub
 		return wtpostDao.getWtID();
+	}
+	@Override
+	public String getWtDate() {
+		return wtpostDao.getWtDate();
 	}
 	@Override
 	public List<Wtpost> getWtpostList(Wtpost vo) {
