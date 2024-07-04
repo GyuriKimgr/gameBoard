@@ -6,85 +6,109 @@
 
 <div class="box1">
 	<div class="inner_box1">
-		<h3 class="screen_out1">°Ô½ÃÆÇ1</h3>
+		<h3 class="screen_out1">ï¿½Ô½ï¿½ï¿½ï¿½1</h3>
 		<ul class="list_news1">
+
 			<li><a id="game_news"
 				href="http://bbs.pubg.game.daum.net/gaia/do/pubg/competition/list?bbsId=PN001&amp;objCate1=223"
-				class="link_card1"> <strong class="noto-demi tit_cate1">°ÔÀÓ¼Ò½Ä</strong>
-					<span class="img_comm1">´õº¸±â</span>
-			</a>
+				class="link_card1"> <strong class="noto-demi tit_cate1">ï¿½ï¿½ï¿½Ó¼Ò½ï¿½</strong>
+					<span class="img_comm1">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+			</a> </a>
 				<div class="card_info1">
 
 					<a name="a_new_competition" class="link_thumb1"
 						href="https://bbs.pubg.game.daum.net/gaia/do/pubg/competition/read?bbsId=PN001&amp;articleId=3543&amp;objCate1=223"
-						event-order="0" event-description="PGS 4 ±×·ì ½ºÅ×ÀÌÁö ÇÏÀÌ¶óÀÌÆ®"
-						event="click_news" news_type="´ëÈ¸¼Ò½Ä"
-						news_title="PGS 4 ±×·ì ½ºÅ×ÀÌÁö ÇÏÀÌ¶óÀÌÆ®">
+						event-order="0" event-description="PGS 4 ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ®"
+						event="click_news" news_type="ï¿½ï¿½È¸ï¿½Ò½ï¿½"
+						news_title="PGS 4 ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ®">
 						<div class="wrap_thumb1">
 							<img
 								src="https://t1.kakaocdn.net/gamepub/pub-img/pubg/news_banner/news_banner_1717741626073_39.png"
 								class="thumb_g1" alt="">
-						</div> <strong class="card_tit1"> PGS 4 ±×·ì ½ºÅ×ÀÌÁö ÇÏÀÌ¶óÀÌÆ® </strong> <span
-						class="desc_thumb1">ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 4ÀÇ ±×·ì ½ºÅ×ÀÌÁö º£½ºÆ® ¼ø°£À» Áö±Ý ¹Ù·Î
-							ÇÏÀÌ¶óÀÌÆ® ¿µ»óÀ» ÅëÇØ È®ÀÎÇØº¸¼¼¿ä.</span>
+						</div> <strong class="card_tit1"> PGS 4 ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ® </strong> <span
+						class="desc_thumb1">ï¿½ï¿½ï¿½ï¿½ ï¿½Û·Î¹ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ 4ï¿½ï¿½ ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½
+							ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½ï¿½ï¿½.</span>
 					</a>
 					<div class="group_tit1">
 
 						<a name="a_new_competition" class="link_thumb1"
 							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/notice/read?articleId=3521&amp;bbsId=PN001&amp;pageIndex=1"
-							event-order="1" event-description="ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 3(PGS 3)¸¦ ¼Ò°³ÇÕ´Ï´Ù!"
-							event="click_news" news_type="´ëÈ¸¼Ò½Ä"
-							news_title="ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 3(PGS 3)¸¦ ¼Ò°³ÇÕ´Ï´Ù!"> <strong
-							class="card_tit1">ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 3(PGS 3)¸¦ ¼Ò°³ÇÕ´Ï´Ù!</strong>
+							event-order="1" event-description="ï¿½ï¿½ï¿½ï¿½ ï¿½Û·Î¹ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ 3(PGS 3)ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½Õ´Ï´ï¿½!"
+							event="click_news" news_type="ï¿½ï¿½È¸ï¿½Ò½ï¿½"
+							news_title="ï¿½ï¿½ï¿½ï¿½ ï¿½Û·Î¹ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ 3(PGS 3)ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½Õ´Ï´ï¿½!"> <strong
+							class="card_tit1">ï¿½ï¿½ï¿½ï¿½ ï¿½Û·Î¹ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ 3(PGS 3)ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½Õ´Ï´ï¿½!</strong>
 						</a> <a name="a_new_competition" class="link_thumb1"
 							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/competition/read?articleId=3506&amp;bbsId=PN001&amp;objCate1=223&amp;pageIndex=1"
-							event-order="2" event-description="2024 PLS: Cup ¾È³»"
-							event="click_news" news_type="´ëÈ¸¼Ò½Ä" news_title="2024 PLS: Cup ¾È³»">
-							<strong class="card_tit1">2024 PLS: Cup ¾È³»</strong>
+							event-order="2" event-description="2024 PLS: Cup ï¿½È³ï¿½"
+							event="click_news" news_type="ï¿½ï¿½È¸ï¿½Ò½ï¿½" news_title="2024 PLS: Cup ï¿½È³ï¿½">
+							<strong class="card_tit1">2024 PLS: Cup ï¿½È³ï¿½</strong>
 						</a>
 
 
 					</div>
 				</div></li>
-				
-				
-				<li><a id="today_board"
+
+
+			<li><a id="today_board"
 				href="http://bbs.pubg.game.daum.net/gaia/do/pubg/competition/list?bbsId=PN001&amp;objCate1=223"
-				class="link_card1"> <strong class="noto-demi tit_cate1">¿À´ÃÀÇ °Ô½ÃÆÇ</strong>
-					<span class="img_comm1">´õº¸±â</span>
+				class="link_card1"> <strong class="noto-demi tit_cate1">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+						ï¿½Ô½ï¿½ï¿½ï¿½</strong> <span class="img_comm1">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
 			</a>
 				<div class="card_info1">
 
 					<a name="a_new_competition" class="link_thumb1"
 						href="https://bbs.pubg.game.daum.net/gaia/do/pubg/competition/read?bbsId=PN001&amp;articleId=3543&amp;objCate1=223"
-						event-order="0" event-description="PGS 4 ±×·ì ½ºÅ×ÀÌÁö ÇÏÀÌ¶óÀÌÆ®"
-						event="click_news" news_type="´ëÈ¸¼Ò½Ä"
-						news_title="PGS 4 ±×·ì ½ºÅ×ÀÌÁö ÇÏÀÌ¶óÀÌÆ®">
+						event-order="0" event-description="PGS 4 ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ®"
+						event="click_news" news_type="ï¿½ï¿½È¸ï¿½Ò½ï¿½"
+						news_title="PGS 4 ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ®">
 						<div class="wrap_thumb1">
 							<img
 								src="https://t1.kakaocdn.net/gamepub/pub-img/pubg/news_banner/news_banner_1717741626073_39.png"
 								class="thumb_g1" alt="">
-						</div> <strong class="card_tit1"> PGS 4 ±×·ì ½ºÅ×ÀÌÁö ÇÏÀÌ¶óÀÌÆ® </strong> <span
-						class="desc_thumb1">ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 4ÀÇ ±×·ì ½ºÅ×ÀÌÁö º£½ºÆ® ¼ø°£À» Áö±Ý ¹Ù·Î
-							ÇÏÀÌ¶óÀÌÆ® ¿µ»óÀ» ÅëÇØ È®ÀÎÇØº¸¼¼¿ä.</span>
+						</div> <strong class="card_tit1"> PGS 4 ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ® </strong> <span
+						class="desc_thumb1">ï¿½ï¿½ï¿½ï¿½ ï¿½Û·Î¹ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ 4ï¿½ï¿½ ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½
+							ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½ï¿½ï¿½.</span>
 					</a>
 					<div class="group_tit1">
 
 						<a name="a_new_competition" class="link_thumb1"
 							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/notice/read?articleId=3521&amp;bbsId=PN001&amp;pageIndex=1"
-							event-order="1" event-description="ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 3(PGS 3)¸¦ ¼Ò°³ÇÕ´Ï´Ù!"
-							event="click_news" news_type="´ëÈ¸¼Ò½Ä"
-							news_title="ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 3(PGS 3)¸¦ ¼Ò°³ÇÕ´Ï´Ù!"> <strong
-							class="card_tit1">ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 3(PGS 3)¸¦ ¼Ò°³ÇÕ´Ï´Ù!</strong>
+							event-order="1" event-description="ï¿½ï¿½ï¿½ï¿½ ï¿½Û·Î¹ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ 3(PGS 3)ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½Õ´Ï´ï¿½!"
+							event="click_news" news_type="ï¿½ï¿½È¸ï¿½Ò½ï¿½"
+							news_title="ï¿½ï¿½ï¿½ï¿½ ï¿½Û·Î¹ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ 3(PGS 3)ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½Õ´Ï´ï¿½!"> <strong
+							class="card_tit1">ï¿½ï¿½ï¿½ï¿½ ï¿½Û·Î¹ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ 3(PGS 3)ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½Õ´Ï´ï¿½!</strong>
 						</a> <a name="a_new_competition" class="link_thumb1"
 							href="https://bbs.pubg.game.daum.net/gaia/do/pubg/competition/read?articleId=3506&amp;bbsId=PN001&amp;objCate1=223&amp;pageIndex=1"
-							event-order="2" event-description="2024 PLS: Cup ¾È³»"
-							event="click_news" news_type="´ëÈ¸¼Ò½Ä" news_title="2024 PLS: Cup ¾È³»">
-							<strong class="card_tit1">2024 PLS: Cup ¾È³»</strong>
+							event-order="2" event-description="2024 PLS: Cup ï¿½È³ï¿½"
+							event="click_news" news_type="ï¿½ï¿½È¸ï¿½Ò½ï¿½" news_title="2024 PLS: Cup ï¿½È³ï¿½">
+							<strong class="card_tit1">2024 PLS: Cup ï¿½È³ï¿½</strong>
 						</a>
 					</div>
 				</div></li>
-				
+				</div> <!-- ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ -->
+			<li>
+				<div class="login-wrapper">
+					<h2>Simple Login</h2>
+					<form method="post" action="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½url" id="login-form">
+						<input type="text" name="userName" placeholder="ID"> <input
+							type="password" name="userPassword" placeholder="Password">
+
+						<label for="remember-check"> <input type="checkbox"
+							id="remember-check">ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+						</label>
+						
+						<ul class="find_wrap" id="find_wrap_KR" style="display: block;">
+                                <li><a target="_blank" id="idinquiry" href="https://nid.naver.com/user2/api/route?m=routeIdInquiry&amp;lang=ko_KR" class="find_text">ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½</a> </li>
+                                <li><a target="_blank" id="pwinquiry" href="https://nid.naver.com/user2/api/route?m=routePwInquiry&amp;lang=ko_KR" class="find_text">ï¿½ï¿½Ð¹ï¿½È£ Ã£ï¿½ï¿½</a> </li>
+                                <li><a target="_blank" id="join" href="https://nid.naver.com/user2/V2Join?m=agree&amp;lang=ko_KR&amp;realname=N" class="find_text"><span  class="accent">È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span></a></li>
+                         </ul>
+						
+
+						<input type="submit" value="Login">
+					</form>
+					</div>
+
+				</li>
 
 		</ul>
 	</div>
