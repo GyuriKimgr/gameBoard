@@ -93,9 +93,9 @@
                   </label>
                   
                   <ul class="find_wrap" id="find_wrap_KR" style="display: block;">
-                                <li><a target="_blank" id="idinquiry" href="#" class="find_text">아이디 찾기</a> </li>
+                                <li><a target="_blank" id="idinquiry" href="./search_id.jsp" class="find_text">아이디 찾기</a> </li>
                                 <li><a target="_blank" id="pwinquiry" href="#" class="find_text">비밀번호 찾기</a> </li>
-                                <li><a target="_blank" id="join" href="#"><span  class="accent">회원가입</span></a></li>
+                                <li><a target="_blank" id="join" href="./member_join.jsp"><span  class="accent">회원가입</span></a></li>
                          </ul>
 
 
