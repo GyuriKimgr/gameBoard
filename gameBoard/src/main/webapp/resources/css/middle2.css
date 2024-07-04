@@ -1,113 +1,17 @@
-div {
-	margin: 0;
-	display: block;
-    unicode-bidi: isolate;
-}
-
-.area_util {
-    padding: 15px 0 13px 0;
-    border-bottom: 1px solid #e0dfdf;
-}
-.area_util:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-.area_util .wrap_util {
-    width: 1500px;
-    margin: 0 auto;
-}
-
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.area_util .list_quick {
-    float: left;
-}
- 
-.area_util .list_quick li {
-    display: inline-block;
-    margin-right: 69px;
-}
-.area_util .list_quick li a {
-    display: block;
-    padding: 12px 0 13px 0;
-    font-size: 0;
-}
-li {
-    list-style: none;
-}
-.area_util .list_quick li a .img_comm2.ico_help {
-    width: 26px;
-    background-position: -60px -325px;
-}
-.area_util .list_quick li a .img_comm2 {
-    display: inline-block;
-    height: 30px;
-    margin-right: 9px;
-    vertical-align: top;
-}
-.img_comm2 {
-    background-image: url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_comm2_210827.png);
-}
-.img_comm, .ico_pubg, .btn_comm, .ico_play, .img_pds, .img_board, .ico_buy, .img_cs, .img_comm2 {
-    display: block;
-    overflow: hidden;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-    background: no-repeat;
-}
-.area_util .list_quick li a .text {
-    display: inline-block;
-    position: relative;
-    height: 30px;
-    color: #ffffff;
-    font-family: 'noto-demilight', '¸¼Àº °íµñ', 'Malgun Gothic', 'µ¸¿ò', dotum, sans-serif;
-    font-size: 14px;
-    letter-spacing: -0.04em;
-    line-height: 30px;
-}
-.area_util .list_quick li a .text:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 4px;
-    width: 0;
-    height: 1px;
-    background-color: #ffffff;
-}
-
-
-
-
 
 .box {
     margin-top: 80px;
 }
 
-.inner_box {
+.middle2 {
     overflow: hidden;
-    max-width: 1500px;
+     max-width: 1500px;
     margin: 0 auto;
     padding: 0 54px;
 }
-.screen_out {
-    overflow: hidden;
-    position: absolute;
-    width: 0;
-    height: 0;
-    line-height: 0;
-    text-indent: -9999px;
-}
-.list_news {
-    overflow: hidden;
-}
 
 ul {
-	list-style-type: none;
+   list-style-type: none;
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -116,46 +20,31 @@ ul {
     padding-inline-start: 40px;
     unicode-bidi: isolate;
 }
-.list_news li {
+.middle2 li {
     float: left;
     width: 30%;
 }
-.list_news li + li {
+.middle2 li + li {
     margin-left: 3%;
 }
 
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-    unicode-bidi: isolate;
-}
-.list_news .link_card {
+
+.middle2 .link_card {
     display: block;
     overflow: hidden;
     height: 46px;
     text-decoration: none;
 }
-a {
-    color: #c0c0c0;
-}
 
-a:-webkit-any-link {
-    cursor: pointer;
-}
-
-.list_news .tit_cate {
+.middle2 .title2 {
     float: left;
     font-weight: normal;
-    font-size: 23px;
     line-height: 30px;
+    font-size: 23px;
+    font-family: '¸¼Àº °íµñ', 'Malgun Gothic', 'µ¸¿ò', dotum, sans-serif;
 }
-
-.noto-demi {
-    font-family: 'noto-demilight', '¸¼Àº °íµñ', 'Malgun Gothic', 'µ¸¿ò', dotum, sans-serif;
-}
-
     
-.list_news .link_card .img_comm2 {
+.middle2 .link_card .img_comm2 {
     float: right;
     width: 18px;
     height: 18px;
@@ -163,48 +52,52 @@ a:-webkit-any-link {
     background-position: -140px -90px;
 }
 
-.ff_ns, .noto-demi {
-    font-family: 'noto-demilight', '¸¼Àº °íµñ', 'Malgun Gothic', 'µ¸¿ò', dotum, sans-serif;
+.img_comm2 {
+    background-image: url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_comm2_210827.png);
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+  
 }
 
-.list_news .card_info {
+
+.middle2 .news2 {
     background-color: #fff;
 }
 
 
 
-.list_news .link_thumb {
+.middle2 .gamenews2 {
     display: block;
 }
-.list_news .wrap_thumb {
+.middle2 .gamenews_2 {
     position: relative;
     overflow: hidden;
     padding-top: 57.293%;
     margin-bottom: 23px;
 }
-.list_news .wrap_thumb .thumb_g {
+
+.middle2 .gamenews2:hover .news2_img {
+   transform: scale(1.1);
+}
+   
+   
+.middle2 .gamenews_2 .news2_img {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     transition: transform .5s;
 }
-.thumb_g {
+.news2_img {
     width: 100%;
     vertical-align: top;
 }
 
-img {
-    border: 0 none;
-}
 
-img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
-}
-
-
-.list_news .card_tit {
+.middle2 .tit3 {
     display: inline-block;
     overflow: hidden;
     position: relative;
@@ -218,9 +111,14 @@ img {
     text-overflow: ellipsis;
     vertical-align: top;
     box-sizing: border-box;
+    transition: text-decoration 0.3s ease;
 }
 
-.list_news .desc_thumb {
+.middle2 .tit3:hover {
+    text-decoration: underline; /* Ä¿¼­¸¦ ¿Ã·ÈÀ» ¶§ ¹ØÁÙ Ãß°¡ */
+}
+
+.middle2 .tit4 {
     display: block;
     display: -webkit-box;
     overflow: hidden;
@@ -233,7 +131,7 @@ img {
     -webkit-line-clamp: 3;
     word-wrap: break-word;
 }
-.list_news .desc_thumb:after {
+.middle2 .tit4:after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -242,23 +140,10 @@ img {
     background-color: #fff;
     content: '';
 }
-.list_news .group_tit {
+.list_new .group_tit {
     height: 116px;
 }
-.list_news .group_tit .link_thumb {
+.middle2 .group_tit .gamenews2 {
     padding: 20px 0 16px;
     border-top: 1px solid #f7f7f7;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
