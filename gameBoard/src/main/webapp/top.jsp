@@ -17,7 +17,7 @@
         </a>
         <div id="menu">
             <ul>
-                <li><a href="./walkThrough.jsp"><b>공략</b></a></li>
+                <li><a href="./walkThrough.do"><b>공략</b></a></li>
                 <li><a href="./mod.jsp"><b>모드</b></a></li>
                 <li><a href="./suggest.jsp"><b>게임추천</b></a></li>
                 <li><a href="./FAQ.jsp"><b>FAQ</b></a></li>
@@ -27,6 +27,5 @@
                <button type="button" id="search-button">검색</button>
             </div>
         </div>
-       </div>
-   </header>
-   
+    	</div>
+</header>

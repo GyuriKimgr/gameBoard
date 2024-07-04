@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.gameboard.myapp">
+	<logger name="com.gameboard.biz">
 		<level value="info" />
 	</logger>
 	
