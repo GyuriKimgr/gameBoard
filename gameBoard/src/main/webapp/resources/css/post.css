@@ -1,48 +1,47 @@
 @charset "UTF-8";
-
 .title{
 	height: 100px;
     text-align: center;
     background: #ca99e3;
     line-height: 100px;
     width : 100%;
+    margin-bottom : 30px;
 }
-/* 제목 스타일링 */
 .title h3 {
 	color: white;
     font-size: 24px;
     text-align: center;
     margin-top: 20px;
 }
-
- .table-container {
-        width: 100%; /* 화면 전체 너비 */
-        display: flex;
-        justify-content: center; /* 가로 중앙 정렬 */
-        align-items: center; /* 세로 중앙 정렬 */
-    }
-/* 테이블 스타일링 */
-.wtable {
-    width: 90%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    margin-bottom : 30px;
+.form-container {
+	width: 100%;
+	max-width: 800px; /* 폼의 최대 너비 설정 */
+ 	margin: 0 auto; /* 가운데 정렬을 위한 마진 설정 */
+   	background-color: #c1b9d0;
+    padding: 20px; /* 내부 여백 설정 */
+	border-radius: 8px; /* 모서리 둥글게 설정 */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
 }
-.wth, .wtd {
-    padding: 10px;
-    text-align: center;
-    border-top: 1px solid white; /* 위쪽 얇은 가로줄 설정 */
-        border-bottom: 1px solid white; /* 아래쪽 얇은 가로줄 설정 */
+.form-group {
+ 	margin-bottom: 20px; /* 입력 요소 간의 여백 설정 */
 }
-.wth {
-        background: #ccbbd0;
-        color: white;
-        border-top: 2px solid white; /* 헤더의 위쪽 굵은 가로줄 설정 */
-        border-bottom: 2px solid white; /* 헤더의 아래쪽 굵은 가로줄 설정 */
-    }
-
-.wtr{
-    background-color: rgba(255,255,255,0.5);
+.form-group label {
+	display: block;
+	font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-group input[type="text"],
+.form-group textarea {
+	width: calc(100% - 20px); /* 너비 계산 - 패딩 고려 */
+	padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+	box-sizing: border-box;
+}
+.form-group textarea {
+	height: 150px; /* textarea의 기본 높이 설정 */
+    resize: vertical; /* 세로 크기 조정 가능하도록 설정 */
 }
 
 /*버튼 css*/

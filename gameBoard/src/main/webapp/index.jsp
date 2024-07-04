@@ -17,6 +17,7 @@
         </div>
    </div>
 </section>
+
 <c:import url="middle1.jsp" />
 <c:import url="middle2.jsp" />
 <c:import url="bottom.jsp" />
