@@ -183,3 +183,10 @@ header{
 	background-color: #f3f3f3;
 }
 
+.darkMode .link_card {
+	color: black;
+}
+
+.darkMode .link_card1 {
+	color: black;
+}

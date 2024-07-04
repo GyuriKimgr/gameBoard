@@ -3,12 +3,6 @@
     margin-top: 80px;
 }
 
-.inner_box {
-    overflow: hidden;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 54px;
-}
 .screen_out {
     overflow: hidden;
     position: absolute;
@@ -19,6 +13,9 @@
 }
 .list_news {
     overflow: hidden;
+     max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 54px;
 }
 
 ul {
