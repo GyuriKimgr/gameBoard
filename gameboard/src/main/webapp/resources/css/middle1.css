@@ -177,7 +177,8 @@ a {
    border-top: 1px solid #f7f7f7;
 }
 
-<!--로그인 -->* {
+<!-- 로그인 -->
+* {
    padding: 0;
    margin: 0;
    border: none;
@@ -198,7 +199,7 @@ body {
    border-radius: 10px;
 }
 
-.login >h2 {
+.login>h2 {
    font-size: 24px;
    color: #6A24FE;
    margin-bottom: 20px;
@@ -277,37 +278,6 @@ body {
     letter-spacing: -.5px;
 }
 
-.find_wrap li+li {
-    padding-left: 17px;
-}
-
-.find_wrap li{
-    position: relative;
-    display: inline-block;
-}
-
-
-
-.find_wrap .find_text {
-   display: inline-block;
-    font-size: 14px;
-    line-height: 17px;
-    text-decoration: none;
-    color: #888;
-   }
-
-.find_wrap li+li::before {
-   content: '';
-    position: absolute;
-    top: 4px;
-    left: 7px;
-    right: 4px;
-    width: 1px;
-    height: 12px;
-    border-radius: .5px;
-    background-color: #888;
-}
-
 
 ul#find_wrap_KR.find_wrap {
    
@@ -325,17 +295,52 @@ ul#find_wrap_KR.find_wrap {
       "Apple SD Gothic Neo", sans-serif;
    -webkit-text-size-adjust: none;
     text-align: center;
+   
 }
-
 ul#find_wrap_KR.find_wrap li {
     display: inline-block; 
     margin-left:0px;
     margin-right: 0px; 
 }
+
+
+.find_wrap li{
+    position: relative;
+    display: inline-block;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+    
+}
+
+
+.find_wrap li+li {
+    padding-left: 17px;
+}
+
+.find_wrap .find_text {
+   display: inline-block;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -.5px;
+    text-decoration: none;
+    color: #888;
+   }
+   
+
+.find_wrap li+li::before {
+   content: '';
+    position: absolute;
+    top: 4px;
+    left: 9px;
+   
+    width: 1px;
+    height: 12px;
+    border-radius: .5px;
+    background-color: #888;
+}
+
+
 .find_wrap .find_text .accent {
     font-weight: 500;
     color: #8080ff;
 }
-
-
-

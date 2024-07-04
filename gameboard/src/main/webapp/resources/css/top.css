@@ -186,3 +186,8 @@ header{
 .darkMode .link_card1 {
 	color: black;
 }
+
+.darkMode .login {
+	background-color:  #ecd7f0;
+}
+
