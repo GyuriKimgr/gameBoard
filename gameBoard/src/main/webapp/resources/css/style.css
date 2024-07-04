@@ -13,6 +13,7 @@
 ::-webkit-scrollbar:horizontal {
     height: 10px;
     background: #000000;
+    
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
@@ -24,26 +25,35 @@
     display: none; /* 스크롤 버튼 숨김 */
 }
 
+
 body{
-	background:#000000;
+	overflow-x: hidden;
+    background:#000000;
     display: block;
     margin: 0px;
+    padding-top: 150px;
 
 }
 
 header{
-	padding-top:10px;
-	padding-left:30px;
-	font-size: 20px;
-	text-align: center;
-	height:80px;	
-	background: black;
-	padding-bottom : 30px;
+   position: fixed;
+   padding-top:10px;
+   padding-left:30px;
+   font-size: 20px;
+   text-align: center;
+   height:80px;   
+   background: #decbed;
+   padding-bottom : 30px;
+   width: 100%;
+   top: 0px;
+   z-index: 1000;
+   
+   
 }
 
 
 #site_logo {
-	padding-top : 20px;
+   padding-top : 20px;
     height: 60px;
     display: flex;
     align-items: center; 
@@ -59,7 +69,7 @@ header{
 }
 
 #menu {
-	padding-right : 70px;
+   padding-right : 70px;
     display: flex;
     justify-content: center; /* 메뉴를 중앙에 정렬 */
 }
@@ -191,10 +201,10 @@ footer{
 	color:LightCyan;	
 }
 #login{
-	font-size:13px;
+   font-size:13px;
 }
 #title{
-	text-align:center;	
+   text-align:center;   
 }
 a{
 	text-decoration-line: none;
