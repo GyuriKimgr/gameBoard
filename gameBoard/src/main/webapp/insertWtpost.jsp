@@ -7,7 +7,7 @@
 
 <section>
 	<div class="title">
-        <h3>공략게시판 ${wtID}</h3>
+        <h3>공략게시판</h3>
     </div>
 	<div class="form-container">
         <form action="insertWtpost.do" method="post"
