@@ -3,15 +3,7 @@
     margin-top: 80px;
 }
 
-.screen_out {
-    overflow: hidden;
-    position: absolute;
-    width: 0;
-    height: 0;
-    line-height: 0;
-    text-indent: -9999px;
-}
-.list_news {
+.middle2 {
     overflow: hidden;
      max-width: 1500px;
     margin: 0 auto;
@@ -28,35 +20,34 @@ ul {
     padding-inline-start: 40px;
     unicode-bidi: isolate;
 }
-.list_news li {
+.middle2 li {
     float: left;
     width: 30%;
 }
-.list_news li + li {
+.middle2 li + li {
     margin-left: 3%;
 }
 
 
-.list_news .link_card {
+.middle2 .link_card {
     display: block;
     overflow: hidden;
     height: 46px;
     text-decoration: none;
 }
 
-.list_news .tit_cate {
+.middle2 .title2 {
     float: left;
     font-weight: normal;
-    font-size: 23px;
     line-height: 30px;
 }
 
-.noto-demi {
-    font-family: 'noto-demilight', '¸¼Àº °íµñ', 'Malgun Gothic', 'µ¸¿ò', dotum, sans-serif;
+.title2 {
+    font-family: '¸¼Àº °íµñ', 'Malgun Gothic', 'µ¸¿ò', dotum, sans-serif;
 }
 
     
-.list_news .link_card .img_comm2 {
+.middle2 .link_card .img_comm2 {
     float: right;
     width: 18px;
     height: 18px;
@@ -75,41 +66,41 @@ ul {
 }
 
 
-.list_news .card_info {
+.middle2 .news2 {
     background-color: #fff;
 }
 
 
 
-.list_news .link_thumb {
+.middle2 .gamenews2 {
     display: block;
 }
-.list_news .wrap_thumb {
+.middle2 .gamenews_2 {
     position: relative;
     overflow: hidden;
     padding-top: 57.293%;
     margin-bottom: 23px;
 }
 
-.list_news .link_thumb:hover .thumb_g {
+.middle2 .gamenews2:hover .news2_img {
    transform: scale(1.1);
 }
    
    
-.list_news .wrap_thumb .thumb_g {
+.middle2 .gamenews_2 .news2_img {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     transition: transform .5s;
 }
-.thumb_g {
+.news2_img {
     width: 100%;
     vertical-align: top;
 }
 
 
-.list_news .card_tit {
+.middle2 .tit3 {
     display: inline-block;
     overflow: hidden;
     position: relative;
@@ -126,11 +117,11 @@ ul {
     transition: text-decoration 0.3s ease;
 }
 
-.list_news .card_tit:hover {
+.middle2 .tit3:hover {
     text-decoration: underline; /* Ä¿¼­¸¦ ¿Ã·ÈÀ» ¶§ ¹ØÁÙ Ãß°¡ */
 }
 
-.list_news .desc_thumb {
+.middle2 .tit4 {
     display: block;
     display: -webkit-box;
     overflow: hidden;
@@ -143,7 +134,7 @@ ul {
     -webkit-line-clamp: 3;
     word-wrap: break-word;
 }
-.list_news .desc_thumb:after {
+.middle2 .tit4:after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -152,10 +143,10 @@ ul {
     background-color: #fff;
     content: '';
 }
-.list_news .group_tit {
+.list_new .group_tit {
     height: 116px;
 }
-.list_news .group_tit .link_thumb {
+.middle2 .group_tit .gamenews2 {
     padding: 20px 0 16px;
     border-top: 1px solid #f7f7f7;
 }
