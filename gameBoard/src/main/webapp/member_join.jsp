@@ -5,33 +5,36 @@
 
 <div class="container">
     <div class="inner">
+    	<div class="search_content_header">
+			<h3 class="header-text">회원가입</h3>
+		</div>
         <h1 class="simple_logo4">
             <a href="index.jsp" class="link">
                 <img src="./resources/images/simple log4.png"> 
  			</a>
  		</h1>
- </div>
-        <div class="content">
-            <form id="join_form" method="post" action="" class="memaber_join_form">
-                <input type="hidden" id="token_sjoin" name="token_sjoin" value="">
-                <input type="hidden" id="nid_kb2" name="nid_kb2" value="">
-                <input type="hidden" id="joinMode" name="joinMode" value="">
-                <input type="hidden" id="encPswd" name="encPswd" value="">
-                <input type="hidden" id="encKey" name="encKey" value="">
-                <input type="hidden" id="birthday" name="birthday" value="">
+ 	</div>
+	<div class="content">
+        <form id="join_form" method="post" action="" class="memaber_join_form">
+           	<input type="hidden" id="token_sjoin" name="token_sjoin" value="">
+          	<input type="hidden" id="nid_kb2" name="nid_kb2" value="">
+            <input type="hidden" id="joinMode" name="joinMode" value="">
+          	<input type="hidden" id="encPswd" name="encPswd" value="">
+          	<input type="hidden" id="encKey" name="encKey" value="">
+            <input type="hidden" id="birthday" name="birthday" value="">
 
-                <div class="form_content">	
-                        <div class="form_list">  
-                        <!-- 아이디 -->   
-                      	  <div class="form_item_user" id="divId">
-                            <input type="text" id="user_id" name="id" placeholder="아이디" class="input" value="" maxlength="20" autocapitalize="off"/>
-                            <button type="button" id="check_button"><h4>중복 확인</h4></button>
-                          </div>   
+            <div class="form_content">	
+            	<div class="form_list">  
+            	<!-- 아이디 -->   
+            	<div class="form_item_user" id="divId">
+            	<input type="text" id="user_id" name="id" placeholder="아이디" class="input" value="" maxlength="20" autocapitalize="off"/>
+            	<button type="button" id="check_button"><h4>중복 확인</h4></button>
+            	</div>   
                          
-                         <!-- 비밀번호 --> 
-        	              <div class="form_item lock password" id="divPasswd">
-                            <input type="password" id="pswd1" name="pswd1" placeholder="비밀번호" class="input" value="" maxlength="20" autocomplete="new-password" />
-                      	  </div>
+                <!-- 비밀번호 --> 
+        	   	<div class="form_item lock password" id="divPasswd">
+                <input type="password" id="pswd1" name="pswd1" placeholder="비밀번호" class="input" value="" maxlength="20" autocomplete="new-password" />
+                </div>
                           
                           <!-- 이메일 -->
                             <div class="form_item email" id="divEmail">
