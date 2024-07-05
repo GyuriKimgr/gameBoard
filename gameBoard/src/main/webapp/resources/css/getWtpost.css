@@ -1,0 +1,38 @@
+/* Resetting default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Section styling */
+section {
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Title styling */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Post container styling */
+.post-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Post header styling */
+.post-header {
+    margin-bottom: 10px;
+}
+
+.post-header h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.post-header .author, .post-header .date {
+    font-size: 14

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <link rel="stylesheet" href="./resources/css/middle1.css" type="text/css">
-<link rel="stylesheet" href="./resources/css/top.css" type="text/css">
 
 <div class="box1">
 <ul class="middle1">
@@ -107,4 +106,3 @@
 
       </ul>
    </div>
-</div>

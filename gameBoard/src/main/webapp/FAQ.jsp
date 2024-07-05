@@ -4,7 +4,7 @@
 
 <c:import url="top.jsp" />
 
-<title>공략게시판</title>
+<title>FAQ</title>
 
 <link rel="stylesheet" href="./resources/css/board.css" type="text/css">
 <section>

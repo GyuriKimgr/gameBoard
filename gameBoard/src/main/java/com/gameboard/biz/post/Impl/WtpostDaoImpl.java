@@ -40,4 +40,10 @@ public class WtpostDaoImpl implements WtpostDao{
 	public List<Wtpost> getWtpostList(Wtpost vo){
 		return mybatis.selectList("WtpostDao.getWtpostList", vo);
 	}
+
+	@Override
+	public Wtpost getWtpostById(int wtID) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("WtpostDao.getWtpost", wtID);
+	}
 }

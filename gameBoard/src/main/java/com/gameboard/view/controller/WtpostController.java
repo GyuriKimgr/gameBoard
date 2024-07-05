@@ -2,11 +2,10 @@ package com.gameboard.view.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gameboard.biz.post.Wtpost;
@@ -35,5 +34,12 @@ public class WtpostController{
 		List<Wtpost> WtList = wt.getWtpostList(vo);
 		model.addAttribute("WtList", WtList);
 		return "walkThrough.jsp";
+	}
+		
+	@RequestMapping(value = "getWtpost.do")
+	public String getWtpostById(int wtID, Model model) {
+		Wtpost post = wt.getWtpostById(wtID);
+		model.addAttribute("post", post);
+		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="./resources/css/middle2.css" type="text/css">
-<link rel="stylesheet" href="./resources/css/top.css" type="text/css">
+
 
 
 <div class="box">

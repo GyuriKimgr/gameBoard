@@ -41,7 +41,7 @@
                         <c:forEach var="WtpostList" items="${WtList}">
                             <tr class="wtr">
                                 <td class="wtd">${WtpostList.wtID}</td>
-                                <td class="wtd">${WtpostList.wtTitle}</a></td>
+                                <td class="wtd"><a href="getWtpost.do?wtID=${WtpostList.wtID}">${WtpostList.wtTitle}</a></td>
                                 <td class="wtd">${WtpostList.userID}</td>
                                 <td class="wtd">${WtpostList.wtDate}</td>
                                 <td class="wtd">&nbsp;</td>
