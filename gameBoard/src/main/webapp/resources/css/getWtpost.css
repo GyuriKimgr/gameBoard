@@ -1,38 +1,157 @@
-/* Resetting default margin and padding */
-body, html {
+@charset "UTF-8";
+
+.inner_atc {
+    width: 1090px;
+    margin: 0 auto;
+    padding-bottom: 200px;
+}
+.inner_atc .tit_atc {
+    padding-top: 90px;
+    margin-bottom: 8px;
+    font-size: 38px;
+    font-weight: normal;
+    letter-spacing: -2px;
+}
+.ff_ns {
+    font-family: 'noto-demilight', '맑은 고딕', 'Malgun Gothic', '돋움', dotum, sans-serif;
+}
+body {
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+    color: #333;
+}
+.board_comm {
+    border-top: 2px solid #000;
+}
+.view_head .tit_view {
+    height: 70px;
+    padding: 0 30px;
+    line-height: 68px;
+    background: #000;
+    color: #fff;
+}
+.view_head .info_head {
+    height: 30px;
+    padding: 21px 30px 19px;
+    line-height: 27px;
+    background: #f2f2f2;
+    color: #787878;
+}
+.view_head .writer_info {
+    float: left;
+    min-width: 50%;
+}
+.view_head .info_head dt {
+    display: inline;
+}
+.view_head .info_head dt:after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 13px;
+    margin: 2px 7px 0 10px;
+    background: #cecece;
+}
+.view_head .info_head dt, .view_head .info_head dd {
+    display: inline;
+}
+.view_head .link_writer {
+    display: inline-block;
+}
+.view_head .link_writer .ico_board_tier {
+    position: relative;
+    top: -2px;
+    margin-right: 3px;
+    background-position: -60px -120px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/icon-rank-board.png) no-repeat;
+}
+.screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.view_head .link_writer .txt_writer {
+    color: #333;
+    font-size: 14px;
+    vertical-align: top;
+}
+.view_head .date_info {
+    float: right;
+}
+.view_head .date_info .tit_info ~ .tit_info {
+    margin-left: 15px;
+}
+.view_head .date_info .emph_g2 {
+    font-weight: bold;
+    color: #f19a09;
+}
+.view_head .date_info .ico_recomm {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 4px 3px 0 14px;
+    background-position: -55px -80px;
+}
+.view_cont {
+    overflow: hidden;
+    position: relative;
+    padding: 25px 0;
+    border-bottom: 1px solid #d9dbde;
+    word-break: break-all;
+}
+.board-view__area.content {
+    padding: 25px 30px !important;
+    -webkit-backface-visibility: hidden;
+}
+.content {
     margin: 0;
-    padding: 0;
+    word-wrap: break-word;
+    color: #333;
+    font-size: 14px;
+    min-height: 370px;
+    font-family: -apple-system, BlinkMacSystemFont, AppleSDGothicNeo-Regular, 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0;
 }
-
-/* Section styling */
-section {
-    width: 80%;
-    margin: 20px auto;
+.board-view__area.content > :first-child {
+    margin-top: 0 !important;
 }
-
-/* Title styling */
-.title {
+.content p {
+    line-height: 1.7;
+}
+.view_cont .btn_recomm {
+    display: block;
+    width: 98px;
+    height: 98px;
+    margin: 50px auto 10px;
+    border: 1px solid #dfdfdf;
+    font-weight: bold;
+    background-color: #f8f8f8;
     text-align: center;
-    margin-bottom: 20px;
 }
-
-/* Post container styling */
-.post-container {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.view_cont .btn_recomm .img_board {
+    width: 35px;
+    height: 34px;
+    margin: 17px auto 6px;
+    background-position: 0 -105px;
 }
-
-/* Post header styling */
-.post-header {
-    margin-bottom: 10px;
+.view_cont .btn_report {
+    position: absolute;
+    bottom: 14px;
+    left: 22px;
 }
-
-.post-header h2 {
-    font-size: 24px;
-    margin-bottom: 5px;
+.board_view .btn_report .img_board {
+    display: inline-block;
+    width: 15px;
+    height: 18px;
+    margin: 3px 6px 0 8px;
+    background-position: -30px -140px;
+    vertical-align: top;
 }
-
-.post-header .author, .post-header .date {
-    font-size: 14

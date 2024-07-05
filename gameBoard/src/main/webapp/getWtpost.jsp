@@ -1,22 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <c:import url="top.jsp" />
 
 <link rel="stylesheet" href="./resources/css/getWtpost.css" type="text/css">
 
-<section>
-	<div class="title">
-        <h3>공략게시판</h3>
-    </div>
-	<div class="post-container">
-        <div class="post-header">
-            <h2>${post.getWtTitle()}</h2> <!-- 게시물 제목 출력 -->
-            <p class="author">작성자: ${post.getUserID()}</p> <!-- 작성자 출력 -->
-            <p class="date">작성일: ${post.getWtDate()}</p> <!-- 작성일 출력 -->
+<div class="inner_atc atc_free">
+    <h3 class="tit_atc ff_ns">공략 게시판</h3>
+
+    <div class="board_comm board_view">
+        <div class="view_head">
+            <h4 class="tit_view">${post.getWtTitle()}</h4>
+            <div class="info_head">
+                <dl class="writer_info">
+                    <dt class="tit_info">작성자</dt>
+                    <dd class="cont_info">
+                        <a href="#" class="link_writer">
+                            <span class="ico_board_tier platinum3">
+                                <span class="screen_out">플레티넘</span>
+                            </span>
+                            <span class="txt_writer">${post.getUserID()}</span>
+                        </a>
+                    </dd>
+                </dl>
+                <dl class="date_info">
+                    <dt class="tit_info">작성일</dt>
+                    <dd class="cont_info">${post.getWtDate()}</dd>
+                </dl>
+            </div>
         </div>
-        <div class="post-content">
-            <p>${post.getWtContent()}</p> <!-- 게시물 내용 출력 -->
-        </div>
     </div>
-</section>
+</div>
