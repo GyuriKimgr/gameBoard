@@ -1,45 +1,22 @@
-@charset "UTF-8";
-
-section {
-    margin-top:50px;
-    margin-bottom:50px;
+.rollingbanner {
     width: 100%;
-    height : 250px;
-    display: flex;
+    height: 300px;
     background-color: black;
-}
-
-#slide {
-   position: relative;
-    width: 100%;
-    height: 200px;
-    animation: roll 15s infinite linear;
-}
-
-#slide_item1 {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0%;
     display: flex;
+    position: relative;
+    overflow: hidden;
+    margin-top : 10px;
 }
 
-#slide_item2 {
-   width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 100%;
+.roller {
+	width: 100%
+	height: 300px;
+    position: relative;
     display: flex;
+    left 0;
 }
 
-@keyframes roll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-#slide img {
-    width: 100%;
-    height: 100%;
+.roller img {
+    height: 300px;
+    margin-right: 10px;
 }

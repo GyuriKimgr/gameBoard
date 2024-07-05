@@ -54,79 +54,97 @@
 	padding-bottom : 30px;
 }
 .custom-btn {
-	width: 130px;
-	height: 40px;
-	color: #4c4c4c;
-	padding: 10px 25px;
-	font-weight: bold;
-	background: transparent;
-  	cursor: pointer;
-  	transition: all 0.3s ease;
-  	position: relative;
-  	display: inline-block;
-  	outline: none;
+	text-decoration: none; 
+    width: 130px;
+    height: 40px;
+    color: #4c4c4c;
+    padding: 10px 25px;
+    font-weight: bold;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
 }
-.btn{
-  	background-color: #ca99e3;
-  	line-height: 42px;
-  	padding: 0;
-  	border: none;
+
+.custom-btn.btn {
+	text-decoration: none; 
+    background-color: #ca99e3;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    text-decoration: none;
 }
-.btn span {
-  	position: relative;
-  	display: block;
-  	width: 100%;
-  	height: 100%;
+
+.custom-btn.btn span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
 }
-.btn:before,
-.btn:after {
-  	position: absolute;
-  	content: "";
-  	right: 0;
-  	bottom: 0;
-  	background: #c797eb;
-  	transition: all 0.3s ease;
+
+.custom-btn.btn:before,
+.custom-btn.btn:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: #c797eb;
+    transition: all 0.3s ease;
 }
-.btn:before{
-  	 height: 0%;
-   	width: 2px;
+
+.custom-btn.btn:before {
+    height: 0%;
+    width: 2px;
 }
-.btn:after {
- 	 width: 0%;
-  	height: 2px;
+
+.custom-btn.btn:after {
+    width: 0%;
+    height: 2px;
 }
-.btn:hover:before {
-  	height: 100%;
+
+.custom-btn.btn:hover:before {
+    height: 100%;
 }
-.btn:hover:after {
-  	width: 100%;
+
+.custom-btn.btn:hover:after {
+    width: 100%;
 }
-.btn:hover{
-  background: transparent;
+
+.custom-btn.btn:hover {
+    background: transparent;
 }
-.btn span:hover{
-  color: #c797eb;
+
+.custom-btn.btn span:hover {
+    color: #c797eb;
 }
-.btn span:before,
-.btn span:after {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0;
-  background: #c797eb;
-  transition: all 0.3s ease;
+
+.custom-btn.btn span:before,
+.custom-btn.btn span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: #c797eb;
+    transition: all 0.3s ease;
 }
-.btn span:before {
-  width: 2px;
-  height: 0%;
+
+.custom-btn.btn span:before {
+    width: 2px;
+    height: 0%;
 }
-.btn span:after {
-  height: 2px;
-  width: 0%;
+
+.custom-btn.btn span:after {
+    height: 2px;
+    width: 0%;
 }
-.btn span:hover:before {
-  height: 100%;
+
+.custom-btn.btn span:hover:before {
+    height: 100%;
 }
-.btn span:hover:after {
-  width: 100%;
+
+.custom-btn.btn span:hover:after {
+    width: 100%;
 }

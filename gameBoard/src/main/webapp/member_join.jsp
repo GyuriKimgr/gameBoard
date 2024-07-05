@@ -10,12 +10,12 @@
 		</div>
         <h1 class="simple_logo4">
             <a href="index.jsp" class="link">
-                <img src="./resources/images/simple log4.png"> 
+                <img src="./resources/images/로고3.png">
  			</a>
  		</h1>
  	</div>
 	<div class="content">
-        <form id="join_form" method="post" action="" class="memaber_join_form">
+        <form id="join_form" method="post" action="" class="member_join_form">
            	<input type="hidden" id="token_sjoin" name="token_sjoin" value="">
           	<input type="hidden" id="nid_kb2" name="nid_kb2" value="">
             <input type="hidden" id="joinMode" name="joinMode" value="">
@@ -36,35 +36,35 @@
                 <input type="password" id="pswd1" name="pswd1" placeholder="비밀번호" class="input" value="" maxlength="20" autocomplete="new-password" />
                 </div>
                           
-                          <!-- 이메일 -->
-                            <div class="form_item email" id="divEmail">
-                               <input type="email" id="email" name="email" placeholder="이메일 주소 (본인 확인용)" class="input" value="" maxlength="100" />
-                            </div>
+                <!-- 이메일 -->
+                <div class="form_item email" id="divEmail">
+                <input type="email" id="email" name="email" placeholder="이메일 주소 (본인 확인용)" class="input" value="" maxlength="100" />
+                </div>
                        
 
-							<!-- 이름 --> 
-                            <div class="form_item user" id="divName">
-                                <input type="text" id="name" name="name" placeholder="이름" class="input" value="" maxlength="40" />
-                            </div>
+				<!-- 이름 --> 
+                <div class="form_item user" id="divName">
+                <input type="text" id="name" name="name" placeholder="이름" class="input" value="" maxlength="40" />
+                </div>
                             
-                            <!-- 생년월일 -->
-                            <div class="form_item calendar" id="divBirthday">
-                                <input type="text" id="birthdayInput" placeholder="생년월일 8자리" class="input" value="" maxlength="10"/>
-                            </div>
+  				<!-- 생년월일 -->
+  				<div class="form_item calendar" id="divBirthday">
+                <input type="text" id="birthdayInput" placeholder="생년월일 8자리" class="input" value="" maxlength="10"/>
+                </div>
 
-							<!-- 성별, 외국인/내국인 유무 -->
-                            <div class="form_item adult" id="divIdentityGender">
-                                <ul class="adult_list" id="listIdentityGender">
-                                    <li class="radio_item">
-                                        <input type="radio" id="identityGender1" name="identityGender" value="M" class="blind">
-                                        <label for="identityGender1">남자</label>
-                                    </li>
-                                    <li class="radio_item">
-                                        <input type="radio" id="identityGender2" name="identityGender" value="F" class="blind">
-                                        <label for="identityGender2">여자</label>
-                                    </li>
-                                </ul>
-                                <ul class="adult_list" id="listForeigner">
+				<!-- 성별, 외국인/내국인 유무 -->
+                <div class="form_item adult" id="divIdentityGender">
+                <ul class="adult_list" id="listIdentityGender">
+                	<li class="radio_item">
+                 		<input type="radio" id="identityGender1" name="identityGender" value="M" class="blind">
+                        <label for="identityGender1">남자</label>
+                    </li>
+                    <li class="radio_item">
+                        <input type="radio" id="identityGender2" name="identityGender" value="F" class="blind">
+                        <label for="identityGender2">여자</label>
+                    </li>
+                    </ul>
+                    <ul class="adult_list" id="listForeigner">
                                     <li class="radio_item">
                                         <input type="radio" id="foreigner1" name="foreigner" value="K" checked class="blind">
                                         <label for="foreigner1">내국인</label>
