@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="FpostDao">
+	<resultMap type="com.gameboard.biz.post.Fpost" id="FIDResult">
+		<id property="fID" column="fID"/>
+		<result property="fTitle" column="fTitle"/>
+		<result property="userID" column="userID"/>
+		<result property="fDate" column="fDate"/>
+		<result property="fContent" column="fContent"/>
+	</resultMap>
+	
+	<insert id="insertFpost">
+		<![CDATA[
+			INSERT INTO FAQ_BOARD_POST(fID, fTitle, userID, fDate, fContent)
+			VALUES(#{fID}, #{fTitle}, #{userID}, #{fDate}, #{fContent})
+		]]>
+	</insert>
+	
+	<update id="updateFpost">
+		<![CDATA[
+			UPDATE FAQ_BOARD_POST
+			SET fTitle = #{fTitle},
+				userID = #{userID},
+				fDate = #{fDate},
+				fContent = #{fContent}
+			WHERE fID = #{fID}
+		]]>
+	</update>
+	
+	<delete id="deleteFpost">
+		<![CDATA[
+			DELETE FROM FAQ_BOARD_POST
+			WHERE fID = #{fID}
+		]]>
+	</delete>
+	
+	<select id="getFID" resultType="int">
+		<![CDATA[
+			SELECT NVL(MAX(fID), 0) + 1
+			FROM FAQ_BOARD_POST
+		]]>
+	</select>
+	
+	<select id="getFDate" resultType="string">
+    <![CDATA[
+        SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI') AS currentDateTime FROM DUAL
+    ]]>
+	</select>
+	
+	<select id="getFpost" resultType="com.gameboard.biz.post.Fpost">
+		<![CDATA[
+			SELECT * FROM FAQ_BOARD_POST
+			WHERE fID = #{fID}
+		]]>
+	</select>
+	
+	<select id="getFpostList" resultType="com.gameboard.biz.post.Fpost">
+		<![CDATA[
+			SELECT * FROM FAQ_BOARD_POST WHERE 1 = 1
+			ORDER BY fID DESC
+		]]>
+	</select>
+</mapper>
