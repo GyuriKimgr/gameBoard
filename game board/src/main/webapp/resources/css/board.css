@@ -27,6 +27,7 @@
     border-collapse: collapse;
     margin-top: 20px;
     margin-bottom : 30px;
+    background-color: #b9b9b9; 
 }
 .wth, .wtd {
     padding: 10px;

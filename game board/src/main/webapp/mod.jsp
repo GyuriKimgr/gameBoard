@@ -7,21 +7,21 @@
 <title>모드게시판</title>
 
 <link rel="stylesheet" href="./resources/css/board.css" type="text/css">
-<section>0
+<section>
 	<div class="title">
         <h3>모드게시판</h3>
     </div>
-<div class = "table-container">
-    <table class = "wtable" border="1">
-        <thead class = "wthead">
-            <tr class = "wtr">
-                <th class = "wth">글번호</th>
-                <th class = "wth">제목</th>
-                <th class = "wth">글쓴이</th>
-                <th class = "wth">작성일</th>
-                <th class = "wth">조회수</th>
-            </tr>
-        </thead>
+	<div class = "table-container">
+	    <table class = "wtable" border="1">
+	        <thead class = "wthead">
+	            <tr class = "wtr">
+	                <th class = "wth">글번호</th>
+	                <th class = "wth">제목</th>
+	                <th class = "wth">글쓴이</th>
+	                <th class = "wth">작성일</th>
+	                <th class = "wth">조회수</th>
+	            </tr>
+	        </thead>
         <tbody class = "wtbody">
             <c:choose>
                 <c:when test="${empty ModList}">

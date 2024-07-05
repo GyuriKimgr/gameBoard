@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./resources/css/top.css" type="text/css">
+<link rel="stylesheet" href="./resources/css/theme.css" type="text/css">
 </head>
 <body>
 
@@ -32,21 +33,32 @@
          </div>
       </div> 
    </div>
-</header>
-   
-   
+
 <script>
-   let darkModeButton = document.getElementById("darkModeButton");
-   let isDarkMode = false; // 현재 다크 모드 여부를 추적하는 변수
-   darkModeButton.onclick = toggleDarkMode;
-   
-   function toggleDarkMode() {
-       document.body.classList.toggle("darkMode");
-       isDarkMode = !isDarkMode;
-       if (isDarkMode) {
-           darkModeButton.src = "./resources/images/아이콘2.png"; // 달 이미지를 해 이미지로 변경
-       } else {
-           darkModeButton.src = "./resources/images/아이콘1.png"; // 해 이미지를 달 이미지로 변경
-       }
-   }
+	let darkModeButton = document.getElementById("darkModeButton");
+	let isDarkMode = false; // 현재 다크 모드 여부를 추적하는 변수
+
+	// 페이지 로드 시 localStorage에서 다크 모드 설정 읽기
+	window.onload = function() {
+		let darkModeSetting = localStorage.getItem("darkMode");
+		if (darkModeSetting === "enabled") {
+			document.body.classList.add("darkMode");
+			darkModeButton.src = "./resources/images/아이콘2.png"; // 달 이미지로 변경
+			isDarkMode = true;
+			}
+    };
+
+	// 다크 모드 토글 함수
+	darkModeButton.onclick = toggleDarkMode;
+	function toggleDarkMode() {
+		document.body.classList.toggle("darkMode");
+		isDarkMode = !isDarkMode;
+		// localStorage에 다크 모드 설정 저장
+		localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+		// 아이콘 변경
+		 darkModeButton.src = isDarkMode ? "./resources/images/아이콘2.png" : "./resources/images/아이콘1.png";
+	}
+ 
 </script> 
+
+</header>
