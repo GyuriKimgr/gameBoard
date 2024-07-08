@@ -64,4 +64,14 @@
 			ORDER BY mID DESC
 		]]>
 	</select>
+	
+	<!--  
+	<select id="search" resultType="BoardVO">
+	    select * from MOD_BOARD
+	    where wtTitle like '%' || #{keyword} || '%'
+	</select>
+	-->
+	
+	
+	
 </mapper>

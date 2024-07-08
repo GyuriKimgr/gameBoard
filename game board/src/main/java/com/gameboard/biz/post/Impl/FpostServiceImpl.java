@@ -37,4 +37,11 @@ public class FpostServiceImpl implements FpostService {
 	public List<Fpost> getFpostList(Fpost vo) {
 		return fpostDao.getFpostList(vo);
 	}
+
+	@Override
+	public List<Fpost> searchFpost(Fpost vo) {
+		String searchCondition = vo.getSearchCondition();
+		String searchKeyword = vo.getSearchKeyword();
+		return fpostDao.searchFpost(vo);
+	}
 }

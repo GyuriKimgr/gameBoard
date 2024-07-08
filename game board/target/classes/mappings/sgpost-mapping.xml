@@ -64,4 +64,18 @@
 			ORDER BY sgID DESC
 		]]>
 	</select>
+	
+	<!-- 
+	
+		<select id="search" resultType="BoardVO">
+	    select * from SG_BOARD_POST
+	    where wtTitle like '%' || #{keyword} || '%'
+	</select>
+	 -->
+
+	
+	
+	
+	
+	
 </mapper>

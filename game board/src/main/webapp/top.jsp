@@ -27,7 +27,7 @@
             <div id="search">
             	<input type="text" id="search-box" placeholder="검색...">
             	<button type="button" id="search-button">검색</button>
-         </div>
+         	</div>
          <div id="theme">
             <img src="./resources/images/아이콘1.png" height="30px" id="darkModeButton">
          </div>
@@ -41,6 +41,7 @@
 	// 페이지 로드 시 localStorage에서 다크 모드 설정 읽기
 	window.onload = function() {
 		let darkModeSetting = localStorage.getItem("darkMode");
+		// enabled : 특정 설정이나 기능이 활성화되어있음
 		if (darkModeSetting === "enabled") {
 			document.body.classList.add("darkMode");
 			darkModeButton.src = "./resources/images/아이콘2.png"; // 달 이미지로 변경
@@ -48,7 +49,7 @@
 			}
     };
 
-	// 다크 모드 토글 함수
+	// 버튼 클릭될 때 다크 모드 토글 함수 호출
 	darkModeButton.onclick = toggleDarkMode;
 	function toggleDarkMode() {
 		document.body.classList.toggle("darkMode");
@@ -59,6 +60,20 @@
 		 darkModeButton.src = isDarkMode ? "./resources/images/아이콘2.png" : "./resources/images/아이콘1.png";
 	}
  
+	document.getElementById("search-button").addEventListener("click", function() {
+	    // 검색어 입력란에서 검색어 가져오기
+	    var searchKeyword = document.getElementById("search-box").value.trim();
+	    
+	    // 검색어가 비어있지 않을 때만 요청 보내기
+	    if (searchKeyword !== "") {
+	        // URL 생성: searchFpost.do?searchCondition=title&searchKeyword={검색어}
+	        var url = "searchFpost.do?searchCondition=title&searchKeyword=" + encodeURIComponent(searchKeyword);
+	        
+	        // GET 요청 보내기
+	        window.location.href = url;
+	    }
+	});
+	
 </script> 
 
 </header>

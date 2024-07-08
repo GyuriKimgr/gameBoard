@@ -63,4 +63,14 @@
 			ORDER BY fID DESC
 		]]>
 	</select>
+	
+	<select id="searchFpost" resultType="com.gameboard.biz.post.Fpost">
+		<![CDATA[
+		    SELECT * FROM FAQ_BOARD_POST
+		    WHERE
+		    	fTitle LIKE '%' || #{searchKeyword} || '%'
+            	OR userID LIKE '%' || #{searchKeyword} || '%'
+		]]>
+	</select>
+
 </mapper>

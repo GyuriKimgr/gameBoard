@@ -40,6 +40,10 @@ public class FpostDaoImpl implements FpostDao {
 	public List<Fpost> getFpostList(Fpost vo) {
 		return mybatis.selectList("FpostDao.getFpostList", vo);
 	}
-	
+
+	@Override
+	public List<Fpost> searchFpost(Fpost vo) {
+		return mybatis.selectList("FpostDao.searchFpost", vo);
+	}
 	
 }

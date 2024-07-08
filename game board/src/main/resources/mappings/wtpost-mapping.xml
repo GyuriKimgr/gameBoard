@@ -64,4 +64,21 @@
 			ORDER BY wtID DESC
 		]]>
 	</select>
+	
+	
+
+	<!-- 
+	
+		<select id="search" resultType="BoardVO">
+	    select * from WT_BOARD_POST
+	    where wtTitle like '%' || #{keyword} || '%'
+	</select>
+	
+	 -->
+
+	
+	
+	
+	
+	
 </mapper>
