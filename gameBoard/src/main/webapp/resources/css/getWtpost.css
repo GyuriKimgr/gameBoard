@@ -152,3 +152,130 @@ dd {
     margin-top: 0 !important;
 }
 
+<!--수정, 삭제, 윗글, 아랫글, 목록 -->
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+   
+}
+
+.board_comm .view_btn {
+    padding: 20px 0 70px;
+    font-size: 0;
+}
+.view_btn .wrap_modify {
+    float: right;
+}
+div {
+    margin: 0;
+    padding: 0;
+}
+
+
+.view_btn .wrap_modify .btn_board {
+    width: 140px;    
+}
+
+.btn_board1:hover {
+    border-color: #bfbfbf;
+}
+.btn_board:hover {
+    text-decoration: none;
+}
+
+
+.btn_board+.btn_board {
+    margin-left: 10px;
+}
+
+.btn_board1 {
+    background-color: #f8f8f8;
+}
+.btn_board {
+    display: inline-block;
+    width: 160px;
+    height: 52px;
+    line-height: 48px;
+    border: 1px solid #d9dedb;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #646464;
+    vertical-align: top;
+}
+.btn_board2 {
+    line-height: 49px;
+    background-color: #f19a09;
+    border: 0;
+    color: #fff;
+}
+
+.btn_board2:hover {
+    background-color: #db8deb;
+}
+
+
+.view_btn .wrap_page a {
+    overflow: hidden;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border: 1px solid #d9dbde;
+    background-color: #f0f1f2;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+.view_btn .wrap_page .img_board {
+    margin: 0 auto;
+}
+
+.view_btn .btn_list .img_board {
+    width: 15px;
+    height: 12px;
+    margin-top: 19px;
+    background-position: -60px -20px;
+}
+
+.img_board {
+    background-image: url(//t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_board_200821.png);
+}
+
+.img_board {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    background: no-repeat;
+}
+
+
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+
+.view_btn .btn_next .img_board {
+    width: 14px;
+    height: 7px;
+    margin-top: 22px;
+    background-position: -45px -30px;
+}
+
+.img_board {
+    background-image: url(//t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_board_200821.png);
+}
+.view_btn .btn_prev .img_board {
+    width: 14px;
+    height: 7px;
+    margin-top: 22px;
+    background-position: -45px -40px;
+}
+
+

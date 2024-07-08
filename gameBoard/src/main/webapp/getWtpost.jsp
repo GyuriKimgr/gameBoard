@@ -29,11 +29,39 @@
 					<%-- <dt class="cont_info">${post.getsearchCondition()}</dt> --%>
 				</dl>
 			</div>
-			
+
 		</div>
 		<div class="view_cont">
-			<div class="content"><p>${post.getWtContent()}</p></div>
+			<div class="content">
+				<p>${post.getWtContent()}</p>
+			</div>
 		</div>
+
+
+		<div class="view_btn">
+			<div class="wrap_modify">
+				<a href="edit?&amp;articleId=178474&amp;bbsId=PC002"
+					class="btn_board btn_board1 edit_btn">수정</a>
+				<button type="button" class="btn_board btn_board1 delete_btn"
+					data-del-param="&amp;articleId=178474&amp;bbsId=PC002&amp;id=178474">삭제</button>
+				<a href="write?bbsId=PC002" class="btn_board btn_board2 write_btn">글쓰기</a>
+			</div>
+			<div class="wrap_page">
+				<a href="walkThrough.do" class="btn_list"><span
+					class="img_board">목록</span></a> 
+				 
+				<a
+					href="nextArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=178474&amp;bbsId=PC002"
+					class="btn_next"><span class="img_board">윗글</span></a> 
+				<a
+					href="prevArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=178474&amp;bbsId=PC002"
+					class="btn_prev"><span class="img_board">아랫글</span></a>
+			</div>
+		</div>
+
+
+
+
 
 
 	</div>
