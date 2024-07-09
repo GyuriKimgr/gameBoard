@@ -40,11 +40,10 @@
 
 		<div class="view_btn">
 			<div class="wrap_modify">
-				<a href="edit?&amp;articleId=178474&amp;bbsId=PC002"
-					class="btn_board btn_board1 edit_btn">수정</a>
-				<button type="button" class="btn_board btn_board1 delete_btn"
-					data-del-param="&amp;articleId=178474&amp;bbsId=PC002&amp;id=178474">삭제</button>
-				<a href="write?bbsId=PC002" class="btn_board btn_board2 write_btn">글쓰기</a>
+				<a href="updateWtpost.do?wtID=${post.wtID}" class="btn_board btn_board1 edit_btn">수정</a>
+				<button type="button" class="btn_board btn_board1 delete_btn" onclick="confirmDelete(${post.wtID})">삭제</button>
+
+			
 			</div>
 			<div class="wrap_page">
 				<a href="walkThrough.do" class="btn_list"><span
@@ -58,7 +57,15 @@
 					class="btn_prev"><span class="img_board">아랫글</span></a>
 			</div>
 		</div>
-
+		
+	
+<script>
+function confirmDelete(wtID) {
+    if (confirm("정말로 삭제 하시겠습니까?")) {
+        window.location.href = 'deleteWtpost.do?wtID=' + wtID;
+    }
+}
+</script>
 
 
 

@@ -42,4 +42,14 @@ public class WtpostController{
 		model.addAttribute("post", post);
 		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
+	
+	@RequestMapping(value = "deleteWtpost.do")
+	public String deleteWtpost(int wtID) {
+	    wt.deleteWtpost(wtID);
+	    return "redirect:walkThrough.do";
+	}
+
+
+
+	
 }

@@ -8,4 +8,6 @@ public interface WtpostDao {
 	public List<Wtpost> getWtpostList(Wtpost vo);
 	public String getWtDate();
 	public Wtpost getWtpostById(int wtID);
+	public void deleteWtpost(int wtID);
+	
 }

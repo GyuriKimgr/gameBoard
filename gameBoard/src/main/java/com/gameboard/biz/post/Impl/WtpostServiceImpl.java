@@ -41,6 +41,13 @@ public class WtpostServiceImpl implements WtpostService{
 		// TODO Auto-generated method stub
 		 return wtpostDao.getWtpostById(wtID);
 	}
+	@Override
+	public void deleteWtpost(int wtID) {
+		// TODO Auto-generated method stub
+		wtpostDao.deleteWtpost(wtID);
+		
+	}
+
 
 	
 }

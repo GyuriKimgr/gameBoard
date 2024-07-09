@@ -178,7 +178,7 @@ div {
 }
 
 .btn_board1:hover {
-    border-color: #bfbfbf;
+    background-color: #f19a09;;
 }
 .btn_board:hover {
     text-decoration: none;
@@ -204,16 +204,7 @@ div {
     color: #646464;
     vertical-align: top;
 }
-.btn_board2 {
-    line-height: 49px;
-    background-color: #f19a09;
-    border: 0;
-    color: #fff;
-}
 
-.btn_board2:hover {
-    background-color: #db8deb;
-}
 
 
 .view_btn .wrap_page a {

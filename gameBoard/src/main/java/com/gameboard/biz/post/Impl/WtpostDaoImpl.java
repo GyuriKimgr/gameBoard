@@ -46,4 +46,11 @@ public class WtpostDaoImpl implements WtpostDao{
 		// TODO Auto-generated method stub
 		return mybatis.selectOne("WtpostDao.getWtpost", wtID);
 	}
+
+	@Override
+	public void deleteWtpost(int wtID) {
+		 mybatis.delete("WtpostDao.deleteWtpost", wtID);
+    }
+
+
 }
