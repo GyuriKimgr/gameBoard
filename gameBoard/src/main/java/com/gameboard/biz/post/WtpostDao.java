@@ -9,5 +9,6 @@ public interface WtpostDao {
 	public String getWtDate();
 	public Wtpost getWtpostById(int wtID);
 	public void deleteWtpost(int wtID);
+	public void updateWtpost(Wtpost vo);
 	
 }

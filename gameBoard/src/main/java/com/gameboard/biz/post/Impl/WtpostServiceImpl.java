@@ -47,6 +47,11 @@ public class WtpostServiceImpl implements WtpostService{
 		wtpostDao.deleteWtpost(wtID);
 		
 	}
+	@Override
+	public void updateWtpost(Wtpost vo) {
+		 wtpostDao.updateWtpost(vo);
+		
+	}
 
 
 	

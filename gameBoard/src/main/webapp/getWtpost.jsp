@@ -40,7 +40,7 @@
 
 		<div class="view_btn">
 			<div class="wrap_modify">
-				<a href="updateWtpost.do?wtID=${post.wtID}" class="btn_board btn_board1 edit_btn">수정</a>
+				<a href="updateWtpostForm.do?wtID=${post.wtID}" class="btn_board btn_board1 edit_btn">수정</a>
 				<button type="button" class="btn_board btn_board1 delete_btn" onclick="confirmDelete(${post.wtID})">삭제</button>
 
 			

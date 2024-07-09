@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gameboard.biz.post.Wtpost;
@@ -48,6 +47,24 @@ public class WtpostController{
 	    wt.deleteWtpost(wtID);
 	    return "redirect:walkThrough.do";
 	}
+	
+	@RequestMapping(value = "updateWtpostForm.do")
+	public String updateWtpostForm(int wtID, Model model) {
+	    Wtpost post = wt.getWtpostById(wtID); // 게시물 정보를 가져옴
+	    model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
+	    return "updateWtpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
+	}
+	
+	@RequestMapping(value = "updateWtpost.do")
+	public String updateWtpost(Wtpost vo) {
+	    wt.updateWtpost(vo); // 게시물 정보를 업데이트
+	    return "redirect:getWtpost.do?wtID=" + vo.getWtID();
+	}
+
+	
+	
+	
+	
 
 
 

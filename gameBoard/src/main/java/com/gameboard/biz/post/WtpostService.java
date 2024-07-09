@@ -9,5 +9,6 @@ public interface WtpostService {
 	public List<Wtpost> getWtpostList(Wtpost vo);
 	public Wtpost getWtpostById(int wtID);
 	public void deleteWtpost(int wtID);
+	public void updateWtpost(Wtpost vo);
 	
 }
