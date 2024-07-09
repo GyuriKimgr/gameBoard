@@ -65,20 +65,13 @@
 		]]>
 	</select>
 	
-	
-
-	<!-- 
-	
-		<select id="search" resultType="BoardVO">
-	    select * from WT_BOARD_POST
-	    where wtTitle like '%' || #{keyword} || '%'
+	<select id="searchWtpost" resultType="com.gameboard.biz.post.Wtpost">
+		<![CDATA[
+		    SELECT * FROM WT_BOARD_POST
+		    WHERE
+		    	wtTitle LIKE '%' || #{searchKeyword} || '%'
+            	OR userID LIKE '%' || #{searchKeyword} || '%'
+		]]>
 	</select>
-	
-	 -->
 
-	
-	
-	
-	
-	
 </mapper>

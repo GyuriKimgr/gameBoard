@@ -7,4 +7,5 @@ public interface ModService {
 	public int getMID();
 	public String getMDate();
 	public List<Mod> getModList(Mod vo);
+	public List<Mod> searchMod(Mod vo);
 }

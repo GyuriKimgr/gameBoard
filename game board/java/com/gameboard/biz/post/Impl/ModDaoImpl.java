@@ -40,4 +40,9 @@ public class ModDaoImpl implements ModDao {
 	public List<Mod> getModList(Mod vo) {
 		return mybatis.selectList("ModDao.getModList", vo);
 	}
+
+	@Override
+	public List<Mod> searchMod(Mod vo) {
+		return mybatis.selectList("ModDao.searchMod", vo);
+	}
 }

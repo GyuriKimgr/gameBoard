@@ -40,4 +40,9 @@ public class WtpostDaoImpl implements WtpostDao{
 	public List<Wtpost> getWtpostList(Wtpost vo){
 		return mybatis.selectList("WtpostDao.getWtpostList", vo);
 	}
+
+	@Override
+	public List<Wtpost> searchWtpost(Wtpost vo) {
+		return mybatis.selectList("WtpostDao.searchWtpost", vo);
+	}
 }

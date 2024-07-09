@@ -38,4 +38,11 @@ public class ModServiceImpl implements ModService{
 		return modDao.getModList(vo);
 	}
 
+	@Override
+	public List<Mod> searchMod(Mod vo) {
+		String searchCondition = vo.getSearchCondition();
+		String searchKeyword = vo.getSearchKeyword();
+		return modDao.searchMod(vo);
+	}
+
 }

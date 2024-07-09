@@ -35,5 +35,11 @@ public class WtpostServiceImpl implements WtpostService{
 	public List<Wtpost> getWtpostList(Wtpost vo) {
 		return wtpostDao.getWtpostList(vo);
 	}
-	
+
+	@Override
+	public List<Wtpost> searchWtpost(Wtpost vo) {
+		String searchCondition = vo.getSearchCondition();
+		String searchKeyword = vo.getSearchKeyword();
+		return wtpostDao.searchWtpost(vo);
+	}
 }

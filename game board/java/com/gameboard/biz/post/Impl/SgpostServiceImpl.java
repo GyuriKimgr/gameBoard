@@ -37,4 +37,11 @@ public class SgpostServiceImpl implements SgpostService {
 	public List<Sgpost> getSgpostList(Sgpost vo) {
 		return sgpostDao.getSgpostList(vo);
 	}
+
+	@Override
+	public List<Sgpost> searchSgpost(Sgpost vo) {
+		String searchCondition = vo.getSearchCondition();
+		String searchKeyword = vo.getSearchKeyword();
+		return sgpostDao.searchSgpost(vo);
+	}
 }

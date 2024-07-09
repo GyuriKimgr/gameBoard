@@ -65,13 +65,13 @@
 		]]>
 	</select>
 	
-	<!--  
-	<select id="search" resultType="BoardVO">
-	    select * from MOD_BOARD
-	    where wtTitle like '%' || #{keyword} || '%'
+	<select id="searchMod" resultType="com.gameboard.biz.post.Mod">
+		<![CDATA[
+		    SELECT * FROM MOD_BOARD
+		    WHERE
+		    	mTitle LIKE '%' || #{searchKeyword} || '%'
+            	OR userID LIKE '%' || #{searchKeyword} || '%'
+		]]>
 	</select>
-	-->
-	
-	
 	
 </mapper>

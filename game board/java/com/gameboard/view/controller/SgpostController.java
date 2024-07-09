@@ -34,4 +34,11 @@ public class SgpostController {
 		model.addAttribute("SgList", SgList);
 		return "suggest.jsp";
 	}
+	
+	@RequestMapping(value = "searchSgpost.do")
+	public String searchSgpost(Sgpost vo, Model model) {
+	List<Sgpost> SgList = sg.searchSgpost(vo);
+	model.addAttribute("SgList", SgList);
+	return "search.jsp";
+	}
 }

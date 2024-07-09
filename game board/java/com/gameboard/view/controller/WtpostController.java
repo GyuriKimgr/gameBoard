@@ -36,4 +36,12 @@ public class WtpostController{
 		model.addAttribute("WtList", WtList);
 		return "walkThrough.jsp";
 	}
+	
+	@RequestMapping(value = "searchWtpost.do")
+	public String searchWtpost(Wtpost vo, Model model) {
+		List<Wtpost> WtList = wt.searchWtpost(vo);
+		model.addAttribute("WtList", WtList);
+		return "search.jsp";
+	}
+	
 }

@@ -40,5 +40,10 @@ public class SgpostDaoImpl implements SgpostDao{
 	public List<Sgpost> getSgpostList(Sgpost vo) {
 		return mybatis.selectList("SgpostDao.getSgpostList", vo);
 	}
+
+	@Override
+	public List<Sgpost> searchSgpost(Sgpost vo) {
+		return mybatis.selectList("SgpostDao.searchSgpost", vo);
+	}
 	
 }

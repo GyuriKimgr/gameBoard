@@ -7,4 +7,5 @@ public interface WtpostService {
 	public int getWtID();
 	public String getWtDate();
 	public List<Wtpost> getWtpostList(Wtpost vo);
+	public List<Wtpost> searchWtpost(Wtpost vo);
 }

@@ -35,4 +35,11 @@ public class ModController {
 		model.addAttribute("ModList", ModList);
 		return "mod.jsp";
 	}
+	
+	@RequestMapping(value = "searchMod.do")
+	public String searchMod(Mod vo, Model model) {
+		List<Mod> ModList = m.searchMod(vo);
+		model.addAttribute("ModList", ModList);
+		return "search.jsp";
+	}
 }

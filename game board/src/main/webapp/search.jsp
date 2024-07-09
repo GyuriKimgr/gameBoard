@@ -22,33 +22,49 @@
                 <th class = "wth">조회수</th>
             </tr>
         </thead>
+        
         <tbody class = "wtbody">
-            <c:choose>
-                <c:when test="${empty FList}">
-                    <!-- 빈 틀이 세로로 쭉 10개 -->
-                    <c:forEach var="emptyRow" begin="1" end="10">
-                        <tr class = "wtr">
-                            <td class = "wtd">&nbsp;</td>
-                            <td class = "wtd">&nbsp;</td>
-                            <td class = "wtd">&nbsp;</td>
-                            <td class = "wtd">&nbsp;</td>
-                            <td class = "wtd">&nbsp;</td>
-                        </tr>
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    <!-- 실제 데이터 표시 -->
-                    <c:forEach var="FpostList" items="${FList}">
-                        <tr class = "wtr">
-                            <td class = "wtd">${FpostList.fID}</td>
-                            <td class = "wtd">${FpostList.fTitle}</td>
-                            <td class = "wtd">${FpostList.userID}</td>
-                            <td class = "wtd">${FpostList.fDate}</td>
-                            <td class="wtd">&nbsp;</td>
-                        </tr>
-                    </c:forEach>
-                </c:otherwise>
-            </c:choose>
+        	<c:forEach var="WtpostList" items="${WtList}">
+                    <tr class="wtr">
+                        <td class="wtd">${WtpostList.wtID}</td>
+                        <td class="wtd">${WtpostList.wtTitle}</td>
+                        <td class="wtd">${WtpostList.userID}</td>
+                        <td class="wtd">${WtpostList.wtDate}</td>
+                        <td class="wtd">&nbsp;</td>
+                    </tr>
+            </c:forEach>
+        
+            <c:forEach var="ModList" items="${ModList}">
+                <tr class = "wtr">
+                    <td class = "wtd">${ModList.mID}</td>
+                    <td class = "wtd">${ModList.mTitle}</td>
+                    <td class = "wtd">${ModList.userID}</td>
+                    <td class = "wtd">${ModList.mDate}</td>
+                    <td class="wtd">&nbsp;</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+            
+            <c:forEach var="SgpostList" items="${SgList}">
+                <tr class = "wtr">
+                    <td class = "wtd">${SgpostList.sgID}</td>
+                    <td class = "wtd">${SgpostList.sgTitle}</td>
+                    <td class = "wtd">${SgpostList.userID}</td>
+                    <td class = "wtd">${SgpostList.sgDate}</td>
+                    <td class="wtd">&nbsp;</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        
+            <c:forEach var="FpostList" items="${FList}">
+                <tr class = "wtr">
+                    <td class = "wtd">${FpostList.fID}</td>
+                    <td class = "wtd">${FpostList.fTitle}</td>
+                    <td class = "wtd">${FpostList.userID}</td>
+                    <td class = "wtd">${FpostList.fDate}</td>
+                    <td class="wtd">&nbsp;</td>
+                </tr>
+            </c:forEach>            
         </tbody>
     </table>
 </div>
