@@ -42,4 +42,19 @@ public class WtpostServiceImpl implements WtpostService{
 		String searchKeyword = vo.getSearchKeyword();
 		return wtpostDao.searchWtpost(vo);
 	}
+
+	@Override
+	public Wtpost getWtpostById(int wtID) {
+		return wtpostDao.getWtpostById(wtID);
+	}
+
+	@Override
+	public void deleteWtpost(int wtID) {
+		wtpostDao.deleteWtpost(wtID);
+	}
+
+	@Override
+	public void updateWtpost(Wtpost vo) {
+		wtpostDao.updateWtpost(vo);
+	}
 }

@@ -43,30 +43,4 @@ public class WtpostController{
 		model.addAttribute("WtList", WtList);
 		return "searchWt.jsp";
 	}
-	
-	@RequestMapping(value = "getWtpost.do")
-	public String getWtpostById(int wtID, Model model) {
-		Wtpost post = wt.getWtpostById(wtID);
-		model.addAttribute("post", post);
-		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
-	}
-	
-	@RequestMapping(value = "deleteWtpost.do")
-	public String deleteWtpost(int wtID) {
-	    wt.deleteWtpost(wtID);
-	    return "redirect:walkThrough.do";
-	}
-	
-	@RequestMapping(value = "updateWtpostForm.do")
-	public String updateWtpostForm(int wtID, Model model) {
-	    Wtpost post = wt.getWtpostById(wtID); // 게시물 정보를 가져옴
-	    model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
-	    return "updateWtpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
-	}
-	
-	@RequestMapping(value = "updateWtpost.do")
-	public String updateWtpost(Wtpost vo) {
-	    wt.updateWtpost(vo); // 게시물 정보를 업데이트
-	    return "redirect:getWtpost.do?wtID=" + vo.getWtID();
-	}
 }
