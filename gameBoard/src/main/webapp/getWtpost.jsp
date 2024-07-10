@@ -49,10 +49,24 @@
 			</div>
 			<div class="wrap_page">
 				<a href="walkThrough.do" class="btn_list"><span
-					class="img_board">목록</span></a> <a href="nextArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=${post.wtID}&amp;bbsId=PC002"
-                    class="btn_next"><span class="img_board">윗글</span></a>
-                <a href="prevArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=${post.wtID}&amp;bbsId=PC002"
-                    class="btn_prev"><span class="img_board">아랫글</span></a>
+					class="img_board">목록</span></a>
+
+				<%-- 다음 게시물 링크 --%>
+				<c:if test="${not empty nextPost}">
+					<a href="getWtpost.do?wtID=${nextPost.wtID}" class="btn_next"><span
+						class="img_board">윗글</span></a>
+				</c:if>
+
+				<%-- 이전 게시물 링크 --%>
+				<c:if test="${not empty prevPost}">
+					<a href="getWtpost.do?wtID=${prevPost.wtID}" class="btn_prev"><span
+						class="img_board">아랫글</span></a>
+				</c:if>
+
+
+
+
+
 			</div>
 		</div>
 

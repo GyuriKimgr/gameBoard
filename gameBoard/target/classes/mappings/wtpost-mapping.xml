@@ -20,7 +20,7 @@
 			VALUES(#{wtID}, #{wtTitle}, #{userID}, #{wtDate}, #{wtContent})
 		]]>
 	</insert>
-	
+
 
 	<update id="updateWtpost">
 		<![CDATA[
@@ -39,6 +39,8 @@
 			WHERE wtID = #{wtID}
 		]]>
 	</delete>
+
+
 
 	<select id="getWtID" resultType="int">
 		<![CDATA[
@@ -68,4 +70,35 @@
 			ORDER BY wtID DESC
 		]]>
 	</select>
+
+	<!-- 이전 게시물 조회 -->
+	<select id="getPrevWtpost"
+		resultType="com.gameboard.biz.post.Wtpost">
+        <![CDATA[
+            SELECT * FROM WT_BOARD_POST
+            WHERE wtID < #{wtID}
+            ORDER BY wtID DESC
+            FETCH FIRST 1 ROWS ONLY
+        ]]>
+	</select>
+
+	<!-- 다음 게시물 조회 -->
+	<select id="getNextWtpost"
+		resultType="com.gameboard.biz.post.Wtpost">
+        <![CDATA[
+            SELECT * FROM WT_BOARD_POST
+            WHERE wtID > #{wtID}
+            ORDER BY wtID ASC
+            FETCH FIRST 1 ROWS ONLY
+        ]]>
+	</select>
+
+	<!-- 조회수 업데이트 -->
+	<update id="updateViewCount">
+    <![CDATA[
+        UPDATE WT_BOARD_POST
+        SET viewCount = viewCount + 1
+        WHERE wtID = #{wtID}
+    ]]>
+	</update>
 </mapper>
