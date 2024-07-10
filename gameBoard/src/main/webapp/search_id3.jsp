@@ -28,9 +28,9 @@
                 	<input type="email" id="email" name="email" placeholder="이메일 주소" class="input" value="" maxlength="100" />
                 </div>
         </div>
+        <div class = "button_container3" ></div>
+   			<button type ="button" id="next_button3" name="next_button3" ><h2>다음</h2></button>
+   			<button type ="button" id= "return_button3" name = "return_button3"><h2>돌아가기</h2></button>
+   		</div>
         </form> 
          
-   		<div class = "button_container" ></div>
-   			<div type ="button" id="next_button" name="next_button" ><h2>다음</h2></div>
-   			<div type ="button" id= "return_button" name = "return_button"><h2>돌아가기</h2></div>
-   		</div>
