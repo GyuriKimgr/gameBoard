@@ -38,9 +38,10 @@
                 </li>
                </ul>   
         	</div>
-   			</form>  
-   			<div class = "button_container" ></div>
-   				<div type ="button" id="next_button" name="next_button" ><h2>다음</h2></div>
-   				<div type ="button" id= "return_button" name = "return_button"><h2>돌아가기</h2></div>
+			<div class = "button_container2" ></div>
+   				<button type ="button" id="next_button" name="next_button" ><h2>다음</h2></button>
+   				<button type ="button" id= "return_button2" name = "return_button2"><h2>돌아가기</h2></button>
    			</div> 
+   			</form>  
+
 </div>
