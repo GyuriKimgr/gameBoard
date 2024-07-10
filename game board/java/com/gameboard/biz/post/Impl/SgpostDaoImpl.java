@@ -45,5 +45,20 @@ public class SgpostDaoImpl implements SgpostDao{
 	public List<Sgpost> searchSgpost(Sgpost vo) {
 		return mybatis.selectList("SgpostDao.searchSgpost", vo);
 	}
+
+	@Override
+	public Sgpost getSgpostById(int sgID) {
+		return mybatis.selectOne("SgpostDao.getSgpost", sgID);
+	}
+
+	@Override
+	public void deleteSgpost(int sgID) {
+		mybatis.delete("SgpostDao.deleteSgpost", sgID);
+	}
+
+	@Override
+	public void updateSgpost(Sgpost vo) {
+		mybatis.delete("SgpostDao.updateSgpost", vo);
+	}
 	
 }

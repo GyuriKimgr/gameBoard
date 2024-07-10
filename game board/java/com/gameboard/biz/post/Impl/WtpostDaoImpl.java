@@ -58,6 +58,6 @@ public class WtpostDaoImpl implements WtpostDao{
 
 	@Override
 	public void updateWtpost(Wtpost vo) {
-		 mybatis.delete("WtpostDao.updateWtpost", vo);
+		mybatis.delete("WtpostDao.updateWtpost", vo);
 	}
 }

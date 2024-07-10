@@ -41,4 +41,31 @@ public class SgpostController {
 	model.addAttribute("SgList", SgList);
 	return "searchSg.jsp";
 	}
+	
+	// 수정 + 삭제 
+	@RequestMapping(value = "getSgpost.do")
+	public String getSgpostById(int sgID, Model model) {
+		Sgpost post = sg.getSgpostById(sgID);
+		model.addAttribute("post", post);
+		return "getSgpost.jsp"; // 상세 정보를 보여줄 뷰 이름
+	}
+	
+	@RequestMapping(value = "deleteSgpost.do")
+	public String deleteSgpost(int sgID) {
+	    sg.deleteSgpost(sgID);
+	    return "redirect:suggest.do";
+	}
+	
+	@RequestMapping(value = "updateSgpostForm.do")
+	public String updateSgpostForm(int sgID, Model model) {
+	    Sgpost post = sg.getSgpostById(sgID); // 게시물 정보를 가져옴
+	    model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
+	    return "updateSgpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
+	}
+	
+	@RequestMapping(value = "updateSgpost.do")
+	public String updateSgpost(Sgpost vo) {
+	    sg.updateSgpost(vo); // 게시물 정보를 업데이트
+	    return "redirect:getSgpost.do?sgID=" + vo.getSgID();
+	}
 }

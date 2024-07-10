@@ -1,33 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<c:import url="top.jsp" />
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<c:import url="top.jsp" />
 <link rel="stylesheet" href="./resources/css/post.css" type="text/css">
 
 <section>
 	<div class="title">
-        <h3>FAQ</h3>
+        <h3>FAQ게시판</h3>
     </div>
 	<div class="form-container">
-        <form action="insertFpost.do" method="post"
-        	enctype="multipart/form-data">
-        <input type="hidden" id="userId" name="userId"
-        	value="<%= session.getAttribute("userId") %>">
-            <div class="form-group">
-                <label for="title">제목</label>
-                <input type="text" id="fTitle" name="fTitle">
-            </div>
-            <div class="form-group">
-                <label for="content">내용</label>
-                <textarea id="fContent" name="fContent" rows="8"></textarea>
-            </div>
-            
-            <div class="frame">
-        		<button type="submit" class="custom-btn btn"><span>작성 완료</span></button>
-    		</div>
-        </form>
+<form action="updateFpost.do" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
+    <input type="hidden" name="fID" value="${post.fID}" /> <!-- 수정할 게시물의 ID를 hidden 필드로 전달 -->
+   <div class="form-group">
+        <label for="fTitle">제목</label>
+        <input type="text" id="fTitle" name="fTitle" value="${post.fTitle}" /> <!-- 기존 제목을 입력 -->
     </div>
+      <div class="form-group">
+        <label for="fContent">내용</label>
+        <textarea id="fContent" name="fContent" rows="8">${post.fContent}</textarea> <!-- 기존 내용을 입력 -->
+    </div>
+    <div class="frame">
+        		<button type="submit" class="custom-btn btn"><span>수정 완료</span></button>
+    		</div>
+</form>
+</div>
 </section>
 
 <script>
@@ -58,3 +54,5 @@
         return true;
     }
 </script>
+
+

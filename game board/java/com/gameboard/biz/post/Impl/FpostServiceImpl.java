@@ -44,4 +44,19 @@ public class FpostServiceImpl implements FpostService {
 		String searchKeyword = vo.getSearchKeyword();
 		return fpostDao.searchFpost(vo);
 	}
+
+	@Override
+	public Fpost getFpostById(int fID) {
+		return fpostDao.getFpostById(fID);
+	}
+
+	@Override
+	public void deleteFpost(int fID) {
+		fpostDao.deleteFpost(fID);
+	}
+
+	@Override
+	public void updateFpost(Fpost vo) {
+		fpostDao.updateFpost(vo);
+	}
 }

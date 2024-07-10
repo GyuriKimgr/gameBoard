@@ -8,4 +8,7 @@ public interface ModDao {
 	public String getMDate();
 	public List<Mod> getModList(Mod vo);
 	public List<Mod> searchMod(Mod vo);
+	public Mod getModById(int mID);
+	public void deleteMod(int mID);
+	public void updateMod(Mod vo);
 }

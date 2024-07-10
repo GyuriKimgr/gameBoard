@@ -45,4 +45,19 @@ public class ModServiceImpl implements ModService{
 		return modDao.searchMod(vo);
 	}
 
+	@Override
+	public Mod getModById(int mID) {
+		return modDao.getModById(mID);
+	}
+
+	@Override
+	public void deleteMod(int mID) {
+		modDao.deleteMod(mID);
+	}
+
+	@Override
+	public void updateMod(Mod vo) {
+		modDao.updateMod(vo);
+	}
+
 }

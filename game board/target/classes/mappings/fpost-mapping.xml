@@ -24,7 +24,7 @@
 			UPDATE FAQ_BOARD_POST
 			SET fTitle = #{fTitle},
 				userID = #{userID},
-				fDate = #{fDate},
+				fDate = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI'),
 				fContent = #{fContent}
 			WHERE fID = #{fID}
 		]]>

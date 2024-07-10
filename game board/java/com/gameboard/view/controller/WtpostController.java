@@ -37,6 +37,7 @@ public class WtpostController{
 		return "walkThrough.jsp";
 	}
 	
+	// 검색
 	@RequestMapping(value = "searchWtpost.do")
 	public String searchWtpost(Wtpost vo, Model model) {
 		List<Wtpost> WtList = wt.searchWtpost(vo);
@@ -44,6 +45,7 @@ public class WtpostController{
 		return "searchWt.jsp";
 	}
 	
+	// 수정 + 삭제 
 	@RequestMapping(value = "getWtpost.do")
 	public String getWtpostById(int wtID, Model model) {
 		Wtpost post = wt.getWtpostById(wtID);

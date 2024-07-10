@@ -44,4 +44,19 @@ public class SgpostServiceImpl implements SgpostService {
 		String searchKeyword = vo.getSearchKeyword();
 		return sgpostDao.searchSgpost(vo);
 	}
+
+	@Override
+	public Sgpost getSgpostById(int sgID) {
+		return sgpostDao.getSgpostById(sgID);
+	}
+
+	@Override
+	public void deleteSgpost(int sgID) {
+		sgpostDao.deleteSgpost(sgID);
+	}
+
+	@Override
+	public void updateSgpost(Sgpost vo) {
+		sgpostDao.updateSgpost(vo);
+	}
 }

@@ -45,5 +45,20 @@ public class FpostDaoImpl implements FpostDao {
 	public List<Fpost> searchFpost(Fpost vo) {
 		return mybatis.selectList("FpostDao.searchFpost", vo);
 	}
+
+	@Override
+	public Fpost getFpostById(int fID) {
+		return mybatis.selectOne("FpostDao.getFpost", fID);
+	}
+
+	@Override
+	public void deleteFpost(int fID) {
+		mybatis.delete("FpostDao.deleteFpost", fID);
+	}
+
+	@Override
+	public void updateFpost(Fpost vo) {
+		mybatis.delete("FpostDao.updateFpost", vo);
+	}
 	
 }

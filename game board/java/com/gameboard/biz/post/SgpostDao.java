@@ -8,4 +8,7 @@ public interface SgpostDao {
 	public String getSgDate();
 	public List<Sgpost> getSgpostList(Sgpost vo);
 	public List<Sgpost> searchSgpost(Sgpost vo);
+	public Sgpost getSgpostById(int sgID);
+	public void deleteSgpost(int sgID);
+	public void updateSgpost(Sgpost vo);
 }

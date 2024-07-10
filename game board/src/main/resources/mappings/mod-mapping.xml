@@ -25,7 +25,7 @@
 			UPDATE MOD_BOARD
 			SET mTitle = #{mTitle},
 				userID = #{userID},
-				mDate = #{mDate},
+				mDate = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI'),
 				mContent = #{mContent}
 			WHERE mID = #{mID}
 		]]>
