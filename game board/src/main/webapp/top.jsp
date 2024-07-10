@@ -24,14 +24,10 @@
                 <li><a href="./suggest.do"><b>게임추천</b></a></li>
                 <li><a href="./FAQ.do"><b>FAQ</b></a></li>
             </ul>
-            <div id="search">
-            	<input type="text" id="search-box" placeholder="검색...">
-            	<button type="button" id="search-button">검색</button>
-         	</div>
-         <div id="theme">
-            <img src="./resources/images/아이콘1.png" height="30px" id="darkModeButton">
-         </div>
-      </div> 
+	         <div id="theme">
+	            <img src="./resources/images/아이콘1.png" height="30px" id="darkModeButton">
+	         </div> 
+	    </div>
    </div>
 
 <script>
@@ -60,26 +56,6 @@
 		 darkModeButton.src = isDarkMode ? "./resources/images/아이콘2.png" : "./resources/images/아이콘1.png";
 	}	
 	
-	//게시판 검색
-	document.getElementById("search-button").addEventListener("click", function() {
-	    // 검색어 입력란에서 검색어 가져오기
-	    var searchKeyword = document.getElementById("search-box").value.trim();
-	    
-	    // 검색어가 비어있지 않을 때만 요청 보내기
-	    if (searchKeyword !== "") {
-	        // URL 생성: searchFpost.do?searchCondition=title&searchKeyword={검색어}
-	        let urlw = "searchWtpost.do?searchCondition=title&searchKeyword=" + encodeURIComponent(searchKeyword);
-	        let urlm = "searchMod.do?searchCondition=title&searchKeyword=" + encodeURIComponent(searchKeyword);
-	        let urls = "searchSgpost.do?searchCondition=title&searchKeyword=" + encodeURIComponent(searchKeyword);
-	        let urlf = "searchFpost.do?searchCondition=title&searchKeyword=" + encodeURIComponent(searchKeyword);
-	    	
-	        // GET 요청 보내기
-	        window.location.href = urlw;
-	        window.location.href = urlm;
-	        window.location.href = urls;
-	        window.location.href = urlf;
-	    }
-	});
 </script> 
 
 </header>

@@ -42,6 +42,6 @@ public class FpostController {
 		public String searchFpost (Fpost vo, Model model) {
 		List<Fpost> FList = f.searchFpost(vo);
 		model.addAttribute("FList", FList);
-		return "search.jsp";
+		return "searchF.jsp";
 	}
 }

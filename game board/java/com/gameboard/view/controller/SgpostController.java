@@ -39,6 +39,6 @@ public class SgpostController {
 	public String searchSgpost(Sgpost vo, Model model) {
 	List<Sgpost> SgList = sg.searchSgpost(vo);
 	model.addAttribute("SgList", SgList);
-	return "search.jsp";
+	return "searchSg.jsp";
 	}
 }

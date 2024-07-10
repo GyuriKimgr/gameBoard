@@ -41,7 +41,6 @@ public class WtpostController{
 	public String searchWtpost(Wtpost vo, Model model) {
 		List<Wtpost> WtList = wt.searchWtpost(vo);
 		model.addAttribute("WtList", WtList);
-		return "search.jsp";
+		return "searchWt.jsp";
 	}
-	
 }

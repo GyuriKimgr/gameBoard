@@ -40,6 +40,6 @@ public class ModController {
 	public String searchMod(Mod vo, Model model) {
 		List<Mod> ModList = m.searchMod(vo);
 		model.addAttribute("ModList", ModList);
-		return "search.jsp";
+		return "searchMod.jsp";
 	}
 }
