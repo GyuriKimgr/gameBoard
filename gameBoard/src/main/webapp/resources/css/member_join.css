@@ -48,7 +48,6 @@ body {
 .simple_logo4 img {
 	width: 220%; /* 이미지 크기 조정 */
     height: auto;
-    text-align: center
 }
 
 .simple_logo4 {
@@ -238,9 +237,11 @@ label {
   margin-bottom: 10px;
   cursor: pointer;
   border-radius: 10px;
+  border-color: transparent;
   transition: background-position 0.5s;
   text-align: center;
   text-transform: uppercase;
+  width: 340px;
 }
 
 #return_button:hover {
@@ -254,6 +255,7 @@ label {
   box-shadow: 0 0 20px #eee;
   background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
   background-size: 200% auto;
+  border-color: transparent;
   margin: 10px;
   padding: 20px;
   margin-bottom:10px;
@@ -262,7 +264,7 @@ label {
   transition: background-position 0.5s;
   text-align: center;
   text-transform: uppercase;
-
+  width: 340px;
 }
 
 #join_button:hover {
@@ -382,28 +384,13 @@ label {
     background-color: #000000;
 }
 
- #next_button  {
-  flex: 1 1 auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
-  background-size: 200% auto;
-  margin: 10px;
-  padding: 20px;
-  margin-bottom:10px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background-position 0.5s;
-  text-align: center;
-  text-transform: uppercase;
 
-}
 
 #next_button:hover {
   background-position: right center; /* change the direction of the change here */
 }
  
-<!-- search_pw file css --> 
+<!-- search file css --> 
 
 
 .link_wrap {
@@ -436,4 +423,99 @@ label {
     padding: 20px;
    	padding-top: 0px;
    	padding-bottom: 5px; 
+}
+
+.button_container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 50vw;
+  margin: 0 auto;
+}
+
+ #next_button  {
+  flex: 1 1 auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+  background-size: 200% auto;
+  border-color: transparent;
+  margin: 10px;
+  padding: 20px;
+  margin-bottom:10px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-position 0.5s;
+  text-align: center;
+  text-transform: uppercase;
+  width: 375px;
+}
+
+
+#return_button2 {
+  flex: 1 1 auto;
+  color: white;	
+  box-shadow: 0 0 20px #eee;
+  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+  background-size: 200% auto;
+  margin: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  border-color: transparent;
+  transition: background-position 0.5s;
+  text-align: center;
+  text-transform: uppercase;
+  width: 375px;
+}
+
+
+.button_container3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 50vw;
+  margin: 0 auto;
+}
+
+ #next_button3  {
+  flex: 1 1 auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+  background-size: 200% auto;
+  border-color: transparent;
+  margin: 10px;
+  padding: 20px;
+  margin-bottom:10px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-position 0.5s;
+  text-align: center;
+  text-transform: uppercase;
+  width: 335px;
+}
+
+
+#return_button3 {
+  flex: 1 1 auto;
+  color: white;	
+  box-shadow: 0 0 20px #eee;
+  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+  background-size: 200% auto;
+  margin: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  border-color: transparent;
+  transition: background-position 0.5s;
+  text-align: center;
+  text-transform: uppercase;
+  width: 335px;
 }
