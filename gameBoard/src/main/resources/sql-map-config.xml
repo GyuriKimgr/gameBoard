@@ -10,12 +10,13 @@
     
 	<!-- alias 설정 -->
 	<typeAliases>
-		<typeAlias type="com.gameboard.biz.post.Wtpost"
-			alias="wtpost" />
+		<typeAlias type="com.gameboard.biz.post.Wtpost" alias="wtpost" />
+		<typeAlias type="com.gameboard.biz.post.GameMember" alias="gameMember" />
 	</typeAliases>
 	
 
 	<mappers>
+		<mapper resource="mappings/member-mapping.xml" />
 		<mapper resource="mappings/wtpost-mapping.xml" />
 	</mappers>
 </configuration>

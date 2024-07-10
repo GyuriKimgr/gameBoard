@@ -32,5 +32,4 @@
    			<button type ="button" id="next_button3" name="next_button3" ><h2>다음</h2></button>
    			<button type ="button" id= "return_button3" name = "return_button3"><h2>돌아가기</h2></button>
    		</div>
-        </form> 
-         
+        </form>

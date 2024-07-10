@@ -2,7 +2,35 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="./resources/css/member_join.css"
 	type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function checkIdDuplicate() {
+        let memberId = $('#member_id').val();
+        $.ajax({
+            url: "/checkIdDuplicate",
+            type: 'GET',
+            data: {"memberId": memberId},
+            success: function(data) {
+                if (data === "duplicate") {
+                    alert("중복된 아이디입니다.");
+                } else if (data === "available") {
+                    alert("사용 가능한 아이디입니다.");
+                } else {
+                    alert("오류 발생: 유효하지 않은 응답입니다.");
+                }
+            },
+            error: function(xhr, status, error) {
+                alert("오류 발생: " + xhr.responseText);
+            }
+        });
+    }
 
+    $(document).ready(function() {
+        $('#check_button').on('click', function() {
+            checkIdDuplicate();
+        });
+    });
+</script>
 <div class="container">
     <div class="inner">
     	<div class="search_content_header">
@@ -15,7 +43,7 @@
  		</h1>
  	</div>
 	<div class="content">
-        <form id="join_form" method="post" action="" class="member_join_form">
+        <form id="join_form" method="post" action="memberJoin.do" class="member_join_form">
            	<input type="hidden" id="token_sjoin" name="token_sjoin" value="">
           	<input type="hidden" id="nid_kb2" name="nid_kb2" value="">
             <input type="hidden" id="joinMode" name="joinMode" value="">
@@ -27,50 +55,50 @@
             	<div class="form_list">  
             	<!-- 아이디 -->   
             	<div class="form_item_user" id="divId">
-            	<input type="text" id="user_id" name="id" placeholder="아이디" class="input" value="" maxlength="20" autocapitalize="off"/>
-            	<button type="button" id="check_button"><h4>중복 확인</h4></button>
+            	<input type="text" id="member_id" name="memberId" placeholder="아이디" class="input" value="" maxlength="20" autocapitalize="off"/>
+            	<button type="button" id="check_button" name = "memberId_check" onclick = "checkIdDuplicate();"><h4>중복 확인</h4></button>
             	</div>   
                          
                 <!-- 비밀번호 --> 
         	   	<div class="form_item lock password" id="divPasswd">
-                <input type="password" id="pswd1" name="pswd1" placeholder="비밀번호" class="input" value="" maxlength="20" autocomplete="new-password" />
+                <input type="password" id="pswd1" name="memberPw" placeholder="비밀번호" class="input" value="" maxlength="20" autocomplete="new-password" />
                 </div>
                           
                 <!-- 이메일 -->
                 <div class="form_item email" id="divEmail">
-                <input type="email" id="email" name="email" placeholder="이메일 주소 (본인 확인용)" class="input" value="" maxlength="100" />
+                <input type="email" id="email" name="memberEmail" placeholder="이메일 주소 (본인 확인용)" class="input" value="" maxlength="100" />
                 </div>
                        
 
 				<!-- 이름 --> 
                 <div class="form_item user" id="divName">
-                <input type="text" id="name" name="name" placeholder="이름" class="input" value="" maxlength="40" />
+                <input type="text" id="name" name="memberName" placeholder="이름" class="input" value="" maxlength="40" />
                 </div>
                             
   				<!-- 생년월일 -->
   				<div class="form_item calendar" id="divBirthday">
-                <input type="text" id="birthdayInput" placeholder="생년월일 8자리" class="input" value="" maxlength="10"/>
+                <input type="text" id="birthdayInput" name = "memberBirth" placeholder="생년월일 8자리" class="input" value="" maxlength="10"/>
                 </div>
 
 				<!-- 성별, 외국인/내국인 유무 -->
                 <div class="form_item adult" id="divIdentityGender">
                 <ul class="adult_list" id="listIdentityGender">
                 	<li class="radio_item">
-                 		<input type="radio" id="identityGender1" name="identityGender" value="M" class="blind">
+                 		<input type="radio" id="identityGender1" name="memberGender" value="M" class="blind">
                         <label for="identityGender1">남자</label>
                     </li>
                     <li class="radio_item">
-                        <input type="radio" id="identityGender2" name="identityGender" value="F" class="blind">
+                        <input type="radio" id="identityGender2" name="memberGender" value="F" class="blind">
                         <label for="identityGender2">여자</label>
                     </li>
                     </ul>
                     <ul class="adult_list" id="listForeigner">
                                     <li class="radio_item">
-                                        <input type="radio" id="foreigner1" name="foreigner" value="K" checked class="blind">
+                                        <input type="radio" id="foreigner1" name="memberNation" value="K" checked class="blind">
                                         <label for="foreigner1">내국인</label>
                                     </li>
                                     <li class="radio_item">
-                                        <input type="radio" id="foreigner2" name="foreigner" value="F" class="blind">
+                                        <input type="radio" id="foreigner2" name="memberNation" value="F" class="blind">
                                         <label for="foreigner2">외국인</label>
                                     </li>
                                 </ul>
@@ -78,7 +106,7 @@
                         
                             <!-- 휴대전화 -->
                             <div class="form_item phone" id="divPhoneNo">
-                                <input type="tel" id="phoneNo" name="phoneNo" placeholder="휴대전화번호" class="input" value="" maxlength="16" />
+                                <input type="tel" id="phoneNo" name="memberPhone" placeholder="휴대전화번호" class="input" value="" maxlength="16" />
                             </div>
    					</div>
    				</div>
