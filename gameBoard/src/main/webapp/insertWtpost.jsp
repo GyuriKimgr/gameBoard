@@ -5,13 +5,17 @@
 
 <link rel="stylesheet" href="./resources/css/post.css" type="text/css">
 
+
+
+
+
 <section>
 	<div class="title">
         <h3>공략게시판</h3>
     </div>
 	<div class="form-container">
-        <form action="insertWtpost.do" method="post"
-        	enctype="multipart/form-data">
+        <form action="insertWtpost.do" method="post" 
+        	enctype="multipart/form-data" onsubmit="return validateForm();">
         <input type="hidden" id="userId" name="userId"
         	value="<%= session.getAttribute("userId") %>">
             <div class="form-group">
@@ -29,3 +33,34 @@
         </form>
     </div>
 </section>
+
+
+<script>
+    function validateForm() {
+        // 제목과 내용을 가져옵니다.
+        var wtTitle = document.getElementById("wtTitle").value.trim();
+        var wtContent = document.getElementById("wtContent").value.trim();
+        
+        // 제목이 비어 있는지 확인합니다.
+        if (wtTitle === "") {
+            alert("제목을 입력하세요");
+            return false;
+        }
+        
+        // 제목의 길이가 2자 이상인지 확인합니다.
+        if (wtTitle.length < 2) {
+            alert("제목을 2자 이상 입력하세요");
+            return false;
+        }
+        
+        // 내용이 비어 있는지 확인합니다.
+        if (wtContent === "") {
+            alert("본문 내용을 입력하세요");
+            return false;
+        }
+        
+        // 모든 검증을 통과하면 true를 반환하여 제출을 허용합니다.
+        return true;
+    }
+</script>
+
