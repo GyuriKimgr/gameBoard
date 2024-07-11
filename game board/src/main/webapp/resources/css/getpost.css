@@ -1,24 +1,29 @@
 @charset "UTF-8";
 
 .inner_atc {
-    width: 1090px;
+    width: 800px;
     margin: 0 auto;
     padding-bottom: 200px;
-    font-family: 'noto-demilight', '맑은 고딕', 'Malgun Gothic', '돋움', dotum, sans-serif;
 }
-.inner_atc .tit_atc {
-    padding-top: 90px;
-    margin-bottom: 8px;
-    font-size: 38px;
-    font-weight: normal;
-    letter-spacing: -2px;
+
+.tit_atc {
+	height: 100px;
+    text-align: center;
     background: #ca99e3;
+    line-height: 100px;
+    width : 100%;
+    margin-bottom : 10px;
+}
+.tit_atc h3 {
+	color: white;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 body {
     font-size: 19px;
     line-height: 1.5;
-    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
     color: #333;
 }
 .board_comm {
@@ -31,7 +36,7 @@ body {
     height: 70px;
     padding: 0 30px;
     line-height: 68px;
-    background: #7a7a7a;
+    background: #c1b9d0;
     color: #fff;
 }
 
@@ -41,14 +46,12 @@ body {
     padding: 21px 30px 19px;
     line-height: 27px;
     background: #e3e3e6;
-    color: #787878;
+    color: #919191;
 }
 .view_head .writer_info {
     float: left;
     min-width: 50%;
 }
-
-
 
 .info_head {
     display: flex;
@@ -103,15 +106,6 @@ dd {
     display: inline-block;
     width: 28px;
     height: 28px;
-    background: url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/icon-rank-board.png) no-repeat;
-}
-.screen_out {
-    overflow: hidden;
-    position: absolute;
-    width: 0;
-    height: 0;
-    line-height: 0;
-    text-indent: -9999px;
 }
 .view_head .link_writer .txt_writer {
     color: #333;
@@ -178,7 +172,7 @@ div {
 }
 
 .btn_board1:hover {
-    background-color: #f19a09;;
+    background-color: #f19a09;
 }
 .btn_board:hover {
     text-decoration: none;
@@ -190,7 +184,7 @@ div {
 }
 
 .btn_board1 {
-    background-color: #f8f8f8;
+    background-color: #ca99e3;
 }
 .btn_board {
     display: inline-block;

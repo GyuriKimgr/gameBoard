@@ -7,7 +7,7 @@
 <div class="box">
 <ul class="middle2">
 	<li>
-		<a href="#" class="link_card" >
+		<a href="./walkThrough.do" class="link_card" >
 			<strong class="title2"> 공략게시판 </strong>
 			<span class="img_comm2">더보기</span>
 		</a>
@@ -51,7 +51,7 @@
 	</li>
 	
 	<li>
-		<a href="#"  class="link_card"> 
+		<a href="./Mod.do"  class="link_card"> 
 			<strong class="title2">모드게시판</strong>
 			<span class="img_comm2">더보기</span>
 		</a>
@@ -92,7 +92,7 @@
 	</li>
 	
 	<li>
-		<a href="#" class="link_card"> 
+		<a href="./suggest.do" class="link_card"> 
 			<strong class="title2">추천게시판</strong>
 			<span class="img_comm2">더보기</span>
 		</a>

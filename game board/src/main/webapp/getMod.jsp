@@ -8,7 +8,9 @@
 	type="text/css">
 
 <div class="inner_atc">
-	<h3 class="tit_atc">공략 게시판</h3>
+	<div class="tit_atc">
+        <h3>모드 게시판</h3>
+    </div>
 	<div class="board_comm">
 		<div class="view_head">
 			<h4 class="tit_view">${post.getmTitle()}</h4>
@@ -16,9 +18,8 @@
 				<dl class="writer_info">
 					<dt class="tit_info">글쓴이</dt>
 					<dd class="cont_info">
-						<a href="#" class="link_writer"> <span
-							class="ico_board_tier platinum3"> <span class="screen_out">플레티넘</span>
-						</span> <span class="txt_writer">${post.getUserID()}</span>
+						<a href="#" class="link_writer">
+							<span class="txt_writer">${post.getUserID()}</span>
 						</a>
 					</dd>
 				</dl>
