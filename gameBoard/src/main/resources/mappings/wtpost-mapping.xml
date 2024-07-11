@@ -100,12 +100,6 @@
         SET wtViews = wtViews + 1
         WHERE wtID = #{wtID}
     ]]>
-</update>
-
-
-
-
-
-
+	</update>
 
 </mapper>

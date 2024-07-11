@@ -10,6 +10,7 @@ public class Wtpost {
 	private String searchKeyword;
 	private int wtViews;
 
+
 	public Wtpost() {
 	}
 
@@ -24,6 +25,7 @@ public class Wtpost {
 		this.searchCondition = searchCondition;
 		this.searchKeyword = searchKeyword;
 		this.wtViews = wtViews;
+		
 
 	}
 
@@ -90,5 +92,6 @@ public class Wtpost {
 	public void setWtViews(int wtViews) {
 		this.wtViews = wtViews;
 	}
+
 
 }

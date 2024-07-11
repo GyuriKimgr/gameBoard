@@ -1,6 +1,8 @@
 package com.gameboard.view.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,10 +57,10 @@ public class WtpostController {
 		if (nextPost != null) {
 			model.addAttribute("nextPost", nextPost);
 		}
-		
+
 		// 최신 목록을 가져와서 모델에 추가 (조회수가 업데이트된 상태)
-	    List<Wtpost> WtList = wt.getWtpostList(null);
-	    model.addAttribute("WtList", WtList);
+		List<Wtpost> WtList = wt.getWtpostList(null);
+		model.addAttribute("WtList", WtList);
 
 		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
@@ -83,4 +85,5 @@ public class WtpostController {
 	}
 
 	
+
 }

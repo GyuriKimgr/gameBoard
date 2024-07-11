@@ -73,4 +73,5 @@ public class WtpostDaoImpl implements WtpostDao {
 		mybatis.update("WtpostDao.updateWtpostViews", wtID);
 	}
 
+
 }

@@ -62,12 +62,10 @@ body {
     align-items: center;
 }
 
-.info_head dt {
-    margin-right: 10px; /* 각 dt 요소 사이의 간격을 설정합니다. */
-}
+
 dd {
     display: block;
-    margin-inline-start: 10px;
+    margin-inline-start: 5px;
     unicode-bidi: isolate;
 }
 
@@ -79,7 +77,9 @@ dd {
     flex-shrink: 0; /* 작성일, 조회수 정보를 축소하지 않습니다. */
 }
 
-
+.view_head .info_head dt, .view_head .info_head dd {
+    display: inline;
+}
 
 .view_head .info_head dt:after {
     content: '';
@@ -89,9 +89,7 @@ dd {
     margin: 2px 7px 0 10px;
     background: #cecece;
 }
-.view_head .info_head dt, .view_head .info_head dd {
-    display: inline;
-}
+
 .view_head .link_writer {
     display: inline-block;
 }
@@ -128,9 +126,7 @@ dd {
 .view_head .date_info .emph_g2 {
     font-weight: bold;
 }
-.view_head .info_head dd {
-    display: inline;
-}
+
 .emph_g2 {
     color: #f19a09;
 }
@@ -172,7 +168,6 @@ dd {
 }
 
 
-<!-- 추천 -->
 .view_cont .btn_recomm {
     display: block;
     width: 98px;
@@ -183,19 +178,29 @@ dd {
     background-color: #f8f8f8;
     text-align: center;
 }
+
 a {
     color: #333;
     text-decoration: none;
 }
+
 .view_cont .btn_recomm .img_board {
     width: 35px;
     height: 34px;
     margin: 17px auto 6px;
     background-position: 0 -105px;
 }
+
+
+.btn_recomm:hover .img_board {
+    background-position: -40px -105px;
+}
+
 .img_board {
     background-image: url(//t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_board_200821.png);
 }
+
+
 
 .img_board {
     display: block;
@@ -205,7 +210,6 @@ a {
     text-indent: -9999px;
     background: no-repeat;
 }
-
 
 
 
