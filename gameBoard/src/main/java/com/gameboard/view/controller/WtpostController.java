@@ -31,6 +31,12 @@ public class WtpostController {
 	@RequestMapping(value = "walkThrough.do")
 	public String getWtpost(Wtpost vo, Model model) {
 		List<Wtpost> WtList = wt.getWtpostList(vo);
+		
+		 // 각 게시물의 조회수 업데이트
+	    for (Wtpost post : WtList) {
+	        wt.updateWtpostViews(post.getWtID());
+	    }
+		
 		model.addAttribute("WtList", WtList);
 		return "walkThrough.jsp";
 	}
@@ -39,18 +45,21 @@ public class WtpostController {
 	public String getWtpostById(int wtID, Model model) {
 		Wtpost post = wt.getWtpostById(wtID);
 		model.addAttribute("post", post);
-		
-		// 이전 게시물과 다음 게시물을 가져오기 위해 ID를 기준으로 조회한다.
-        Wtpost prevPost = wt.getPrevWtpost(wtID); // 이전 게시물 조회
-        Wtpost nextPost = wt.getNextWtpost(wtID); // 다음 게시물 조회
 
-        // 이전 게시물과 다음 게시물이 존재할 경우 모델에 추가한다.
-        if (prevPost != null) {
-            model.addAttribute("prevPost", prevPost);
-        }
-        if (nextPost != null) {
-            model.addAttribute("nextPost", nextPost);
-        }
+		// 조회수 업데이트
+		wt.updateWtpostViews(wtID);
+
+		// 이전 게시물과 다음 게시물을 가져오기 위해 ID를 기준으로 조회한다.
+		Wtpost prevPost = wt.getPrevWtpost(wtID); // 이전 게시물 조회
+		Wtpost nextPost = wt.getNextWtpost(wtID); // 다음 게시물 조회
+
+		// 이전 게시물과 다음 게시물이 존재할 경우 모델에 추가한다.
+		if (prevPost != null) {
+			model.addAttribute("prevPost", prevPost);
+		}
+		if (nextPost != null) {
+			model.addAttribute("nextPost", nextPost);
+		}
 
 		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
@@ -75,5 +84,4 @@ public class WtpostController {
 	}
 
 	
-
 }

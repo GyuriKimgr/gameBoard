@@ -11,6 +11,7 @@
 		<result property="userID" column="userID" />
 		<result property="wtDate" column="wtDate" />
 		<result property="wtContent" column="wtContent" />
+
 	</resultMap>
 
 
@@ -93,12 +94,18 @@
         ]]>
 	</select>
 
-	<!-- 조회수 업데이트 -->
-	<update id="updateViewCount">
+	<update id="updateWtpostViews">
     <![CDATA[
         UPDATE WT_BOARD_POST
-        SET viewCount = viewCount + 1
+        SET wtViews = wtViews + 1
         WHERE wtID = #{wtID}
     ]]>
-	</update>
+</update>
+
+
+
+
+
+
+
 </mapper>

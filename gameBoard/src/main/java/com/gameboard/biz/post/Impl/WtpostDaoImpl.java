@@ -67,9 +67,10 @@ public class WtpostDaoImpl implements WtpostDao {
 	public Wtpost getPrevWtpost(int wtID) {
 		return mybatis.selectOne("WtpostDao.getPrevWtpost", wtID);
 	}
-	
-	
 
-	
+	@Override
+	public void updateWtpostViews(int wtID) {
+		mybatis.update("WtpostDao.updateWtpostViews", wtID);
+	}
 
 }

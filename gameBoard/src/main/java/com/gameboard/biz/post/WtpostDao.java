@@ -12,6 +12,7 @@ public interface WtpostDao {
 	public void updateWtpost(Wtpost vo);
 	public Wtpost getNextWtpost(int wtID);
 	public Wtpost getPrevWtpost(int wtID);
+	public void updateWtpostViews(int wtID);
 	
 
 	

@@ -26,6 +26,8 @@
 					<dt class="tit_info">작성일</dt>
 					<dd class="cont_info">${post.getWtDate()}</dd>
 					<dt class="tit_info">조회수</dt>
+					<dd class="cont_info">${post.wtViews}</dd>
+
 					<%-- <dt class="cont_info">${post.getsearchCondition()}</dt> --%>
 				</dl>
 			</div>
