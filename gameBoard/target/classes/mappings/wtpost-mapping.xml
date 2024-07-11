@@ -25,7 +25,7 @@
 			UPDATE WT_BOARD_POST 
 			SET wtTitle = #{wtTitle},
 				userID = #{userID},
-				wtDate = #{wtDate},
+				wtDate = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI'),
 				wtContent = #{wtContent}
 			WHERE wtID = #{wtID}
 		]]>
@@ -64,4 +64,14 @@
 			ORDER BY wtID DESC
 		]]>
 	</select>
+	
+	<select id="searchWtpost" resultType="com.gameboard.biz.post.Wtpost">
+		<![CDATA[
+		    SELECT * FROM WT_BOARD_POST
+		    WHERE
+		    	wtTitle LIKE '%' || #{searchKeyword} || '%'
+            	OR userID LIKE '%' || #{searchKeyword} || '%'
+		]]>
+	</select>
+
 </mapper>

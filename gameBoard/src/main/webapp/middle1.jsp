@@ -81,17 +81,15 @@
 		</div> 
 		
 <!-- 로그인 폼 -->
-<li>
+		<li>
             <div class="login">
                <h2>Simple Login</h2>
                <form method="post" action="서버의url" id="login-form">
                   <input type="text" name="userName" placeholder="ID"> <input
                      type="password" name="userPassword" placeholder="Password">
-
                   <label for="remember-check"> <input type="checkbox"
                      id="remember-check">아이디 저장하기
                   </label>
-                  
                   <ul class="find_wrap" id="find_wrap_KR" style="display: block;">
                                 <li><a id="idinquiry" href="./search_id1.jsp" class="find_text">아이디 찾기</a> </li>
                                 <li><a id="pwinquiry" href="./search_pw1.jsp" class="find_text">비밀번호 찾기</a> </li>
@@ -100,9 +98,7 @@
                   <input type="submit" value="Login">
                </form>
                </div>
-
          </li>
-
       </ul>
    </div>
 </div>

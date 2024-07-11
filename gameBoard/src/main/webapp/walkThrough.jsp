@@ -41,7 +41,7 @@
                         <c:forEach var="WtpostList" items="${WtList}">
                             <tr class="wtr">
                                 <td class="wtd">${WtpostList.wtID}</td>
-                                <td class="wtd">${WtpostList.wtTitle}</a></td>
+                                <td class="wtd"><a href="getWtpost.do?wtID=${WtpostList.wtID}">${WtpostList.wtTitle}</td>
                                 <td class="wtd">${WtpostList.userID}</td>
                                 <td class="wtd">${WtpostList.wtDate}</td>
                                 <td class="wtd">&nbsp;</td>
@@ -55,6 +55,28 @@
     <div class="frame">
         <a href="getWtID.do" class="custom-btn btn"><span>게시물 작성</span></a>
     </div>
+    <div id="search">
+		<input type="text" id="search-box" placeholder="검색...">
+		<button type="button" id="search-button">검색</button>
+	</div>
+   
+    
+<script>
+	//게시판 검색
+	document.getElementById("search-button").addEventListener("click", function() {
+    // 검색어 입력란에서 검색어 가져오기
+    var searchKeyword = document.getElementById("search-box").value.trim();
+    
+    // 검색어가 비어있지 않을 때만 요청 보내기
+    if (searchKeyword !== "") {
+        // URL 생성: searchFpost.do?searchCondition=title&searchKeyword={검색어}
+        let url = "searchWtpost.do?searchCondition=title&searchKeyword=" + encodeURIComponent(searchKeyword);
+    	
+        // GET 요청 보내기
+        window.location.href = url;
+    }
+});
+</script>
 </section>
 
 <c:import url="bottom.jsp" />

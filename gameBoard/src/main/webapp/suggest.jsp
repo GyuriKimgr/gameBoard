@@ -4,7 +4,7 @@
 
 <c:import url="top.jsp" />
 
-<title>공략게시판</title>
+<title>게임추천</title>
 
 <link rel="stylesheet" href="./resources/css/board.css" type="text/css">
 <section>
@@ -24,7 +24,7 @@
         </thead>
         <tbody class = "wtbody">
             <c:choose>
-                <c:when test="${empty posts}">
+                <c:when test="${empty SgList}">
                     <!-- 빈 틀이 세로로 쭉 10개 -->
                     <c:forEach var="emptyRow" begin="1" end="10">
                         <tr class = "wtr">
@@ -38,13 +38,13 @@
                 </c:when>
                 <c:otherwise>
                     <!-- 실제 데이터 표시 -->
-                    <c:forEach var="post" items="${posts}">
+                    <c:forEach var="SgpostList" items="${SgList}">
                         <tr class = "wtr">
-                            <td class = "wtd">${post.id}</td>
-                            <td class = "wtd"><a href="view.jsp?id=${post.id}">${post.title}</a></td>
-                            <td class = "wtd">${post.author}</td>
-                            <td class = "wtd">${post.date}</td>
-                            <td class = "wtd">${post.views}</td>
+                            <td class = "wtd">${SgpostList.sgID}</td>
+                            <td class = "wtd"><a href="getSgpost.do?sgID=${SgpostList.sgID}">${SgpostList.sgTitle}</td>
+                            <td class = "wtd">${SgpostList.userID}</td>
+                            <td class = "wtd">${SgpostList.sgDate}</td>
+                            <td class="wtd">&nbsp;</td>
                         </tr>
                     </c:forEach>
                 </c:otherwise>
@@ -53,8 +53,29 @@
     </table>
     </div>
     <div class="frame">
-     	<button class="custom-btn btn"><span>게시물 작성</span></button>
+    	<a href="getSgID.do"  class="custom-btn btn"><span>게시물 작성</span></a>
     </div>
+    <div id="search">
+		<input type="text" id="search-box" placeholder="검색...">
+		<button type="button" id="search-button">검색</button>
+	</div>
+    
+<script>
+	//게시판 검색
+	document.getElementById("search-button").addEventListener("click", function() {
+    // 검색어 입력란에서 검색어 가져오기
+    var searchKeyword = document.getElementById("search-box").value.trim();
+    
+    // 검색어가 비어있지 않을 때만 요청 보내기
+    if (searchKeyword !== "") {
+        // URL 생성: searchFpost.do?searchCondition=title&searchKeyword={검색어}
+        let url = "searchSgpost.do?searchCondition=title&searchKeyword=" + encodeURIComponent(searchKeyword);
+
+        // GET 요청 보내기
+        window.location.href = url;
+    }
+});
+</script>
 </section>
 
 <c:import url="bottom.jsp" />
