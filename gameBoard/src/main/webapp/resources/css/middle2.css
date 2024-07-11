@@ -1,0 +1,149 @@
+
+.box {
+    margin-top: 80px;
+}
+
+.middle2 {
+    overflow: hidden;
+     max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 54px;
+}
+
+ul {
+   list-style-type: none;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+.middle2 li {
+    float: left;
+    width: 30%;
+}
+.middle2 li + li {
+    margin-left: 3%;
+}
+
+
+.middle2 .link_card {
+    display: block;
+    overflow: hidden;
+    height: 46px;
+    text-decoration: none;
+}
+
+.middle2 .title2 {
+    float: left;
+    font-weight: normal;
+    line-height: 30px;
+    font-size: 23px;
+    font-family: '¸¼Àº °íµñ', 'Malgun Gothic', 'µ¸¿ò', dotum, sans-serif;
+}
+    
+.middle2 .link_card .img_comm2 {
+    float: right;
+    width: 18px;
+    height: 18px;
+    margin: 9px 1px 0 0;
+    background-position: -140px -90px;
+}
+
+.img_comm2 {
+    background-image: url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_comm2_210827.png);
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+  
+}
+
+
+.middle2 .news2 {
+    background-color: #fff;
+}
+
+
+
+.middle2 .gamenews2 {
+    display: block;
+}
+.middle2 .gamenews_2 {
+    position: relative;
+    overflow: hidden;
+    padding-top: 57.293%;
+    margin-bottom: 23px;
+}
+
+.middle2 .gamenews2:hover .news2_img {
+   transform: scale(1.1);
+}
+   
+   
+.middle2 .gamenews_2 .news2_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transition: transform .5s;
+}
+.news2_img {
+    width: 100%;
+    vertical-align: top;
+}
+
+
+.middle2 .tit3 {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    padding: 0 60px 0 20px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #0e0e0e;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    box-sizing: border-box;
+    transition: text-decoration 0.3s ease;
+}
+
+.middle2 .tit3:hover {
+    text-decoration: underline; /* Ä¿¼­¸¦ ¿Ã·ÈÀ» ¶§ ¹ØÁÙ Ãß°¡ */
+}
+
+.middle2 .tit4 {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    position: relative;
+    height: 75px;
+    padding: 8px 20px 28px;
+    font-size: 14px;
+    line-height: 25px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    word-wrap: break-word;
+}
+.middle2 .tit4:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background-color: #fff;
+    content: '';
+}
+.list_new .group_tit {
+    height: 116px;
+}
+.middle2 .group_tit .gamenews2 {
+    padding: 20px 0 16px;
+    border-top: 1px solid #f7f7f7;
+}
