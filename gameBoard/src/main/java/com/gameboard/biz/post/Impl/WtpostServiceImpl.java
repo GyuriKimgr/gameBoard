@@ -74,5 +74,6 @@ public class WtpostServiceImpl implements WtpostService {
 		wtpostDao.updateWtpostViews(wtID);
 
 	}
+	
 
 }

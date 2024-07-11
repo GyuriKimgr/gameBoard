@@ -27,6 +27,10 @@
 					<dd class="cont_info">${post.getWtDate()}</dd>
 					<dt class="tit_info">조회수</dt>
 					<dd class="cont_info">${post.wtViews}</dd>
+					<dt class="screen_out">추천수</dt>
+					<dd class="emph_g2">
+					<span class="img_board ico_recomm"></span> 1
+					</dd>
 
 					<%-- <dt class="cont_info">${post.getsearchCondition()}</dt> --%>
 				</dl>
@@ -37,7 +41,12 @@
 			<div class="content">
 				<p>${post.getWtContent()}</p>
 			</div>
+
+			<a href="" class="btn_recomm"> <span class="img_board"></span>추천<span
+				id="gaia_recommendCount" class="num_recomm">1</span>
+			</a>
 		</div>
+
 
 
 		<div class="view_btn">

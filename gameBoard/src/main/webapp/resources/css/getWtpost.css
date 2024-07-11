@@ -125,6 +125,25 @@ dd {
     margin-left: 15px;
 }
 
+.view_head .date_info .emph_g2 {
+    font-weight: bold;
+}
+.view_head .info_head dd {
+    display: inline;
+}
+.emph_g2 {
+    color: #f19a09;
+}
+.view_head .date_info .ico_recomm {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 4px 3px 0 14px;
+    background-position: -55px -80px;
+}
+.img_board {
+    background-image: url(//t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_board_200821.png);
+}
 
 .view_cont {
     overflow: hidden;
@@ -151,6 +170,44 @@ dd {
 .content > :first-child {
     margin-top: 0 !important;
 }
+
+
+<!-- 추천 -->
+.view_cont .btn_recomm {
+    display: block;
+    width: 98px;
+    height: 98px;
+    margin: 50px auto 10px;
+    border: 1px solid #dfdfdf;
+    font-weight: bold;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+.view_cont .btn_recomm .img_board {
+    width: 35px;
+    height: 34px;
+    margin: 17px auto 6px;
+    background-position: 0 -105px;
+}
+.img_board {
+    background-image: url(//t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_board_200821.png);
+}
+
+.img_board {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    background: no-repeat;
+}
+
+
+
 
 <!--수정, 삭제, 윗글, 아랫글, 목록 -->
 
@@ -268,5 +325,9 @@ a {
     margin-top: 22px;
     background-position: -45px -40px;
 }
+
+
+
+
 
 
