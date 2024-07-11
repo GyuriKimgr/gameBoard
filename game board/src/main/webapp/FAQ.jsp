@@ -41,7 +41,7 @@
                     <c:forEach var="FpostList" items="${FList}">
                         <tr class = "wtr">
                             <td class = "wtd">${FpostList.fID}</td>
-                            <td class = "wtd"><a href="getFpost.do?fID=${fpostList.fID}">${FpostList.fTitle}</td>
+                            <td class = "wtd"><a href="getFpost.do?fID=${FpostList.fID}">${FpostList.fTitle}</td>
                             <td class = "wtd">${FpostList.userID}</td>
                             <td class = "wtd">${FpostList.fDate}</td>
                             <td class="wtd">&nbsp;</td>

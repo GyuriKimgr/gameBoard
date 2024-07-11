@@ -11,10 +11,10 @@
 	<h3 class="tit_atc">FAQ</h3>
 	<div class="board_comm">
 		<div class="view_head">
-			<h4 class="tit_view">${post.getFTitle()}</h4>
+			<h4 class="tit_view">${post.getfTitle()}</h4>
 			<div class="info_head">
 				<dl class="writer_info">
-					<dt class="tit_info">작성자</dt>
+					<dt class="tit_info">글쓴이</dt>
 					<dd class="cont_info">
 						<a href="#" class="link_writer"> <span
 							class="ico_board_tier platinum3"> <span class="screen_out">플레티넘</span>
@@ -24,7 +24,7 @@
 				</dl>
 				<dl class="date_info">
 					<dt class="tit_info">작성일</dt>
-					<dd class="cont_info">${post.getFDate()}</dd>
+					<dd class="cont_info">${post.getfDate()}</dd>
 					<dt class="tit_info">조회수</dt>
 				</dl>
 			</div>
@@ -32,7 +32,7 @@
 		</div>
 		<div class="view_cont">
 			<div class="content">
-				<p>${post.getFContent()}</p>
+				<p>${post.getfContent()}</p>
 			</div>
 		</div>
 

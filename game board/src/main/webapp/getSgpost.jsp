@@ -14,7 +14,7 @@
 			<h4 class="tit_view">${post.getSgTitle()}</h4>
 			<div class="info_head">
 				<dl class="writer_info">
-					<dt class="tit_info">작성자</dt>
+					<dt class="tit_info">글쓴이</dt>
 					<dd class="cont_info">
 						<a href="#" class="link_writer"> <span
 							class="ico_board_tier platinum3"> <span class="screen_out">플레티넘</span>
@@ -48,7 +48,7 @@
 
 			</div>
 			<div class="wrap_page">
-				<a href="walkThrough.do" class="btn_list"><span
+				<a href="suggest.do" class="btn_list"><span
 					class="img_board">목록</span></a> <a href="nextArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=${post.sgID}&amp;bbsId=PC002"
                     class="btn_next"><span class="img_board">윗글</span></a>
                 <a href="prevArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=${post.sgID}&amp;bbsId=PC002"
