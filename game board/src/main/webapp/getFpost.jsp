@@ -57,7 +57,7 @@
 
 
 		<script>
-		function confirmDelete(fID) 
+		function confirmDelete(fID) {
 			if (confirm("정말로 삭제 하시겠습니까?")) {
        	 	window.location.href = 'deleteFpost.do?fID=' + fID;
     		}
