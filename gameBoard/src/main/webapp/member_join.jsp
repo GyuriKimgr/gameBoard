@@ -7,8 +7,8 @@
     function checkIdDuplicate() {
         let memberId = $('#member_id').val();
         $.ajax({
-            url: "/checkIdDuplicate",
-            type: 'GET',
+            url: "checkIdDuplicate.do",
+            type : 'GET',
             data: {"memberId": memberId},
             success: function(data) {
                 if (data === "duplicate") {
@@ -24,12 +24,6 @@
             }
         });
     }
-
-    $(document).ready(function() {
-        $('#check_button').on('click', function() {
-            checkIdDuplicate();
-        });
-    });
 </script>
 <div class="container">
     <div class="inner">
@@ -56,7 +50,7 @@
             	<!-- 아이디 -->   
             	<div class="form_item_user" id="divId">
             	<input type="text" id="member_id" name="memberId" placeholder="아이디" class="input" value="" maxlength="20" autocapitalize="off"/>
-            	<button type="button" id="check_button" name = "memberId_check" onclick = "checkIdDuplicate();"><h4>중복 확인</h4></button>
+            	<button type="button" id="memberId_check" name = "memberId_check" onclick = "checkIdDuplicate();"><h4>중복 확인</h4></button>
             	</div>   
                          
                 <!-- 비밀번호 --> 

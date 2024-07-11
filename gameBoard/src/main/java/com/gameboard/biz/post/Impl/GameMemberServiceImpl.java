@@ -30,8 +30,7 @@ public class GameMemberServiceImpl implements GameMemberService{
 
 	@Override
 	public int checkIdDuplicate(String memberId) {
-		int result = gameMemberDao.checkIdDuplicate(memberId);
-		return result;
+		return gameMemberDao.checkIdDuplicate(memberId);
 	}
 	
 }
