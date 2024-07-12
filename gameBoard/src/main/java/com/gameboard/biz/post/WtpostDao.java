@@ -11,4 +11,7 @@ public interface WtpostDao {
 	public Wtpost getWtpostById(int wtID);
 	public void deleteWtpost(int wtID);
 	public void updateWtpost(Wtpost vo);
+	public Wtpost getNextWtpost(int wtID);
+	public Wtpost getPrevWtpost(int wtID);
+	public void updateWtpostViews(int wtID);
 }
