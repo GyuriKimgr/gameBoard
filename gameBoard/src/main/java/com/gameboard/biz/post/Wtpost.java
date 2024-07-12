@@ -1,20 +1,21 @@
 package com.gameboard.biz.post;
 
-public class Wtpost{
-    private int wtID;
-    private String wtTitle;
-    private String userID;
-    private String wtDate;
-    private String wtContent;
-    private String searchCondition;
+public class Wtpost {
+	private int wtID;
+	private String wtTitle;
+	private String userID;
+	private String wtDate;
+	private String wtContent;
+	private String searchCondition;
 	private String searchKeyword;
-    
-    public Wtpost() {}
+	private int wtViews;
 
-	public Wtpost(int wtID, String wtTitle, 
-			String userID, String wtDate, 
-			String wtContent,
-			String searchCondition, String searchKeyword) {
+
+	public Wtpost() {
+	}
+
+	public Wtpost(int wtID, String wtTitle, String userID, String wtDate, String wtContent, String searchCondition,
+			String searchKeyword, int wtViews) {
 		super();
 		this.wtID = wtID;
 		this.wtTitle = wtTitle;
@@ -23,6 +24,9 @@ public class Wtpost{
 		this.wtContent = wtContent;
 		this.searchCondition = searchCondition;
 		this.searchKeyword = searchKeyword;
+		this.wtViews = wtViews;
+		
+
 	}
 
 	public int getWtID() {
@@ -64,7 +68,7 @@ public class Wtpost{
 	public void setWtContent(String wtContent) {
 		this.wtContent = wtContent;
 	}
-	
+
 	public String getSearchCondition() {
 		return searchCondition;
 	}
@@ -80,4 +84,14 @@ public class Wtpost{
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
 	}
+
+	public int getWtViews() {
+		return wtViews;
+	}
+
+	public void setWtViews(int wtViews) {
+		this.wtViews = wtViews;
+	}
+
+
 }

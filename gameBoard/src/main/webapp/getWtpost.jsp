@@ -27,6 +27,7 @@
 					<dt class="tit_info">작성일</dt>
 					<dd class="cont_info">${post.getWtDate()}</dd>
 					<dt class="tit_info">조회수</dt>
+					<dd class="cont_info">${post.wtViews}</dd>
 				</dl>
 			</div>
 		</div>
@@ -43,19 +44,25 @@
 					class="btn_board btn_board1 edit_btn">수정</a>
 				<button type="button" class="btn_board btn_board1 delete_btn"
 					onclick="confirmDelete(${post.wtID})">삭제</button>
-
-
 			</div>
+			
 			<div class="wrap_page">
 				<a href="walkThrough.do" class="btn_list"><span
-					class="img_board">목록</span></a> <a href="nextArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=${post.wtID}&amp;bbsId=PC002"
-                    class="btn_next"><span class="img_board">윗글</span></a>
-                <a href="prevArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=${post.wtID}&amp;bbsId=PC002"
-                    class="btn_prev"><span class="img_board">아랫글</span></a>
+					class="img_board">목록</span></a>
+
+				<%-- 다음 게시물 링크 --%>
+				<c:if test="${not empty nextPost}">
+					<a href="getWtpost.do?wtID=${nextPost.wtID}" class="btn_next"><span
+						class="img_board">윗글</span></a>
+				</c:if>
+
+				<%-- 이전 게시물 링크 --%>
+				<c:if test="${not empty prevPost}">
+					<a href="getWtpost.do?wtID=${prevPost.wtID}" class="btn_prev"><span
+						class="img_board">아랫글</span></a>
+				</c:if>
 			</div>
-		</div>
-
-
+			</div>
 		<script>
 		function confirmDelete(wtID) {
     		if (confirm("정말로 삭제 하시겠습니까?")) {

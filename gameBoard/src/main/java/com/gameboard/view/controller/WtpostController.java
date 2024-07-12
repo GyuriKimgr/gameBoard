@@ -45,11 +45,31 @@ public class WtpostController{
 		return "searchWt.jsp";
 	}
 	
-	// 수정 + 삭제 
+	
 	@RequestMapping(value = "getWtpost.do")
 	public String getWtpostById(int wtID, Model model) {
+		// 조회수 업데이트
+		wt.updateWtpostViews(wtID);
+
 		Wtpost post = wt.getWtpostById(wtID);
 		model.addAttribute("post", post);
+
+		// 이전 게시물과 다음 게시물을 가져오기 위해 ID를 기준으로 조회한다.
+		Wtpost prevPost = wt.getPrevWtpost(wtID); // 이전 게시물 조회
+		Wtpost nextPost = wt.getNextWtpost(wtID); // 다음 게시물 조회
+
+		// 이전 게시물과 다음 게시물이 존재할 경우 모델에 추가한다.
+		if (prevPost != null) {
+			model.addAttribute("prevPost", prevPost);
+		}
+		if (nextPost != null) {
+			model.addAttribute("nextPost", nextPost);
+		}
+
+		// 최신 목록을 가져와서 모델에 추가 (조회수가 업데이트된 상태)
+		List<Wtpost> WtList = wt.getWtpostList(null);
+		model.addAttribute("WtList", WtList);
+
 		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
 	

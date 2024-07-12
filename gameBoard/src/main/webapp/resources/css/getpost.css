@@ -26,6 +26,7 @@ body {
     color: #333;
     margin : 0;
 }
+
 .board_comm {
 	width: 800px;
     border-top: 2px solid #000;
@@ -67,12 +68,9 @@ body {
     align-items: center;
 }
 
-.info_head dt {
-    margin-right: 10px; /* 각 dt 요소 사이의 간격을 설정합니다. */
-}
 dd {
     display: block;
-    margin-inline-start: 10px;
+    margin-inline-start: 5px;
     unicode-bidi: isolate;
 }
 
@@ -264,5 +262,3 @@ a {
     margin-top: 22px;
     background-position: -45px -40px;
 }
-
-

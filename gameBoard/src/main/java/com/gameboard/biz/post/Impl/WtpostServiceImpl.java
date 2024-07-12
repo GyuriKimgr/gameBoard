@@ -57,4 +57,19 @@ public class WtpostServiceImpl implements WtpostService{
 	public void updateWtpost(Wtpost vo) {
 		wtpostDao.updateWtpost(vo);
 	}
+	@Override
+	public Wtpost getNextWtpost(int wtID) {
+		return wtpostDao.getNextWtpost(wtID);
+	}
+
+	@Override
+	public Wtpost getPrevWtpost(int wtID) {
+		return wtpostDao.getPrevWtpost(wtID);
+	}
+
+	@Override
+	public void updateWtpostViews(int wtID) {
+		wtpostDao.updateWtpostViews(wtID);
+
+	}
 }

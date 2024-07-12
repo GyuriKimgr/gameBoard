@@ -29,6 +29,13 @@
     margin-bottom : 30px;
     background-color: #b9b9b9; 
 }
+
+.wtd a:link,
+.wtd a:visited {
+    color: inherit; /* 부모 요소의 색상을 상속받도록 설정 */
+    text-decoration: none; /* 원래의 텍스트 장식을 유지 */
+}
+
 .wth, .wtd {
     padding: 10px;
     text-align: center;
