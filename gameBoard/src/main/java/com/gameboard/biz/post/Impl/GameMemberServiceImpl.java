@@ -1,5 +1,7 @@
 package com.gameboard.biz.post.Impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,6 @@ public class GameMemberServiceImpl implements GameMemberService{
 	@Override
 	public void insertGameMember(GameMember member) {
 		gameMemberDao.insertGameMember(member);
-		
 	}
 
 	@Override
@@ -34,4 +35,28 @@ public class GameMemberServiceImpl implements GameMemberService{
 		return result;
 	}
 	
+    @Override
+    public String findId_name(String memberName) {
+        String count = gameMemberDao.findId_name(memberName);
+        return count;
+    }
+	
+    @Override
+    public String findId_phone(String memberPhone) {
+        String count = gameMemberDao.findId_phone(memberPhone);
+        return count;
+    }
+	
+    @Override
+    public String findId_email(String memberEmail) {
+        String count = gameMemberDao.findId_email(memberEmail);
+        return count;
+    }
+    
+    @Override
+    public String findId_NameAndPhone(String memberName, String memberPhone) {
+        // 데이터베이스 매퍼를 통해 이름과 전화번호로 아이디 조회
+        return gameMemberDao.findId_NameAndPhone(memberName, memberPhone);
+    }
+
 }

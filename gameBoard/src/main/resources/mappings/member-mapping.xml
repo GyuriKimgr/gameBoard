@@ -46,4 +46,29 @@
         SELECT COUNT(*) FROM GAME_MEMBER WHERE member_id = #{memberId}
     ]]>
 	</select>
+	
+	<select	id = "findId_name" parameterType="string" resultType="int" >
+	<![CDATA[
+        SELECT COUNT(*) FROM GAME_MEMBER WHERE member_name = #{memberName}
+    ]]>
+	</select>
+	
+	<select	id = "findId_phone" parameterType="string" resultType="int" >
+	<![CDATA[
+        SELECT COUNT(*) FROM GAME_MEMBER WHERE member_phone = #{memberPhone}
+    ]]>
+	</select>
+	
+	<select	id = "findId_email" parameterType="string" resultType="int" >
+	<![CDATA[
+        SELECT COUNT(*) FROM GAME_MEMBER WHERE member_email = #{memberEmail}
+    ]]>
+	</select>
+	
+	<select id="findId_NameAndPhone" parameterType="hashMap" resultType="String">
+        SELECT member_id
+        FROM GAME_MEMBER
+        WHERE member_name = #{memberName} AND member_phone = #{memberPhone}
+    </select>
+	
 </mapper>

@@ -111,7 +111,7 @@
    					</div>
    				</div>
    			   	<div class = "button_container" ></div>
-   					<button type ="button" id="join_button" name="join_button" ><h2>가입하기</h2></button>
+   					<button type ="submit" id="join_button" name="join_button" ><h2>가입하기</h2></button>
    					<button type ="button" id= "return_button" name = "return_button"><h2>돌아가기</h2></button>
    				</div>
    			</form>  

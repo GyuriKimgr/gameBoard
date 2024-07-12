@@ -475,11 +475,8 @@ label {
 
 .button_container3 {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
-  width: 50vw;
   margin: 0 auto;
 }
 

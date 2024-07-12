@@ -44,4 +44,15 @@ public class GameMemberController{
 		gs.insertGameMember(gm);
 		return "redirect:index.jsp";
 	}
+	
+    // 아이디 찾기 실행
+	@RequestMapping(value="find_id_phone.do")
+	@ResponseBody
+	public String findId_name(@RequestParam("member_name") String memberName, 
+									@RequestParam("member_phone") String memberPhone) {
+		String id = gs.findId_NameAndPhone(memberName, memberPhone);
+		return id;
+	}
+
 }
+
