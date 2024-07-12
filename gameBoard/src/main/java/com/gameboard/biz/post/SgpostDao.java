@@ -11,4 +11,7 @@ public interface SgpostDao {
 	public Sgpost getSgpostById(int sgID);
 	public void deleteSgpost(int sgID);
 	public void updateSgpost(Sgpost vo);
+	public Sgpost getNextSgpost(int sgID);
+	public Sgpost getPrevSgpost(int sgID);
+	public void updateSgpostViews(int sgID);
 }

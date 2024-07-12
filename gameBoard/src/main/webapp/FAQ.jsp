@@ -44,7 +44,7 @@
                             <td class = "wtd"><a href="getFpost.do?fID=${FpostList.fID}">${FpostList.fTitle}</td>
                             <td class = "wtd">${FpostList.userID}</td>
                             <td class = "wtd">${FpostList.fDate}</td>
-                            <td class="wtd">&nbsp;</td>
+                            <td class="wtd">${FpostList.fViews}</td>
                         </tr>
                     </c:forEach>
                 </c:otherwise>

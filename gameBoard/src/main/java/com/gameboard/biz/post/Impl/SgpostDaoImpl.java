@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gameboard.biz.post.Sgpost;
 import com.gameboard.biz.post.SgpostDao;
+import com.gameboard.biz.post.Wtpost;
 
 @Repository
 public class SgpostDaoImpl implements SgpostDao{
@@ -59,6 +60,21 @@ public class SgpostDaoImpl implements SgpostDao{
 	@Override
 	public void updateSgpost(Sgpost vo) {
 		mybatis.delete("SgpostDao.updateSgpost", vo);
+	}
+	
+	@Override
+	public Sgpost getNextSgpost(int sgID) {
+		return mybatis.selectOne("SgpostDao.getNextSgpost", sgID);
+	}
+
+	@Override
+	public Sgpost getPrevSgpost(int sgID) {
+		return mybatis.selectOne("SgpostDao.getPrevSgpost", sgID);
+	}
+
+	@Override
+	public void updateSgpostViews(int sgID) {
+		mybatis.update("SgpostDao.updateSgpostViews", sgID);
 	}
 	
 }

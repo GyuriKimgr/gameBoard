@@ -27,6 +27,7 @@
 					<dt class="tit_info">작성일</dt>
 					<dd class="cont_info">${post.getmDate()}</dd>
 					<dt class="tit_info">조회수</dt>
+					<dd class="cont_info">${post.mViews}</dd>
 				</dl>
 			</div>
 

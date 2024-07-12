@@ -44,7 +44,7 @@
                             <td class = "wtd"><a href="getMod.do?mID=${ModList.mID}">${ModList.mTitle}</td>
                             <td class = "wtd">${ModList.userID}</td>
                             <td class = "wtd">${ModList.mDate}</td>
-                            <td class="wtd">&nbsp;</td>
+                            <td class="wtd">${ModpostList.mViews}</td>
                         </tr>
                     </c:forEach>
                 </c:otherwise>

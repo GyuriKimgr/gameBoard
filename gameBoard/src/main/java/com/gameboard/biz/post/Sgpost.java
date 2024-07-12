@@ -8,11 +8,12 @@ public class Sgpost {
     private String sgContent;
     private String searchCondition;
 	private String searchKeyword;
+	private int sgViews;
 	
 	public Sgpost() {}
 	
 	public Sgpost(int sgID, String sgTitle, String userID, String sgDate, String sgContent, String searchCondition,
-			String searchKeyword) {
+			String searchKeyword, int sgViews) {
 		super();
 		this.sgID = sgID;
 		this.sgTitle = sgTitle;
@@ -21,6 +22,7 @@ public class Sgpost {
 		this.sgContent = sgContent;
 		this.searchCondition = searchCondition;
 		this.searchKeyword = searchKeyword;
+		this.sgViews = sgViews;
 	}
 	
 	public int getSgID() {
@@ -64,5 +66,11 @@ public class Sgpost {
 	}
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
+	}
+	public int getSgViews() {
+		return sgViews;
+	}
+	public void setWtViews(int sgViews) {
+		this.sgViews = sgViews;
 	}
 }
