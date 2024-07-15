@@ -48,11 +48,39 @@ public class GameMemberController{
     // 아이디 찾기 실행
 	@RequestMapping(value="find_id_phone.do")
 	@ResponseBody
-	public String findId_name(@RequestParam("member_name") String memberName, 
-									@RequestParam("member_phone") String memberPhone) {
+	public String findId_phone(@RequestParam("member_name") String memberName, 
+								@RequestParam("member_phone") String memberPhone) {
 		String id = gs.findId_NameAndPhone(memberName, memberPhone);
 		return id;
 	}
+	
+	@RequestMapping(value="find_id_email.do")
+	@ResponseBody
+	public String findId_email(@RequestParam("member_name") String memberName, 
+							  @RequestParam("member_email") String memberEmail) {
+		String id = gs.findId_NameAndEmail(memberName, memberEmail);
+		return id;
+	}
+	
+	 // 비밀번호 찾기 실행
+		@RequestMapping(value="find_pw_phone.do")
+		@ResponseBody
+		public String findPw_phone(@RequestParam("member_id") String memberId,
+								   @RequestParam("member_name") String memberName, 
+								   @RequestParam("member_phone") String memberPhone) {
+			String pw = gs.findPw_NameAndPhone(memberId, memberName, memberPhone);
+			return pw;
+		}
+		
+		@RequestMapping(value="find_pw_email.do")
+		@ResponseBody
+		public String findPw_email(@RequestParam("member_id") String memberId,
+								   @RequestParam("member_name") String memberName, 
+								   @RequestParam("member_email") String memberEmail) {
+			String pw = gs.findPw_NameAndEmail(memberId, memberName, memberEmail);
+			return pw;
+		}
+
 
 }
 

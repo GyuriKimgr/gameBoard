@@ -38,7 +38,7 @@ public class GameMemberDaoImpl implements GameMemberDao {
         return count;
     }
     
-    
+ 
     @Override
     public String findId_name(String memberName) {
         String count = mybatis.selectOne("GameMemberDao.findId_name", memberName);
@@ -52,6 +52,12 @@ public class GameMemberDaoImpl implements GameMemberDao {
     }
     
     @Override
+    public String findId_email(String memberEmail) {
+        String count = mybatis.selectOne("GameMemberDao.findId_email", memberEmail);
+        return count;
+    }
+    
+    @Override
     public String findId_NameAndPhone(String memberName, String memberPhone) {
         Map<String, Object> params = new HashMap<>();
         params.put("memberName", memberName);
@@ -61,8 +67,31 @@ public class GameMemberDaoImpl implements GameMemberDao {
     }
     
     @Override
-    public String findId_email(String memberEmail) {
-        String count = mybatis.selectOne("GameMemberDao.findId_email", memberEmail);
-        return count;
+    public String findId_NameAndEmail(String memberName, String memberEmail) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("memberName", memberName);
+        params.put("memberEmail", memberEmail);
+        String id = mybatis.selectOne("GameMemberDao.findId_NameAndEmail", params);
+        return id; 
+    }
+    
+    @Override
+    public String findPw_NameAndPhone(String memberId, String memberName, String memberPhone) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("memberId", memberId);
+        params.put("memberName", memberName);
+        params.put("memberPhone", memberPhone);
+        String pw = mybatis.selectOne("GameMemberDao.findPw_NameAndPhone", params);
+        return pw; 
+    }
+    
+    @Override
+    public String findPw_NameAndEmail(String memberId, String memberName, String memberEmail) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("memberId", memberId);
+        params.put("memberName", memberName);
+        params.put("memberEmail", memberEmail);
+        String pw = mybatis.selectOne("GameMemberDao.findPw_NameAndEmail", params);
+        return pw; 
     }
 }

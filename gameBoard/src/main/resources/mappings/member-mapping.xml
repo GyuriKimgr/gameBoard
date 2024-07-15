@@ -71,4 +71,22 @@
         WHERE member_name = #{memberName} AND member_phone = #{memberPhone}
     </select>
 	
+		<select id="findId_NameAndEmail" parameterType="hashMap" resultType="String">
+        SELECT member_id
+        FROM GAME_MEMBER
+        WHERE member_name = #{memberName} AND member_email = #{memberEmail}
+    </select>
+    
+    <select id="findPw_NameAndPhone" parameterType="hashMap" resultType="String">
+        SELECT member_pw
+        FROM GAME_MEMBER
+        WHERE member_id = #{memberId} AND member_name = #{memberName} AND member_phone = #{memberPhone}
+    </select>
+    
+    	<select id="findPw_NameAndEmail" parameterType="hashMap" resultType="String">
+        SELECT member_pw
+        FROM GAME_MEMBER
+        WHERE member_id = #{memberId} AND member_name = #{memberName} AND member_email = #{memberEmail}
+    </select>
+	
 </mapper>

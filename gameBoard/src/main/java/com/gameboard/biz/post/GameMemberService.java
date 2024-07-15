@@ -13,4 +13,7 @@ public interface GameMemberService {
 	public String findId_phone(String memberPhone);
 	public String findId_email(String memberEmail);
 	public String findId_NameAndPhone(@Param("memberName") String memberName, @Param("memberPhone") String memberPhone);
+	public String findId_NameAndEmail(@Param("memberName") String memberName, @Param("memberEmail") String memberEmail);
+	public String findPw_NameAndPhone(@Param("memberId") String memberId, @Param("memberName") String memberName, @Param("memberPhone") String memberPhone);
+	public String findPw_NameAndEmail(@Param("memberId") String memberId, @Param("memberName") String memberName, @Param("memberEmail") String memberEmail);
 }

@@ -59,4 +59,21 @@ public class GameMemberServiceImpl implements GameMemberService{
         return gameMemberDao.findId_NameAndPhone(memberName, memberPhone);
     }
 
+    @Override
+    public String findId_NameAndEmail(String memberName, String memberEmail) {
+        // 데이터베이스 매퍼를 통해 이름과 이메일로 비밀번호 조회
+        return gameMemberDao.findId_NameAndEmail(memberName, memberEmail);
+    }
+    
+    @Override
+    public String findPw_NameAndPhone(String memberId, String memberName, String memberPhone) {
+        // 데이터베이스 매퍼를 통해 아이디와 이름, 전화번호로 비밀번호 조회
+        return gameMemberDao.findPw_NameAndPhone(memberId, memberName, memberPhone);
+    }
+
+    @Override
+    public String findPw_NameAndEmail(String memberId, String memberName, String memberEmail) {
+        // 데이터베이스 매퍼를 통해 아이디와 이름, 이메일로로 비밀번호 조회
+        return gameMemberDao.findPw_NameAndEmail(memberId, memberName, memberEmail);
+    }
 }
