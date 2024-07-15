@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+#theme {
+    display: flex;
+}
+
+#theme img {
+	cursor : pointer;
+}
+
+#darkModeButton {
+    cursor: pointer;
+}
+
+.darkMode  {
+    background-color: #f3f3f3;
+}
+
+.darkMode .rollingbanner {
+    background-color: #f3f3f3;
+}
+
+.darkMode .title {
+	color : black;
+}
+
+.darkMode .title2 {
+	color : black;
+}
+
+.darkMode .login {
+	background-color : #eadbf7;
+}

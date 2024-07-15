@@ -12,7 +12,6 @@
 		<result property="wtContent" column="wtContent"/>
 	</resultMap>
 	
-	
 	<insert id="insertWtpost">
 		<![CDATA[
 			INSERT INTO WT_BOARD_POST(wtID, wtTitle, userID, wtDate, wtContent)
@@ -25,7 +24,7 @@
 			UPDATE WT_BOARD_POST 
 			SET wtTitle = #{wtTitle},
 				userID = #{userID},
-				wtDate = #{wtDate},
+				wtDate = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI'),
 				wtContent = #{wtContent}
 			WHERE wtID = #{wtID}
 		]]>
@@ -70,4 +69,42 @@
     SELECT COUNT(*) FROM GAME_MEMBER WHERE member_id = #{memberId} AND member_name = #{memberName}
 	]]>
 </select>
+
+	<select id="searchWtpost" resultType="com.gameboard.biz.post.Wtpost">
+		<![CDATA[
+		    SELECT * FROM WT_BOARD_POST
+		    WHERE
+		    	wtTitle LIKE '%' || #{searchKeyword} || '%'
+            	OR userID LIKE '%' || #{searchKeyword} || '%'
+		]]>
+	</select>
+	<!-- 이전 게시물 조회 -->
+	<select id="getPrevWtpost"
+		resultType="com.gameboard.biz.post.Wtpost">
+        <![CDATA[
+            SELECT * FROM WT_BOARD_POST
+            WHERE wtID < #{wtID}
+            ORDER BY wtID DESC
+            FETCH FIRST 1 ROWS ONLY
+        ]]>
+	</select>
+
+	<!-- 다음 게시물 조회 -->
+	<select id="getNextWtpost"
+		resultType="com.gameboard.biz.post.Wtpost">
+        <![CDATA[
+            SELECT * FROM WT_BOARD_POST
+            WHERE wtID > #{wtID}
+            ORDER BY wtID ASC
+            FETCH FIRST 1 ROWS ONLY
+        ]]>
+	</select>
+
+	<update id="updateWtpostViews">
+    <![CDATA[
+        UPDATE WT_BOARD_POST
+        SET wtViews = wtViews + 1
+        WHERE wtID = #{wtID}
+    ]]>
+	</update>
 </mapper>

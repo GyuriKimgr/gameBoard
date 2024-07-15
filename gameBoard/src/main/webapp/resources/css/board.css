@@ -27,7 +27,15 @@
     border-collapse: collapse;
     margin-top: 20px;
     margin-bottom : 30px;
+    background-color: #b9b9b9; 
 }
+
+.wtd a:link,
+.wtd a:visited {
+    color: inherit; /* 부모 요소의 색상을 상속받도록 설정 */
+    text-decoration: none; /* 원래의 텍스트 장식을 유지 */
+}
+
 .wth, .wtd {
     padding: 10px;
     text-align: center;
@@ -147,4 +155,63 @@
 
 .custom-btn.btn span:hover:after {
     width: 100%;
+}
+
+
+#search {
+	display: flex;
+	justify-content: center;  
+    align-items: center;  
+    position: relative;
+}
+
+#search-box {
+	width: 300px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: white;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+#search-box:focus {
+    background-color: #c4c4c6;
+}
+
+#search-button {
+    padding: 7px 12px;
+    font-size: 16px;
+    white-space: nowrap;
+    background-color: #ca99e3;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #9363b1;
+}
+
+@media (max-width: 1200px) {
+    #search {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 900px) {
+    #search {
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    #search {
+        margin-left: 20px;
+    }
 }

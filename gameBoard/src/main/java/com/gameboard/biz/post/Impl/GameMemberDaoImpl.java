@@ -34,8 +34,7 @@ public class GameMemberDaoImpl implements GameMemberDao {
 
     @Override
     public int checkIdDuplicate(String memberId) {
-        int count = mybatis.selectOne("GameMemberDao.checkIdDuplicate", memberId);
-        return count;
+        return mybatis.selectOne("GameMemberDao.checkIdDuplicate", memberId);
     }
     
  

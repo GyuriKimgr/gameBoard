@@ -17,6 +17,9 @@
 
 	<mappers>
 		<mapper resource="mappings/member-mapping.xml" />
-		<mapper resource="mappings/wtpost-mapping.xml" />
+		<mapper resource="mappings/wtpost-mapping.xml"/>
+		<mapper resource="mappings/mod-mapping.xml"/>
+		<mapper resource="mappings/sgpost-mapping.xml"/>
+		<mapper resource="mappings/fpost-mapping.xml"/>
 	</mappers>
 </configuration>

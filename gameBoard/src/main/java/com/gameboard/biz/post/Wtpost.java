@@ -1,83 +1,97 @@
 package com.gameboard.biz.post;
 
-public class Wtpost{
-    private int wtID;
-    private String wtTitle;
-    private String userID;
-    private String wtDate;
-    private String wtContent;
-    private String searchCondition;
-	private String searchKeyword;
-    
-    public Wtpost() {}
+public class Wtpost {
+   private int wtID;
+   private String wtTitle;
+   private String userID;
+   private String wtDate;
+   private String wtContent;
+   private String searchCondition;
+   private String searchKeyword;
+   private int wtViews;
 
-	public Wtpost(int wtID, String wtTitle, 
-			String userID, String wtDate, 
-			String wtContent,
-			String searchCondition, String searchKeyword) {
-		super();
-		this.wtID = wtID;
-		this.wtTitle = wtTitle;
-		this.userID = userID;
-		this.wtDate = wtDate;
-		this.wtContent = wtContent;
-		this.searchCondition = searchCondition;
-		this.searchKeyword = searchKeyword;
-	}
 
-	public int getWtID() {
-		return wtID;
-	}
+   public Wtpost() {
+   }
 
-	public void setWtID(int wtID) {
-		this.wtID = wtID;
-	}
+   public Wtpost(int wtID, String wtTitle, String userID, String wtDate, String wtContent, String searchCondition,
+         String searchKeyword, int wtViews) {
+      super();
+      this.wtID = wtID;
+      this.wtTitle = wtTitle;
+      this.userID = userID;
+      this.wtDate = wtDate;
+      this.wtContent = wtContent;
+      this.searchCondition = searchCondition;
+      this.searchKeyword = searchKeyword;
+      this.wtViews = wtViews;
+      
 
-	public String getWtTitle() {
-		return wtTitle;
-	}
+   }
 
-	public void setWtTitle(String wtTitle) {
-		this.wtTitle = wtTitle;
-	}
+   public int getWtID() {
+      return wtID;
+   }
 
-	public String getUserID() {
-		return userID;
-	}
+   public void setWtID(int wtID) {
+      this.wtID = wtID;
+   }
 
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
+   public String getWtTitle() {
+      return wtTitle;
+   }
 
-	public String getWtDate() {
-		return wtDate;
-	}
+   public void setWtTitle(String wtTitle) {
+      this.wtTitle = wtTitle;
+   }
 
-	public void setWtDate(String wtDate) {
-		this.wtDate = wtDate;
-	}
+   public String getUserID() {
+      return userID;
+   }
 
-	public String getWtContent() {
-		return wtContent;
-	}
+   public void setUserID(String userID) {
+      this.userID = userID;
+   }
 
-	public void setWtContent(String wtContent) {
-		this.wtContent = wtContent;
-	}
-	
-	public String getSearchCondition() {
-		return searchCondition;
-	}
+   public String getWtDate() {
+      return wtDate;
+   }
 
-	public void setSearchCondition(String searchCondition) {
-		this.searchCondition = searchCondition;
-	}
+   public void setWtDate(String wtDate) {
+      this.wtDate = wtDate;
+   }
 
-	public String getSearchKeyword() {
-		return searchKeyword;
-	}
+   public String getWtContent() {
+      return wtContent;
+   }
 
-	public void setSearchKeyword(String searchKeyword) {
-		this.searchKeyword = searchKeyword;
-	}
+   public void setWtContent(String wtContent) {
+      this.wtContent = wtContent;
+   }
+
+   public String getSearchCondition() {
+      return searchCondition;
+   }
+
+   public void setSearchCondition(String searchCondition) {
+      this.searchCondition = searchCondition;
+   }
+
+   public String getSearchKeyword() {
+      return searchKeyword;
+   }
+
+   public void setSearchKeyword(String searchKeyword) {
+      this.searchKeyword = searchKeyword;
+   }
+
+   public int getWtViews() {
+      return wtViews;
+   }
+
+   public void setWtViews(int wtViews) {
+      this.wtViews = wtViews;
+   }
+
+
 }

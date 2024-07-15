@@ -40,4 +40,39 @@ public class WtpostDaoImpl implements WtpostDao{
 	public List<Wtpost> getWtpostList(Wtpost vo){
 		return mybatis.selectList("WtpostDao.getWtpostList", vo);
 	}
+
+	@Override
+	public List<Wtpost> searchWtpost(Wtpost vo) {
+		return mybatis.selectList("WtpostDao.searchWtpost", vo);
+	}
+
+	@Override
+	public Wtpost getWtpostById(int wtID) {
+		return mybatis.selectOne("WtpostDao.getWtpost", wtID);
+	}
+
+	@Override
+	public void deleteWtpost(int wtID) {
+		mybatis.delete("WtpostDao.deleteWtpost", wtID);
+	}
+
+	@Override
+	public void updateWtpost(Wtpost vo) {
+		mybatis.delete("WtpostDao.updateWtpost", vo);
+	}
+	
+	@Override
+	public Wtpost getNextWtpost(int wtID) {
+		return mybatis.selectOne("WtpostDao.getNextWtpost", wtID);
+	}
+
+	@Override
+	public Wtpost getPrevWtpost(int wtID) {
+		return mybatis.selectOne("WtpostDao.getPrevWtpost", wtID);
+	}
+
+	@Override
+	public void updateWtpostViews(int wtID) {
+		mybatis.update("WtpostDao.updateWtpostViews", wtID);
+	}
 }

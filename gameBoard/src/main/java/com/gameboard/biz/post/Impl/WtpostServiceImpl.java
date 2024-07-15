@@ -22,9 +22,9 @@ public class WtpostServiceImpl implements WtpostService{
 		vo.setWtID(wtID);
 		wtpostDao.insertWtpost(vo);
 	}
+	
 	@Override
 	public int getWtID() {
-		// TODO Auto-generated method stub
 		return wtpostDao.getWtID();
 	}
 	@Override
@@ -33,8 +33,43 @@ public class WtpostServiceImpl implements WtpostService{
 	}
 	@Override
 	public List<Wtpost> getWtpostList(Wtpost vo) {
-		// TODO Auto-generated method stub
 		return wtpostDao.getWtpostList(vo);
 	}
-	
+
+	@Override
+	public List<Wtpost> searchWtpost(Wtpost vo) {
+		String searchCondition = vo.getSearchCondition();
+		String searchKeyword = vo.getSearchKeyword();
+		return wtpostDao.searchWtpost(vo);
+	}
+
+	@Override
+	public Wtpost getWtpostById(int wtID) {
+		return wtpostDao.getWtpostById(wtID);
+	}
+
+	@Override
+	public void deleteWtpost(int wtID) {
+		wtpostDao.deleteWtpost(wtID);
+	}
+
+	@Override
+	public void updateWtpost(Wtpost vo) {
+		wtpostDao.updateWtpost(vo);
+	}
+	@Override
+	public Wtpost getNextWtpost(int wtID) {
+		return wtpostDao.getNextWtpost(wtID);
+	}
+
+	@Override
+	public Wtpost getPrevWtpost(int wtID) {
+		return wtpostDao.getPrevWtpost(wtID);
+	}
+
+	@Override
+	public void updateWtpostViews(int wtID) {
+		wtpostDao.updateWtpostViews(wtID);
+
+	}
 }

@@ -87,7 +87,7 @@ a {
     box-sizing: border-box;
 }
 
-#check_button {
+#memberId_check {
 	position: absolute;
 	bottom: 5px;
     right: 10px;
