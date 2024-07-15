@@ -47,8 +47,8 @@
 			</div>
 
 			<div class="wrap_page">
-				<a href="suggest.do" class="btn_list"><span class="img_board">목록</span></a>
-
+				<a href="suggest.do" class="btn_list"><span
+					class="img_board">목록</span></a>
 
 				<%-- 다음 게시물 링크 --%>
 				<c:if test="${not empty nextPost}">
@@ -63,8 +63,6 @@
 				</c:if>
 			</div>
 		</div>
-
-
 		<script>
 		function confirmDelete(sgID) {
     		if (confirm("정말로 삭제 하시겠습니까?")) {

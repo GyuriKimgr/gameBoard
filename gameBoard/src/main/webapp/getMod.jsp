@@ -45,19 +45,24 @@
 					class="btn_board btn_board1 edit_btn">수정</a>
 				<button type="button" class="btn_board btn_board1 delete_btn"
 					onclick="confirmDelete(${post.mID})">삭제</button>
-
-
 			</div>
-			<div class="wrap_page">
+				<div class="wrap_page">
 				<a href="Mod.do" class="btn_list"><span
-					class="img_board">목록</span></a> <a href="nextArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=${post.mID}&amp;bbsId=PC002"
-                    class="btn_next"><span class="img_board">윗글</span></a>
-                <a href="prevArticle?depth=764727516987391&amp;pageIndex=1&amp;articleId=${post.mID}&amp;bbsId=PC002"
-                    class="btn_prev"><span class="img_board">아랫글</span></a>
+					class="img_board">목록</span></a>
+
+				<%-- 다음 게시물 링크 --%>
+				<c:if test="${not empty nextPost}">
+					<a href="getMod.do?mID=${nextPost.mID}" class="btn_next"><span
+						class="img_board">윗글</span></a>
+				</c:if>
+
+				<%-- 이전 게시물 링크 --%>
+				<c:if test="${not empty prevPost}">
+					<a href="getMod.do?mID=${prevPost.mID}" class="btn_prev"><span
+						class="img_board">아랫글</span></a>
+				</c:if>
 			</div>
-		</div>
-
-
+			</div>
 		<script>
 		function confirmDelete(mID) {
     		if (confirm("정말로 삭제 하시겠습니까?")) {

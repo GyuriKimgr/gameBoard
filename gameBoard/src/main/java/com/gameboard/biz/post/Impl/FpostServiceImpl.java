@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.gameboard.biz.post.Fpost;
 import com.gameboard.biz.post.FpostDao;
 import com.gameboard.biz.post.FpostService;
+import com.gameboard.biz.post.Mod;
 
 @Service("FpostService")
 public class FpostServiceImpl implements FpostService {
@@ -58,5 +59,21 @@ public class FpostServiceImpl implements FpostService {
 	@Override
 	public void updateFpost(Fpost vo) {
 		fpostDao.updateFpost(vo);
+	}
+	
+	@Override
+	public Fpost getNextFpost(int fID) {
+		return fpostDao.getNextFpost(fID);
+	}
+
+	@Override
+	public Fpost getPrevFpost(int fID) {
+		return fpostDao.getPrevFpost(fID);
+	}
+
+	@Override
+	public void updateFpostViews(int fID) {
+		fpostDao.updateFpostViews(fID);
+
 	}
 }

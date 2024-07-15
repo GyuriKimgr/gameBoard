@@ -11,4 +11,8 @@ public interface ModService {
 	public Mod getModById(int mID);
 	public void deleteMod(int mID);
 	public void updateMod(Mod vo);
+	public Mod getNextMod(int mID);
+	public Mod getPrevMod(int mID);
+	public void updateModViews(int mID);
+
 }

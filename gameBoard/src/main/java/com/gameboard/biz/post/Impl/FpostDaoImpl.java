@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gameboard.biz.post.Fpost;
 import com.gameboard.biz.post.FpostDao;
+import com.gameboard.biz.post.Wtpost;
 
 @Repository
 public class FpostDaoImpl implements FpostDao {
@@ -60,5 +61,18 @@ public class FpostDaoImpl implements FpostDao {
 	public void updateFpost(Fpost vo) {
 		mybatis.delete("FpostDao.updateFpost", vo);
 	}
-	
+	@Override
+	public Fpost getNextFpost(int fID) {
+		return mybatis.selectOne("FpostDao.getNextFpost", fID);
+	}
+
+	@Override
+	public Fpost getPrevFpost(int fID) {
+		return mybatis.selectOne("FpostDao.getPrevFpost", fID);
+	}
+
+	@Override
+	public void updateFpostViews(int fID) {
+		mybatis.update("FpostDao.updateFpostViews", fID);
+	}
 }

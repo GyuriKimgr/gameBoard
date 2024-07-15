@@ -23,10 +23,12 @@
                 <li><a href="./Mod.do"><b>모드</b></a></li>
                 <li><a href="./suggest.do"><b>게임추천</b></a></li>
                 <li><a href="./FAQ.do"><b>FAQ</b></a></li>
-            </ul>
+            <li>
 	         <div id="theme">
 	            <img src="./resources/images/아이콘1.png" height="30px" id="darkModeButton">
 	         </div> 
+	         </li>
+	         </ul>
 	    </div>
    </div>
 

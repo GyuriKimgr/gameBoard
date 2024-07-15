@@ -11,11 +11,10 @@
         
          <div class="service_info">
          
-            <a class="link_info" href="/business/partnership">김규리</a>  <span class="txt_bar">|</span>
-            <a class="link_info kakao_bold" href="https://web-data-game.kakaocdn.net/real/www/html/terms/index.html?service=S0017&amp;type=T003&amp;country=kr&amp;lang=ko"
-               target="_blank">오승민</a>  <span class="txt_bar">|</span>
-            <a class="link_info" href="/policy/cctv">이미지</a>  <span class="txt_bar">|</span>
-            <a class="link_info" href="/policy/cyber">전시유</a> 
+            <a class="link_info">김규리</a>  <span class="txt_bar">|</span>
+            <a class="link_info">오승민</a>  <span class="txt_bar">|</span>
+            <a class="link_info">이미지</a>  <span class="txt_bar">|</span>
+            <a class="link_info">전시유</a> 
 
 
             <address class="kakao_light info_address">
