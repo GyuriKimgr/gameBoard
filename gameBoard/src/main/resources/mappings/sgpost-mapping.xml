@@ -73,5 +73,34 @@
             	OR userID LIKE '%' || #{searchKeyword} || '%'
 		]]>
 	</select>
+	<!-- 이전 게시물 조회 -->
+	<select id="getPrevSgpost"
+		resultType="com.gameboard.biz.post.Sgpost">
+        <![CDATA[
+            SELECT * FROM SG_BOARD_POST
+            WHERE sgID < #{sgID}
+            ORDER BY sgID DESC
+            FETCH FIRST 1 ROWS ONLY
+        ]]>
+	</select>
+
+	<!-- 다음 게시물 조회 -->
+	<select id="getNextSgpost"
+		resultType="com.gameboard.biz.post.Sgpost">
+        <![CDATA[
+            SELECT * FROM SG_BOARD_POST
+            WHERE sgID > #{sgID}
+            ORDER BY sgID ASC
+            FETCH FIRST 1 ROWS ONLY
+        ]]>
+	</select>
+
+	<update id="updateSgpostViews">
+    <![CDATA[
+        UPDATE SG_BOARD_POST
+        SET sgViews = sgViews + 1
+        WHERE sgID = #{sgID}
+    ]]>
+	</update>
 	
 </mapper>

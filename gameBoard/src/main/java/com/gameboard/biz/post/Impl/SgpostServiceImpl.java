@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.gameboard.biz.post.Sgpost;
 import com.gameboard.biz.post.SgpostDao;
 import com.gameboard.biz.post.SgpostService;
+import com.gameboard.biz.post.Wtpost;
 
 @Service("SgpostService")
 public class SgpostServiceImpl implements SgpostService {
@@ -59,4 +60,19 @@ public class SgpostServiceImpl implements SgpostService {
 	public void updateSgpost(Sgpost vo) {
 		sgpostDao.updateSgpost(vo);
 	}
+	@Override
+	public Sgpost getNextSgpost(int sgID) {
+		return sgpostDao.getNextSgpost(sgID);
+	}
+	@Override
+	public Sgpost getPrevSgpost(int sgID) {
+		return sgpostDao.getPrevSgpost(sgID);
+	}
+
+	@Override
+	public void updateSgpostViews(int sgID) {
+		sgpostDao.updateSgpostViews(sgID);
+
+	}
+
 }

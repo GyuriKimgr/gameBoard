@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gameboard.biz.post.Mod;
 import com.gameboard.biz.post.ModDao;
+import com.gameboard.biz.post.Wtpost;
 
 @Repository
 public class ModDaoImpl implements ModDao {
@@ -57,5 +58,19 @@ public class ModDaoImpl implements ModDao {
 	@Override
 	public void updateMod(Mod vo) {
 		mybatis.delete("ModDao.updateMod", vo);
+	}
+	@Override
+	public Mod getNextMod(int mID) {
+		return mybatis.selectOne("ModDao.getNextMod", mID);
+	}
+
+	@Override
+	public Mod getPrevMod(int mID) {
+		return mybatis.selectOne("ModDao.getPrevMod", mID);
+	}
+
+	@Override
+	public void updateModViews(int mID) {
+		mybatis.update("ModDao.updateModViews", mID);
 	}
 }

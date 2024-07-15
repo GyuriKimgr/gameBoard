@@ -8,11 +8,12 @@ public class Mod {
     private String mContent;
     private String searchCondition;
 	private String searchKeyword;
+	private int mViews;
 	
 	public Mod() {}
 	
 	public Mod(int mID, String mTitle, String userID, String mDate, String mContent, String searchCondition,
-			String searchKeyword) {
+			String searchKeyword, int mViews) {
 		super();
 		this.mID = mID;
 		this.mTitle = mTitle;
@@ -21,6 +22,7 @@ public class Mod {
 		this.mContent = mContent;
 		this.searchCondition = searchCondition;
 		this.searchKeyword = searchKeyword;
+		this.mViews = mViews;
 	}
 
 	public int getmID() {
@@ -64,6 +66,12 @@ public class Mod {
 	}
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
+	}
+	public int getmViews() {
+		return mViews;
+	}
+	public void setmViews(int mViews) {
+		this.mViews = mViews;
 	}
 	
 }

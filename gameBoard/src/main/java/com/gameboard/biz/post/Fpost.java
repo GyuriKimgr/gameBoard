@@ -2,17 +2,19 @@ package com.gameboard.biz.post;
 
 public class Fpost {
 	private int fID;
-    private String fTitle;
-    private String userID;
-    private String fDate;
-    private String fContent;
-    private String searchCondition;
+	private String fTitle;
+	private String userID;
+	private String fDate;
+	private String fContent;
+	private String searchCondition;
 	private String searchKeyword;
-	
-	public Fpost() {}
-	
+	private int fViews;
+
+	public Fpost() {
+	}
+
 	public Fpost(int fID, String fTitle, String userID, String fDate, String fContent, String searchCondition,
-			String searchKeyword) {
+			String searchKeyword, int fViews) {
 		super();
 		this.fID = fID;
 		this.fTitle = fTitle;
@@ -21,6 +23,7 @@ public class Fpost {
 		this.fContent = fContent;
 		this.searchCondition = searchCondition;
 		this.searchKeyword = searchKeyword;
+		this.fViews = fViews;
 	}
 
 	public int getfID() {
@@ -77,5 +80,13 @@ public class Fpost {
 
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
+	}
+
+	public int getfViews() {
+		return fViews;
+	}
+
+	public void setfViews(int fViews) {
+		this.fViews = fViews;
 	}
 }

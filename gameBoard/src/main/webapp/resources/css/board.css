@@ -178,7 +178,7 @@
 }
 
 #search-box:focus {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #c4c4c6;
 }
 
 #search-button {

@@ -11,4 +11,7 @@ public interface FpostDao {
 	public Fpost getFpostById(int fID);
 	public void deleteFpost(int fID);
 	public void updateFpost(Fpost vo);
+	public Fpost getNextFpost(int fID);
+	public Fpost getPrevFpost(int fID);
+	public void updateFpostViews(int fID);
 }

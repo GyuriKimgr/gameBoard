@@ -65,6 +65,7 @@ header {
     display: flex;
     justify-content: center;
     text-align: center;
+    padding-right: 15%;
 }
 
 #menu ul {

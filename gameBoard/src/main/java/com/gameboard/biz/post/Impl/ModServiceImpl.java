@@ -10,10 +10,10 @@ import com.gameboard.biz.post.ModDao;
 import com.gameboard.biz.post.ModService;
 
 @Service("ModService")
-public class ModServiceImpl implements ModService{
+public class ModServiceImpl implements ModService {
 	@Autowired
 	private ModDao modDao;
-	
+
 	@Override
 	public void insertMod(Mod vo) {
 		String date = modDao.getMDate();
@@ -58,6 +58,22 @@ public class ModServiceImpl implements ModService{
 	@Override
 	public void updateMod(Mod vo) {
 		modDao.updateMod(vo);
+	}
+
+	@Override
+	public Mod getNextMod(int mID) {
+		return modDao.getNextMod(mID);
+	}
+
+	@Override
+	public Mod getPrevMod(int mID) {
+		return modDao.getPrevMod(mID);
+	}
+
+	@Override
+	public void updateModViews(int mID) {
+		modDao.updateModViews(mID);
+
 	}
 
 }
