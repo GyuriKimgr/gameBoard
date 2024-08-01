@@ -2,6 +2,7 @@ package com.gameboard.biz.post.Impl;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -74,5 +75,12 @@ public class WtpostDaoImpl implements WtpostDao{
 	@Override
 	public void updateWtpostViews(int wtID) {
 		mybatis.update("WtpostDao.updateWtpostViews", wtID);
+	}
+	
+	@Override
+	public List<Wtpost> getRecentWtposts(int limit){
+		List<Wtpost> posts = mybatis.selectList("WtpostDao.getRecentWtposts", limit);
+		 System.out.println("Recent posts fetched: " + posts);
+		return mybatis.selectList("WtpostDao.getRecentWtposts", limit);
 	}
 }

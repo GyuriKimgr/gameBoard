@@ -72,4 +72,9 @@ public class WtpostServiceImpl implements WtpostService{
 		wtpostDao.updateWtpostViews(wtID);
 
 	}
+	
+	@Override
+	public List<Wtpost> getRecentWtPosts(int limit){
+		return wtpostDao.getRecentWtposts(limit);
+	}
 }

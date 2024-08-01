@@ -14,4 +14,5 @@ public interface WtpostService {
 	public Wtpost getNextWtpost(int wtID);
 	public Wtpost getPrevWtpost(int wtID);
 	public void updateWtpostViews(int wtID);
+	public List<Wtpost> getRecentWtPosts(int limit);
 }

@@ -14,4 +14,5 @@ public interface WtpostDao {
 	public Wtpost getNextWtpost(int wtID);
 	public Wtpost getPrevWtpost(int wtID);
 	public void updateWtpostViews(int wtID);
+	public List<Wtpost> getRecentWtposts(int limit);
 }

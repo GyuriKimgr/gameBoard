@@ -107,4 +107,16 @@
         WHERE wtID = #{wtID}
     ]]>
 	</update>
+	
+<select id="getRecentWtposts" parameterType="int" resultType="com.gameboard.biz.post.Wtpost">
+       <![CDATA[
+        SELECT wtTitle
+        FROM (
+            SELECT wtTitle,
+                   ROW_NUMBER() OVER (ORDER BY wtDate DESC) AS rn
+            FROM WT_BOARD_POST
+        )
+        WHERE rn <= #{limit}
+    ]]>
+</select>
 </mapper>

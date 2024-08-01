@@ -1,56 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <link rel="stylesheet" href="./resources/css/middle2.css" type="text/css">
 <link rel="stylesheet" href="./resources/css/top.css" type="text/css">
 
-
 <div class="box">
-<ul class="middle2">
-	<li>
-		<a href="#" class="link_card" >
-			<strong class="title2"> 공략게시판 </strong>
-			<span class="img_comm2">더보기</span>
-		</a>
-		<div class="news2">
-			<a name="news_2" class="gamenews2"
-				href="#"
-                target="_black" event-order="0"
-                event-description="PUBG x 뉴진스 캐릭터 콜라보 아이템 보상/환급 안내"
-                event="click_news" news_type="공지사항"
-                news_title="PUBG x 뉴진스 캐릭터 콜라보 아이템 보상/환급 안내">
-                
-                <div class="gamenews_2">
-					<img
-						src="https://t1.kakaocdn.net/gamepub/pub-img/pubg/news_banner/news_banner_1719412035292_75.jpg"
-						class="news2_img">
-				</div> 
-				<strong class="tit3"> 뉴진스 캐릭터 콜라보 아이템 보상/환급 안내 </strong> 
-                <span class="tit4">이번 공지를 통해서 인게임 변경 사항과 그에 따른 보상 및 환급 대응안에 대해 안내 드리고자 합니다. 
-                			기존 불운 방지 문구 이슈의 G-COIN 보상과 의상 착용 제한 이슈의 G-COIN 보상이 각각 책정되었으나, 
-                			플레이어 분들의 편의를 위해 동일 시스템을 통해 한번에 지급됩니다.</span>
-			</a>
-			<div class="group_tit">
-				<a name="news_2" class="gamenews2"
-					href="#"
-                    target="_black" event-order="1"
-                    event-description="불운 방지 문구 이슈 보상안 변경 및 신청 절차 안내"
-                    event="click_news" news_type="공지사항"
-                    news_title="불운 방지 문구 이슈 보상안 변경 및 신청 절차 안내"> 
-                    <strong class="tit3">불운 방지 문구 이슈 보상안 변경 및 신청 절차 안내</strong>
-				</a>
-				<a name="news_2" class="gamenews2"
-                    href="#"
-                    target="_black" event-order="6"
-                    event-description="[수정] PUBG X 뉴진스 최고급 꾸러미 불운 방지 문구 이슈 대응 안내"
-                    event="click_news" news_type="공지사항"
-                    news_title="[수정] PUBG X 뉴진스 최고급 꾸러미 불운 방지 문구 이슈 대응 안내"> 
-                    <strong class="tit3">[수정] PUBG X 뉴진스 최고급 꾸러미 불운 방지 문구 이슈 대응 안내</strong>
-                </a>
-			</div>
-		</div>
-	</li>
+    <ul class="middle2">
+                <li>
+                    <a class="link_card"> 
+                        <strong class="title2">공략게시판</strong>
+                        <span class="img_comm2">더보기</span>
+                    </a>
+                    <div class="news2">
+                        <a class="gamenews2" href="#">
+                            <div class="gamenews_2">
+                                <img src="./resources/images/로고3.png" class="news2_img" alt="Image">
+                            </div>
+                            <c:if test="${not empty recentWtPosts}">
+            				<c:forEach var="post" items="${recentWtPosts}">
+                            	<strong class="tit3">${post.wtTitle}</strong>
+                            </c:forEach>
+        					</c:if>
+                        </a>
+                    </div>
+                </li>
+
+        <c:if test="${empty recentWtPosts}">
+            <p>최근 게시물이 없습니다. 최근 게시물 개수: ${fn:length(recentWtPosts)}</p>
+        </c:if>
+    </ul>
+</div>
 	
-	<li>
+<!--<li>
 		<a href="#"  class="link_card"> 
 			<strong class="title2">모드게시판</strong>
 			<span class="img_comm2">더보기</span>
@@ -128,4 +110,4 @@
 		</div>
 	</li>
 </ul>
-</div>
+</div>-->
