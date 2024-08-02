@@ -110,9 +110,9 @@
 	
 <select id="getRecentWtposts" parameterType="int" resultType="com.gameboard.biz.post.Wtpost">
        <![CDATA[
-        SELECT wtTitle
+        SELECT *
         FROM (
-            SELECT wtTitle,
+            SELECT wtTitle, wtContent,
                    ROW_NUMBER() OVER (ORDER BY wtDate DESC) AS rn
             FROM WT_BOARD_POST
         )

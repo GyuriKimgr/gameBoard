@@ -14,4 +14,5 @@ public interface ModDao {
 	public Mod getNextMod(int mID);
 	public Mod getPrevMod(int mID);
 	public void updateModViews(int mID);
+	public List<Mod> getRecentMdposts(int limit);
 }

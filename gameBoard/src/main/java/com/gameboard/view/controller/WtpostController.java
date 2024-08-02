@@ -16,22 +16,7 @@ import com.gameboard.biz.post.WtpostService;
 public class WtpostController{
 	@Autowired
 	private WtpostService wt;
-	
-	@RequestMapping(value = "middle2.do")
-	public String getMiddle2Page(Model model) {
-		List<Wtpost> recentWtPosts = wt.getRecentWtPosts(5);
-        if (recentWtPosts != null) {
-            System.out.println("최근 게시물 개수: " + recentWtPosts.size());
-            for (Wtpost post : recentWtPosts) {
-                System.out.println("Post Title: " + post.getWtTitle());
-            }
-        } else {
-            System.out.println("최근 게시물이 null입니다.");
-        }
-        model.addAttribute("recentWtPosts", recentWtPosts);
-        return "middle2.jsp";
-	}
-	
+
 	@RequestMapping(value = "getWtID.do")
 	public String getWtID(Model model) {
 		model.addAttribute("wtID", wt.getWtID());

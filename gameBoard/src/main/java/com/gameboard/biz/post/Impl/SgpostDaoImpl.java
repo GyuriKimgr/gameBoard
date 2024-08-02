@@ -77,4 +77,11 @@ public class SgpostDaoImpl implements SgpostDao{
 		mybatis.update("SgpostDao.updateSgpostViews", sgID);
 	}
 	
+	@Override
+	public List<Sgpost> getRecentSgposts(int limit){
+		List<Sgpost> posts = mybatis.selectList("SgpostDao.getRecentSgposts", limit);
+		 System.out.println("Recent posts fetched: " + posts);
+		return mybatis.selectList("SgpostDao.getRecentSgposts", limit);
+	}
+	
 }

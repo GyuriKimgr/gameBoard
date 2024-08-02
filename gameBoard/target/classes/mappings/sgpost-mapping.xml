@@ -103,4 +103,16 @@
     ]]>
 	</update>
 	
+	<select id="getRecentSgposts" parameterType="int" resultType="com.gameboard.biz.post.Sgpost">
+       <![CDATA[
+        SELECT *
+        FROM (
+            SELECT sgTitle, sgContent,
+                   ROW_NUMBER() OVER (ORDER BY sgDate DESC) AS rn
+            FROM SG_BOARD_POST
+        )
+        WHERE rn <= #{limit}
+    ]]>
+</select>
+	
 </mapper>

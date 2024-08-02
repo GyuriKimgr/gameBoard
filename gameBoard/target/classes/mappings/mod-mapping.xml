@@ -103,4 +103,15 @@
     ]]>
 	</update>
 
+	<select id="getRecentMdposts" parameterType="int" resultType="com.gameboard.biz.post.Mod">
+       <![CDATA[
+        SELECT *
+        FROM (
+            SELECT mTitle, mContent,
+                   ROW_NUMBER() OVER (ORDER BY mDate DESC) AS rn
+            FROM MOD_BOARD
+        )
+        WHERE rn <= #{limit}
+    ]]>
+</select>
 </mapper>

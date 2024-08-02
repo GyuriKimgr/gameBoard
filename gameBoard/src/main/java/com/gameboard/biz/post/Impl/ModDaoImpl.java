@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gameboard.biz.post.Mod;
 import com.gameboard.biz.post.ModDao;
+import com.gameboard.biz.post.Sgpost;
 import com.gameboard.biz.post.Wtpost;
 
 @Repository
@@ -72,5 +73,11 @@ public class ModDaoImpl implements ModDao {
 	@Override
 	public void updateModViews(int mID) {
 		mybatis.update("ModDao.updateModViews", mID);
+	}
+	@Override
+	public List<Mod> getRecentMdposts(int limit){
+		List<Mod> posts = mybatis.selectList("ModDao.getRecentMdposts", limit);
+		 System.out.println("Recent posts fetched: " + posts);
+		return mybatis.selectList("ModDao.getRecentMdposts", limit);
 	}
 }

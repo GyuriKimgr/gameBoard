@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.gameboard.biz.post.Sgpost;
 import com.gameboard.biz.post.SgpostDao;
 import com.gameboard.biz.post.SgpostService;
-import com.gameboard.biz.post.Wtpost;
 
 @Service("SgpostService")
 public class SgpostServiceImpl implements SgpostService {
@@ -73,6 +72,10 @@ public class SgpostServiceImpl implements SgpostService {
 	public void updateSgpostViews(int sgID) {
 		sgpostDao.updateSgpostViews(sgID);
 
+	}
+	@Override
+	public List<Sgpost> getRecentSgPosts(int limit){
+		return sgpostDao.getRecentSgposts(limit);
 	}
 
 }
