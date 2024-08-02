@@ -111,18 +111,22 @@ ul {
     box-sizing: border-box;
     transition: text-decoration 0.3s ease;
 }
+.middle2 .tit3 a {
+	color: #0e0e0e;
+}
 
 .middle2 .tit3:hover {
     text-decoration: underline; /* 커서를 올렸을 때 밑줄 추가 */
 }
 
+
 .middle2 .tit4 {
-    display: block;
+		padding: 8px 20px 22px;
+	 display: block;
     display: -webkit-box;
     overflow: hidden;
     position: relative;
     height: 50px;
-    padding: 8px 20px 22px;
     font-size: 14px;
     line-height: 25px;
     -webkit-box-orient: vertical;

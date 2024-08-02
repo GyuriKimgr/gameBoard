@@ -24,7 +24,7 @@ ul .middle1 {
 
 .middle1 li {
    float: left;
-   width: 29%;
+   width: 30%;
 }
 
 .middle1 li+li {
@@ -262,83 +262,34 @@ body {
 <!--
 아이디찾기, 비밀번호찾기, 회원가입 -->
 
+body {
+	font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+
 .find_wrap {
-   display: block;
-   text-decoration: none;
-   margin-bottom: 0px;
-    padding-top: 0px;
     text-align: center;
-}
-}
-.wrap {
-    position: relative;
-    height: 100%;
-    letter-spacing: -.5px;
+    margin-top: 10px;
+	margin-bottom: 10px;
 }
 
-
-ul#find_wrap_KR.find_wrap {
-   
-   list-style: none;
-   position: relative;
-   margin-inline-start: 0px;
-   margin-inline-end: 0px;
-    margin-block-start: 10px;
-    margin-block-end: 9px;
-    padding-inline-start: 0px;
-   padding-inline-end: 0px;
-    width: 100%;
-    height: 20px;
-   font-family: -apple-system, BlinkMacSystemFont, helvetica,
-      "Apple SD Gothic Neo", sans-serif;
-   -webkit-text-size-adjust: none;
-    text-align: center;
-   
-}
-ul#find_wrap_KR.find_wrap li {
-    display: inline-block; 
-    margin-left:0px;
-    margin-right: 0px; 
-}
-
-
-.find_wrap li{
-    position: relative;
-    display: inline-block;
-    text-align: -webkit-match-parent;
-    unicode-bidi: isolate;
+.find_text {
+    text-decoration: none;
+    color: #888;
     
 }
 
-
-.find_wrap li+li {
-    padding-left: 17px;
-}
-
-.find_wrap .find_text {
-   display: inline-block;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: -.5px;
-    text-decoration: none;
+.find_wrap span {
     color: #888;
-   }
-   
-
-.find_wrap li+li::before {
-   content: '';
-    position: absolute;
-    top: 4px;
-    left: 9px;
-   
-    width: 1px;
-    height: 12px;
-    border-radius: .5px;
-    background-color: #888;
 }
 
-
-.find_wrap  .accent {
-    font-weight: 500;
+.find_wrap a .accent {
     color: #8080ff;
+    text-decoration: none;
 }
+    
+
+
+
+
+

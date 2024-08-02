@@ -58,7 +58,7 @@
 				
 				<div class="gamenews_1">
                     <img
-					src="https://t1.kakaocdn.net/gamepub/pub-img/pubg/news_banner/news_banner_1717741626073_39.png"
+					src="./resources/images/Today.jpg"
                        class="news_img">
 				</div> 
 				<strong class="tit1"> PGS 4 그룹 스테이지 하이라이트</strong>
@@ -88,18 +88,21 @@
                <form method="post" action="서버의url" id="login-form">
                   <input type="text" name="userName" placeholder="ID"> <input
                      type="password" name="userPassword" placeholder="Password">
+                     
                   <label for="remember-check"> <input type="checkbox"
                      id="remember-check">아이디 저장하기
                   </label>
-						<ul class="find_wrap" id="find_wrap_KR" style="display: block;">
-                                <li><a id="idinquiry" href="./search_id1.jsp" class="find_text">아이디 찾기</a> </li>
-                                <li><a id="pwinquiry" href="./search_pw1.jsp" class="find_text">비밀번호 찾기</a> </li>
-                                <li><a id="join" href="./getJoinDate.do"><span  class="accent">회원가입</span></a></li>
-                         </ul>
+                  
+						<div class="find_wrap">
+                                <a href="./search_id1.jsp" class="find_text">아이디 찾기</a> 
+                                <span>ㅣ</span>
+                                <a href="./search_pw1.jsp" class="find_text">비밀번호 찾기</a>
+                                <span>ㅣ</span>
+                                <a href="./getJoinDate.do"><span  class="accent">회원가입</span></a>
+                         </div>
                   <input type="submit" value="Login">
                </form>
                </div>
          </li>
       </ul>
    </div>
-</div>
