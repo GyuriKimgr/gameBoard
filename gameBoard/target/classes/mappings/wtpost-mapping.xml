@@ -112,7 +112,7 @@
        <![CDATA[
         SELECT *
         FROM (
-            SELECT wtTitle, wtContent,
+            SELECT wtTitle, wtContent, wtID,
                    ROW_NUMBER() OVER (ORDER BY wtDate DESC) AS rn
             FROM WT_BOARD_POST
         )

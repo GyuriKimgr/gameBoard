@@ -107,7 +107,7 @@
        <![CDATA[
         SELECT *
         FROM (
-            SELECT mTitle, mContent,
+            SELECT mTitle, mContent, mID,
                    ROW_NUMBER() OVER (ORDER BY mDate DESC) AS rn
             FROM MOD_BOARD
         )
