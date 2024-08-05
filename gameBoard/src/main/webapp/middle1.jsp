@@ -1,7 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="./resources/css/middle1.css" type="text/css">
 <link rel="stylesheet" href="./resources/css/top.css" type="text/css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#login-form').submit(function(event) {
+            event.preventDefault(); // 기본 폼 제출 동작 방지
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', './login.do', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    if (xhr.responseText === "success") {
+                        window.location.reload(); // 로그인 성공 시 페이지 새로고침
+                    } else {
+                        alert("아이디 혹은 비번을 확인해주세요."); // 로그인 실패 시 알럿창 표시
+                    }
+                } else {
+                    alert("로그인 요청 실패");
+                }
+            };
+
+            var formData = new FormData(document.getElementById('login-form'));
+            var params = new URLSearchParams();
+            formData.forEach((value, key) => {
+                params.append(key, value);
+            });
+
+            console.log("로그인 요청 데이터:", params.toString()); // 디버깅용 로그 추가
+
+            xhr.send(params.toString());
+        });
+    });
+</script>
 
 <div class="box1">
 <ul class="middle1">
@@ -80,14 +115,27 @@
 				</a>
 			</div>
 		</div> 
+		</li>
 		
 <!-- 로그인 폼 -->
 		<li>
+		<c:choose>
+            <c:when test="${not empty sessionScope.loggedInMember}">
+                <!-- 로그인 상태 -->
+                <div class="welcome">
+                    <h2>${sessionScope.loggedInMember}님, 환영합니다!</h2>
+                    <form id="logout-form" method="post" action="./logout.do">
+    					<input type="submit" value="Logout">
+					</form>
+                </div>
+            </c:when>
+            <c:otherwise>
+            <!-- 비로그인 상태 -->
             <div class="login">
                <h2>Simple Login</h2>
-               <form method="post" action="서버의url" id="login-form">
-                  <input type="text" name="userName" placeholder="ID"> <input
-                     type="password" name="userPassword" placeholder="Password">
+                <form method="post" action="./login.do" id="login-form">
+                  <input type="text" name="member_id" placeholder="ID"> <input
+                     type="password" name="member_pw" placeholder="Password">
                      
                   <label for="remember-check"> <input type="checkbox"
                      id="remember-check">아이디 저장하기
@@ -103,6 +151,8 @@
                   <input type="submit" value="Login">
                </form>
                </div>
+                  </c:otherwise>
+        </c:choose>
          </li>
       </ul>
    </div>

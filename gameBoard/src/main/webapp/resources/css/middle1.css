@@ -263,7 +263,6 @@ body {
 아이디찾기, 비밀번호찾기, 회원가입 -->
 
 body {
-	font-size: 12px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -274,6 +273,7 @@ body {
 }
 
 .find_text {
+	font-size: 13px;
     text-decoration: none;
     color: #888;
     
@@ -284,6 +284,7 @@ body {
 }
 
 .find_wrap a .accent {
+	font-size: 13px;
     color: #8080ff;
     text-decoration: none;
 }

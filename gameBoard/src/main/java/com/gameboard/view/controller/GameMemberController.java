@@ -1,5 +1,9 @@
 package com.gameboard.view.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,7 +43,6 @@ public class GameMemberController{
 		return "redirect:index.jsp";
 	}
 	
-    // 아이디 찾기 실행
 	@RequestMapping(value="find_id_phone.do")
 	@ResponseBody
 	public String findId_phone(@RequestParam("member_name") String memberName, 
@@ -56,7 +59,7 @@ public class GameMemberController{
 		return id;
 	}
 	
-	 // 비밀번호 찾기 실행
+	
 		@RequestMapping(value="find_pw_phone.do")
 		@ResponseBody
 		public String findPw_phone(@RequestParam("member_id") String memberId,
@@ -74,7 +77,36 @@ public class GameMemberController{
 			String pw = gs.findPw_NameAndEmail(memberId, memberName, memberEmail);
 			return pw;
 		}
-
+		
+		@RequestMapping(value ="login.do", method = RequestMethod.POST)
+		@ResponseBody
+		public String login(@RequestParam("member_id") String memberId,
+							@RequestParam("member_pw") String memberPw,
+							HttpServletRequest request,
+							HttpServletResponse response, Model model) {
+			String memberName = gs.findMemberByIdAndPw(memberId, memberPw);
+			
+	        System.out.println("Controller: login - " + memberName);
+			if(memberName != null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("loggedInMemberId", memberId);
+				session.setAttribute("loggedInMember", memberName);
+				return "success";
+			}
+			else {
+				return "failure";
+			}
+		}
+		@RequestMapping(value = "logout.do", method = RequestMethod.POST)
+		public String logout(HttpSession session) {
+			session.invalidate();
+	        return "redirect:index.jsp";
+		}
+		
+		@RequestMapping(value = "index.do", method = RequestMethod.GET)
+	    public String index(HttpSession session) {
+	        return "index.jsp";
+	    }
 
 }
 

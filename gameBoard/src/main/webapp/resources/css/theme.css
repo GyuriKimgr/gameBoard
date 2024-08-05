@@ -8,26 +8,35 @@
 	cursor : pointer;
 }
 
-#darkModeButton {
+#whiteModeButton {
     cursor: pointer;
 }
 
-.darkMode  {
+.whiteMode  {
     background-color: #f3f3f3;
 }
 
-.darkMode .rollingbanner {
+.whiteMode .rollingbanner {
     background-color: #f3f3f3;
 }
 
-.darkMode .title {
+.whiteMode .title {
 	color : black;
 }
 
-.darkMode .title2 {
+.whiteMode .title2 {
 	color : black;
 }
 
-.darkMode .login {
+.whiteMode .login {
 	background-color : #eadbf7;
+}
+.whiteMode .tit_cmt {
+	color: #333;
+}
+.whiteMode .info_byte {
+	color: #333;
+}
+.whiteMode .emph_g2 {
+    color: #f19a09;
 }

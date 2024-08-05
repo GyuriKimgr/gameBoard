@@ -15,4 +15,5 @@ public interface GameMemberDao {
 	String findId_NameAndEmail(@Param("memberName") String memberName, @Param("memberEmail") String memberEmail);
 	String findPw_NameAndPhone(@Param("memberId") String memberId, @Param("memberName") String memberName, @Param("memberPhone") String memberPhone);
 	String findPw_NameAndEmail(@Param("memberId") String memberId, @Param("memberName") String memberName, @Param("memberEmail") String memberEmail);
+	String findMemberByIdAndPw(@Param("memberId") String memberId, @Param("memberPw") String memberPw);
 }

@@ -12,7 +12,8 @@
         </a>
         <div class="news2">
             <div class="news2_top">
-                <img src="./resources/images/Guide.jpg" class="news2_img">
+            <a href="./walkThrough.do">
+                <img src="./resources/images/Guide.jpg" class="news2_img"></a>
             </div>
             <c:if test="${not empty recentWtPosts}">
                 <c:forEach var="post" items="${recentWtPosts}">
@@ -39,7 +40,8 @@
         </a>
         <div class="news2">
             <div class="news2_top">
-                <img src="./resources/images/Mod.jpg" class="news2_img">
+            <a href="./Mod.do">
+                <img src="./resources/images/Mod.jpg" class="news2_img"></a>
             </div>
             <c:if test="${not empty recentMdPosts}">
                 <c:forEach var="post" items="${recentMdPosts}">
@@ -66,7 +68,8 @@
         </a>
         <div class="news2">
             <div class="news2_top">
-                <img src="./resources/images/Suggest.jpg" class="news2_img">
+            <a href="./suggest.do">
+                <img src="./resources/images/Suggest.jpg" class="news2_img"></a>
             </div>
             <c:if test="${not empty recentSgPosts}">
                 <c:forEach var="post" items="${recentSgPosts}">

@@ -23,7 +23,7 @@
 body {
     font-size: 19px;
     line-height: 1.5;
-    color: #333;
+    color: #f3f3f3;
     margin : 0;
 }
 
@@ -262,3 +262,107 @@ a {
     margin-top: 22px;
     background-position: -45px -40px;
 }
+
+<!-- 댓글 기능 -->
+
+div {
+	margin: 0;
+    padding: 0;
+}
+.cmt_head .tit_cmt {
+    font-size: 19px;
+    line-height: 24px;
+}
+.cmt_head .tit_cmt .emph_g2 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.emph_g2 {
+    color: #f19a09;
+}
+.screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.cmt_head .fld_cmt {
+    position: relative;
+    margin-top: 12px;
+    padding: 25px 25px 53px;
+    background: #f8f8f8;
+}
+.screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.form legend {
+	margin: 0;
+	padding: 0;
+}
+fieldset {
+    border: 0 none;
+}
+
+.cmt_head .fld_cmt .tf_cmt {
+    width: 500px;
+    height: 66px;
+    padding: 11px 15px;
+}
+.view_cmt .tf_cmt {
+    border: 1px solid #c3c3c3;
+    resize: none;
+}
+.view_cmt .desc_cmt {
+    position: absolute;
+    top: 37px;
+    left: 41px;
+    font-size: 14px;
+    color: #585858;
+}
+.cmt_head .info_byte {
+    position: absolute;
+    right: 0;
+    top: -36px;
+    font-size: 14px;
+    color: #b9b9b9; 
+}
+.link_rule {
+	color: #b9b9b9; 
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+.cmt_head .btn_register {
+    float: right;
+    width: 174px;
+    height: 90px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #252525;
+    color: #fff;
+}
+button {
+	vertical-align: middle;
+	background-color: transparent;
+	cursor: pointer;
+	border: 0 none;
+    border-radius: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+    color: #333;
+}
+
+button:hover {
+    background-color: #f19a09;

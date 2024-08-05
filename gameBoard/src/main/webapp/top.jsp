@@ -25,7 +25,7 @@
                 <li><a href="./FAQ.do"><b>FAQ</b></a></li>
             <li>
 	         <div id="theme">
-	            <img src="./resources/images/아이콘1.png" height="30px" id="darkModeButton">
+	            <img src="./resources/images/아이콘1.png" height="30px" id="whiteModeButton">
 	         </div> 
 	         </li>
 	         </ul>
@@ -33,29 +33,29 @@
    </div>
 
 <script>
-	let darkModeButton = document.getElementById("darkModeButton");
-	let isDarkMode = false; // 현재 다크 모드 여부를 추적하는 변수
+	let whiteModeButton = document.getElementById("whiteModeButton");
+	let iswhiteMode = false; // 현재 다크 모드 여부를 추적하는 변수
 
 	// 페이지 로드 시 localStorage에서 다크 모드 설정 읽기
 	window.onload = function() {
-		let darkModeSetting = localStorage.getItem("darkMode");
+		let whiteModeSetting = localStorage.getItem("whiteMode");
 		// enabled : 특정 설정이나 기능이 활성화되어있음
-		if (darkModeSetting === "enabled") {
-			document.body.classList.add("darkMode");
-			darkModeButton.src = "./resources/images/아이콘2.png"; // 달 이미지로 변경
-			isDarkMode = true;
+		if (whiteModeSetting === "enabled") {
+			document.body.classList.add("whiteMode");
+			whiteModeButton.src = "./resources/images/아이콘2.png"; // 달 이미지로 변경
+			iswhiteMode = true;
 			}
     };
 
 	// 버튼 클릭될 때 다크 모드 토글 함수 호출
-	darkModeButton.onclick = toggleDarkMode;
-	function toggleDarkMode() {
-		document.body.classList.toggle("darkMode");
-		isDarkMode = !isDarkMode;
+	whiteModeButton.onclick = toggleWhiteMode;
+	function toggleWhiteMode() {
+		document.body.classList.toggle("whiteMode");
+		iswhiteMode = !isWhiteMode;
 		// localStorage에 다크 모드 설정 저장
-		localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+		localStorage.setItem("whiteMode", iswhiteMode ? "enabled" : "disabled");
 		// 아이콘 변경
-		 darkModeButton.src = isDarkMode ? "./resources/images/아이콘2.png" : "./resources/images/아이콘1.png";
+		 whiteModeButton.src = isWhiteMode ? "./resources/images/아이콘2.png" : "./resources/images/아이콘1.png";
 	}	
 	
 </script> 

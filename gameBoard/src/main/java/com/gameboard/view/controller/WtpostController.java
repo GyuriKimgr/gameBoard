@@ -91,4 +91,8 @@ public class WtpostController{
 	    wt.updateWtpost(vo); // 게시물 정보를 업데이트
 	    return "redirect:getWtpost.do?wtID=" + vo.getWtID();
 	}
+	
+	
+	
+	
 }
