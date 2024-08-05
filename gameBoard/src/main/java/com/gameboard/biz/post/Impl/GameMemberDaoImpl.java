@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -92,5 +93,17 @@ public class GameMemberDaoImpl implements GameMemberDao {
         params.put("memberEmail", memberEmail);
         String pw = mybatis.selectOne("GameMemberDao.findPw_NameAndEmail", params);
         return pw; 
+    }
+    
+    @Override
+    public String findMemberByIdAndPw(String memberId, String memberPw) {
+    	Map<String, Object> params = new HashMap<>();
+    	params.put("memberId", memberId);
+    	params.put("memberPw", memberPw);
+    	// 디버깅용 로그 추가
+        System.out.println("DAO: findMemberByIdAndPw - " + params);
+        String gm = mybatis.selectOne("GameMemberDao.findMemberByIdAndPw", params);
+        System.out.println("DAO: findMemberByIdAndPw - " + gm);
+    	return gm;
     }
 }
