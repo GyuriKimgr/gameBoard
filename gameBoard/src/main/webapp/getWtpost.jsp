@@ -30,11 +30,11 @@ function confirmDelete(wtID) {
     }
 }
 
-function checkEditPermission(wtID) {
+function checkEditPermissionWT(wtID) {
     console.log("checkEditPermission 호출됨", "wtID:", wtID);
     if (confirm("정말로 수정하시겠습니까?")) {
         $.ajax({
-            url: 'checkEditPermission.do',
+            url: 'checkEditPermissionWT.do',
             type: 'GET',
             data: { wtID: wtID },
             dataType: 'text',
@@ -93,7 +93,7 @@ function checkEditPermission(wtID) {
 		<div class="view_btn">
 			<div class="wrap_modify">
 				<button type="button" class="btn_board btn_board1 edit_btn" 
-            		onclick="checkEditPermission(${post.wtID})">수정</button>
+            		onclick="checkEditPermissionWT(${post.wtID})">수정</button>
 				<button type="button" class="btn_board btn_board1 delete_btn"
 					onclick="confirmDelete(${post.wtID})">삭제</button>
 			</div>
@@ -114,6 +114,6 @@ function checkEditPermission(wtID) {
 						class="img_board">아랫글</span></a>
 				</c:if>
 			</div>
-			</div>
+		</div>
 	</div>
 </div>

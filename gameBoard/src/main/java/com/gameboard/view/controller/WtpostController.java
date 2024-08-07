@@ -126,7 +126,7 @@ public class WtpostController{
 	    }
 	}
 	
-	@RequestMapping(value = "checkEditPermission.do", method = RequestMethod.GET)
+	@RequestMapping(value = "checkEditPermissionWT.do", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<String> checkEditPermission(@RequestParam("wtID") int wtID, HttpSession session, HttpServletRequest request) {
         String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");

@@ -2,13 +2,22 @@ package com.gameboard.view.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gameboard.biz.post.Fpost;
 import com.gameboard.biz.post.FpostService;
+import com.gameboard.biz.post.Wtpost;
 
 @Controller
 public class FpostController {
@@ -21,9 +30,38 @@ public class FpostController {
 		model.addAttribute("fDate", f.getFDate());
 		return "insertFpost.jsp";
 	}
+	
+	// IP 주소를 일부 마스킹하는 메서드
+		private String maskIpAddress(String ipAddress) {
+			// IPv4 처리
+		    if (ipAddress.contains(".")) {
+		        String[] parts = ipAddress.split("\\.");
+		        if (parts.length == 4) {
+		            return parts[0] + "." + parts[1] + ".***." + parts[3];
+		        }
+		    }
+		    // IPv6 처리
+		    else if (ipAddress.contains(":")) {
+		        if ("0:0:0:0:0:0:0:1".equals(ipAddress)) {
+		            return "local:01"; // 로컬호스트 주소를 처리
+		        } else {
+		            // IPv6 주소의 일부를 마스킹
+		            String[] parts = ipAddress.split(":");
+		            return parts[0] + ":" + parts[1] + ":" + parts[2] + ":****:****:" + parts[5] + ":" + parts[6] + ":" + parts[7];
+		        }
+		    }
+		    return ipAddress; // IP 주소 형식이 맞지 않으면 마스킹하지 않고 반환
+		}
 
 	@RequestMapping(value = "insertFpost.do")
-	public String insertFpost(Fpost vo) {
+	public String insertFpost(Fpost vo, HttpServletRequest request, HttpSession session) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+		//세션에 id 없을 시 ip 주소
+		if(loggedInMemberId == null) {
+			String ipAddress = request.getRemoteAddr();
+			loggedInMemberId = maskIpAddress(ipAddress);
+		}
+		vo.setUserID(loggedInMemberId);
 		f.insertFpost(vo);
 		return "redirect:FAQ.do";
 	}
@@ -71,22 +109,70 @@ public class FpostController {
 		return "getFpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
 
-	@RequestMapping(value = "deleteFpost.do")
-	public String deleteFpost(int fID) {
-		f.deleteFpost(fID);
-		return "redirect:FAQ.do";
+	@RequestMapping(value = "deleteFpost.do", produces = "text/plain; charset = UTF-8")
+	@ResponseBody
+	public String deleteFpost(int fID, HttpServletRequest request, HttpSession session) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+		//세션에 id 없을 시 ip 주소
+		if(loggedInMemberId == null) {
+			String ipAddress = request.getRemoteAddr();
+			loggedInMemberId = maskIpAddress(ipAddress);
+		}
+		Fpost post = f.getFpostById(fID);
+		
+		if(post != null && post.getUserID().equals(loggedInMemberId)) {
+			f.deleteFpost(fID);
+		    return "deleteSuccess";
+	    } else {
+	        return "deleteFailed";
+	    }
 	}
+	
+	@RequestMapping(value = "checkEditPermissionF.do", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<String> checkEditPermission(@RequestParam("fID") int fID, HttpSession session, HttpServletRequest request) {
+        String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+
+        if (loggedInMemberId == null) {
+            String ipAddress = request.getRemoteAddr();
+            loggedInMemberId = maskIpAddress(ipAddress);
+        }
+
+        Fpost post = f.getFpostById(fID);
+
+        if (post != null && post.getUserID().equals(loggedInMemberId)) {
+            // 권한이 있으면 페이지 정보를 포함한 URL을 반환
+            return ResponseEntity.ok("updateSuccess|updateFpostForm.do?fID=" + fID);
+        } else {
+            return ResponseEntity.ok("updateFailed");
+        }
+    }
 
 	@RequestMapping(value = "updateFpostForm.do")
-	public String updateFpostForm(int fID, Model model) {
+	public String updateFpostForm(@RequestParam("fID") int fID, Model model) {
 		Fpost post = f.getFpostById(fID); // 게시물 정보를 가져옴
 		model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
 		return "updateFpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
 	}
 
 	@RequestMapping(value = "updateFpost.do")
-	public String updateFpost(Fpost vo) {
-		f.updateFpost(vo); // 게시물 정보를 업데이트
+	public String updateFpost(@RequestParam("fID") int fID, @ModelAttribute Fpost vo,
+			HttpSession session, HttpServletRequest request) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+
+        if (loggedInMemberId == null) {
+            String ipAddress = request.getRemoteAddr();
+            loggedInMemberId = maskIpAddress(ipAddress);
+        }
+        
+        Fpost existingPost = f.getFpostById(fID);
+        
+        if (existingPost != null && existingPost.getUserID().equals(loggedInMemberId)) {
+            existingPost.setfTitle(vo.getfTitle());
+            existingPost.setfContent(vo.getfContent());
+            // 게시물 정보를 업데이트
+            f.updateFpost(existingPost);
+        }
 		return "redirect:getFpost.do?fID=" + vo.getfID();
 	}
 }

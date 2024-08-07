@@ -2,10 +2,18 @@ package com.gameboard.view.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gameboard.biz.post.Sgpost;
 import com.gameboard.biz.post.SgpostService;
@@ -21,9 +29,38 @@ public class SgpostController {
 		model.addAttribute("sgDate", sg.getSgDate());
 		return "insertSgpost.jsp";
 	}
+	
+	// IP 주소를 일부 마스킹하는 메서드
+		private String maskIpAddress(String ipAddress) {
+			// IPv4 처리
+		    if (ipAddress.contains(".")) {
+		        String[] parts = ipAddress.split("\\.");
+		        if (parts.length == 4) {
+		            return parts[0] + "." + parts[1] + ".***." + parts[3];
+		        }
+		    }
+		    // IPv6 처리
+		    else if (ipAddress.contains(":")) {
+		        if ("0:0:0:0:0:0:0:1".equals(ipAddress)) {
+		            return "local:01"; // 로컬호스트 주소를 처리
+		        } else {
+		            // IPv6 주소의 일부를 마스킹
+		            String[] parts = ipAddress.split(":");
+		            return parts[0] + ":" + parts[1] + ":" + parts[2] + ":****:****:" + parts[5] + ":" + parts[6] + ":" + parts[7];
+		        }
+		    }
+		    return ipAddress; // IP 주소 형식이 맞지 않으면 마스킹하지 않고 반환
+		}
 
 	@RequestMapping(value = "insertSgpost.do")
-	public String insertSgpost(Sgpost vo) {
+	public String insertSgpost(Sgpost vo, HttpServletRequest request, HttpSession session) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+		//세션에 id 없을 시 ip 주소
+		if(loggedInMemberId == null) {
+			String ipAddress = request.getRemoteAddr();
+			loggedInMemberId = maskIpAddress(ipAddress);
+		}
+		vo.setUserID(loggedInMemberId);
 		sg.insertSgpost(vo);
 		return "redirect:suggest.do";
 	}
@@ -71,22 +108,65 @@ public class SgpostController {
 	}
 
 
-	@RequestMapping(value = "deleteSgpost.do")
-	public String deleteSgpost(int sgID) {
-		sg.deleteSgpost(sgID);
-		return "redirect:suggest.do";
+	@RequestMapping(value = "deleteSgpost.do", produces = "text/plain; charset=UTF-8")
+	@ResponseBody
+	public String deleteSgpost(int sgID, HttpServletRequest request, HttpSession session) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+	    if (loggedInMemberId == null) {
+	        String ipAddress = request.getRemoteAddr();
+	        loggedInMemberId = maskIpAddress(ipAddress);
+	    }
+	    Sgpost post = sg.getSgpostById(sgID);
+		
+	    if(post != null && post.getUserID().equals(loggedInMemberId)) {
+	    	sg.deleteSgpost(sgID);
+	    	return "deleteSuccess";
+	    }else {
+	    	return "deleteFailed";
+	    }
+	}
+	
+	@RequestMapping(value = "checkEditPermissionSG.do", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<String> checkEditPermission(@RequestParam("sgID") int sgID, HttpSession session, HttpServletRequest request) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+	    if (loggedInMemberId == null) {
+	        String ipAddress = request.getRemoteAddr();
+	        loggedInMemberId = maskIpAddress(ipAddress);
+	    }
+	    
+	    Sgpost post = sg.getSgpostById(sgID);
+	    
+	    if(post != null && post.getUserID().equals(loggedInMemberId)) {
+	    	return ResponseEntity.ok("updateSuccess|updateSgpostForm.do?sgID=" + sgID);
+        } else {
+            return ResponseEntity.ok("updateFailed");
+        }
 	}
 
 	@RequestMapping(value = "updateSgpostForm.do")
-	public String updateSgpostForm(int sgID, Model model) {
+	public String updateSgpostForm(@RequestParam("sgID") int sgID, Model model) {
 		Sgpost post = sg.getSgpostById(sgID); // 게시물 정보를 가져옴
 		model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
 		return "updateSgpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
 	}
 
-	@RequestMapping(value = "updateSgpost.do")
-	public String updateSgpost(Sgpost vo) {
-		sg.updateSgpost(vo); // 게시물 정보를 업데이트
+	@RequestMapping(value = "updateSgpost.do", method = RequestMethod.POST)
+	public String updateSgpost(@RequestParam("sgID") int sgID, @ModelAttribute Sgpost vo,
+			HttpSession session, HttpServletRequest request) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+
+        if (loggedInMemberId == null) {
+            String ipAddress = request.getRemoteAddr();
+            loggedInMemberId = maskIpAddress(ipAddress);
+        }
+        Sgpost existingPost = sg.getSgpostById(sgID);
+        
+        if(existingPost != null && existingPost.getUserID().equals(loggedInMemberId)) {
+        	existingPost.setSgTitle(vo.getSgTitle());
+        	existingPost.setSgContent(vo.getSgContent());
+        	sg.updateSgpost(existingPost);
+        }
 		return "redirect:getSgpost.do?sgID=" + vo.getSgID();
 	}
 }
