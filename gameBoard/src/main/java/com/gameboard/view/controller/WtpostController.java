@@ -2,20 +2,22 @@ package com.gameboard.view.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.gameboard.biz.post.Comment;
+import com.gameboard.biz.post.CommentService;
 import com.gameboard.biz.post.Wtpost;
 import com.gameboard.biz.post.WtpostService;
 
 @Controller
-public class WtpostController{
+public class WtpostController {
 	@Autowired
 	private WtpostService wt;
+	@Autowired
+	private CommentService commentService;
 
 	@RequestMapping(value = "getWtID.do")
 	public String getWtID(Model model) {
@@ -23,20 +25,20 @@ public class WtpostController{
 		model.addAttribute("wtDate", wt.getWtDate());
 		return "insertWtpost.jsp";
 	}
-	
+
 	@RequestMapping(value = "insertWtpost.do")
-		public String insertWtpost(Wtpost vo) {
+	public String insertWtpost(Wtpost vo) {
 		wt.insertWtpost(vo);
 		return "redirect:walkThrough.do";
 	}
-	
+
 	@RequestMapping(value = "walkThrough.do")
 	public String getWtpost(Wtpost vo, Model model) {
 		List<Wtpost> WtList = wt.getWtpostList(vo);
 		model.addAttribute("WtList", WtList);
 		return "walkThrough.jsp";
 	}
-	
+
 	// 검색
 	@RequestMapping(value = "searchWtpost.do")
 	public String searchWtpost(Wtpost vo, Model model) {
@@ -44,8 +46,7 @@ public class WtpostController{
 		model.addAttribute("WtList", WtList);
 		return "searchWt.jsp";
 	}
-	
-	
+
 	@RequestMapping(value = "getWtpost.do")
 	public String getWtpostById(int wtID, Model model) {
 		// 조회수 업데이트
@@ -69,30 +70,34 @@ public class WtpostController{
 		// 최신 목록을 가져와서 모델에 추가 (조회수가 업데이트된 상태)
 		List<Wtpost> WtList = wt.getWtpostList(null);
 		model.addAttribute("WtList", WtList);
+		
+		
+		List<Comment> commentList = commentService.getCommentsByPostId(wtID);
+		model.addAttribute("commentList", commentList);
+		model.addAttribute("wtID", wtID);
 
 		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
-	
+
 	@RequestMapping(value = "deleteWtpost.do")
 	public String deleteWtpost(int wtID) {
-	    wt.deleteWtpost(wtID);
-	    return "redirect:walkThrough.do";
+		wt.deleteWtpost(wtID);
+		return "redirect:walkThrough.do";
 	}
-	
+
 	@RequestMapping(value = "updateWtpostForm.do")
 	public String updateWtpostForm(int wtID, Model model) {
-	    Wtpost post = wt.getWtpostById(wtID); // 게시물 정보를 가져옴
-	    model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
-	    return "updateWtpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
+		System.out.println("수정 화면일 듯?");
+		Wtpost post = wt.getWtpostById(wtID); // 게시물 정보를 가져옴
+		model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
+		return "updateWtpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
 	}
-	
+
 	@RequestMapping(value = "updateWtpost.do")
 	public String updateWtpost(Wtpost vo) {
-	    wt.updateWtpost(vo); // 게시물 정보를 업데이트
-	    return "redirect:getWtpost.do?wtID=" + vo.getWtID();
+		System.out.println("실제 수정합니다?");
+		wt.updateWtpost(vo); // 게시물 정보를 업데이트
+		return "redirect:getWtpost.do?wtID=" + vo.getWtID();
 	}
-	
-	
-	
-	
+
 }

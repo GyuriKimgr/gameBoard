@@ -21,5 +21,6 @@
 		<mapper resource="mappings/mod-mapping.xml"/>
 		<mapper resource="mappings/sgpost-mapping.xml"/>
 		<mapper resource="mappings/fpost-mapping.xml"/>
+		<mapper resource="mappings/Comm-mapping.xml"/>
 	</mappers>
 </configuration>
