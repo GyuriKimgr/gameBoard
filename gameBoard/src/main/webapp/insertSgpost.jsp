@@ -56,13 +56,13 @@
         }
         
         // 제목의 길이가 2자 이상인지 확인합니다.
-        if (sgTitle.length < 2) {
+        else if(sgTitle.length < 2) {
             alert("제목을 2자 이상 입력하세요");
             return false;
         }
         
         // 내용이 비어 있는지 확인합니다.
-        if (sgContent === "") {
+        else if(sgContent === "") {
             alert("본문 내용을 입력하세요");
             return false;
         }
