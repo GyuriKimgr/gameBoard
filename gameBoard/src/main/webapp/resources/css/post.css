@@ -44,6 +44,10 @@
     resize: vertical; /* 세로 크기 조정 가능하도록 설정 */
 }
 
+.char-count {
+    color: gray;
+}
+
 /*버튼 css*/
 .frame {
 	display: flex;

@@ -11,12 +11,13 @@
     </div>
 	<div class="form-container">
         <form action="insertWtpost.do" method="post"
-        	enctype="multipart/form-data">
+        	enctype="multipart/form-data" onsubmit="return validateForm();">
         <input type="hidden" id="userId" name="userId"
         	value="<%= session.getAttribute("userId") %>">
             <div class="form-group">
                 <label for="title">제목</label>
-                <input type="text" id="wtTitle" name="wtTitle">
+                <input type="text" id="wtTitle" name="wtTitle" maxlength="16" oninput="updateCharCount()">
+                <span class="char-count" id="charCount">0/16</span>
             </div>
             <div class="form-group">
                 <label for="content">내용</label>
@@ -31,6 +32,18 @@
 </section>
 
 <script>
+	function updateCharCount() {
+    	var wtTitle = document.getElementById("wtTitle");
+    	var charCount = document.getElementById("charCount");
+    	var currentLength = wtTitle.value.length;
+
+   		charCount.textContent = currentLength + "/16";
+
+    	// 최대 글자 수(16자)에 도달하면 입력을 막음
+    	if (currentLength >= 16) {
+        	wtTitle.value = wtTitle.value.substring(0, 15);
+    	}
+	}
     function validateForm() {
         // 제목과 내용을 가져옵니다.
         var wtTitle = document.getElementById("wtTitle").value.trim();

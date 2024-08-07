@@ -16,7 +16,8 @@
         	value="<%= session.getAttribute("userId") %>">
             <div class="form-group">
                 <label for="title">제목</label>
-                <input type="text" id="fTitle" name="fTitle">
+                <input type="text" id="fTitle" name="fTitle" maxlength="16" oninput="updateCharCount()">
+                <span class="char-count" id="charCount">0/16</span>
             </div>
             <div class="form-group">
                 <label for="content">내용</label>
@@ -31,6 +32,18 @@
 </section>
 
 <script>
+	function updateCharCount() {
+		var fTitle = document.getElementById("fTitle");
+		var charCount = document.getElementById("charCount");
+		var currentLength = fTitle.value.length;
+
+		charCount.textContent = currentLength + "/16";
+
+		// 최대 글자 수(16자)에 도달하면 입력을 막음
+		if (currentLength >= 16) {
+			fTitle.value = fTitle.value.substring(0, 15);
+		}
+	}
     function validateForm() {
         // 제목과 내용을 가져옵니다.
         var fTitle = document.getElementById("fTitle").value.trim();
