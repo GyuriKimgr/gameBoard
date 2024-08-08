@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="shortcut icon" href="./resources/images/favicon.ico">
 <meta charset="UTF-8">
 <title>Community for Gamers</title>
 <link rel="stylesheet" href="./resources/css/top.css" type="text/css">

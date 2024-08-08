@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gameboard.biz.post.WtpostComment;
+import com.gameboard.biz.post.WtpostCommentService;
 import com.gameboard.biz.post.Wtpost;
 import com.gameboard.biz.post.WtpostService;
 
@@ -22,6 +24,9 @@ import com.gameboard.biz.post.WtpostService;
 public class WtpostController{
 	@Autowired
 	private WtpostService wt;
+	
+	@Autowired
+	private WtpostCommentService commentService;
 
 	@RequestMapping(value = "getWtID.do")
 	public String getWtID(Model model) {
@@ -104,6 +109,10 @@ public class WtpostController{
 		// 최신 목록을 가져와서 모델에 추가 (조회수가 업데이트된 상태)
 		List<Wtpost> WtList = wt.getWtpostList(null);
 		model.addAttribute("WtList", WtList);
+		
+		List<WtpostComment> commentList = commentService.getWtCommentsByPostId(wtID);
+		model.addAttribute("commentList", commentList);
+		model.addAttribute("wtID", wtID);
 
 		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}

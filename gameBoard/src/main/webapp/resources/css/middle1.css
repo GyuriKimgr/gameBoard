@@ -72,8 +72,6 @@ a {
 }
 
 .img_comm1 {
-   background-image:
-      url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_comm2_210827.png);
    display: block;
    overflow: hidden;
    font-size: 0;
@@ -95,6 +93,7 @@ a {
    overflow: hidden;
    padding-top: 57.293%;
    margin-bottom: 23px;
+   transition: transform .5s; 
 }
 
 .middle1 .gamenews:hover .news_img {

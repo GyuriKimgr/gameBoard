@@ -1,7 +1,5 @@
 package com.gameboard.biz.post;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface GameMemberService {
