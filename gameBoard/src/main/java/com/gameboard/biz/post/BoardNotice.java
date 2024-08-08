@@ -1,0 +1,68 @@
+package com.gameboard.biz.post;
+
+public class BoardNotice {
+    private String noticeID;
+    private String boardType;
+    private String noticeTitle;
+    private String noticeContent;
+    private String noticeDate;
+    private String Manager_ID;
+    private Integer noticeViews;
+
+    // Getters and Setters
+    public String getNoticeID() {
+        return noticeID;
+    }
+
+    public void setNoticeID(String noticeID) {
+        this.noticeID = noticeID;
+    }
+
+    public String getBoardType() {
+        return boardType;
+    }
+
+    public void setBoardType(String boardType) {
+        this.boardType = boardType;
+    }
+
+    public String getNoticeTitle() {
+        return noticeTitle;
+    }
+
+    public void setNoticeTitle(String noticeTitle) {
+        this.noticeTitle = noticeTitle;
+    }
+
+    public String getNoticeContent() {
+        return noticeContent;
+    }
+
+    public void setNoticeContent(String noticeContent) {
+        this.noticeContent = noticeContent;
+    }
+
+    public String getNoticeDate() {
+        return noticeDate;
+    }
+
+    public void setNoticeDate(String noticeDate) {
+        this.noticeDate = noticeDate;
+    }
+
+    public String getManager_ID() {
+        return Manager_ID;
+    }
+
+    public void setManager_ID(String manager_ID) {
+        this.Manager_ID = manager_ID;
+    }
+
+    public Integer getNoticeViews() {
+        return noticeViews;
+    }
+
+    public void setNoticeViews(Integer noticeViews) {
+        this.noticeViews = noticeViews;
+    }
+}

@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gameboard.biz.post.Mod;
 import com.gameboard.biz.post.ModService;
-import com.gameboard.biz.post.Sgpost;
-import com.gameboard.biz.post.Wtpost;
 
-@Controller
+@Controller	
 public class ModController {
 	@Autowired
 	private ModService m;

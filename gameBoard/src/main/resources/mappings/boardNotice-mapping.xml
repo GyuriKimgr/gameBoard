@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardNoticeDao">
+
+	   <!-- resultMap 정의 -->
+    <resultMap id="noticeResultMap" type="com.gameboard.biz.post.Notice">
+        <id property="noticeID" column="noticeID"/>
+        <result property="boardType" column="boardType"/>
+        <result property="noticeTitle" column="noticeTitle"/>
+        <result property="noticeContent" column="noticeContent"/>
+        <result property="noticeDate" column="noticeDate"/>
+        <result property="Manager_ID" column="Manager_ID"/>
+        <result property="noticeViews" column="noticeViews"/>
+    </resultMap>
+
+	
+ <select id="selectNotices" resultType="com.gameboard.biz.post.Notice">
+        SELECT * 
+        FROM NOTICE 
+        WHERE boardType = #{boardType} 
+        ORDER BY noticeDate DESC
+    </select>
+
+</mapper>

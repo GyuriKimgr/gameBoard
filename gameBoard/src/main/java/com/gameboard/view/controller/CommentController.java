@@ -17,6 +17,9 @@ public class CommentController {
 
 	@RequestMapping(value = "addComment.do", method = RequestMethod.POST)
 	public String addComment(Comment comment) {
+		System.out.println("	@RequestMapping(value = \"addComment.do\", method = RequestMethod.POST)"); 
+		
+		System.out.println(comment);
 		commentService.addComment(comment);
 		return "redirect:getWtpost.do?wtID="+comment.getWtID();
 	}

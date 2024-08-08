@@ -388,6 +388,12 @@ button:hover {
 <!--
 댓글 목록-->
 
+
+
+body {
+	color: #787a82;
+	
+}
 div {
 	margin: 0;
 	padding: 0;
@@ -410,7 +416,7 @@ div {
 	position: relative;
 	padding: 0 20px;
 	line-height: 21px;
-	color: #787a82;
+	color: #c0c0c0;
 }
 
 .list_cmt .cmt_cont .txt_desc:before {

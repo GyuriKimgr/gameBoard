@@ -9,10 +9,11 @@ import com.gameboard.biz.post.Comment;
 import com.gameboard.biz.post.CommentDao;
 import com.gameboard.biz.post.CommentService;
 
-@Service
+
+@Service("CommentService")
 public class CommentServiceImpl implements CommentService {
 
-	@Autowired
+	@Autowired	
 	private CommentDao commentDao;
 
 	@Override

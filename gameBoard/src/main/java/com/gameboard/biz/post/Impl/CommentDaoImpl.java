@@ -20,8 +20,6 @@ public class CommentDaoImpl implements CommentDao {
     @Override
     public void insertComment(Comment comment) {
 
-		System.out.println("CommentDaoImpl");
-		System.out.println(NAMESPACE + ".insertComment" + comment);
     	mybatis.insert(NAMESPACE + ".insertComment", comment);
     }
 
