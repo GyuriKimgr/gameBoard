@@ -6,24 +6,29 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.gameboard.biz.post.BoardNotice;
-import com.gameboard.biz.post.BoardNoticeDao;
+import com.gameboard.biz.post.WtNotice;
+import com.gameboard.biz.post.WtNoticeDao;
 
 @Repository
-public class BoardNoticeDaoImpl implements BoardNoticeDao {
+public class WtNoticeDaoImpl implements WtNoticeDao {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
 	
 	@Override
-	public List<BoardNotice> getNotices(String boardType) {
+	public List<WtNotice> getNotices(String boardType) {
 		return mybatis.selectList("BoardNoticeDao.selectNotices", boardType);
 	}
 
 	@Override
-    public BoardNotice getNoticeByTitle(String noticeTitle) {
+    public WtNotice getNoticeByTitle(String noticeTitle) {
         return mybatis.selectOne("BoardNoticeDao.selectNoticeByTitle", noticeTitle);
     }
+	
+	@Override
+	public void updateNoticeViews(String noticeTitle) {
+		mybatis.update("BoardNoticeDao.updateNoticeViews", noticeTitle);
+	}
 	
 }
