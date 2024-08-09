@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gameboard.biz.post.BoardNoticeService;
+import com.gameboard.biz.post.Comment;
+import com.gameboard.biz.post.CommentService;
+import com.gameboard.biz.post.FNoticeService;
 import com.gameboard.biz.post.Fpost;
 import com.gameboard.biz.post.FpostService;
 
@@ -15,9 +17,9 @@ import com.gameboard.biz.post.FpostService;
 public class FpostController {
 	@Autowired
 	private FpostService f;
-	
+
 	@Autowired
-	private BoardNoticeService noticeService;
+	private FNoticeService noticeService;
 	
 
 	@RequestMapping(value = "getFID.do")
@@ -73,7 +75,7 @@ public class FpostController {
 		// 최신 목록을 가져와서 모델에 추가 (조회수가 업데이트된 상태)
 		List<Fpost> FList = f.getFpostList(null);
 		model.addAttribute("FList", FList);
-
+		
 		return "getFpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
 

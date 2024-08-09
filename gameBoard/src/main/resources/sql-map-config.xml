@@ -22,6 +22,9 @@
 		<mapper resource="mappings/sgpost-mapping.xml"/>
 		<mapper resource="mappings/fpost-mapping.xml"/>
 		<mapper resource="mappings/Comm-mapping.xml"/>
-		<mapper resource="mappings/boardNotice-mapping.xml"/>
+		<mapper resource="mappings/WtNotice-mapping.xml"/>
+		<mapper resource="mappings/SgNotice-mapping.xml"/>
+		<mapper resource="mappings/MoNotice-mapping.xml"/>
+		<mapper resource="mappings/FNotice-mapping.xml"/>
 	</mappers>
 </configuration>

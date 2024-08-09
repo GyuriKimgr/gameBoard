@@ -18,17 +18,17 @@ public class WtNoticeDaoImpl implements WtNoticeDao {
 	
 	@Override
 	public List<WtNotice> getNotices(String boardType) {
-		return mybatis.selectList("BoardNoticeDao.selectNotices", boardType);
+		return mybatis.selectList("WtNoticeDao.selectNotices", boardType);
 	}
 
 	@Override
     public WtNotice getNoticeByTitle(String noticeTitle) {
-        return mybatis.selectOne("BoardNoticeDao.selectNoticeByTitle", noticeTitle);
+        return mybatis.selectOne("WtNoticeDao.selectNoticeByTitle", noticeTitle);
     }
 	
 	@Override
 	public void updateNoticeViews(String noticeTitle) {
-		mybatis.update("BoardNoticeDao.updateNoticeViews", noticeTitle);
+		mybatis.update("WtNoticeDao.updateNoticeViews", noticeTitle);
 	}
 	
 }

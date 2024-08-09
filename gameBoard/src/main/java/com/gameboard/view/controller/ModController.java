@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gameboard.biz.post.BoardNoticeService;
+import com.gameboard.biz.post.Comment;
+import com.gameboard.biz.post.CommentService;
+import com.gameboard.biz.post.MoNoticeService;
 import com.gameboard.biz.post.Mod;
 import com.gameboard.biz.post.ModService;
 
@@ -15,8 +17,9 @@ import com.gameboard.biz.post.ModService;
 public class ModController {
 	@Autowired
 	private ModService m;
+
 	@Autowired
-	private BoardNoticeService noticeService;
+	private MoNoticeService noticeService;
 
 	
 	@RequestMapping(value = "getMID.do")
@@ -71,6 +74,7 @@ public class ModController {
 		// 최신 목록을 가져와서 모델에 추가 (조회수가 업데이트된 상태)
 		List<Mod> ModList = m.getModList(null);
 		model.addAttribute("ModList", ModList);
+		
 		return "getMod.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
 

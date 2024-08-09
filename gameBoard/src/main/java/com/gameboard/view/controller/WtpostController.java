@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.gameboard.biz.post.BoardNotice;
-import com.gameboard.biz.post.BoardNoticeService;
+import com.gameboard.biz.post.WtNotice;
+import com.gameboard.biz.post.WtNoticeService;
 import com.gameboard.biz.post.Comment;
 import com.gameboard.biz.post.CommentService;
 import com.gameboard.biz.post.Wtpost;
@@ -22,7 +22,7 @@ public class WtpostController {
 	@Autowired
 	private CommentService commentService;
 	@Autowired
-	private BoardNoticeService noticeService;
+	private WtNoticeService noticeService;
 
 	@RequestMapping(value = "getWtID.do")
 	public String getWtID(Model model) {
@@ -93,7 +93,7 @@ public class WtpostController {
 
 	@RequestMapping(value = "updateWtpostForm.do")
 	public String updateWtpostForm(int wtID, Model model) {
-		System.out.println("수정 화면일 듯?");
+		
 		Wtpost post = wt.getWtpostById(wtID); // 게시물 정보를 가져옴
 		model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
 		return "updateWtpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
@@ -101,7 +101,7 @@ public class WtpostController {
 
 	@RequestMapping(value = "updateWtpost.do")
 	public String updateWtpost(Wtpost vo) {
-		System.out.println("실제 수정합니다?");
+	
 		wt.updateWtpost(vo); // 게시물 정보를 업데이트
 		return "redirect:getWtpost.do?wtID=" + vo.getWtID();
 	}

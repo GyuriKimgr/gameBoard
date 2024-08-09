@@ -9,7 +9,7 @@ import com.gameboard.biz.post.WtNotice;
 import com.gameboard.biz.post.WtNoticeDao;
 import com.gameboard.biz.post.WtNoticeService;
 
-@Service("BoardNoticeService")
+@Service("WtNoticeService")
 public class WtNoticeServiceImpl implements WtNoticeService {
 	@Autowired
 	private WtNoticeDao noticeDao;

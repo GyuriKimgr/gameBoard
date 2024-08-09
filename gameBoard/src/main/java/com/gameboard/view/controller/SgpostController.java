@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gameboard.biz.post.BoardNoticeService;
+import com.gameboard.biz.post.Comment;
+import com.gameboard.biz.post.CommentService;
+import com.gameboard.biz.post.SgNoticeService;
 import com.gameboard.biz.post.Sgpost;
 import com.gameboard.biz.post.SgpostService;
 
@@ -15,8 +17,9 @@ import com.gameboard.biz.post.SgpostService;
 public class SgpostController {
 	@Autowired
 	private SgpostService sg;
+	
 	@Autowired
-	private BoardNoticeService noticeService;
+	private SgNoticeService noticeService;
 
 	@RequestMapping(value = "getSgID.do")
 	public String getSgID(Model model) {
@@ -71,9 +74,10 @@ public class SgpostController {
 		List<Sgpost> SgList = sg.getSgpostList(null);
 		model.addAttribute("SgList", SgList);
 
+		
+
 		return"getSgpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
-
 
 	@RequestMapping(value = "deleteSgpost.do")
 	public String deleteSgpost(int sgID) {

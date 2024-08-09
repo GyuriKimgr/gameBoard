@@ -35,7 +35,7 @@
 							<tr class="notice-tr">
 								<td class="notice-tdd">${Notice.noticeID}</td>
 								<td class="notice-td"><a
-									href="${pageContext.request.contextPath}/getNotice.do?noticeID=${Notice.noticeID}">
+									href="getMoNotice.do?noticeTitle=${Notice.noticeTitle}">
 										${Notice.noticeTitle} </a></td>
 								<td class="notice-td">${Notice.managerID}</td>
 								<td class="notice-td">${Notice.noticeDate}</td>

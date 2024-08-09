@@ -33,7 +33,7 @@
 							<tr class="notice-tr">
 								<td class="notice-tdd">${Notice.noticeID}</td>
 								<td class="notice-td">
-									<a href="${pageContext.request.contextPath}/getNotice.do?noticeID=${Notice.noticeID}">
+									<a href="getSgNotice.do?noticeTitle=${Notice.noticeTitle}">
 										${Notice.noticeTitle}
 									</a>
 								</td>

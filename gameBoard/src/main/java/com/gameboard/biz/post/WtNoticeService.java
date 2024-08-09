@@ -2,8 +2,10 @@ package com.gameboard.biz.post;
 
 import java.util.List;
 
-public interface BoardNoticeService {
-    public List<BoardNotice> getNotices(String boardType);
-    public BoardNotice getNoticeByTitle(String noticeID);
+public interface WtNoticeService {
+    public List<WtNotice> getNotices(String boardType);
+    public WtNotice getNoticeByTitle(String noticeTitle);
+    public void updateNoticeViews(String noticeTitle);
+    
     
 }

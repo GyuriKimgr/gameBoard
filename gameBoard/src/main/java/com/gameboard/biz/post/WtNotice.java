@@ -1,6 +1,6 @@
 package com.gameboard.biz.post;
 
-public class BoardNotice {
+public class WtNotice {
 	private String noticeID;
 	private String boardType;
 	private String noticeTitle;
