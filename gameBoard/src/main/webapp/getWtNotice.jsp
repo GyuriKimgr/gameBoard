@@ -4,7 +4,7 @@
 
 <%@ include file="top.jsp" %>
 
-<link rel="stylesheet" href="./resources/css/getnotice.css" type="text/css">
+<link rel="stylesheet" href="./resources/css/getpost.css" type="text/css">
 <link rel="stylesheet" href="./resources/css/theme.css" type="text/css">
 
 <div class="inner_atc">

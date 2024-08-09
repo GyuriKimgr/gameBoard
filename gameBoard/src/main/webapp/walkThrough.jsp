@@ -23,9 +23,9 @@
 					<th class="wth">조회수</th>
 				</tr>
 			</thead>
-			
-			
-			
+
+
+
 			<!-- 공지사항 영역 -->
 			<c:choose>
 				<c:when test="${not empty NoticeList}">
@@ -33,11 +33,9 @@
 						<c:forEach var="Notice" items="${NoticeList}">
 							<tr class="notice-tr">
 								<td class="notice-tdd">${Notice.noticeID}</td>
-								<td class="notice-td">
-									<a href="${pageContext.request.contextPath}/getNotice.do?noticeID=${Notice.noticeID}">
-										${Notice.noticeTitle}
-									</a>
-								</td>
+								<td class="notice-td"><a
+									href="getNotice.do?noticeTitle=${Notice.noticeTitle}">
+										${Notice.noticeTitle} </a></td>
 								<td class="notice-td">${Notice.managerID}</td>
 								<td class="notice-td">${Notice.noticeDate}</td>
 								<td class="notice-td">${Notice.noticeViews}</td>
@@ -46,11 +44,11 @@
 					</tbody>
 				</c:when>
 			</c:choose>
-			
-			
-			
-			
-			
+
+
+
+
+
 			<!-- 게시물 목록 -->
 			<tbody class="wtbody">
 				<c:choose>

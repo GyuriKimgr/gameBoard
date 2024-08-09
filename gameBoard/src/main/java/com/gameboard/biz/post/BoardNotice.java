@@ -7,7 +7,7 @@ public class BoardNotice {
 	private String noticeContent;
 	private String noticeDate;
 	private String Manager_ID;
-	private Integer noticeViews;
+	private int noticeViews;
 
 	// Getters and Setters
 	public String getNoticeID() {
@@ -58,11 +58,11 @@ public class BoardNotice {
 		this.Manager_ID = managerID;
 	}
 
-	public Integer getNoticeViews() {
+	public int getNoticeViews() {
 		return noticeViews;
 	}
 
-	public void setNoticeViews(Integer noticeViews) {
+	public void setNoticeViews(int noticeViews) {
 		this.noticeViews = noticeViews;
 	}
 }

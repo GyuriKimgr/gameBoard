@@ -15,14 +15,15 @@ public class BoardNoticeController {
 	@Autowired
 	private BoardNoticeService noticeService;
 
+	
 	@RequestMapping(value = "getNotice.do")
-	public String getNoticeById(@RequestParam("noticeID") String noticeID, Model model) {
-		// 공지사항의 세부 정보를 가져오기
-		BoardNotice notice = noticeService.getNoticeById(noticeID);
-		model.addAttribute("notice", notice);
+	public String getNoticeById(@RequestParam("noticeTitle") String noticeTitle, Model model) {
+        // 공지사항의 세부 정보를 가져오기
+        BoardNotice notice = noticeService.getNoticeByTitle(noticeTitle);
+        model.addAttribute("notice", notice);
 
-		// 공지사항 상세 페이지로 이동
-		return "getNotice.jsp";
-	}
+        // 공지사항 상세 페이지로 이동
+        return "getWtNotice.jsp";
 
+}
 }

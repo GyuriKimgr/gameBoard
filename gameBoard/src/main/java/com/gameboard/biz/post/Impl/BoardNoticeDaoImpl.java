@@ -15,16 +15,15 @@ public class BoardNoticeDaoImpl implements BoardNoticeDao {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
-	private static final String NAMESPACE = "BoardNoticeDao";
-
+	
 	@Override
 	public List<BoardNotice> getNotices(String boardType) {
-		return mybatis.selectList(NAMESPACE + ".selectNotices", boardType);
+		return mybatis.selectList("BoardNoticeDao.selectNotices", boardType);
 	}
 
 	@Override
-    public BoardNotice getNoticeById(String noticeID) {
-        return mybatis.selectOne(NAMESPACE + ".selectNoticeById", noticeID);
+    public BoardNotice getNoticeByTitle(String noticeTitle) {
+        return mybatis.selectOne("BoardNoticeDao.selectNoticeByTitle", noticeTitle);
     }
 	
 }
