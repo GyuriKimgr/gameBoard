@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.gameboard.biz.post.BoardNotice;
+import com.gameboard.biz.post.BoardNoticeService;
 import com.gameboard.biz.post.Comment;
 import com.gameboard.biz.post.CommentService;
 import com.gameboard.biz.post.Wtpost;
@@ -18,6 +21,8 @@ public class WtpostController {
 	private WtpostService wt;
 	@Autowired
 	private CommentService commentService;
+	@Autowired
+	private BoardNoticeService noticeService;
 
 	@RequestMapping(value = "getWtID.do")
 	public String getWtID(Model model) {
@@ -34,6 +39,7 @@ public class WtpostController {
 
 	@RequestMapping(value = "walkThrough.do")
 	public String getWtpost(Wtpost vo, Model model) {
+		model.addAttribute("NoticeList", noticeService.getNotices("WT_BOARD_POST"));// 공지사항
 		List<Wtpost> WtList = wt.getWtpostList(vo);
 		model.addAttribute("WtList", WtList);
 		return "walkThrough.jsp";
@@ -70,8 +76,7 @@ public class WtpostController {
 		// 최신 목록을 가져와서 모델에 추가 (조회수가 업데이트된 상태)
 		List<Wtpost> WtList = wt.getWtpostList(null);
 		model.addAttribute("WtList", WtList);
-		
-		
+
 		List<Comment> commentList = commentService.getCommentsByPostId(wtID);
 		model.addAttribute("commentList", commentList);
 		model.addAttribute("wtID", wtID);
@@ -79,6 +84,7 @@ public class WtpostController {
 		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
 	}
 
+	
 	@RequestMapping(value = "deleteWtpost.do")
 	public String deleteWtpost(int wtID) {
 		wt.deleteWtpost(wtID);

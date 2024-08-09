@@ -24,13 +24,6 @@ public class CommentController {
 		return "redirect:getWtpost.do?wtID="+comment.getWtID();
 	}
 
-//	@RequestMapping(value = "listComments.do", method = RequestMethod.GET)
-//	public String listComments(@RequestParam("wtID") int wtID, Model model) {
-//		List<Comment> commentList = commentService.getCommentsByPostId(wtID);
-//		model.addAttribute("commentList", commentList);
-//		model.addAttribute("wtID", wtID);
-//		return "getWtpost.jsp"; // 게시물 상세 페이지로 리다이렉트
-//	}
 
 	@RequestMapping(value = "deleteComment.do", method = RequestMethod.POST)
 	public String deleteComment(@RequestParam("commentID") int commentID, @RequestParam("wtID") int wtID) {

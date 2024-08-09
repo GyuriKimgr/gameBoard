@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.gameboard.biz.post.BoardNoticeService;
 import com.gameboard.biz.post.Mod;
 import com.gameboard.biz.post.ModService;
 
@@ -14,6 +15,8 @@ import com.gameboard.biz.post.ModService;
 public class ModController {
 	@Autowired
 	private ModService m;
+	@Autowired
+	private BoardNoticeService noticeService;
 
 	
 	@RequestMapping(value = "getMID.do")
@@ -31,6 +34,7 @@ public class ModController {
 
 	@RequestMapping(value = "Mod.do")
 	public String getModList(Mod vo, Model model) {
+		model.addAttribute("NoticeList", noticeService.getNotices("MOD_BOARD"));
 		List<Mod> ModList = m.getModList(vo);
 		model.addAttribute("ModList", ModList);
 		return "mod.jsp";

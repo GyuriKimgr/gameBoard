@@ -12,47 +12,6 @@
 		<h3>공략게시판</h3>
 	</div>
 
-
-
-
-
-	<!-- 공지사항 표시 -->
-	<c:choose>
-		<c:when test="${not empty NoticeList}">
-			<div class="notice-container">
-				<h4>공지사항</h4>
-				<table class="notice-table" border="1">
-					<thead class="notice-thead">
-						<tr class="notice-tr">
-							<th class="notice-th">공지번호</th>
-							<th class="notice-th">제목</th>
-							<th class="notice-th">작성자</th>
-							<th class="notice-th">작성일</th>
-							<th class="notice-th">조회수</th>
-						</tr>
-					</thead>
-					<tbody class="notice-tbody">
-						<c:forEach var="Notice" items="${NoticeList}">
-							<tr class="notice-tr">
-								<td class="notice-td">${Notice.noticeID}</td>
-								<td class="notice-td"><a
-									href="${pageContext.request.contextPath}/getNotice.do?noticeID=${Notice.noticeID}">
-										${Notice.noticeTitle} </a></td>
-								<td class="notice-td">${Notice.userID}</td>
-								<td class="notice-td">${Notice.noticeDate}</td>
-								<td class="notice-td">${Notice.noticeViews}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
-		</c:when>
-	</c:choose>
-
-
-
-
-<!-- 목록 -->
 	<div class="table-container">
 		<table class="wtable" border="1">
 			<thead class="wthead">
@@ -64,6 +23,35 @@
 					<th class="wth">조회수</th>
 				</tr>
 			</thead>
+			
+			
+			
+			<!-- 공지사항 영역 -->
+			<c:choose>
+				<c:when test="${not empty NoticeList}">
+					<tbody class="notice-tbody">
+						<c:forEach var="Notice" items="${NoticeList}">
+							<tr class="notice-tr">
+								<td class="notice-tdd">${Notice.noticeID}</td>
+								<td class="notice-td">
+									<a href="${pageContext.request.contextPath}/getNotice.do?noticeID=${Notice.noticeID}">
+										${Notice.noticeTitle}
+									</a>
+								</td>
+								<td class="notice-td">${Notice.managerID}</td>
+								<td class="notice-td">${Notice.noticeDate}</td>
+								<td class="notice-td">${Notice.noticeViews}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</c:when>
+			</c:choose>
+			
+			
+			
+			
+			
+			<!-- 게시물 목록 -->
 			<tbody class="wtbody">
 				<c:choose>
 					<c:when test="${empty WtList}">
@@ -84,7 +72,7 @@
 							<tr class="wtr">
 								<td class="wtd">${WtpostList.wtID}</td>
 								<td class="wtd"><a
-									href="getWtpost.do?wtID=${WtpostList.wtID}">${WtpostList.wtTitle}</td>
+									href="getWtpost.do?wtID=${WtpostList.wtID}">${WtpostList.wtTitle}</a></td>
 								<td class="wtd">${WtpostList.userID}</td>
 								<td class="wtd">${WtpostList.wtDate}</td>
 								<td class="wtd">${WtpostList.wtViews}</td>

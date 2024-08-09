@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.gameboard.biz.post.BoardNoticeService;
 import com.gameboard.biz.post.Fpost;
 import com.gameboard.biz.post.FpostService;
 
@@ -14,6 +15,10 @@ import com.gameboard.biz.post.FpostService;
 public class FpostController {
 	@Autowired
 	private FpostService f;
+	
+	@Autowired
+	private BoardNoticeService noticeService;
+	
 
 	@RequestMapping(value = "getFID.do")
 	public String getFID(Model model) {
@@ -30,6 +35,7 @@ public class FpostController {
 
 	@RequestMapping(value = "FAQ.do")
 	public String getFpost(Fpost vo, Model model) {
+		model.addAttribute("NoticeList", noticeService.getNotices("FAQ_BOARD_POST"));
 		List<Fpost> FList = f.getFpostList(vo);
 		model.addAttribute("FList", FList);
 		return "FAQ.jsp";

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.gameboard.biz.post.BoardNoticeService;
 import com.gameboard.biz.post.Sgpost;
 import com.gameboard.biz.post.SgpostService;
 
@@ -14,6 +15,8 @@ import com.gameboard.biz.post.SgpostService;
 public class SgpostController {
 	@Autowired
 	private SgpostService sg;
+	@Autowired
+	private BoardNoticeService noticeService;
 
 	@RequestMapping(value = "getSgID.do")
 	public String getSgID(Model model) {
@@ -30,6 +33,7 @@ public class SgpostController {
 
 	@RequestMapping(value = "suggest.do")
 	public String getSgpost(Sgpost vo, Model model) {
+		model.addAttribute("NoticeList", noticeService.getNotices("SG_BOARD_POST"));
 		List<Sgpost> SgList = sg.getSgpostList(vo);
 		model.addAttribute("SgList", SgList);
 		return "suggest.jsp";
