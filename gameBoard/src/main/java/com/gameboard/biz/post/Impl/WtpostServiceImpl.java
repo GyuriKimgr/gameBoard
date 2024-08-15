@@ -70,7 +70,6 @@ public class WtpostServiceImpl implements WtpostService{
 	@Override
 	public void updateWtpostViews(int wtID) {
 		wtpostDao.updateWtpostViews(wtID);
-
 	}
 	
 	@Override

@@ -48,11 +48,15 @@
         border-top: 2px solid white; /* 헤더의 위쪽 굵은 가로줄 설정 */
         border-bottom: 2px solid white; /* 헤더의 아래쪽 굵은 가로줄 설정 */
     }
-
+    
 .wtr{
     background-color: rgba(255,255,255,0.5);
 }
 
+.wtd a{
+	color : #6d8ed3;
+	font-weight : bold;
+}
 /*버튼 css*/
 .frame {
 	display: flex;

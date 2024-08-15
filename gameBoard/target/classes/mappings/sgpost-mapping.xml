@@ -107,7 +107,7 @@
        <![CDATA[
         SELECT *
         FROM (
-            SELECT sgTitle, sgContent, sgID,
+            SELECT sgTitle, sgContent, sgID, sgDate,
                    ROW_NUMBER() OVER (ORDER BY sgDate DESC) AS rn
             FROM SG_BOARD_POST
         )

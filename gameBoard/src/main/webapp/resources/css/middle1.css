@@ -59,7 +59,7 @@ a {
    font-weight: normal;
    font-size: 23px;
    line-height: 30px;
-   font-family: '���� ����', 'Malgun Gothic', '����', dotum, sans-serif;
+   font-family: '맑은 고딕', 'Malgun Gothic', '돋움', dotum, sans-serif;
 }
 
 
@@ -95,29 +95,25 @@ a {
    margin-bottom: 23px;
    transition: transform .5s; 
 }
-
-.middle1 .gamenews:hover .news_img {
-   transform: scale(1.1);
-}
-   
-   
-.middle1 .gamenews_1 .news_img {
+  
+.middle1 .gamenews_1 .news_img,
+.middle1 .gamenews_1 .news_img_2 {
    position: absolute;
-   top: 0;
    left: 0;
    bottom: 0;
+   width: 100%;
+   vertical-align: top;
    transition: transform .5s;
 }
 
-.news_img {
-   width: 100%;
-   vertical-align: top;
+.middle1 .news_img_2 {
+   top: -40px; /* 이미지가 위쪽으로 -40px 이동 */
+   z-index: 1; /* 다른 이미지 위에 표시 */
 }
 
-.gamenews_1, .news_img {
-   border: 0 none;
-   overflow-clip-margin: content-box;
-   overflow: clip;
+.middle1 .gamenews_1:hover .news_img,
+.middle1 .gamenews_1:hover .news_img_2 {
+   transform: scale(1.1); /* 호버 시 확대 효과 */
 }
 
 .middle1 .tit1 {
@@ -138,7 +134,7 @@ a {
 }
 
 .middle1 .tit1:hover {
-    text-decoration: underline; /* Ŀ���� �÷��� �� ���� �߰� */
+    text-decoration: underline; /* 커서를 올렸을 때 밑줄 추가 */
 }
 .middle1 .tit2 {
    display: block;
@@ -175,7 +171,65 @@ a {
    border-top: 1px solid #f7f7f7;
 }
 
-<!-- �α��� -->
+.today div {
+    height: auto; /* 자동 높이 조정 */
+    max-height: 300px; /* 최대 높이 설정 (필요에 따라 조정) */
+    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+    box-sizing: border-box; /* 패딩과 보더를 포함한 높이 계산 */
+}
+
+/* 기본 스타일 설정 */
+.today {
+    margin: 0; /* 기본 마진 제거 */
+    padding: 0; /* 기본 패딩 제거 */
+}
+
+.today .tit3 {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    padding: 3px 6px 0 20px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #0e0e0e;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    box-sizing: border-box;
+    transition: text-decoration 0.3s ease;
+}
+
+.today .tit3:hover {
+    text-decoration: underline; /* 커서를 올렸을 때 밑줄 추가 */
+}
+
+.today .tit4 {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    position: relative;
+    height: 50px;
+    padding: 8px 20px 1px;
+    font-size: 14px;
+    line-height: 25px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    word-wrap: break-word;
+}
+
+.today .tit4:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background-color: #fff;
+    content: '';
+}
+
+<!-- 로그인 -->
 
 * {
    padding: 0;
@@ -258,7 +312,7 @@ body {
    background-size: contain;
 }
 
-<!-- ���̵�ã��, ��й�ȣã��, ȸ������ -->
+<!-- 아이디찾기, 비밀번호찾기, 회원가입 -->
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -285,4 +339,58 @@ body {
    font-size: 13px;
     color: #8080ff;
     text-decoration: none;
+}
+
+.welcome {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255 255 255 / 20%);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 환영 메시지 스타일 */
+.welcome h2 {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 가입일 스타일 */
+.welcome p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px; /* 간격 조정 */
+}
+
+/* 로그아웃 폼 스타일 */
+#logout-form {
+    margin-top: 10px;
+}
+
+/* 로그아웃 버튼 스타일 */
+#logout-form input[type="submit"] {
+    background-color: #9498b4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#logout-form input[type="submit"]:hover {
+    background-color: #55b5ee;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#logout-form input[type="submit"]:active {
+    background-color: #55b5ee;
 }

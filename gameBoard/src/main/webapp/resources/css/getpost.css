@@ -404,15 +404,6 @@ div {
 	color: #787a82;
 }
 
-.list_cmt .cmt_cont .txt_desc:before {
-	position: absolute;
-	left: 0;
-	top: 5px;
-	bottom: 6px;
-	content: '';
-	width: 1px;
-	border-left: 1px solid #d9dbde;
-}
 
 .list_cmt .cmt_cont .info_opt {
 	display: block;

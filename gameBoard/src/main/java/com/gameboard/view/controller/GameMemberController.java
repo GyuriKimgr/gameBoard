@@ -1,5 +1,8 @@
 package com.gameboard.view.controller;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -92,6 +95,14 @@ public class GameMemberController{
 				HttpSession session = request.getSession();
 				session.setAttribute("loggedInMemberId", memberId);
 				session.setAttribute("loggedInMember", memberName);
+				
+				String memberJoinDate = gs.getJoinDateById(memberId);
+				session.setAttribute("memberJoinDate", memberJoinDate);
+				
+				LocalDate joinDate = LocalDate.parse(memberJoinDate);
+		        LocalDate currentDate = LocalDate.now();
+		        long daysElapsed = ChronoUnit.DAYS.between(joinDate, currentDate);
+		        session.setAttribute("daysElapsed", daysElapsed);
 				return "success";
 			}
 			else {

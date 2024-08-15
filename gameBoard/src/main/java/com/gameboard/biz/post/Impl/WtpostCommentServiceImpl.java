@@ -31,9 +31,19 @@ public class WtpostCommentServiceImpl implements WtpostCommentService {
     public void deleteWtComment(int commentID) {
         commentDao.deleteWtComment(commentID);
     }
+
+	@Override
+	public void deleteWtAllComment(int wtID) {
+		commentDao.deleteWtAllComment(wtID);
+	}
 	
 	@Override
     public WtpostComment getWtCommentById(int commentID) {
         return commentDao.selectWtCommentById(commentID);
+    }
+
+	@Override
+	public int countWtCommentsByPostId(int wtID) {
+        return commentDao.countWtCommentByPostId(wtID);
     }
 }

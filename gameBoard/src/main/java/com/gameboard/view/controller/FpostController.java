@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gameboard.biz.post.Fpost;
 import com.gameboard.biz.post.FpostService;
-import com.gameboard.biz.post.Wtpost;
 
 @Controller
 public class FpostController {
@@ -31,32 +30,32 @@ public class FpostController {
 		return "insertFpost.jsp";
 	}
 	
-	// IP ÁÖ¼Ò¸¦ ÀÏºÎ ¸¶½ºÅ·ÇÏ´Â ¸Þ¼­µå
+	// IP ï¿½Ö¼Ò¸ï¿½ ï¿½Ïºï¿½ ï¿½ï¿½ï¿½ï¿½Å·ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 		private String maskIpAddress(String ipAddress) {
-			// IPv4 Ã³¸®
+			// IPv4 Ã³ï¿½ï¿½
 		    if (ipAddress.contains(".")) {
 		        String[] parts = ipAddress.split("\\.");
 		        if (parts.length == 4) {
 		            return parts[0] + "." + parts[1] + ".***." + parts[3];
 		        }
 		    }
-		    // IPv6 Ã³¸®
+		    // IPv6 Ã³ï¿½ï¿½
 		    else if (ipAddress.contains(":")) {
 		        if ("0:0:0:0:0:0:0:1".equals(ipAddress)) {
-		            return "local:01"; // ·ÎÄÃÈ£½ºÆ® ÁÖ¼Ò¸¦ Ã³¸®
+		            return "local:01"; // ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½Æ® ï¿½Ö¼Ò¸ï¿½ Ã³ï¿½ï¿½
 		        } else {
-		            // IPv6 ÁÖ¼ÒÀÇ ÀÏºÎ¸¦ ¸¶½ºÅ·
+		            // IPv6 ï¿½Ö¼ï¿½ï¿½ï¿½ ï¿½ÏºÎ¸ï¿½ ï¿½ï¿½ï¿½ï¿½Å·
 		            String[] parts = ipAddress.split(":");
 		            return parts[0] + ":" + parts[1] + ":" + parts[2] + ":****:****:" + parts[5] + ":" + parts[6] + ":" + parts[7];
 		        }
 		    }
-		    return ipAddress; // IP ÁÖ¼Ò Çü½ÄÀÌ ¸ÂÁö ¾ÊÀ¸¸é ¸¶½ºÅ·ÇÏÁö ¾Ê°í ¹ÝÈ¯
+		    return ipAddress; // IP ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½È¯
 		}
 
 	@RequestMapping(value = "insertFpost.do")
 	public String insertFpost(Fpost vo, HttpServletRequest request, HttpSession session) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
-		//¼¼¼Ç¿¡ id ¾øÀ» ½Ã ip ÁÖ¼Ò
+		//ï¿½ï¿½ï¿½Ç¿ï¿½ id ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ip ï¿½Ö¼ï¿½
 		if(loggedInMemberId == null) {
 			String ipAddress = request.getRemoteAddr();
 			loggedInMemberId = maskIpAddress(ipAddress);
@@ -73,7 +72,7 @@ public class FpostController {
 		return "FAQ.jsp";
 	}
 
-	// °Ë»ö
+	// ï¿½Ë»ï¿½
 	@RequestMapping(value = "searchFpost.do")
 	public String searchFpost(Fpost vo, Model model) {
 		List<Fpost> FList = f.searchFpost(vo);
@@ -81,20 +80,20 @@ public class FpostController {
 		return "searchF.jsp";
 	}
 
-	// ¼öÁ¤ + »èÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "getFpost.do")
 	public String getFpostById(int fID, Model model) {
-		// Á¶È¸¼ö ¾÷µ¥ÀÌÆ®
+		// ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 		f.updateFpostViews(fID);
 
 		Fpost post = f.getFpostById(fID);
 		model.addAttribute("post", post);
 
-		// ÀÌÀü °Ô½Ã¹°°ú ´ÙÀ½ °Ô½Ã¹°À» °¡Á®¿À±â À§ÇØ ID¸¦ ±âÁØÀ¸·Î Á¶È¸ÇÑ´Ù.
-		Fpost prevPost = f.getPrevFpost(fID); // ÀÌÀü °Ô½Ã¹° Á¶È¸
-		Fpost nextPost = f.getNextFpost(fID); // ´ÙÀ½ °Ô½Ã¹° Á¶È¸
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ IDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ñ´ï¿½.
+		Fpost prevPost = f.getPrevFpost(fID); // ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È¸
+		Fpost nextPost = f.getNextFpost(fID); // ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È¸
 
-		// ÀÌÀü °Ô½Ã¹°°ú ´ÙÀ½ °Ô½Ã¹°ÀÌ Á¸ÀçÇÒ °æ¿ì ¸ðµ¨¿¡ Ãß°¡ÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ðµ¨¿ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½.
 		if (prevPost != null) {
 			model.addAttribute("prevPost", prevPost);
 		}
@@ -102,18 +101,18 @@ public class FpostController {
 			model.addAttribute("nextPost", nextPost);
 		}
 
-		// ÃÖ½Å ¸ñ·ÏÀ» °¡Á®¿Í¼­ ¸ðµ¨¿¡ Ãß°¡ (Á¶È¸¼ö°¡ ¾÷µ¥ÀÌÆ®µÈ »óÅÂ)
+		// ï¿½Ö½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ ï¿½ðµ¨¿ï¿½ ï¿½ß°ï¿½ (ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 		List<Fpost> FList = f.getFpostList(null);
 		model.addAttribute("FList", FList);
 
-		return "getFpost.jsp"; // »ó¼¼ Á¤º¸¸¦ º¸¿©ÁÙ ºä ÀÌ¸§
+		return "getFpost.jsp"; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½
 	}
 
 	@RequestMapping(value = "deleteFpost.do", produces = "text/plain; charset = UTF-8")
 	@ResponseBody
 	public String deleteFpost(int fID, HttpServletRequest request, HttpSession session) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
-		//¼¼¼Ç¿¡ id ¾øÀ» ½Ã ip ÁÖ¼Ò
+		//ï¿½ï¿½ï¿½Ç¿ï¿½ id ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ip ï¿½Ö¼ï¿½
 		if(loggedInMemberId == null) {
 			String ipAddress = request.getRemoteAddr();
 			loggedInMemberId = maskIpAddress(ipAddress);
@@ -141,7 +140,7 @@ public class FpostController {
         Fpost post = f.getFpostById(fID);
 
         if (post != null && post.getUserID().equals(loggedInMemberId)) {
-            // ±ÇÇÑÀÌ ÀÖÀ¸¸é ÆäÀÌÁö Á¤º¸¸¦ Æ÷ÇÔÇÑ URLÀ» ¹ÝÈ¯
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ URLï¿½ï¿½ ï¿½ï¿½È¯
             return ResponseEntity.ok("updateSuccess|updateFpostForm.do?fID=" + fID);
         } else {
             return ResponseEntity.ok("updateFailed");
@@ -150,9 +149,9 @@ public class FpostController {
 
 	@RequestMapping(value = "updateFpostForm.do")
 	public String updateFpostForm(@RequestParam("fID") int fID, Model model) {
-		Fpost post = f.getFpostById(fID); // °Ô½Ã¹° Á¤º¸¸¦ °¡Á®¿È
-		model.addAttribute("post", post); // ¼öÁ¤ Æû¿¡¼­ »ç¿ëÇÒ °Ô½Ã¹° Á¤º¸¸¦ ¸ðµ¨¿¡ Ãß°¡
-		return "updateFpostForm.jsp"; // ¼öÁ¤ Æû JSP ÆäÀÌÁö·Î ÀÌµ¿
+		Fpost post = f.getFpostById(fID); // ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		model.addAttribute("post", post); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ðµ¨¿ï¿½ ï¿½ß°ï¿½
+		return "updateFpostForm.jsp"; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ JSP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	}
 
 	@RequestMapping(value = "updateFpost.do")
@@ -170,7 +169,7 @@ public class FpostController {
         if (existingPost != null && existingPost.getUserID().equals(loggedInMemberId)) {
             existingPost.setfTitle(vo.getfTitle());
             existingPost.setfContent(vo.getfContent());
-            // °Ô½Ã¹° Á¤º¸¸¦ ¾÷µ¥ÀÌÆ®
+            // ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
             f.updateFpost(existingPost);
         }
 		return "redirect:getFpost.do?fID=" + vo.getfID();

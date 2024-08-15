@@ -41,7 +41,7 @@ ul {
     font-weight: normal;
     line-height: 30px;
     font-size: 23px;
-    font-family: '¸¼Àº °íµñ', 'Malgun Gothic', 'µ¸¿ò', dotum, sans-serif;
+    font-family: 'ë§‘ì€ ê³ ë”•', 'Malgun Gothic', 'ë‹ì›€', dotum, sans-serif;
 }
     
 .middle2 .link_card .img_comm2 {
@@ -113,7 +113,7 @@ ul {
 }
 
 .middle2 .tit3:hover {
-    text-decoration: underline; /* Ä¿¼­¸¦ ¿Ã·ÈÀ» ¶§ ¹ØÁÙ Ãß°¡ */
+    text-decoration: underline; /* ì»¤ì„œë¥¼ ì˜¬ë ¸ì„ ë•Œ ë°‘ì¤„ ì¶”ê°€ */
 }
 
 .middle2 .tit4 {

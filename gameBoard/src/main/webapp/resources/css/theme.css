@@ -31,3 +31,22 @@
 .darkMode .login {
 	background-color : #eadbf7;
 }
+
+.darkMode .welcome {
+    background-color: rgb(255 255 255 / 20%);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+}
+
+.darkMode .welcome h2 {
+    color: #333;
+}
+
+.darkMode .welcome p {
+    color: #555;
+}
+
+.darkMode #logout-form input[type="submit"] {
+    background-color: #9498b4;
+    color: #fff;
+}

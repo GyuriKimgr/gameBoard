@@ -37,8 +37,17 @@ public class WtpostCommentDaoImpl implements WtpostCommentDao {
     }
     
     @Override
+	public void deleteWtAllComment(int wtID) {
+		mybatis.delete(NAMESPACE + ".deleteWtAllComment", wtID);
+	}
+    
+    @Override
     public WtpostComment selectWtCommentById(int commentID) {
-        System.out.println("select comment by ID");
         return mybatis.selectOne(NAMESPACE + ".selectWtCommentById", commentID);
+    }
+    
+    @Override
+    public int countWtCommentByPostId(int wtID) {
+    	return mybatis.selectOne(NAMESPACE + ".countWtCommentsByPostId", wtID);
     }
 }

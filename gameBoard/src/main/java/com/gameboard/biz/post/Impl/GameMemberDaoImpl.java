@@ -32,6 +32,11 @@ public class GameMemberDaoImpl implements GameMemberDao {
     public String getJoinDate() {
         return mybatis.selectOne("GameMemberDao.getJoinDate");
     }
+    
+    @Override
+    public String getJoinDateById(String memberId) {
+    	return mybatis.selectOne("GameMemberDao.getJoinDateById", memberId);
+    }
 
     @Override
     public int checkIdDuplicate(String memberId) {

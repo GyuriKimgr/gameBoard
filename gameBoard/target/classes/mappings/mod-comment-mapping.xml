@@ -1,0 +1,78 @@
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ModpostCommentDao">
+    <!-- resultMap 정의 -->
+    <resultMap id="ModCommentResultMap" type="com.gameboard.biz.post.ModComment">
+        <id property="mCommentID" column="mCommentID"/>
+        <result property="mID" column="mID"/>
+        <result property="userID" column="userID"/>
+        <result property="mCommentDate" column="mCommentDate"/>
+        <result property="mCommentContent" column="mCommentContent"/>
+    </resultMap>
+
+	<!-- 댓글 추가 -->
+	<insert id="insertModComment"
+		parameterType="com.gameboard.biz.post.ModComment">
+		INSERT INTO MOD_BOARD_COMMENT (
+		mCommentID,
+		mID,
+		userID,
+		mCommentContent
+		) VALUES (
+		(SELECT NVL(MAX(mCommentID), 0) + 1 FROM MOD_BOARD_COMMENT),
+		#{mID},
+		#{userID},
+		#{mCommentContent}
+		)
+	</insert>
+	
+	<select id="getModCommentDate" resultType="string">
+    <![CDATA[
+        SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI') AS currentDateTime FROM DUAL
+    ]]>
+	</select>
+	
+	<select id = "getModCommentID" resultType = "int">
+		<![CDATA[
+			SELECT NVL(MAX(mCommentID, 0) +1
+			FROM MOD_BOARD_COMMENT
+		]]>
+	</select>
+
+	<!-- 댓글 조회 -->
+	<select id="selectModCommentsByPostId" parameterType="int"
+		resultType="com.gameboard.biz.post.ModComment">
+		SELECT *
+		FROM MOD_BOARD_COMMENT
+		WHERE mID = #{mID}
+		ORDER BY mCommentContent DESC
+	</select>
+	
+	<!-- 단일 객체 댓글 조회 -->
+	<select id = "selectModCommentById" resultType="com.gameboard.biz.post.ModComment">
+		<![CDATA[
+			SELECT * FROM MOD_BOARD_COMMENT
+			WHERE mCommentID = #{mCommentID}
+		]]>
+	</select>
+	
+	<!-- 단일 댓글 삭제 -->
+	 <delete id="deleteModComment" parameterType="int">
+        DELETE FROM MOD_BOARD_COMMENT
+        WHERE mCommentID = #{mCommentID}
+    </delete>
+    
+    <!-- 게시물 댓글 삭제 -->
+    <delete id="deleteModAllComment" parameterType = "int">
+    	DELETE FROM MOD_BOARD_COMMENT
+    	WHERE mID = #{mID}
+    </delete>
+    
+    <!-- mID를 기준으로 댓글 카운트 -->
+    <select id = "countModCommentsByPostId" parameterType = "int" resultType="int">
+    	SELECT COUNT(*) FROM MOD_BOARD_COMMENT
+    	WHERE mID = #{mID}
+    </select>
+</mapper>

@@ -58,8 +58,21 @@
 		]]>
 	</select>
 	
+	<!-- 단일 댓글 삭제 -->
 	 <delete id="deleteWtComment" parameterType="int">
         DELETE FROM WT_BOARD_COMMENT
         WHERE commentID = #{commentID}
     </delete>
+    
+    <!-- 게시물 댓글 삭제 -->
+    <delete id="deleteWtAllComment" parameterType = "int">
+    	DELETE FROM WT_BOARD_COMMENT
+    	WHERE wtID = #{wtID}
+    </delete>
+    
+    <!-- wtID를 기준으로 댓글 카운트 -->
+    <select id = "countWtCommentsByPostId" parameterType = "int" resultType="int">
+    	SELECT COUNT(*) FROM WT_BOARD_COMMENT
+    	WHERE wtID = #{wtID}
+    </select>
 </mapper>

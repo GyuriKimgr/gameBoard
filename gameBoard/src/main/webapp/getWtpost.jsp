@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <div class="view_cmt">
                 <div class="cmt_head">
-                 <strong class="tit_cmt">댓글 <em class="emph_g2"><span class="screen_out">총 갯수</span></em></strong>
+                 <strong class="tit_cmt">댓글 <b>${WTcommentConunts}</b>개</strong>
                   <form id="writeCommentForm" name="writeCommentForm" method="post">
     				<fieldset class="fld_cmt" style="padding: 25px">
         				<legend class="screen_out">댓글 작성 양식</legend>

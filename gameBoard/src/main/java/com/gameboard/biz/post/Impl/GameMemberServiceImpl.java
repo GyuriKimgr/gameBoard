@@ -29,6 +29,11 @@ public class GameMemberServiceImpl implements GameMemberService{
 	public String getJoinDate() {
 		return gameMemberDao.getJoinDate();
 	}
+	
+	@Override
+	public String getJoinDateById(String memberId) {
+		return gameMemberDao.getJoinDateById(memberId);
+	}
 
 	@Override
 	public int checkIdDuplicate(String memberId) {
