@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SgpostCommentDao">
+    <!-- resultMap 정의 -->
+    <resultMap id="SgCommentResultMap" type="com.gameboard.biz.post.SgpostComment">
+        <id property="sgCommentID" column="sgCommentID"/>
+        <result property="sgID" column="sgID"/>
+        <result property="userID" column="userID"/>
+        <result property="sgCommentDate" column="sgCommentDate"/>
+        <result property="sgCommentContent" column="sgCommentContent"/>
+    </resultMap>
+
+	<!-- 댓글 추가 -->
+	<insert id="insertSgComment"
+		parameterType="com.gameboard.biz.post.SgpostComment">
+		INSERT INTO SG_BOARD_COMMENT (
+		sgCommentID,
+		sgID,
+		userID,
+		sgCommentContent
+		) VALUES (
+		(SELECT NVL(MAX(sgCommentID), 0) + 1 FROM SG_BOARD_COMMENT),
+		#{sgID},
+		#{userID},
+		#{sgCommentContent}
+		)
+	</insert>
+	
+	<select id="getSgCommentDate" resultType="string">
+    <![CDATA[
+        SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI') AS currentDateTime FROM DUAL
+    ]]>
+	</select>
+	
+	<select id = "getSgCommentID" resultType = "int">
+		<![CDATA[
+			SELECT NVL(MAX(sgCommentID), 0) +1
+			FROM SG_BOARD_COMMENT
+		]]>
+	</select>
+
+	<!-- 댓글 조회 -->
+	<select id="selectSgCommentsByPostId" parameterType="int"
+		resultType="com.gameboard.biz.post.SgpostComment">
+		SELECT *
+		FROM SG_BOARD_COMMENT
+		WHERE sgID = #{sgID}
+		ORDER BY sgCommentDate DESC
+	</select>
+	
+	<!-- 단일 객체 댓글 조회 -->
+	<select id = "selectSgCommentById" resultType="com.gameboard.biz.post.SgpostComment">
+		<![CDATA[
+			SELECT * FROM SG_BOARD_COMMENT
+			WHERE sgCommentID = #{sgCommentID}
+		]]>
+	</select>
+	
+	<!-- 단일 댓글 삭제 -->
+	 <delete id="deleteSgComment" parameterType="int">
+        DELETE FROM SG_BOARD_COMMENT
+        WHERE sgCommentID = #{sgCommentID}
+    </delete>
+    
+    <!-- 게시물 댓글 삭제 -->
+    <delete id="deleteSgAllComment" parameterType = "int">
+    	DELETE FROM SG_BOARD_COMMENT
+    	WHERE sgID = #{sgID}
+    </delete>
+    
+    <!-- sgID를 기준으로 댓글 카운트 -->
+    <select id = "countSgCommentsByPostId" parameterType = "int" resultType="int">
+    	SELECT COUNT(*) FROM SG_BOARD_COMMENT
+    	WHERE sgID = #{sgID}
+    </select>
+</mapper>

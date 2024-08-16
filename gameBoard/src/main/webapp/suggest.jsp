@@ -41,8 +41,8 @@
 						<c:forEach var="SgpostList" items="${SgList}">
 							<tr class="wtr">
 								<td class="wtd">${SgpostList.sgID}</td>
-								<td class="wtd"><a
-									href="getSgpost.do?sgID=${SgpostList.sgID}">${SgpostList.sgTitle}</td>
+								<td class="wtd"><a href="getSgpost.do?sgID=${SgpostList.sgID}">${SgpostList.sgTitle}
+								<a>[<c:out value="${SGcommentCounts[SgpostList.sgID]}" />]</a></td>
 								<td class="wtd">${SgpostList.userID}</td>
 								<td class="wtd">${SgpostList.sgDate}</td>
 								<td class="wtd">${SgpostList.sgViews}</td>

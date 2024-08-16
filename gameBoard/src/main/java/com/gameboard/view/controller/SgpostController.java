@@ -1,6 +1,8 @@
 package com.gameboard.view.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,12 +18,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gameboard.biz.post.Sgpost;
+import com.gameboard.biz.post.SgpostComment;
+import com.gameboard.biz.post.SgpostCommentService;
 import com.gameboard.biz.post.SgpostService;
 
 @Controller
 public class SgpostController {
 	@Autowired
 	private SgpostService sg;
+	
+	@Autowired
+	private SgpostCommentService sgCommentService;
 
 	@RequestMapping(value = "getSgID.do")
 	public String getSgID(Model model) {
@@ -30,32 +37,28 @@ public class SgpostController {
 		return "insertSgpost.jsp";
 	}
 	
-	// IP 주소를 일부 마스킹하는 메서드
 		private String maskIpAddress(String ipAddress) {
-			// IPv4 처리
 		    if (ipAddress.contains(".")) {
 		        String[] parts = ipAddress.split("\\.");
 		        if (parts.length == 4) {
 		            return parts[0] + "." + parts[1] + ".***." + parts[3];
 		        }
 		    }
-		    // IPv6 처리
 		    else if (ipAddress.contains(":")) {
 		        if ("0:0:0:0:0:0:0:1".equals(ipAddress)) {
-		            return "local:01"; // 로컬호스트 주소를 처리
+		            return "local:01";
 		        } else {
-		            // IPv6 주소의 일부를 마스킹
 		            String[] parts = ipAddress.split(":");
 		            return parts[0] + ":" + parts[1] + ":" + parts[2] + ":****:****:" + parts[5] + ":" + parts[6] + ":" + parts[7];
 		        }
 		    }
-		    return ipAddress; // IP 주소 형식이 맞지 않으면 마스킹하지 않고 반환
+		    return ipAddress; 
 		}
 
 	@RequestMapping(value = "insertSgpost.do")
 	public String insertSgpost(Sgpost vo, HttpServletRequest request, HttpSession session) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
-		//세션에 id 없을 시 ip 주소
+
 		if(loggedInMemberId == null) {
 			String ipAddress = request.getRemoteAddr();
 			loggedInMemberId = maskIpAddress(ipAddress);
@@ -69,6 +72,15 @@ public class SgpostController {
 	public String getSgpost(Sgpost vo, Model model) {
 		List<Sgpost> SgList = sg.getSgpostList(vo);
 		model.addAttribute("SgList", SgList);
+		
+		Map<Integer, Integer> SGcommentCounts = new HashMap<>();
+		for(Sgpost post : SgList) {
+			int sgCommentCount = sgCommentService.countSgCommentsByPostId(post.getSgID());
+			SGcommentCounts.put(post.getSgID(), sgCommentCount);
+		}
+		model.addAttribute("SgList", SgList);
+		model.addAttribute("SGcommentCounts", SGcommentCounts);
+		
 		return "suggest.jsp";
 	}
 
@@ -79,20 +91,16 @@ public class SgpostController {
 		return "searchSg.jsp";
 	}
 
-	// 수정 + 삭제
 	@RequestMapping(value = "getSgpost.do")
 	public String getSgpostById(int sgID, Model model) {
-		// 조회수 업데이트
 		sg.updateSgpostViews(sgID);
 
 		Sgpost post = sg.getSgpostById(sgID);
 		model.addAttribute("post",post);
 
-		// 이전 게시물과 다음 게시물을 가져오기 위해 ID를 기준으로 조회한다.
-		Sgpost prevPost = sg.getPrevSgpost(sgID); // 이전 게시물 조회
-		Sgpost nextPost = sg.getNextSgpost(sgID); // 다음 게시물 조회
+		Sgpost prevPost = sg.getPrevSgpost(sgID);
+		Sgpost nextPost = sg.getNextSgpost(sgID);
 
-		// 이전 게시물과 다음 게시물이 존재할 경우 모델에 추가한다.
 		if (prevPost != null) {
 			model.addAttribute("prevPost", prevPost);
 		}
@@ -100,11 +108,16 @@ public class SgpostController {
 			model.addAttribute("nextPost", nextPost);
 		}
 
-		// 최신 목록을 가져와서 모델에 추가 (조회수가 업데이트된 상태)
 		List<Sgpost> SgList = sg.getSgpostList(null);
 		model.addAttribute("SgList", SgList);
+		
+		List<SgpostComment> sgCommentList = sgCommentService.getSgCommentsByPostId(sgID);
+		model.addAttribute("sgCommentList", sgCommentList);
+		int SGcommentCounts = sgCommentService.countSgCommentsByPostId(sgID);
+		model.addAttribute("SGcommentCounts", SGcommentCounts);
+		model.addAttribute("sgID", sgID);
 
-		return"getSgpost.jsp"; // 상세 정보를 보여줄 뷰 이름
+		return"getSgpost.jsp";
 	}
 
 
@@ -119,6 +132,7 @@ public class SgpostController {
 	    Sgpost post = sg.getSgpostById(sgID);
 		
 	    if(post != null && post.getUserID().equals(loggedInMemberId)) {
+	    	sgCommentService.deleteSgAllComment(sgID);
 	    	sg.deleteSgpost(sgID);
 	    	return "deleteSuccess";
 	    }else {
@@ -146,9 +160,9 @@ public class SgpostController {
 
 	@RequestMapping(value = "updateSgpostForm.do")
 	public String updateSgpostForm(@RequestParam("sgID") int sgID, Model model) {
-		Sgpost post = sg.getSgpostById(sgID); // 게시물 정보를 가져옴
-		model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
-		return "updateSgpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
+		Sgpost post = sg.getSgpostById(sgID); 
+		model.addAttribute("post", post); 
+		return "updateSgpostForm.jsp"; 
 	}
 
 	@RequestMapping(value = "updateSgpost.do", method = RequestMethod.POST)
