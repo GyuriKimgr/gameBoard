@@ -1,6 +1,8 @@
 package com.gameboard.view.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gameboard.biz.post.Mod;
+import com.gameboard.biz.post.ModComment;
+import com.gameboard.biz.post.ModCommentService;
 import com.gameboard.biz.post.ModService;
 
 @Controller
@@ -23,6 +27,8 @@ public class ModController {
 	@Autowired
 	private ModService m;
 
+	@Autowired
+	private ModCommentService ms;
 	
 	@RequestMapping(value = "getMID.do")
 	public String getMID(Model model) {
@@ -31,26 +37,22 @@ public class ModController {
 		return "insertMod.jsp";
 	}
 	
-	// IP �ּҸ� �Ϻ� ����ŷ�ϴ� �޼���
 		private String maskIpAddress(String ipAddress) {
-			// IPv4 ó��
 		    if (ipAddress.contains(".")) {
 		        String[] parts = ipAddress.split("\\.");
 		        if (parts.length == 4) {
 		            return parts[0] + "." + parts[1] + ".***." + parts[3];
 		        }
 		    }
-		    // IPv6 ó��
 		    else if (ipAddress.contains(":")) {
 		        if ("0:0:0:0:0:0:0:1".equals(ipAddress)) {
-		            return "local:01"; // ����ȣ��Ʈ �ּҸ� ó��
+		            return "local:01";
 		        } else {
-		            // IPv6 �ּ��� �Ϻθ� ����ŷ
 		            String[] parts = ipAddress.split(":");
 		            return parts[0] + ":" + parts[1] + ":" + parts[2] + ":****:****:" + parts[5] + ":" + parts[6] + ":" + parts[7];
 		        }
 		    }
-		    return ipAddress; // IP �ּ� ������ ���� ������ ����ŷ���� �ʰ� ��ȯ
+		    return ipAddress;
 		}
 
 	@RequestMapping(value = "insertMod.do")
@@ -68,7 +70,14 @@ public class ModController {
 	@RequestMapping(value = "Mod.do")
 	public String getModList(Mod vo, Model model) {
 		List<Mod> ModList = m.getModList(vo);
+		
+		Map<Integer, Integer> MODcommentCounts = new HashMap<>();
+		for(Mod post : ModList) {
+			int mCommentCount = ms.countModCommentsByPostId(post.getmID());
+			MODcommentCounts.put(post.getmID(), mCommentCount);
+		}
 		model.addAttribute("ModList", ModList);
+		model.addAttribute("MODCommentCounts", MODcommentCounts);
 		return "mod.jsp";
 	}
 
@@ -79,20 +88,16 @@ public class ModController {
 		return "searchMod.jsp";
 	}
 
-	// ���� + ����
 	@RequestMapping(value = "getMod.do")
 	public String getModById(int mID, Model model) {
-		// ��ȸ�� ������Ʈ
 		m.updateModViews(mID);
 
 		Mod post = m.getModById(mID);
 		model.addAttribute("post", post);
 
-		// ���� �Խù��� ���� �Խù��� �������� ���� ID�� �������� ��ȸ�Ѵ�.
-		Mod prevPost = m.getPrevMod(mID); // ���� �Խù� ��ȸ
-		Mod nextPost = m.getNextMod(mID); // ���� �Խù� ��ȸ
+		Mod prevPost = m.getPrevMod(mID);
+		Mod nextPost = m.getNextMod(mID);
 
-		// ���� �Խù��� ���� �Խù��� ������ ��� �𵨿� �߰��Ѵ�.
 		if (prevPost != null) {
 			model.addAttribute("prevPost", prevPost);
 		}
@@ -100,10 +105,15 @@ public class ModController {
 			model.addAttribute("nextPost", nextPost);
 		}
 
-		// �ֽ� ����� �����ͼ� �𵨿� �߰� (��ȸ���� ������Ʈ�� ����)
 		List<Mod> ModList = m.getModList(null);
 		model.addAttribute("ModList", ModList);
-		return "getMod.jsp"; // �� ������ ������ �� �̸�
+		
+		List<ModComment> McommentList = ms.getModCommentsByPostId(mID);
+		model.addAttribute("McommentList", McommentList);
+		int MODcommentCounts = ms.countModCommentsByPostId(mID);
+		model.addAttribute("MODcommentCounts", MODcommentCounts);
+		model.addAttribute("mID", mID);
+		return "getMod.jsp";
 	}
 
 	@RequestMapping(value = "deleteMod.do", produces = "text/plain;charset=UTF-8")
@@ -118,6 +128,7 @@ public class ModController {
 		    Mod post = m.getModById(mID);
 		    
 		    if(post != null && post.getUserID().equals(loggedInMemberId)) {
+		    	ms.deleteModAllComment(mID);
 		    	m.deleteMod(mID);
 		    	return "deleteSuccess";
 		    } else {
@@ -146,9 +157,9 @@ public class ModController {
 
 	@RequestMapping(value = "updateModForm.do")
 	public String updateModForm(@RequestParam("mID") int mID, Model model) {
-		Mod post = m.getModById(mID); // �Խù� ������ ������
-		model.addAttribute("post", post); // ���� ������ ����� �Խù� ������ �𵨿� �߰�
-		return "updateModForm.jsp"; // ���� �� JSP �������� �̵�
+		Mod post = m.getModById(mID);
+		model.addAttribute("post", post);
+		return "updateModForm.jsp";
 	}
 
 	@RequestMapping(value = "updateMod.do", method = RequestMethod.POST)

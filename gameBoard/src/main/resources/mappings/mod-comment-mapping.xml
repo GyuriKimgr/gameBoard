@@ -47,7 +47,7 @@
 		SELECT *
 		FROM MOD_BOARD_COMMENT
 		WHERE mID = #{mID}
-		ORDER BY mCommentContent DESC
+		ORDER BY mCommentDate DESC
 	</select>
 	
 	<!-- 단일 객체 댓글 조회 -->

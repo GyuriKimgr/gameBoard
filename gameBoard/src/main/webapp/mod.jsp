@@ -41,7 +41,8 @@
                     <c:forEach var="ModList" items="${ModList}">
                         <tr class = "wtr">
                             <td class = "wtd">${ModList.mID}</td>
-                            <td class = "wtd"><a href="getMod.do?mID=${ModList.mID}">${ModList.mTitle}</td>
+                            <td class = "wtd"><a href="getMod.do?mID=${ModList.mID}">${ModList.mTitle}
+                            <a>[<c:out value="${MODCommentCounts[ModList.mID]}" />]</a></td>
                             <td class = "wtd">${ModList.userID}</td>
                             <td class = "wtd">${ModList.mDate}</td>
                             <td class="wtd">${ModList.mViews}</td>
