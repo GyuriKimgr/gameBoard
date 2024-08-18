@@ -87,7 +87,20 @@ function checkEditPermissionF(fID) {
 		<div class="view_cont">
 			<div class="content">
 				<p>${post.getfContent()}</p>
+				<c:if test="${not empty image.imageUrl}">
+					<img
+						src="${pageContext.request.contextPath}/resources/images/${image.imageUrl}"
+						alt="게시글 이미지" class="post-image" />
+				</c:if>
 			</div>
+			<div>
+				 <!-- 답변 완료된 경우에만 답변 출력 -->
+        	<c:if test="${not empty answer}">
+            	<h4>답변</h4>
+            	<p>${answer}</p>
+        	</c:if>
+			</div>
+			
 		</div>
 
 	<div class="view_btn">

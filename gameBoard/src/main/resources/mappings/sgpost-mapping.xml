@@ -19,6 +19,11 @@
 			VALUES(#{sgID}, #{sgTitle}, #{userID}, #{sgDate}, #{sgContent})
 		]]>
 	</insert>
+	<!--  게시물에 이미지 추가  -->
+<insert id="insertSgPostImage">
+<![CDATA[ INSERT INTO SG_BOARD_IMAGE(sgimageID, sgID, sgimageUrl) VALUES(SEQ_SG_BOARD_IMAGE.NEXTVAL, #{sgID}, #{sgimageUrl}) ]]>
+</insert>
+<select id="getImagesBySgID" parameterType="int" resultType="com.gameboard.biz.post.SgpostImage"> SELECT * FROM SG_BOARD_IMAGE WHERE sgID = #{sgID} </select>
 	
 	<update id="updateSgpost">
 		<![CDATA[

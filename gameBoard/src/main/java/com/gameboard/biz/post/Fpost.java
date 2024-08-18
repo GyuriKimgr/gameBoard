@@ -9,12 +9,14 @@ public class Fpost {
 	private String searchCondition;
 	private String searchKeyword;
 	private int fViews;
+	private String answer;
+	private String status;
 
 	public Fpost() {
 	}
 
 	public Fpost(int fID, String fTitle, String userID, String fDate, String fContent, String searchCondition,
-			String searchKeyword, int fViews) {
+			String searchKeyword, int fViews, String answer, String status) {
 		super();
 		this.fID = fID;
 		this.fTitle = fTitle;
@@ -24,6 +26,8 @@ public class Fpost {
 		this.searchCondition = searchCondition;
 		this.searchKeyword = searchKeyword;
 		this.fViews = fViews;
+		this.answer = answer;
+		this.status = status;
 	}
 
 	public int getfID() {
@@ -88,5 +92,21 @@ public class Fpost {
 
 	public void setfViews(int fViews) {
 		this.fViews = fViews;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

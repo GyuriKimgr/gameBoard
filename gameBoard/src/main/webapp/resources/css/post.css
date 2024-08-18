@@ -44,6 +44,20 @@
     resize: vertical; /* 세로 크기 조정 가능하도록 설정 */
 }
 
+.content-editable {
+	width: calc(100% - 20px);
+	box-sizing: border-box;
+	border: 1px solid #ccc; /* 테두리 색상 */
+	padding: 10px; /* 패딩 */
+	min-height: 300px; /* 최소 높이 */
+	background-color: #fff; /* 배경색 흰색 */
+	font-family: Arial, sans-serif; /* 폰트 패밀리 */
+	font-size: 16px; /* 폰트 크기 */
+	border-radius: 4px;
+	resize: vertical; /* 세로로만 크기 조절 가능 */
+}
+
+
 .char-count {
     color: gray;
 }

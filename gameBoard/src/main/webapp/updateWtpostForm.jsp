@@ -15,10 +15,16 @@
         <label for="wtTitle">제목</label>
         <input type="text" id="wtTitle" name="wtTitle" value="${post.wtTitle}" /> <!-- 기존 제목을 입력 -->
     </div>
-      <div class="form-group">
-        <label for="wtContent">내용</label>
-        <textarea id="wtContent" name="wtContent" rows="8">${post.wtContent}</textarea> <!-- 기존 내용을 입력 -->
-    </div>
+    <div class="form-group">
+				<label for="wtContent">내용</label>
+				<div id="wtContent" contenteditable="true" class="content-editable">${post.wtContent}</div>
+				<input type="hidden" id="wtContentHidden" name="wtContent">
+			</div>
+
+			<div class="form-group">
+				<label for="images">이미지 첨부</label> <input type="file" id="images"
+					name="images" accept="image/*" multiple onchange="previewImages()">
+			</div>
     <div class="frame">
         		<button type="submit" class="custom-btn btn"><span>수정 완료</span></button>
     		</div>
@@ -53,6 +59,28 @@
         // 모든 검증을 통과하면 true를 반환하여 제출을 허용합니다.
         return true;
     }
+    function previewImages() {
+		var files = document.getElementById('images').files;
+		var contentEditableDiv = document.getElementById('wtContent');
+
+		// 이미지 미리보기 및 삽입
+		for (let i = 0; i < files.length; i++) {
+			let file = files[i];
+			let reader = new FileReader();
+
+			reader.onload = function(e) {
+				let imgElement = document.createElement('img');
+				imgElement.src = e.target.result;
+				imgElement.style.maxWidth = '100%'; // 이미지 스타일
+				imgElement.style.height = 'auto';
+
+				// contenteditable div에 이미지 삽입
+				contentEditableDiv.appendChild(imgElement);
+			}
+
+			reader.readAsDataURL(file);
+		}
+	}
 </script>
 
 

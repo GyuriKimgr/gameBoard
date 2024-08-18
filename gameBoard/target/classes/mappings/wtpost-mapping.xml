@@ -18,6 +18,11 @@
 			VALUES(#{wtID}, #{wtTitle}, #{userID}, #{wtDate}, #{wtContent})
 		]]>
 	</insert>
+	<!--  게시물에 이미지 추가  -->
+<insert id="insertWtPostImage">
+<![CDATA[ INSERT INTO WT_BOARD_IMAGE(wtimageID, wtID, wtimageUrl) VALUES(SEQ_WT_BOARD_IMAGE.NEXTVAL, #{wtID}, #{wtimageUrl}) ]]>
+</insert>
+<select id="getImagesByWtID" parameterType="int" resultType="com.gameboard.biz.post.WtpostImage"> SELECT * FROM WT_BOARD_IMAGE WHERE wtID = #{wtID} </select>
 	
 	<update id="updateWtpost">
 		<![CDATA[

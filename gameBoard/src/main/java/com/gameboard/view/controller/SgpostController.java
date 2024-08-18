@@ -1,5 +1,7 @@
 package com.gameboard.view.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,16 +18,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.gameboard.biz.post.SgNoticeService;
 import com.gameboard.biz.post.Sgpost;
 import com.gameboard.biz.post.SgpostComment;
 import com.gameboard.biz.post.SgpostCommentService;
+import com.gameboard.biz.post.SgpostImage;
+import com.gameboard.biz.post.SgpostImageService;
 import com.gameboard.biz.post.SgpostService;
 
 @Controller
 public class SgpostController {
 	@Autowired
 	private SgpostService sg;
+	@Autowired
+	private SgNoticeService noticeService;
+	@Autowired
+	private SgpostImageService ImageService;
 	
 	@Autowired
 	private SgpostCommentService sgCommentService;
@@ -54,9 +65,18 @@ public class SgpostController {
 		    }
 		    return ipAddress; 
 		}
-
+		
+	private String saveFile(MultipartFile file) throws IOException {
+			String fileName = file.getOriginalFilename();
+			String filePath = "resources/images/" + fileName;
+			File destinationFile = new File(filePath);
+			file.transferTo(destinationFile);
+			return fileName;
+	}
+	
 	@RequestMapping(value = "insertSgpost.do")
-	public String insertSgpost(Sgpost vo, HttpServletRequest request, HttpSession session) {
+	public String insertSgpost(Sgpost vo, HttpServletRequest request, HttpSession session,
+			MultipartHttpServletRequest srequest) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
 
 		if(loggedInMemberId == null) {
@@ -65,13 +85,28 @@ public class SgpostController {
 		}
 		vo.setUserID(loggedInMemberId);
 		sg.insertSgpost(vo);
+		
+		List<MultipartFile> files = srequest.getFiles("images");
+		for (MultipartFile file : files) {
+			if (!file.isEmpty()) {
+				try {
+					String imageUrl = saveFile(file);
+					SgpostImage image = new SgpostImage();
+					image.setSgID(vo.getSgID());
+					image.setSgImageUrl(imageUrl);
+					ImageService.insertPostImage(image);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 		return "redirect:suggest.do";
 	}
 
 	@RequestMapping(value = "suggest.do")
 	public String getSgpost(Sgpost vo, Model model) {
+		model.addAttribute("NoticeList", noticeService.getNotices("SG_BOARD_POST"));
 		List<Sgpost> SgList = sg.getSgpostList(vo);
-		model.addAttribute("SgList", SgList);
 		
 		Map<Integer, Integer> SGcommentCounts = new HashMap<>();
 		for(Sgpost post : SgList) {
@@ -160,8 +195,10 @@ public class SgpostController {
 
 	@RequestMapping(value = "updateSgpostForm.do")
 	public String updateSgpostForm(@RequestParam("sgID") int sgID, Model model) {
+		List<SgpostImage> images = ImageService.getImagesBySgID(sgID);
 		Sgpost post = sg.getSgpostById(sgID); 
 		model.addAttribute("post", post); 
+		model.addAttribute("images", images);
 		return "updateSgpostForm.jsp"; 
 	}
 

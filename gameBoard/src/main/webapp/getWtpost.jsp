@@ -236,6 +236,11 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="view_cont">
                 <div class="content">
                     <p>${post.getWtContent()}</p>
+                    <c:if test="${not empty image.imageUrl}">
+					<img
+						src="${pageContext.request.contextPath}/resources/images/${image.imageUrl}"
+						alt="게시글 이미지" class="post-image" />
+					</c:if>
                 </div>
             </div>
             <div class="view_btn">

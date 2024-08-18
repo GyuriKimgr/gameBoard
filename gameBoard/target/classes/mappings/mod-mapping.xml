@@ -18,6 +18,13 @@
 			VALUES(#{mID}, #{mTitle}, #{userID}, #{mDate}, #{mContent})
 		]]>
 	</insert>
+	<!--  게시물에 이미지 추가  -->
+<insert id="insertModImage">
+<![CDATA[ INSERT INTO MOD_BOARD_IMAGE(mimageID, mID, mimageUrl) 
+VALUES(SEQ_MOD_BOARD_IMAGE.NEXTVAL, #{mID}, #{mimageUrl}) ]]>
+</insert>
+<select id="getImagesByMID" parameterType="int" resultType="com.gameboard.biz.post.ModImage"> 
+SELECT * FROM MOD_BOARD_IMAGE WHERE mID = #{mID} </select>
 
 	<update id="updateMod">
 		<![CDATA[

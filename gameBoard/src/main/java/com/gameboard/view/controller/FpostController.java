@@ -1,5 +1,7 @@
 package com.gameboard.view.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,14 +16,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.gameboard.biz.post.FNoticeService;
 import com.gameboard.biz.post.Fpost;
+import com.gameboard.biz.post.FpostImage;
+import com.gameboard.biz.post.FpostImageService;
 import com.gameboard.biz.post.FpostService;
 
 @Controller
 public class FpostController {
 	@Autowired
 	private FpostService f;
+	
+	@Autowired
+	private FNoticeService noticeService;
+
+	@Autowired
+	private FpostImageService ImageService;
 
 	@RequestMapping(value = "getFID.do")
 	public String getFID(Model model) {
@@ -30,49 +43,67 @@ public class FpostController {
 		return "insertFpost.jsp";
 	}
 	
-	// IP �ּҸ� �Ϻ� ����ŷ�ϴ� �޼���
 		private String maskIpAddress(String ipAddress) {
-			// IPv4 ó��
 		    if (ipAddress.contains(".")) {
 		        String[] parts = ipAddress.split("\\.");
 		        if (parts.length == 4) {
 		            return parts[0] + "." + parts[1] + ".***." + parts[3];
 		        }
 		    }
-		    // IPv6 ó��
 		    else if (ipAddress.contains(":")) {
 		        if ("0:0:0:0:0:0:0:1".equals(ipAddress)) {
-		            return "local:01"; // ����ȣ��Ʈ �ּҸ� ó��
+		            return "local:01";
 		        } else {
-		            // IPv6 �ּ��� �Ϻθ� ����ŷ
 		            String[] parts = ipAddress.split(":");
 		            return parts[0] + ":" + parts[1] + ":" + parts[2] + ":****:****:" + parts[5] + ":" + parts[6] + ":" + parts[7];
 		        }
 		    }
-		    return ipAddress; // IP �ּ� ������ ���� ������ ����ŷ���� �ʰ� ��ȯ
+		    return ipAddress;
 		}
+	private String saveFile(MultipartFile file) throws IOException {
+			String fileName = file.getOriginalFilename();
+			String filePath = "resources/images/" + fileName;
+			File destinationFile = new File(filePath);
+			file.transferTo(destinationFile);
+			return fileName;
+	}
 
 	@RequestMapping(value = "insertFpost.do")
-	public String insertFpost(Fpost vo, HttpServletRequest request, HttpSession session) {
+	public String insertFpost(Fpost vo, HttpServletRequest request, HttpSession session,
+			MultipartHttpServletRequest frequest) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
-		//���ǿ� id ���� �� ip �ּ�
 		if(loggedInMemberId == null) {
 			String ipAddress = request.getRemoteAddr();
 			loggedInMemberId = maskIpAddress(ipAddress);
 		}
 		vo.setUserID(loggedInMemberId);
+		
 		f.insertFpost(vo);
-		return "redirect:FAQ.do";
+		List<MultipartFile> files = frequest.getFiles("images");
+		for (MultipartFile file : files) {
+			if (!file.isEmpty()) {
+				try {
+					String imageUrl = saveFile(file);
+					FpostImage image = new FpostImage();
+					image.setfID(vo.getfID());
+					image.setfImageUrl(imageUrl);
+					ImageService.insertPostImage(image);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return "redirect:getFpost.do?fID=" + vo.getfID();
 	}
 
 	@RequestMapping(value = "FAQ.do")
 	public String getFpost(Fpost vo, Model model) {
+		model.addAttribute("NoticeList", noticeService.getNotices("FAQ_BOARD_POST"));
 		List<Fpost> FList = f.getFpostList(vo);
 		model.addAttribute("FList", FList);
 		return "FAQ.jsp";
 	}
 
-	// �˻�
 	@RequestMapping(value = "searchFpost.do")
 	public String searchFpost(Fpost vo, Model model) {
 		List<Fpost> FList = f.searchFpost(vo);
@@ -80,39 +111,38 @@ public class FpostController {
 		return "searchF.jsp";
 	}
 
-	// ���� + ����
 	@RequestMapping(value = "getFpost.do")
 	public String getFpostById(int fID, Model model) {
-		// ��ȸ�� ������Ʈ
 		f.updateFpostViews(fID);
 
 		Fpost post = f.getFpostById(fID);
 		model.addAttribute("post", post);
+		
+		// 답변 완료된 경우에만 답변 가져오기
+        Fpost completedPost = f.getAnswerIfCompleted(fID);
+        if (completedPost != null && "답변완료".equals(completedPost.getStatus())) {
+            model.addAttribute("answer", completedPost.getAnswer());
+        }
 
-		// ���� �Խù��� ���� �Խù��� �������� ���� ID�� �������� ��ȸ�Ѵ�.
-		Fpost prevPost = f.getPrevFpost(fID); // ���� �Խù� ��ȸ
-		Fpost nextPost = f.getNextFpost(fID); // ���� �Խù� ��ȸ
+		Fpost prevPost = f.getPrevFpost(fID); 
+		Fpost nextPost = f.getNextFpost(fID);
 
-		// ���� �Խù��� ���� �Խù��� ������ ��� �𵨿� �߰��Ѵ�.
 		if (prevPost != null) {
 			model.addAttribute("prevPost", prevPost);
 		}
 		if (nextPost != null) {
 			model.addAttribute("nextPost", nextPost);
 		}
-
-		// �ֽ� ����� �����ͼ� �𵨿� �߰� (��ȸ���� ������Ʈ�� ����)
 		List<Fpost> FList = f.getFpostList(null);
 		model.addAttribute("FList", FList);
 
-		return "getFpost.jsp"; // �� ������ ������ �� �̸�
+		return "getFpost.jsp"; 
 	}
 
 	@RequestMapping(value = "deleteFpost.do", produces = "text/plain; charset = UTF-8")
 	@ResponseBody
 	public String deleteFpost(int fID, HttpServletRequest request, HttpSession session) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
-		//���ǿ� id ���� �� ip �ּ�
 		if(loggedInMemberId == null) {
 			String ipAddress = request.getRemoteAddr();
 			loggedInMemberId = maskIpAddress(ipAddress);
@@ -140,7 +170,6 @@ public class FpostController {
         Fpost post = f.getFpostById(fID);
 
         if (post != null && post.getUserID().equals(loggedInMemberId)) {
-            // ������ ������ ������ ������ ������ URL�� ��ȯ
             return ResponseEntity.ok("updateSuccess|updateFpostForm.do?fID=" + fID);
         } else {
             return ResponseEntity.ok("updateFailed");
@@ -149,9 +178,11 @@ public class FpostController {
 
 	@RequestMapping(value = "updateFpostForm.do")
 	public String updateFpostForm(@RequestParam("fID") int fID, Model model) {
-		Fpost post = f.getFpostById(fID); // �Խù� ������ ������
-		model.addAttribute("post", post); // ���� ������ ����� �Խù� ������ �𵨿� �߰�
-		return "updateFpostForm.jsp"; // ���� �� JSP �������� �̵�
+		Fpost post = f.getFpostById(fID);
+		List<FpostImage> images = ImageService.getImagesByFID(fID);
+		model.addAttribute("post", post);
+		model.addAttribute("images", images);
+		return "updateFpostForm.jsp";
 	}
 
 	@RequestMapping(value = "updateFpost.do")
@@ -169,7 +200,6 @@ public class FpostController {
         if (existingPost != null && existingPost.getUserID().equals(loggedInMemberId)) {
             existingPost.setfTitle(vo.getfTitle());
             existingPost.setfContent(vo.getfContent());
-            // �Խù� ������ ������Ʈ
             f.updateFpost(existingPost);
         }
 		return "redirect:getFpost.do?fID=" + vo.getfID();

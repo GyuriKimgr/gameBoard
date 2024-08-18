@@ -94,6 +94,10 @@ ul {
     vertical-align: top;
 }
 
+.contents img {
+	display: none;
+}
+
 
 .middle2 .tit3 {
     display: inline-block;

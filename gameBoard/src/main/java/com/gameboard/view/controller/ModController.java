@@ -1,5 +1,7 @@
 package com.gameboard.view.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,16 +18,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.gameboard.biz.post.MoNoticeService;
 import com.gameboard.biz.post.Mod;
 import com.gameboard.biz.post.ModComment;
 import com.gameboard.biz.post.ModCommentService;
+import com.gameboard.biz.post.ModImage;
+import com.gameboard.biz.post.ModImageService;
 import com.gameboard.biz.post.ModService;
 
 @Controller
 public class ModController {
 	@Autowired
 	private ModService m;
+	@Autowired
+	private MoNoticeService noticeService;
+	@Autowired
+	private ModImageService ImageService;
 
 	@Autowired
 	private ModCommentService ms;
@@ -37,7 +48,7 @@ public class ModController {
 		return "insertMod.jsp";
 	}
 	
-		private String maskIpAddress(String ipAddress) {
+	private String maskIpAddress(String ipAddress) {
 		    if (ipAddress.contains(".")) {
 		        String[] parts = ipAddress.split("\\.");
 		        if (parts.length == 4) {
@@ -54,9 +65,17 @@ public class ModController {
 		    }
 		    return ipAddress;
 		}
+	private String saveFile(MultipartFile file) throws IOException {
+		String fileName = file.getOriginalFilename();
+		String filePath = "resources/images/" + fileName;
+		File destinationFile = new File(filePath);
+		file.transferTo(destinationFile);
+		return fileName;
+	}
 
 	@RequestMapping(value = "insertMod.do")
-	public String insertMod(Mod vo, HttpServletRequest request, HttpSession session) {
+	public String insertMod(Mod vo, HttpServletRequest request, HttpSession session,
+			MultipartHttpServletRequest mrequest) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
 		if(loggedInMemberId == null) {
 			String ipAddress = request.getRemoteAddr();
@@ -64,11 +83,27 @@ public class ModController {
 		}
 		vo.setUserID(loggedInMemberId);
 		m.insertMod(vo);
-		return "redirect:Mod.do";
+		List<MultipartFile> files = mrequest.getFiles("images");
+		for (MultipartFile file : files) {
+			if (!file.isEmpty()) {
+				try {
+					String imageUrl = saveFile(file);
+					ModImage image = new ModImage();
+					image.setmID(vo.getmID());
+					image.setmImageUrl(imageUrl);
+					ImageService.insertPostImage(image);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return "redirect:getMod.do?mID=" + vo.getmID();
 	}
 
 	@RequestMapping(value = "Mod.do")
 	public String getModList(Mod vo, Model model) {
+		model.addAttribute("NoticeList", noticeService.getNotices("MOD_BOARD"));
 		List<Mod> ModList = m.getModList(vo);
 		
 		Map<Integer, Integer> MODcommentCounts = new HashMap<>();
@@ -158,7 +193,9 @@ public class ModController {
 	@RequestMapping(value = "updateModForm.do")
 	public String updateModForm(@RequestParam("mID") int mID, Model model) {
 		Mod post = m.getModById(mID);
+		List<ModImage> images = ImageService.getImagesByMID(mID);
 		model.addAttribute("post", post);
+		model.addAttribute("images", images);
 		return "updateModForm.jsp";
 	}
 

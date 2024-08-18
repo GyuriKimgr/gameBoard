@@ -23,7 +23,11 @@
                 <label for="content">내용</label>
                 <textarea id="sgContent" name="sgContent" rows="8"></textarea>
             </div>
-            
+            <div class="form-group">
+				<label for="images">이미지 첨부</label> <input type="file" id="images"
+					name="images" accept="image/*" multiple onchange="previewImages()">
+			</div>
+			<div id="imagePreviewContainer" class="image-preview-container"></div>
             <div class="frame">
         		<button type="submit" class="custom-btn btn"><span>작성 완료</span></button>
     		</div>
@@ -70,4 +74,25 @@
         // 모든 검증을 통과하면 true를 반환하여 제출을 허용합니다.
         return true;
     }
+    function previewImages() {
+		var files = document.getElementById('images').files;
+		var contentEditableDiv = document.getElementById('sgContent');
+
+		for (let i = 0; i < files.length; i++) {
+			let file = files[i];
+			let reader = new FileReader();
+
+			reader.onload = function(e) {
+				let imgElement = document.createElement('img');
+				imgElement.src = e.target.result;
+				imgElement.style.maxWidth = '100%'; // 이미지 스타일
+				imgElement.style.height = 'auto';
+
+				// contenteditable div에 이미지 삽입
+				contentEditableDiv.appendChild(imgElement);
+			}
+
+			reader.readAsDataURL(file);
+		}
+	}
 </script>

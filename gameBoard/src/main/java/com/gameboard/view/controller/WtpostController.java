@@ -1,5 +1,7 @@
 package com.gameboard.view.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,9 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.gameboard.biz.post.WtpostComment;
 import com.gameboard.biz.post.WtpostCommentService;
+import com.gameboard.biz.post.WtpostImage;
+import com.gameboard.biz.post.WtpostImageService;
+import com.gameboard.biz.post.WtNoticeService;
 import com.gameboard.biz.post.Wtpost;
 import com.gameboard.biz.post.WtpostService;
 
@@ -26,6 +33,10 @@ import com.gameboard.biz.post.WtpostService;
 public class WtpostController{
 	@Autowired
 	private WtpostService wt;
+	@Autowired
+	private WtNoticeService noticeService;
+	@Autowired
+	private WtpostImageService ImageService;
 	
 	@Autowired
 	private WtpostCommentService commentService;
@@ -53,9 +64,17 @@ public class WtpostController{
 	    }
 	    return ipAddress;
 	}
+	private String saveFile(MultipartFile file) throws IOException {
+		String fileName = file.getOriginalFilename();
+		String filePath = "resources/images/" + fileName;
+		File destinationFile = new File(filePath);
+		file.transferTo(destinationFile);
+		return fileName;
+	}
 	
 	@RequestMapping(value = "insertWtpost.do")
-		public String insertWtpost(Wtpost vo, HttpServletRequest request, HttpSession session) {
+		public String insertWtpost(Wtpost vo, HttpServletRequest request, HttpSession session,
+				MultipartHttpServletRequest wrequest) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
 
 		if(loggedInMemberId == null) {
@@ -64,11 +83,27 @@ public class WtpostController{
 		}
 		vo.setUserID(loggedInMemberId);
 		wt.insertWtpost(vo);
-		return "redirect:walkThrough.do";
+		List<MultipartFile> files = wrequest.getFiles("images");
+		for (MultipartFile file : files) {
+			if (!file.isEmpty()) {
+				try {
+					String imageUrl = saveFile(file); 
+					WtpostImage image = new WtpostImage();
+					image.setWtID(vo.getWtID());
+					image.setWtImageUrl(imageUrl);
+					ImageService.insertPostImage(image);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return "redirect:getWtpost.do?wtID=" + vo.getWtID();
 	}
 	
 	@RequestMapping(value = "walkThrough.do")
 	public String getWtpost(Wtpost vo, Model model) {
+		model.addAttribute("NoticeList", noticeService.getNotices("WT_BOARD_POST"));
 		List<Wtpost> WtList = wt.getWtpostList(vo);
 		
 		Map<Integer, Integer> WTcommentConunts = new HashMap<>();
@@ -160,7 +195,9 @@ public class WtpostController{
 	@RequestMapping(value = "updateWtpostForm.do")
 	public String updateWtpostForm(@RequestParam("wtID") int wtID, Model model) {
 	    Wtpost post = wt.getWtpostById(wtID);
+	    List<WtpostImage> images = ImageService.getImagesByWtID(wtID);
 	    model.addAttribute("post", post);
+	    model.addAttribute("images", images);
 	    return "updateWtpostForm.jsp";
 	}
 	

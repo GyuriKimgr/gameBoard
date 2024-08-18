@@ -10,6 +10,8 @@
 		<result property="userID" column="userID" />
 		<result property="fDate" column="fDate" />
 		<result property="fContent" column="fContent" />
+		<result property="answer" column = "answer"/>
+		<result property="status" column = "status"/>
 	</resultMap>
 
 	<insert id="insertFpost">
@@ -18,6 +20,21 @@
 			VALUES(#{fID}, #{fTitle}, #{userID}, #{fDate}, #{fContent})
 		]]>
 	</insert>
+	<!-- 답변 가져오기 -->
+	<select id="getAnswerIfCompleted" parameterType="int" resultType="com.gameboard.biz.post.Fpost">
+    <![CDATA[
+        SELECT fID, status, answer
+        FROM FAQ_BOARD_POST
+        WHERE fID = #{fID} AND status = '답변완료'
+    ]]>
+	</select>
+	<!--  게시물에 이미지 추가  -->
+<insert id="insertFPostImage">
+<![CDATA[ INSERT INTO FAQ_BOARD_IMAGE(fimageID, fID, fimageUrl) VALUES(SEQ_FAQ_BOARD_IMAGE.NEXTVAL, #{fID}, #{fimageUrl}) ]]>
+</insert>
+<select id="getImagesByFID" parameterType="int" resultType="com.gameboard.biz.post.FpostImage"> 
+SELECT * FROM FAQ_BOARD_IMAGE WHERE fID = #{fID}
+ </select>
 
 	<update id="updateFpost">
 		<![CDATA[

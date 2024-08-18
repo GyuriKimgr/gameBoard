@@ -22,6 +22,24 @@
 	                <th class = "wth">조회수</th>
 	            </tr>
 	        </thead>
+	        <!-- 공지사항 -->
+			<c:choose>
+				<c:when test="${not empty NoticeList}">
+					<tbody class="notice-tbody">
+						<c:forEach var="Notice" items="${NoticeList}">
+							<tr class="notice-tr">
+								<td class="notice-tdd">${Notice.noticeID}</td>
+								<td class="notice-td"><a
+									href="getMoNotice.do?noticeTitle=${Notice.noticeTitle}">
+										${Notice.noticeTitle} </a></td>
+								<td class="notice-td">${Notice.managerID}</td>
+								<td class="notice-td">${Notice.noticeDate}</td>
+								<td class="notice-td">${Notice.noticeViews}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</c:when>
+			</c:choose>
         <tbody class = "wtbody">
             <c:choose>
                 <c:when test="${empty ModList}">

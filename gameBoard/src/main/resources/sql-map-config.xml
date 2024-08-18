@@ -25,5 +25,9 @@
 		<mapper resource="mappings/wtpost-comment-mapping.xml"/>
 		<mapper resource="mappings/sgpost-comment-mapping.xml"/> 
 		<mapper resource="mappings/mod-comment-mapping.xml"/>
+		<mapper resource="mappings/WtNotice-mapping.xml"/>
+		<mapper resource="mappings/SgNotice-mapping.xml"/>
+		<mapper resource="mappings/MoNotice-mapping.xml"/>
+		<mapper resource="mappings/FNotice-mapping.xml"/>
 	</mappers>
 </configuration>
