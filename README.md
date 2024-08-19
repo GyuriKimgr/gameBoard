@@ -6,15 +6,10 @@
 - 개발 멤버 : 김규리, 이미지, 오승민, 전시유
 
 ## 기술 스택 🖥
-|기술|이미지|
-|:---:|---|
-|CSS|![CSS3](https://img.icons8.com/color/48/000000/css3.png)|
-|HTML|![HTML5](https://img.icons8.com/color/48/000000/html-5.png)|
-|JavaScript|![JavaScript](https://img.icons8.com/color/48/000000/javascript.png)|
-|Java|![Java](https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png)|
-|Spring|![Spring](https://img.icons8.com/color/48/000000/spring-logo.png)|
-|Oracle|![Oracle](https://img.icons8.com/color/48/000000/oracle-logo.png)|
-|Tomcat|![Tomcat](https://img.icons8.com/color/48/000000/tomcat.png)|
+| CSS | HTML | JavaScript | Java | Spring | Oracle | Tomcat |
+|:---:|:----:|:-----------:|:----:|:-------:|:------:|:------:|
+| ![CSS3](https://img.icons8.com/color/48/000000/css3.png) | ![HTML5](https://img.icons8.com/color/48/000000/html-5.png) | ![JavaScript](https://img.icons8.com/color/48/000000/javascript.png) | ![Java](https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png) | ![Spring](https://img.icons8.com/color/48/000000/spring-logo.png) | ![Oracle](https://img.icons8.com/color/48/000000/oracle-logo.png) | ![Tomcat](https://img.icons8.com/color/48/000000/tomcat.png) |
+
 
 
 ## 프로젝트 구조 🌳
