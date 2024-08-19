@@ -93,13 +93,13 @@ function checkEditPermissionF(fID) {
 						alt="게시글 이미지" class="post-image" />
 				</c:if>
 			</div>
-			<div>
-				 <!-- 답변 완료된 경우에만 답변 출력 -->
-        	<c:if test="${not empty answer}">
-            	<h4>답변</h4>
+			<!-- 답변 완료된 경우에만 답변 출력 -->
+			<c:if test="${not empty answer}">
+			<div  class = answer>
+            	<h4>↳답변</h4>
             	<p>${answer}</p>
-        	</c:if>
 			</div>
+			</c:if>
 			
 		</div>
 
