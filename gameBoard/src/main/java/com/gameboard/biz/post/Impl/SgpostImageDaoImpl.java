@@ -24,4 +24,9 @@ public class SgpostImageDaoImpl implements SgpostImageDao {
 	public List<SgpostImage> getImagesBySgID(int sgID) {
 		return mybatis.selectList("SgpostDao.getImagesBySgID", sgID);
 	}
+
+	@Override
+	public void deleteSgAllImage(int sgID) {
+		mybatis.delete("SgpostDao.deleteSgAllImage", sgID);
+	}
 }

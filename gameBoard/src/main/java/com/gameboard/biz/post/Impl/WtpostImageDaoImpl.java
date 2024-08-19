@@ -25,4 +25,8 @@ public class WtpostImageDaoImpl implements WtpostImageDao {
 		return mybatis.selectList("WtpostDao.getImagesByWtID", wtID);
 	}
 
+	@Override
+	public void deleteWtAllImage(int wtID) {
+		mybatis.delete("WtpostDao.deleteWtAllImage", wtID);
+	}
 }

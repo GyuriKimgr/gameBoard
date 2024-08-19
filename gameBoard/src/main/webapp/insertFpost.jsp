@@ -19,10 +19,11 @@
                 <input type="text" id="fTitle" name="fTitle" maxlength="16" oninput="updateCharCount()">
                 <span class="char-count" id="charCount">0/16</span>
             </div>
-            <div class="form-group">
-                <label for="content">내용</label>
-                <textarea id="fContent" name="fContent" rows="8"></textarea>
-            </div>
+           <div class="form-group">
+				<label for="content">내용</label>
+				<div id="fContent" contenteditable="true" class="content-editable"></div>
+				<input type="hidden" id="fContentHidden" name="fContent">
+			</div>
             <div class="form-group">
 				<label for="images">이미지 첨부</label> <input type="file" id="images"
 					name="images" accept="image/*" multiple onchange="previewImages()">
@@ -52,7 +53,7 @@
     function validateForm() {
         // 제목과 내용을 가져옵니다.
         var fTitle = document.getElementById("fTitle").value.trim();
-        var fContent = document.getElementById("fContent").value.trim();
+        var fContent = document.getElementById("fContent").innerHTML.trim();
         
         // 제목이 비어 있는지 확인합니다.
         if (fTitle === "") {
@@ -71,7 +72,10 @@
             alert("본문 내용을 입력하세요");
             return false;
         }
-        
+    	// Hidden input에 content 값을 설정합니다.
+		document.getElementById("fContentHidden").value = fContent;
+
+    	
         // 모든 검증을 통과하면 true를 반환하여 제출을 허용합니다.
         return true;
     }

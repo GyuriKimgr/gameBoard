@@ -25,4 +25,9 @@ public class ModImageDaoImpl implements ModImageDao {
 		return mybatis.selectList("ModDao.getImagesByMID", mID);
 	}
 
+	@Override
+	public void deleteModAllImage(int mID) {
+		mybatis.delete("ModDao.deleteModAllImage", mID);
+	}
+
 }

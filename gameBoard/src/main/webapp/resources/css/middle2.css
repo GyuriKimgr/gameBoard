@@ -1,153 +1,155 @@
-
 .box {
-    margin-top: 80px;
+	margin-top: 80px;
 }
 
 .middle2 {
-    overflow: hidden;
-     max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 54px;
+	overflow: hidden;
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 0 54px;
 }
 
 ul {
-   list-style-type: none;
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-    unicode-bidi: isolate;
-}
-.middle2 li {
-    float: left;
-    width: 30%;
-}
-.middle2 li + li {
-    margin-left: 3%;
+	list-style-type: none;
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+	unicode-bidi: isolate;
 }
 
+.middle2 li {
+	float: left;
+	width: 30%;
+}
+
+.middle2 li+li {
+	margin-left: 3%;
+}
 
 .middle2 .link_card {
-    display: block;
-    overflow: hidden;
-    height: 46px;
-    text-decoration: none;
+	display: block;
+	overflow: hidden;
+	height: 46px;
+	text-decoration: none;
 }
 
 .middle2 .title2 {
-    float: left;
-    font-weight: normal;
-    line-height: 30px;
-    font-size: 23px;
-    font-family: '맑은 고딕', 'Malgun Gothic', '돋움', dotum, sans-serif;
+	float: left;
+	font-weight: normal;
+	line-height: 30px;
+	font-size: 23px;
+	font-family: '留묒� 怨좊뵓', 'Malgun Gothic', '�룍��', dotum, sans-serif;
 }
-    
+
 .middle2 .link_card .img_comm2 {
-    float: right;
-    width: 18px;
-    height: 18px;
-    margin: 9px 1px 0 0;
-    background-position: -140px -90px;
+	float: right;
+	width: 18px;
+	height: 18px;
+	margin: 9px 1px 0 0;
+	background-position: -140px -90px;
 }
 
 .img_comm2 {
-    background-image: url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_comm2_210827.png);
-    display: block;
-    overflow: hidden;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-  
+	background-image:
+		url(https://t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_comm2_210827.png);
+	display: block;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
 }
 
 .middle2 .news2 {
-    background-color: #fff;
-    text-decoration: none;
-    color: #cfcfcf;
+	background-color: #fff;
+	text-decoration: none;
+	color: #cfcfcf;
 }
-
 
 .middle2 .news2_top {
 	display: block;
-    position: relative;
-    overflow: hidden;
-    padding-top: 60%;
-    margin-bottom: 13px;
+	position: relative;
+	overflow: hidden;
+	padding-top: 60%;
+	margin-bottom: 13px;
 }
 
 .middle2 .news2_top:hover .news2_img {
-   transform: scale(1.1);
+	transform: scale(1.1);
 }
-   
-   
+
 .middle2 .news2_top .news2_img {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    bottom: 0;
-    transition: transform .5s;
+	position: absolute;
+	top: -40px;
+	left: 0;
+	bottom: 0;
+	transition: transform .5s;
 }
+
 .news2_img {
-    width: 100%;
-    vertical-align: top;
+	width: 100%;
+	vertical-align: top;
 }
 
 .contents img {
 	display: none;
 }
 
-
 .middle2 .tit3 {
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-    max-width: 100%;
-    padding: 15px 60px 0 20px;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 20px;
-    color: #0e0e0e;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    vertical-align: top;
-    box-sizing: border-box;
-    transition: text-decoration 0.3s ease;
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	max-width: 100%;
+	padding: 15px 60px 0 20px;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 20px;
+	color: #0e0e0e;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	vertical-align: top;
+	box-sizing: border-box;
+	transition: text-decoration 0.3s ease;
+}
+
+.middle2 .tit3 a {
+	color: #0e0e0e;
 }
 
 .middle2 .tit3:hover {
-    text-decoration: underline; /* 커서를 올렸을 때 밑줄 추가 */
+	text-decoration: underline; /* 而ㅼ꽌瑜� �삱�졇�쓣 �븣 諛묒쨪 異붽� */
 }
 
 .middle2 .tit4 {
-    display: block;
-    display: -webkit-box;
-    overflow: hidden;
-    position: relative;
-    height: 50px;
-    padding: 8px 20px 22px;
-    font-size: 14px;
-    line-height: 25px;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    word-wrap: break-word;
-    
-}
-.middle2 .tit4:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 28px;
-    background-color: #fff;
-    content: '';
-}
-.list_new .group_tit {
-    height: 116px;
+	display: block;
+	display: -webkit-box;
+	overflow: hidden;
+	position: relative;
+	height: 50px;
+	padding: 8px 20px 22px;
+	font-size: 14px;
+	line-height: 25px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	word-wrap: break-word;
 }
 
-.contents
-{
-    border-bottom: 1px solid #f7f7f7;
+.middle2 .tit4:after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 28px;
+	background-color: #fff;
+	content: '';
+}
+
+.list_new .group_tit {
+	height: 116px;
+}
+
+.contents {
+	border-bottom: 1px solid #f7f7f7;
 }

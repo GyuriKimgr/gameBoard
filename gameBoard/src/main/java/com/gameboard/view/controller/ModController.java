@@ -40,34 +40,35 @@ public class ModController {
 
 	@Autowired
 	private ModCommentService ms;
-	
+
 	@RequestMapping(value = "getMID.do")
 	public String getMID(Model model) {
 		model.addAttribute("mID", m.getMID());
 		model.addAttribute("mDate", m.getMDate());
 		return "insertMod.jsp";
 	}
-	
+
 	private String maskIpAddress(String ipAddress) {
-		    if (ipAddress.contains(".")) {
-		        String[] parts = ipAddress.split("\\.");
-		        if (parts.length == 4) {
-		            return parts[0] + "." + parts[1] + ".***." + parts[3];
-		        }
-		    }
-		    else if (ipAddress.contains(":")) {
-		        if ("0:0:0:0:0:0:0:1".equals(ipAddress)) {
-		            return "local:01";
-		        } else {
-		            String[] parts = ipAddress.split(":");
-		            return parts[0] + ":" + parts[1] + ":" + parts[2] + ":****:****:" + parts[5] + ":" + parts[6] + ":" + parts[7];
-		        }
-		    }
-		    return ipAddress;
+		if (ipAddress.contains(".")) {
+			String[] parts = ipAddress.split("\\.");
+			if (parts.length == 4) {
+				return parts[0] + "." + parts[1] + ".***." + parts[3];
+			}
+		} else if (ipAddress.contains(":")) {
+			if ("0:0:0:0:0:0:0:1".equals(ipAddress)) {
+				return "local:01";
+			} else {
+				String[] parts = ipAddress.split(":");
+				return parts[0] + ":" + parts[1] + ":" + parts[2] + ":****:****:" + parts[5] + ":" + parts[6] + ":"
+						+ parts[7];
+			}
 		}
+		return ipAddress;
+	}
+
 	private String saveFile(MultipartFile file) throws IOException {
 		String fileName = file.getOriginalFilename();
-		String filePath = "resources/images/" + fileName;
+		String filePath = "C:/Users/User/Desktop/»çÁø/" + fileName;
 		File destinationFile = new File(filePath);
 		file.transferTo(destinationFile);
 		return fileName;
@@ -77,7 +78,7 @@ public class ModController {
 	public String insertMod(Mod vo, HttpServletRequest request, HttpSession session,
 			MultipartHttpServletRequest mrequest) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
-		if(loggedInMemberId == null) {
+		if (loggedInMemberId == null) {
 			String ipAddress = request.getRemoteAddr();
 			loggedInMemberId = maskIpAddress(ipAddress);
 		}
@@ -97,7 +98,7 @@ public class ModController {
 				}
 			}
 		}
-		
+
 		return "redirect:getMod.do?mID=" + vo.getmID();
 	}
 
@@ -105,9 +106,9 @@ public class ModController {
 	public String getModList(Mod vo, Model model) {
 		model.addAttribute("NoticeList", noticeService.getNotices("MOD_BOARD"));
 		List<Mod> ModList = m.getModList(vo);
-		
+
 		Map<Integer, Integer> MODcommentCounts = new HashMap<>();
-		for(Mod post : ModList) {
+		for (Mod post : ModList) {
 			int mCommentCount = ms.countModCommentsByPostId(post.getmID());
 			MODcommentCounts.put(post.getmID(), mCommentCount);
 		}
@@ -142,7 +143,7 @@ public class ModController {
 
 		List<Mod> ModList = m.getModList(null);
 		model.addAttribute("ModList", ModList);
-		
+
 		List<ModComment> McommentList = ms.getModCommentsByPostId(mID);
 		model.addAttribute("McommentList", McommentList);
 		int MODcommentCounts = ms.countModCommentsByPostId(mID);
@@ -154,41 +155,44 @@ public class ModController {
 	@RequestMapping(value = "deleteMod.do", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
 	public String deleteMod(int mID, HttpServletRequest request, HttpSession session) {
-		 String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
-		    if (loggedInMemberId == null) {
-		        String ipAddress = request.getRemoteAddr();
-		        loggedInMemberId = maskIpAddress(ipAddress);
-		    }
-		    
-		    Mod post = m.getModById(mID);
-		    
-		    if(post != null && post.getUserID().equals(loggedInMemberId)) {
-		    	ms.deleteModAllComment(mID);
-		    	m.deleteMod(mID);
-		    	return "deleteSuccess";
-		    } else {
-		        return "deleteFailed";
-		    }
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+		if (loggedInMemberId == null) {
+			String ipAddress = request.getRemoteAddr();
+			loggedInMemberId = maskIpAddress(ipAddress);
+		}
+
+		Mod post = m.getModById(mID);
+
+		if (post != null && post.getUserID().equals(loggedInMemberId)) {
+			ms.deleteModAllComment(mID);
+			ImageService.deleteModAllImage(mID);
+			
+			m.deleteMod(mID);
+			return "deleteSuccess";
+		} else {
+			return "deleteFailed";
+		}
 	}
-	
+
 	@RequestMapping(value = "checkEditPermissionM.do", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<String> checkEditPermission(@RequestParam("mID") int mID, HttpSession session, HttpServletRequest request) {
-        String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+	@ResponseBody
+	public ResponseEntity<String> checkEditPermission(@RequestParam("mID") int mID, HttpSession session,
+			HttpServletRequest request) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
 
-        if (loggedInMemberId == null) {
-            String ipAddress = request.getRemoteAddr();
-            loggedInMemberId = maskIpAddress(ipAddress);
-        }
+		if (loggedInMemberId == null) {
+			String ipAddress = request.getRemoteAddr();
+			loggedInMemberId = maskIpAddress(ipAddress);
+		}
 
-        Mod post = m.getModById(mID);
+		Mod post = m.getModById(mID);
 
-        if (post != null && post.getUserID().equals(loggedInMemberId)) {
-            return ResponseEntity.ok("updateSuccess|updateModForm.do?mID=" + mID);
-        } else {
-            return ResponseEntity.ok("updateFailed");
-        }
-    }
+		if (post != null && post.getUserID().equals(loggedInMemberId)) {
+			return ResponseEntity.ok("updateSuccess|updateModForm.do?mID=" + mID);
+		} else {
+			return ResponseEntity.ok("updateFailed");
+		}
+	}
 
 	@RequestMapping(value = "updateModForm.do")
 	public String updateModForm(@RequestParam("mID") int mID, Model model) {
@@ -200,19 +204,34 @@ public class ModController {
 	}
 
 	@RequestMapping(value = "updateMod.do", method = RequestMethod.POST)
-	public String updateMod(@RequestParam("mID") int mID, @ModelAttribute Mod vo,
-			HttpSession session, HttpServletRequest request) {
+	public String updateMod(@RequestParam("mID") int mID, @ModelAttribute Mod vo, HttpSession session,
+			HttpServletRequest request, MultipartHttpServletRequest mrequest) {
 		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
 
-        if (loggedInMemberId == null) {
-            String ipAddress = request.getRemoteAddr();
-            loggedInMemberId = maskIpAddress(ipAddress);
-        }
+		if (loggedInMemberId == null) {
+			String ipAddress = request.getRemoteAddr();
+			loggedInMemberId = maskIpAddress(ipAddress);
+		}
 		Mod existingPost = m.getModById(mID);
-		if(existingPost!= null && existingPost.getUserID().equals(loggedInMemberId)) {
+		if (existingPost != null && existingPost.getUserID().equals(loggedInMemberId)) {
 			existingPost.setmTitle(vo.getmTitle());
 			existingPost.setmContent(vo.getmContent());
 			m.updateMod(existingPost);
+		}
+
+		List<MultipartFile> files = mrequest.getFiles("images");
+		for (MultipartFile file : files) {
+			if (!file.isEmpty()) {
+				try {
+					String imageUrl = saveFile(file);
+					ModImage image = new ModImage();
+					image.setmID(vo.getmID());
+					image.setmImageUrl(imageUrl);
+					ImageService.insertPostImage(image);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		return "redirect:getMod.do?mID=" + vo.getmID();
 	}

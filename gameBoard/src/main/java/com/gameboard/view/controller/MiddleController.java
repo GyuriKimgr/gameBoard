@@ -28,9 +28,9 @@ public class MiddleController {
 
     @RequestMapping(value = "middle2Page.do")
     public String getMiddle2Page(Model model) {
-    	List<Wtpost> recentWtPosts = wt.getRecentWtPosts(3);
-    	List<Sgpost> recentSgPosts = sg.getRecentSgPosts(3);
-    	List<Mod> recentMdPosts = m.getRecentMdPosts(3);
+    	List<Wtpost> recentWtPosts = wt.getRecentWtPosts(4);
+    	List<Sgpost> recentSgPosts = sg.getRecentSgPosts(4);
+    	List<Mod> recentMdPosts = m.getRecentMdPosts(4);
 
         model.addAttribute("recentWtPosts", recentWtPosts);
         model.addAttribute("recentSgPosts", recentSgPosts);

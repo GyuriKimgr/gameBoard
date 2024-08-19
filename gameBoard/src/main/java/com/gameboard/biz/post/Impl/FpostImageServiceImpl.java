@@ -25,4 +25,9 @@ public class FpostImageServiceImpl implements FpostImageService {
 		return fpostImageDao.getImagesByFID(fID);
 	}
 
+	@Override
+	public void deleteFAllImage(int fID) {
+		fpostImageDao.deleteFAllImage(fID);
+	}
+
 }

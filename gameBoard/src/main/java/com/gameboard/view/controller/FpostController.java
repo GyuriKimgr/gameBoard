@@ -118,9 +118,9 @@ public class FpostController {
 		Fpost post = f.getFpostById(fID);
 		model.addAttribute("post", post);
 		
-		// 답변 완료된 경우에만 답변 가져오기
+		// �떟蹂� �셿猷뚮맂 寃쎌슦�뿉留� �떟蹂� 媛��졇�삤湲�
         Fpost completedPost = f.getAnswerIfCompleted(fID);
-        if (completedPost != null && "답변완료".equals(completedPost.getStatus())) {
+        if (completedPost != null && "�떟蹂��셿猷�".equals(completedPost.getStatus())) {
             model.addAttribute("answer", completedPost.getAnswer());
         }
 
@@ -150,6 +150,7 @@ public class FpostController {
 		Fpost post = f.getFpostById(fID);
 		
 		if(post != null && post.getUserID().equals(loggedInMemberId)) {
+			ImageService.deleteFAllImage(fID);
 			f.deleteFpost(fID);
 		    return "deleteSuccess";
 	    } else {

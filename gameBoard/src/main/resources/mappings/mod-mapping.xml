@@ -18,13 +18,22 @@
 			VALUES(#{mID}, #{mTitle}, #{userID}, #{mDate}, #{mContent})
 		]]>
 	</insert>
-	<!--  게시물에 이미지 추가  -->
-<insert id="insertModImage">
-<![CDATA[ INSERT INTO MOD_BOARD_IMAGE(mimageID, mID, mimageUrl) 
-VALUES(SEQ_MOD_BOARD_IMAGE.NEXTVAL, #{mID}, #{mimageUrl}) ]]>
-</insert>
-<select id="getImagesByMID" parameterType="int" resultType="com.gameboard.biz.post.ModImage"> 
-SELECT * FROM MOD_BOARD_IMAGE WHERE mID = #{mID} </select>
+	<!-- 게시물에 이미지 추가 -->
+	<insert id="insertModImage">
+		<![CDATA[ INSERT INTO MOD_BOARD_IMAGE(mimageID, mID, mimageUrl) 
+		VALUES(SEQ_MOD_BOARD_IMAGE.NEXTVAL, #{mID}, #{mimageUrl}) ]]>
+	</insert>
+
+	<select id="getImagesByMID" parameterType="int"
+		resultType="com.gameboard.biz.post.ModImage">
+		SELECT * FROM MOD_BOARD_IMAGE WHERE mID = #{mID}
+	</select>
+
+
+	<delete id="deleteModAllImage" parameterType="int">
+		DELETE FROM MOD_BOARD_IMAGE
+		WHERE mID = #{mID}
+	</delete>
 
 	<update id="updateMod">
 		<![CDATA[
@@ -81,8 +90,7 @@ SELECT * FROM MOD_BOARD_IMAGE WHERE mID = #{mID} </select>
 	</select>
 
 	<!-- 이전 게시물 조회 -->
-	<select id="getPrevMod"
-		resultType="com.gameboard.biz.post.Mod">
+	<select id="getPrevMod" resultType="com.gameboard.biz.post.Mod">
         <![CDATA[
             SELECT * FROM MOD_BOARD
             WHERE mID < #{mID}
@@ -92,8 +100,7 @@ SELECT * FROM MOD_BOARD_IMAGE WHERE mID = #{mID} </select>
 	</select>
 
 	<!-- 다음 게시물 조회 -->
-	<select id="getNextMod"
-		resultType="com.gameboard.biz.post.Mod">
+	<select id="getNextMod" resultType="com.gameboard.biz.post.Mod">
         <![CDATA[
             SELECT * FROM MOD_BOARD
             WHERE mID > #{mID}
@@ -110,7 +117,8 @@ SELECT * FROM MOD_BOARD_IMAGE WHERE mID = #{mID} </select>
     ]]>
 	</update>
 
-	<select id="getRecentMdposts" parameterType="int" resultType="com.gameboard.biz.post.Mod">
+	<select id="getRecentMdposts" parameterType="int"
+		resultType="com.gameboard.biz.post.Mod">
        <![CDATA[
         SELECT *
         FROM (
@@ -120,5 +128,5 @@ SELECT * FROM MOD_BOARD_IMAGE WHERE mID = #{mID} </select>
         )
         WHERE rn <= #{limit}
     ]]>
-</select>
+	</select>
 </mapper>

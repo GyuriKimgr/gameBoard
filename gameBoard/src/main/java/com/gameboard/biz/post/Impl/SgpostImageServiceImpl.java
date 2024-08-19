@@ -25,4 +25,8 @@ public class SgpostImageServiceImpl implements SgpostImageService {
 		return sgpostImageDao.getImagesBySgID(sgID);
 	}
 
+	@Override
+	public void deleteSgAllImage(int sgID) {
+		sgpostImageDao.deleteSgAllImage(sgID);
+	}
 }
