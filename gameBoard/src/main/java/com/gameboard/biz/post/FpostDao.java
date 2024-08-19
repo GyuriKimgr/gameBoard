@@ -14,4 +14,5 @@ public interface FpostDao {
 	public Fpost getNextFpost(int fID);
 	public Fpost getPrevFpost(int fID);
 	public void updateFpostViews(int fID);
+	Fpost getAnswerIfCompleted(int fID);
 }

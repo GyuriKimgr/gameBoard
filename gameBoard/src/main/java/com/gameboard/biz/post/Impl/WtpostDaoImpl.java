@@ -19,21 +19,18 @@ public class WtpostDaoImpl implements WtpostDao{
 	public void insertWtpost(Wtpost vo) {
 		String wtDate = vo.getWtDate();
 		Integer wtID = vo.getWtID();
-		System.out.println("wtID°ª:" + wtID);
 		mybatis.insert("WtpostDao.insertWtpost", vo);
 	}
 	
 	@Override
 	public int getWtID() {
-		Integer n = mybatis.selectOne("WtpostDao.getWtID");
-		System.out.println("wtID°ª:" + n);
+		//Integer n = mybatis.selectOne("WtpostDao.getWtID");
 		return mybatis.selectOne("WtpostDao.getWtID");
 	}
 	
 	@Override
 	public String getWtDate() {
 		String na = mybatis.selectOne("WtpostDao.getWtDate");
-		System.out.println("wtDate:" + na);
 		return mybatis.selectOne("WtpostDao.getWtDate");
 	}
 	
@@ -79,8 +76,7 @@ public class WtpostDaoImpl implements WtpostDao{
 	
 	@Override
 	public List<Wtpost> getRecentWtposts(int limit){
-		List<Wtpost> posts = mybatis.selectList("WtpostDao.getRecentWtposts", limit);
-		 System.out.println("Recent posts fetched: " + posts);
+		//List<Wtpost> posts = mybatis.selectList("WtpostDao.getRecentWtposts", limit);
 		return mybatis.selectList("WtpostDao.getRecentWtposts", limit);
 	}
 }

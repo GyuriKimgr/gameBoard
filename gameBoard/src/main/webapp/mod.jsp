@@ -22,6 +22,24 @@
 	                <th class = "wth">조회수</th>
 	            </tr>
 	        </thead>
+	        <!-- 공지사항 -->
+			<c:choose>
+				<c:when test="${not empty NoticeList}">
+					<tbody class="notice-tbody">
+						<c:forEach var="Notice" items="${NoticeList}">
+							<tr class="notice-tr">
+								<td class="notice-tdd">${Notice.noticeID}</td>
+								<td class="notice-td"><a
+									href="getMoNotice.do?noticeTitle=${Notice.noticeTitle}">
+										${Notice.noticeTitle} </a></td>
+								<td class="notice-td">${Notice.managerID}</td>
+								<td class="notice-td">${Notice.noticeDate}</td>
+								<td class="notice-td">${Notice.noticeViews}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</c:when>
+			</c:choose>
         <tbody class = "wtbody">
             <c:choose>
                 <c:when test="${empty ModList}">
@@ -41,7 +59,8 @@
                     <c:forEach var="ModList" items="${ModList}">
                         <tr class = "wtr">
                             <td class = "wtd">${ModList.mID}</td>
-                            <td class = "wtd"><a href="getMod.do?mID=${ModList.mID}">${ModList.mTitle}</td>
+                            <td class = "wtd"><a href="getMod.do?mID=${ModList.mID}">${ModList.mTitle}
+                            <a>[<c:out value="${MODCommentCounts[ModList.mID]}" />]</a></td>
                             <td class = "wtd">${ModList.userID}</td>
                             <td class = "wtd">${ModList.mDate}</td>
                             <td class="wtd">${ModList.mViews}</td>

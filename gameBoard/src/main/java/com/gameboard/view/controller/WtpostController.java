@@ -1,14 +1,31 @@
 package com.gameboard.view.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.gameboard.biz.post.WtpostComment;
+import com.gameboard.biz.post.WtpostCommentService;
+import com.gameboard.biz.post.WtpostImage;
+import com.gameboard.biz.post.WtpostImageService;
+import com.gameboard.biz.post.WtNoticeService;
 import com.gameboard.biz.post.Wtpost;
 import com.gameboard.biz.post.WtpostService;
 
@@ -16,43 +33,91 @@ import com.gameboard.biz.post.WtpostService;
 public class WtpostController{
 	@Autowired
 	private WtpostService wt;
+	@Autowired
+	private WtNoticeService noticeService;
+	@Autowired
+	private WtpostImageService ImageService;
 	
-	@RequestMapping(value = "middle2.do")
-	public String getMiddle2Page(Model model) {
-		List<Wtpost> recentWtPosts = wt.getRecentWtPosts(5);
-        if (recentWtPosts != null) {
-            System.out.println("최근 게시물 개수: " + recentWtPosts.size());
-            for (Wtpost post : recentWtPosts) {
-                System.out.println("Post Title: " + post.getWtTitle());
-            }
-        } else {
-            System.out.println("최근 게시물이 null입니다.");
-        }
-        model.addAttribute("recentWtPosts", recentWtPosts);
-        return "middle2.jsp";
-	}
-	
+	@Autowired
+	private WtpostCommentService commentService;
+
 	@RequestMapping(value = "getWtID.do")
 	public String getWtID(Model model) {
 		model.addAttribute("wtID", wt.getWtID());
 		model.addAttribute("wtDate", wt.getWtDate());
 		return "insertWtpost.jsp";
 	}
+	private String maskIpAddress(String ipAddress) {
+	    if (ipAddress.contains(".")) {
+	        String[] parts = ipAddress.split("\\.");
+	        if (parts.length == 4) {
+	            return parts[0] + "." + parts[1] + ".***." + parts[3];
+	        }
+	    }
+	    else if (ipAddress.contains(":")) {
+	        if ("0:0:0:0:0:0:0:1".equals(ipAddress)) {
+	            return "local:01";
+	        } else {
+	            String[] parts = ipAddress.split(":");
+	            return parts[0] + ":" + parts[1] + ":" + parts[2] + ":****:****:" + parts[5] + ":" + parts[6] + ":" + parts[7];
+	        }
+	    }
+	    return ipAddress;
+	}
+	private String saveFile(MultipartFile file) throws IOException {
+		String fileName = file.getOriginalFilename();
+		String filePath = "resources/images/" + fileName;
+		File destinationFile = new File(filePath);
+		file.transferTo(destinationFile);
+		return fileName;
+	}
 	
 	@RequestMapping(value = "insertWtpost.do")
-		public String insertWtpost(Wtpost vo) {
+		public String insertWtpost(Wtpost vo, HttpServletRequest request, HttpSession session,
+				MultipartHttpServletRequest wrequest) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+
+		if(loggedInMemberId == null) {
+			String ipAddress = request.getRemoteAddr();
+			loggedInMemberId = maskIpAddress(ipAddress);
+		}
+		vo.setUserID(loggedInMemberId);
 		wt.insertWtpost(vo);
-		return "redirect:walkThrough.do";
+		List<MultipartFile> files = wrequest.getFiles("images");
+		for (MultipartFile file : files) {
+			if (!file.isEmpty()) {
+				try {
+					String imageUrl = saveFile(file); 
+					WtpostImage image = new WtpostImage();
+					image.setWtID(vo.getWtID());
+					image.setWtImageUrl(imageUrl);
+					ImageService.insertPostImage(image);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return "redirect:getWtpost.do?wtID=" + vo.getWtID();
 	}
 	
 	@RequestMapping(value = "walkThrough.do")
 	public String getWtpost(Wtpost vo, Model model) {
+		model.addAttribute("NoticeList", noticeService.getNotices("WT_BOARD_POST"));
 		List<Wtpost> WtList = wt.getWtpostList(vo);
+		
+		Map<Integer, Integer> WTcommentConunts = new HashMap<>();
+		
+		 for (Wtpost post : WtList) {
+		        int commentCount = commentService.countWtCommentsByPostId(post.getWtID());
+		        WTcommentConunts.put(post.getWtID(), commentCount);
+		    }
+
 		model.addAttribute("WtList", WtList);
+		model.addAttribute("WTcommentConunts", WTcommentConunts);
 		return "walkThrough.jsp";
 	}
 	
-	// 검색
 	@RequestMapping(value = "searchWtpost.do")
 	public String searchWtpost(Wtpost vo, Model model) {
 		List<Wtpost> WtList = wt.searchWtpost(vo);
@@ -63,47 +128,96 @@ public class WtpostController{
 	
 	@RequestMapping(value = "getWtpost.do")
 	public String getWtpostById(int wtID, Model model) {
-		// 조회수 업데이트
 		wt.updateWtpostViews(wtID);
 
 		Wtpost post = wt.getWtpostById(wtID);
 		model.addAttribute("post", post);
 
-		// 이전 게시물과 다음 게시물을 가져오기 위해 ID를 기준으로 조회한다.
-		Wtpost prevPost = wt.getPrevWtpost(wtID); // 이전 게시물 조회
-		Wtpost nextPost = wt.getNextWtpost(wtID); // 다음 게시물 조회
+		Wtpost prevPost = wt.getPrevWtpost(wtID);
+		Wtpost nextPost = wt.getNextWtpost(wtID);
 
-		// 이전 게시물과 다음 게시물이 존재할 경우 모델에 추가한다.
 		if (prevPost != null) {
 			model.addAttribute("prevPost", prevPost);
 		}
 		if (nextPost != null) {
 			model.addAttribute("nextPost", nextPost);
 		}
-
-		// 최신 목록을 가져와서 모델에 추가 (조회수가 업데이트된 상태)
 		List<Wtpost> WtList = wt.getWtpostList(null);
 		model.addAttribute("WtList", WtList);
+		
+		List<WtpostComment> commentList = commentService.getWtCommentsByPostId(wtID);
+		model.addAttribute("commentList", commentList);
+		int WTcommentConunts = commentService.countWtCommentsByPostId(wtID);
+		model.addAttribute("WTcommentConunts", WTcommentConunts);
+		model.addAttribute("wtID", wtID);
 
-		return "getWtpost.jsp"; // 상세 정보를 보여줄 뷰 이름
+		return "getWtpost.jsp";
 	}
 	
-	@RequestMapping(value = "deleteWtpost.do")
-	public String deleteWtpost(int wtID) {
-	    wt.deleteWtpost(wtID);
-	    return "redirect:walkThrough.do";
+	@RequestMapping(value = "deleteWtpost.do", produces = "text/plain;charset=UTF-8")
+	@ResponseBody
+	public String deleteWtpost(int wtID, HttpServletRequest request, HttpSession session) {
+	    String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+	    if (loggedInMemberId == null) {
+	        String ipAddress = request.getRemoteAddr();
+	        loggedInMemberId = maskIpAddress(ipAddress);
+	    }
+	    Wtpost post = wt.getWtpostById(wtID);
+
+	    if (post != null && post.getUserID().equals(loggedInMemberId)) {
+	    	commentService.deleteWtAllComment(wtID);
+	        wt.deleteWtpost(wtID);
+	        return "deleteSuccess";
+	    } else {
+	        return "deleteFailed";
+	    }
 	}
 	
+	@RequestMapping(value = "checkEditPermissionWT.do", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<String> checkEditPermission(@RequestParam("wtID") int wtID, HttpSession session, HttpServletRequest request) {
+        String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+
+        if (loggedInMemberId == null) {
+            String ipAddress = request.getRemoteAddr();
+            loggedInMemberId = maskIpAddress(ipAddress);
+        }
+
+        Wtpost post = wt.getWtpostById(wtID);
+
+        if (post != null && post.getUserID().equals(loggedInMemberId)) {
+            return ResponseEntity.ok("updateSuccess|updateWtpostForm.do?wtID=" + wtID);
+        } else {
+            return ResponseEntity.ok("updateFailed");
+        }
+    }
+
 	@RequestMapping(value = "updateWtpostForm.do")
-	public String updateWtpostForm(int wtID, Model model) {
-	    Wtpost post = wt.getWtpostById(wtID); // 게시물 정보를 가져옴
-	    model.addAttribute("post", post); // 수정 폼에서 사용할 게시물 정보를 모델에 추가
-	    return "updateWtpostForm.jsp"; // 수정 폼 JSP 페이지로 이동
+	public String updateWtpostForm(@RequestParam("wtID") int wtID, Model model) {
+	    Wtpost post = wt.getWtpostById(wtID);
+	    List<WtpostImage> images = ImageService.getImagesByWtID(wtID);
+	    model.addAttribute("post", post);
+	    model.addAttribute("images", images);
+	    return "updateWtpostForm.jsp";
 	}
 	
-	@RequestMapping(value = "updateWtpost.do")
-	public String updateWtpost(Wtpost vo) {
-	    wt.updateWtpost(vo); // 게시물 정보를 업데이트
+	@RequestMapping(value = "updateWtpost.do", method = RequestMethod.POST)
+	public String updateWtpost(@RequestParam("wtID") int wtID, @ModelAttribute Wtpost vo,
+			HttpSession session, HttpServletRequest request) {
+		String loggedInMemberId = (String) session.getAttribute("loggedInMemberId");
+
+        if (loggedInMemberId == null) {
+            String ipAddress = request.getRemoteAddr();
+            loggedInMemberId = maskIpAddress(ipAddress);
+        }
+
+        Wtpost existingPost = wt.getWtpostById(wtID);
+
+        if (existingPost != null && existingPost.getUserID().equals(loggedInMemberId)) {
+            existingPost.setWtTitle(vo.getWtTitle());
+            existingPost.setWtContent(vo.getWtContent());
+            wt.updateWtpost(existingPost);
+        }
 	    return "redirect:getWtpost.do?wtID=" + vo.getWtID();
 	}
 }

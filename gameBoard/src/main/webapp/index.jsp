@@ -20,7 +20,7 @@
 </section>
 
 <c:import url="middle1.jsp" />
-<c:import url="middle2.do" />
+<c:import url="middle2Page.do"/>
 <c:import url="bottom.jsp" />
 
 

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.gameboard.biz.post.Mod;
 import com.gameboard.biz.post.ModDao;
 import com.gameboard.biz.post.ModService;
+import com.gameboard.biz.post.Sgpost;
 
 @Service("ModService")
 public class ModServiceImpl implements ModService {
@@ -74,6 +75,10 @@ public class ModServiceImpl implements ModService {
 	public void updateModViews(int mID) {
 		modDao.updateModViews(mID);
 
+	}
+	@Override
+	public List<Mod> getRecentMdPosts(int limit){
+		return modDao.getRecentMdposts(limit);
 	}
 
 }

@@ -6,6 +6,58 @@
 
 <link rel="stylesheet" href="./resources/css/getpost.css"
 	type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+function confirmDelete(fID) {
+    if (confirm("정말로 삭제 하시겠습니까?")) {
+        $.ajax({
+            url: 'deleteFpost.do',
+            type: 'POST',
+            data: { fID: fID },
+            dataType: 'text',
+            success: function(response) {
+            	console.log("Response: ", response);
+                if (response === "deleteSuccess") {
+                    alert("삭제가 완료되었습니다.");
+                    window.location.href = './FAQ.do';
+                } else if (response === "deleteFailed") {
+                    alert("삭제 권한이 없습니다.");
+                }
+            },
+            error: function() {
+                alert("삭제 요청 중 오류가 발생했습니다.");
+            }
+        });
+    }
+}
+
+function checkEditPermissionF(fID) {
+    console.log("checkEditPermission 호출됨", "fID:", fID);
+    if (confirm("정말로 수정하시겠습니까?")) {
+        $.ajax({
+            url: 'checkEditPermissionF.do',
+            type: 'GET',
+            data: { fID: fID },
+            dataType: 'text',
+            success: function(response) {
+                console.log("Response: ", response);
+                var parts = response.split('|');
+                if (parts[0] === "updateSuccess") {
+                    alert("수정 권한이 확인되었습니다.");
+                    // 서버에서 반환된 URL로 페이지 이동
+                    window.location.href = parts[1];
+                } else if (parts[0] === "updateFailed") {
+                    alert("수정 권한이 없습니다.");
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log("AJAX Error: ", status, error);
+                alert("수정 요청 중 오류가 발생했습니다.");
+            }
+        });
+    }
+}
+</script>
 
 <div class="inner_atc">
 	<div class="tit_atc">
@@ -35,13 +87,24 @@
 		<div class="view_cont">
 			<div class="content">
 				<p>${post.getfContent()}</p>
+				<c:if test="${not empty image.imageUrl}">
+					<img
+						src="${pageContext.request.contextPath}/resources/images/${image.imageUrl}"
+						alt="게시글 이미지" class="post-image" />
+				</c:if>
 			</div>
+			<!-- 답변 완료된 경우에만 답변 출력 -->
+			<c:if test="${not empty answer}">
+			<div  class = answer>
+            	<h4>↳답변</h4>
+            	<p>${answer}</p>
+			</div>
+			</c:if>
 		</div>
-
 	<div class="view_btn">
 			<div class="wrap_modify">
-				<a href="updateFpostForm.do?fID=${post.fID}"
-					class="btn_board btn_board1 edit_btn">수정</a>
+				<button type = "button" class="btn_board btn_board1 edit_btn"
+					onclick="checkEditPermissionF(${post.fID})">수정</button>
 				<button type="button" class="btn_board btn_board1 delete_btn"
 					onclick="confirmDelete(${post.fID})">삭제</button>
 			</div>
@@ -62,13 +125,5 @@
 				</c:if>
 			</div>
 		</div>
-		<script>
-		function confirmDelete(fID) {
-			if (confirm("정말로 삭제 하시겠습니까?")) {
-       	 	window.location.href = 'deleteFpost.do?fID=' + fID;
-    		}
-		}
-		</script>
-
 	</div>
 </div>

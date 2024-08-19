@@ -76,4 +76,8 @@ public class FpostServiceImpl implements FpostService {
 		fpostDao.updateFpostViews(fID);
 
 	}
+	 @Override
+	    public Fpost getAnswerIfCompleted(int fID) {
+	        return fpostDao.getAnswerIfCompleted(fID);
+	    }
 }

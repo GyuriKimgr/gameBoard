@@ -1,105 +1,221 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="./resources/css/middle1.css" type="text/css">
 <link rel="stylesheet" href="./resources/css/top.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#login-form').submit(function(event) {
+        event.preventDefault(); // ê¸°ë³¸ í¼ ì œì¶œ ë™ì‘ ë°©ì§€
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', './login.do', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                if (xhr.responseText === "success") {
+                    window.location.reload(); // ë¡œê·¸ì¸ ì„±ê³µ ì‹œ í˜ì´ì§€ ìƒˆë¡œê³ ì¹¨
+                } else {
+                    alert("ì•„ì´ë”” í˜¹ì€ ë¹„ë²ˆì„ í™•ì¸í•´ì£¼ì„¸ìš”."); // ë¡œê·¸ì¸ ì‹¤íŒ¨ ì‹œ ì•ŒëŸ¿ì°½ í‘œì‹œ
+                }
+            } else {
+                alert("ë¡œê·¸ì¸ ìš”ì²­ ì‹¤íŒ¨");
+            }
+        };
+
+        var formData = new FormData(document.getElementById('login-form'));
+        var params = new URLSearchParams();
+        formData.forEach((value, key) => {
+            params.append(key, value);
+        });
+
+        console.log("ë¡œê·¸ì¸ ìš”ì²­ ë°ì´í„°:", params.toString()); // ë””ë²„ê¹…ìš© ë¡œê·¸ ì¶”ê°€
+
+        xhr.send(params.toString());
+    });
+    
+    function loadPosts() {
+        $.when(
+            $.ajax({ url: 'recentWtPosts.do', type: 'GET', dataType: 'text',contentType: 'application/text; charset=UTF-8' }),
+            $.ajax({ url: 'recentSgPosts.do', type: 'GET', dataType: 'text',contentType: 'application/text; charset=UTF-8'}),
+            $.ajax({ url: 'recentMdPosts.do', type: 'GET', dataType: 'text',contentType: 'application/text; charset=UTF-8' })
+        ).done(function(wtResponse, sgResponse, mdResponse) {
+        	console.log('done~!~!!')
+        	console.log(wtResponse)
+        	//return
+        	//console.log(urlencode(wtResponse[0]))
+        	//console.log(wtResponse[0][0])
+        	//console.log(wtResponse[0][1])
+        	//console.log(wtResponse[0][2])
+            const parsePosts = (response) => {
+            	console.log('parsePosts')
+            	console.log(response)
+                return response[0].split('\n').map(line => {
+                	console.log('line')
+                	console.log(line)
+                    let parts = line.split('|').map(part => part.trim());
+                    if (parts.length === 4) {
+                        return { id: parts[0], title: parts[1], date: parts[2], content: parts[3] };
+                    } else {
+                        console.warn("Parsing error:", parts);
+                        return null;
+                    }
+                }).filter(post => post !== null);
+            };
+
+            const wtPosts = parsePosts(wtResponse);
+            const sgPosts = parsePosts(sgResponse);
+            const mdPosts = parsePosts(mdResponse);
+
+            let combinedPosts = [
+                ...wtPosts.map(post => ({ ...post, type: 'wt' })),
+                ...sgPosts.map(post => ({ ...post, type: 'sg' })),
+                ...mdPosts.map(post => ({ ...post, type: 'mod' }))
+            ];
+
+            combinedPosts.sort((a, b) => {
+                let dateA = new Date(a.date.replace(/-/g, '/'));
+                let dateB = new Date(b.date.replace(/-/g, '/'));
+                return dateB - dateA;
+            });
+
+            let top3Posts = combinedPosts.slice(0, 3);
+
+            const todayContainer = document.querySelector('.today');
+            todayContainer.innerHTML = '';
+
+            top3Posts.forEach(post => {
+                let url = '';
+                switch (post.type) {
+                    case 'wt':
+                        url = './getWtpost.do?wtID=' + encodeURIComponent(post.id);
+                        break;
+                    case 'sg':
+                        url = './getSgpost.do?sgID=' + encodeURIComponent(post.id);
+                        break;
+                    case 'mod':
+                        url = './getMod.do?mID=' + encodeURIComponent(post.id);
+                        break;
+                }
+
+                let postDiv = document.createElement('div');
+
+                let strongTitle = document.createElement('strong');
+                strongTitle.className = 'tit3';
+                let anchor = document.createElement('a');
+                anchor.href = url;
+                anchor.textContent = post.title;
+                strongTitle.appendChild(anchor);
+
+                let divContent = document.createElement('div');
+                let strongContent = document.createElement('strong');
+                strongContent.className = 'tit4';
+                strongContent.textContent = post.content;
+                divContent.appendChild(strongContent);
+
+                postDiv.appendChild(strongTitle);
+                postDiv.appendChild(divContent);
+
+                todayContainer.appendChild(postDiv);
+            });
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            console.error("AJAX request failed:", textStatus, errorThrown);
+        });
+    }
+
+    loadPosts();
+});
+</script>
 
 <div class="box1">
 <ul class="middle1">
 	<li>
 		<a href="#" class="link_card1"> 
-			<strong class="title">°ÔÀÓ¼Ò½Ä</strong>
-			<span class="img_comm1">´õº¸±â</span>
+			<strong class="title">ê²Œì„ì†Œì‹</strong>
+			<span class="img_comm1">ë”ë³´ê¸°</span>
         </a>
 		<div class="news1">
 			<a name="news_1" class="gamenews"
 				href="https://www.gukjenews.com/news/articleView.html?idxno=3037747"
-				event-order="0" event-description="TES ²©Àº T1, ·Ñ »ç¿ìµğ ÄÅ ÃÊ´ë Ã¨ÇÇ¾ğ ÀÚ¸® ²çÂ÷"
-				event="click_news" news_type="´ëÈ¸¼Ò½Ä"
-				news_title="TES ²©Àº T1, ·Ñ »ç¿ìµğ ÄÅ ÃÊ´ë Ã¨ÇÇ¾ğ ÀÚ¸® ²çÂ÷">
+				event-order="0" event-description="TES êº½ì€ T1, ë¡¤ ì‚¬ìš°ë”” ì»µ ì´ˆëŒ€ ì±”í”¼ì–¸ ìë¦¬ ê¿°ì°¨"
+				event="click_news" news_type="ëŒ€íšŒì†Œì‹"
+				news_title="TES êº½ì€ T1, ë¡¤ ì‚¬ìš°ë”” ì»µ ì´ˆëŒ€ ì±”í”¼ì–¸ ìë¦¬ ê¿°ì°¨">
 			              
 				<div class="gamenews_1">
 					<img
 						src="https://pbs.twimg.com/media/GPdbQgCbQAAwBes?format=jpg&name=medium"
 						class="news_img">
 				</div> 
-	            <strong class="tit1"> TES ²©Àº T1, ·Ñ »ç¿ìµğ ÄÅ ÃÊ´ë Ã¨ÇÇ¾ğ ÀÚ¸® ²çÂ÷ </strong> 
-	            <span class="tit2">T1ÀÌ Áß±¹ ÇÁ·Î¸®±×(LPL)ÀÇ °­È£ ÆÀ Åée½ºÆ÷Ã÷(TES)¸¦ ²ª°í E½ºÆ÷Ã÷ ¿ùµåÄÅ(EWC) ÃÊ´ë Ã¨ÇÇ¾ğ ÀÚ¸®¿¡ ¿Ã¶ú´Ù.</span>
+	            <strong class="tit1"> TES êº½ì€ T1, ë¡¤ ì‚¬ìš°ë”” ì»µ ì´ˆëŒ€ ì±”í”¼ì–¸ ìë¦¬ ê¿°ì°¨ </strong> 
+	            <span class="tit2">T1ì´ ì¤‘êµ­ í”„ë¡œë¦¬ê·¸(LPL)ì˜ ê°•í˜¸ íŒ€ í†±eìŠ¤í¬ì¸ (TES)ë¥¼ êº¾ê³  EìŠ¤í¬ì¸  ì›”ë“œì»µ(EWC) ì´ˆëŒ€ ì±”í”¼ì–¸ ìë¦¬ì— ì˜¬ëë‹¤.</span>
 			</a>
 			<div class="group_tit1">
 				<a name="news_1" class="gamenews"
 					href="https://www.thisisgame.com/webzine/news/nboard/4/?utm_source=naver?utm_source?utm_source?
 							utm_source?utm_source&utm_medium=outlink&utm_campaign=thisisgame&utm_content=85668&referer=coinsosik&category=1&n=189696"
-			        event-order="1" event-description="¸®Æ² ³ªÀÌÆ®¸Ş¾î 3' Ãâ½Ã ¿¬±â, 2024³â ³»¿¡´Â ¸¸³ª±â ¾î·Æ´Ù"
-			        event="click_news" news_type="°ÔÀÓ ¿¬±â"
-			        news_title="¸®Æ² ³ªÀÌÆ®¸Ş¾î 3' Ãâ½Ã ¿¬±â, 2024³â ³»¿¡´Â ¸¸³ª±â ¾î·Æ´Ù"> 
-			        <strong class="tit1">¸®Æ² ³ªÀÌÆ®¸Ş¾î 3' Ãâ½Ã ¿¬±â, 2024³â ³»¿¡´Â ¸¸³ª±â ¾î·Æ´Ù</strong>
+			        event-order="1" event-description="ë¦¬í‹€ ë‚˜ì´íŠ¸ë©”ì–´ 3' ì¶œì‹œ ì—°ê¸°, 2024ë…„ ë‚´ì—ëŠ” ë§Œë‚˜ê¸° ì–´ë µë‹¤"
+			        event="click_news" news_type="ê²Œì„ ì—°ê¸°"
+			        news_title="ë¦¬í‹€ ë‚˜ì´íŠ¸ë©”ì–´ 3' ì¶œì‹œ ì—°ê¸°, 2024ë…„ ë‚´ì—ëŠ” ë§Œë‚˜ê¸° ì–´ë µë‹¤"> 
+			        <strong class="tit1">ë¦¬í‹€ ë‚˜ì´íŠ¸ë©”ì–´ 3' ì¶œì‹œ ì—°ê¸°, 2024ë…„ ë‚´ì—ëŠ” ë§Œë‚˜ê¸° ì–´ë µë‹¤</strong>
 				</a> 
 				<a name="new_1" class="gamenews"
 					href="https://www.thelec.kr/news/articleView.html?idxno=28711"
-			        event-order="2" event-description="½ÅÀÛ 'ÄíÅ°·±' 26ÀÏ Ãâ°İ...µ¥ºê½Ã½ºÅÍÁî ºÎÈ° '½ÂºÎ¼ö"
-			        vent="click_news" news_type="´ëÈ¸¼Ò½Ä" news_title="ÄíÅ°·±">
-			        <strong class="tit1">½ÅÀÛ 'ÄíÅ°·±' 26ÀÏ Ãâ°İ...µ¥ºê½Ã½ºÅÍÁî ºÎÈ° '½ÂºÎ¼ö</strong>
+			        event-order="2" event-description="ì‹ ì‘ 'ì¿ í‚¤ëŸ°' 26ì¼ ì¶œê²©...ë°ë¸Œì‹œìŠ¤í„°ì¦ˆ ë¶€í™œ 'ìŠ¹ë¶€ìˆ˜"
+			        vent="click_news" news_type="ëŒ€íšŒì†Œì‹" news_title="ì¿ í‚¤ëŸ°">
+			        <strong class="tit1">ì‹ ì‘ 'ì¿ í‚¤ëŸ°' 26ì¼ ì¶œê²©...ë°ë¸Œì‹œìŠ¤í„°ì¦ˆ ë¶€í™œ 'ìŠ¹ë¶€ìˆ˜</strong>
 				</a>
 			</div>
 		</div>
 	</li>
 
 	<li>
-		<a href="#" class="link_card1"> 
-			<strong class="title">¿À´ÃÀÇ °Ô½ÃÆÇ</strong>
-			<span class="img_comm1">´õº¸±â</span>
-		</a>
-        <div class="news1">
-			<a name="news_1" class="gamenews"
-				href="#"
-				event-order="0" event-description="PGS 4 ±×·ì ½ºÅ×ÀÌÁö ÇÏÀÌ¶óÀÌÆ®"
-				event="click_news" news_type="´ëÈ¸¼Ò½Ä"
-				news_title="PGS 4 ±×·ì ½ºÅ×ÀÌÁö ÇÏÀÌ¶óÀÌÆ®">
-				
-				<div class="gamenews_1">
-                    <img
-					src="https://t1.kakaocdn.net/gamepub/pub-img/pubg/news_banner/news_banner_1717741626073_39.png"
-                       class="news_img">
-				</div> 
-				<strong class="tit1"> PGS 4 ±×·ì ½ºÅ×ÀÌÁö ÇÏÀÌ¶óÀÌÆ®</strong>
-				<span class="tit2">ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 4ÀÇ ±×·ì ½ºÅ×ÀÌÁö º£½ºÆ® ¼ø°£À» Áö±İ ¹Ù·Î ÇÏÀÌ¶óÀÌÆ® ¿µ»óÀ» ÅëÇØ È®ÀÎÇØº¸¼¼¿ä.</span>
-			</a>
-			<div class="group_tit1">
-				<a name="news_1" class="gamenews"
-					href="#"
-					event-order="1" event-description="ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 3(PGS 3)¸¦ ¼Ò°³ÇÕ´Ï´Ù!"
-					event="click_news" news_type="´ëÈ¸¼Ò½Ä"
-					news_title="ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 3(PGS 3)¸¦ ¼Ò°³ÇÕ´Ï´Ù!"> <strong
-					class="tit1">ÆàÁö ±Û·Î¹ú ½Ã¸®Áî 3(PGS 3)¸¦ ¼Ò°³ÇÕ´Ï´Ù!</strong>
-				</a>
-				<a name="news_1" class="gamenews"
-					href="#"
-					event-order="2" event-description="2024 PLS: Cup ¾È³»"
-					event="click_news" news_type="´ëÈ¸¼Ò½Ä" news_title="2024 PLS: Cup ¾È³»">
-					<strong class="tit1">2024 PLS: Cup ¾È³»</strong>
-				</a>
-			</div>
-		</div> 
-		
-<!-- ·Î±×ÀÎ Æû -->
+       <a href="#" class="link_card1"> 
+                <strong class="title">ì˜¤ëŠ˜ì˜ ê²Œì‹œíŒ</strong>
+                <span class="img_comm1">ë”ë³´ê¸°</span>
+            </a>
+            <div class="news1">
+                <div class="gamenews_1">
+                    <img src="./resources/images/Today.jpg" class="news_img_2">
+                </div> 
+                <div class="today">
+                
+                </div>
+            </div>
+            </li>
+		<!-- ë¡œê·¸ì¸ í¼ -->
 		<li>
+		<c:choose>
+            <c:when test="${not empty sessionScope.loggedInMember}">
+                <!-- ë¡œê·¸ì¸ ìƒíƒœ -->
+                <div class="welcome">
+                    <h2>${sessionScope.loggedInMember}ë‹˜, í™˜ì˜í•©ë‹ˆë‹¤!</h2>
+                    <p>ê°€ì…í•œ ì§€ ${sessionScope.daysElapsed}ì¼ì§¸ì…ë‹ˆë‹¤.</p>
+                    <form id="logout-form" method="post" action="./logout.do">
+    					<input type="submit" value="Logout">
+					</form>
+                </div>
+            </c:when>
+            <c:otherwise>
+            <!-- ë¹„ë¡œê·¸ì¸ ìƒíƒœ -->
             <div class="login">
                <h2>Simple Login</h2>
-               <form method="post" action="¼­¹öÀÇurl" id="login-form">
-                  <input type="text" name="userName" placeholder="ID"> <input
-                     type="password" name="userPassword" placeholder="Password">
-                  <label for="remember-check"> <input type="checkbox"
-                     id="remember-check">¾ÆÀÌµğ ÀúÀåÇÏ±â
-                  </label>
-						<ul class="find_wrap" id="find_wrap_KR" style="display: block;">
-                                <li><a id="idinquiry" href="./search_id1.jsp" class="find_text">¾ÆÀÌµğ Ã£±â</a> </li>
-                                <li><a id="pwinquiry" href="./search_pw1.jsp" class="find_text">ºñ¹Ğ¹øÈ£ Ã£±â</a> </li>
-                                <li><a id="join" href="./getJoinDate.do"><span  class="accent">È¸¿ø°¡ÀÔ</span></a></li>
-                         </ul>
+                <form method="post" action="./login.do" id="login-form">
+                  <input type="text" name="member_id" placeholder="ID"> <input
+                     type="password" name="member_pw" placeholder="Password">
+                     
+						<div class="find_wrap">
+                                <a href="./search_id1.jsp" class="find_text">ì•„ì´ë”” ì°¾ê¸°</a> 
+                                <span>ã…£</span>
+                                <a href="./search_pw1.jsp" class="find_text">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
+                                <span>ã…£</span>
+                                <a href="./getJoinDate.do"><span  class="accent">íšŒì›ê°€ì…</span></a>
+                         </div>
                   <input type="submit" value="Login">
                </form>
                </div>
+                  </c:otherwise>
+        </c:choose>
          </li>
       </ul>
    </div>
-</div>

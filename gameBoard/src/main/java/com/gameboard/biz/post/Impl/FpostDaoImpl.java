@@ -19,14 +19,12 @@ public class FpostDaoImpl implements FpostDao {
 	public void insertFpost(Fpost vo) {
 		String fDate = vo.getfDate();
 		Integer fID = vo.getfID();
-		System.out.println("FfID°ª : " + fID);
 		mybatis.insert("FpostDao.insertFpost", vo);
 	}
 
 	@Override
 	public int getFID() {
 		Integer f = mybatis.selectOne("FpostDao.getFID");
-		System.out.println("fID°ª : " + f);
 		return mybatis.selectOne("FpostDao.getFID");
 	}
 
@@ -75,4 +73,15 @@ public class FpostDaoImpl implements FpostDao {
 	public void updateFpostViews(int fID) {
 		mybatis.update("FpostDao.updateFpostViews", fID);
 	}
+	
+	@Override
+    public Fpost getAnswerIfCompleted(int fID) { 
+		Fpost result = mybatis.selectOne("FpostDao.getAnswerIfCompleted", fID);
+		if(result == null) {
+	        System.out.println("No result found for fID: " + fID);
+	    } else {
+	        System.out.println("Fetched Answer: " + result.getAnswer());
+	    }
+        return mybatis.selectOne("FpostDao.getAnswerIfCompleted", fID);
+    }
 }

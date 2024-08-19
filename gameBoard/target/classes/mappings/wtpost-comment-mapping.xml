@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="WtpostCommentDao">
+    <!-- resultMap 정의 -->
+    <resultMap id="WtCommentResultMap" type="com.gameboard.biz.post.WtpostComment">
+        <id property="commentID" column="commentID"/>
+        <result property="wtID" column="wtID"/>
+        <result property="userID" column="userID"/>
+        <result property="commentContent" column="commentContent"/>
+        <result property="commentDate" column="commentDate"/>
+    </resultMap>
+
+	<!-- 댓글 추가 -->
+	<insert id="insertWtComment"
+		parameterType="com.gameboard.biz.post.WtpostComment">
+		INSERT INTO WT_BOARD_COMMENT (
+		commentID,
+		wtID,
+		userID,
+		commentContent
+		) VALUES (
+		(SELECT NVL(MAX(commentID), 0) + 1 FROM WT_BOARD_COMMENT),
+		#{wtID},
+		#{userID},
+		#{commentContent}
+		)
+	</insert>
+	
+	<select id="getWtCommentDate" resultType="string">
+    <![CDATA[
+        SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI') AS currentDateTime FROM DUAL
+    ]]>
+	</select>
+	
+	<select id = "getWtCommentID" resultType = "int">
+		<![CDATA[
+			SELECT NVL(MAX(commentID, 0) +1
+			FROM WT_BOARD_COMMENT
+		]]>
+	</select>
+
+	<!-- 댓글 조회 -->
+	<select id="selectWtCommentsByPostId" parameterType="int"
+		resultType="com.gameboard.biz.post.WtpostComment">
+		SELECT *
+		FROM WT_BOARD_COMMENT
+		WHERE wtID = #{wtID}
+		ORDER BY commentDate DESC
+	</select>
+	
+	<!-- 단일 객체 댓글 조회 -->
+	<select id = "selectWtCommentById" resultType="com.gameboard.biz.post.WtpostComment">
+		<![CDATA[
+			SELECT * FROM WT_BOARD_COMMENT
+			WHERE commentID = #{commentID}
+		]]>
+	</select>
+	
+	<!-- 단일 댓글 삭제 -->
+	 <delete id="deleteWtComment" parameterType="int">
+        DELETE FROM WT_BOARD_COMMENT
+        WHERE commentID = #{commentID}
+    </delete>
+    
+    <!-- 게시물 댓글 삭제 -->
+    <delete id="deleteWtAllComment" parameterType = "int">
+    	DELETE FROM WT_BOARD_COMMENT
+    	WHERE wtID = #{wtID}
+    </delete>
+    
+    <!-- wtID를 기준으로 댓글 카운트 -->
+    <select id = "countWtCommentsByPostId" parameterType = "int" resultType="int">
+    	SELECT COUNT(*) FROM WT_BOARD_COMMENT
+    	WHERE wtID = #{wtID}
+    </select>
+</mapper>

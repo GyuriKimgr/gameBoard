@@ -22,6 +22,24 @@
                     <th class="wth">조회수</th>
                 </tr>
             </thead>
+            <!-- 공지사항 -->
+			<c:choose>
+				<c:when test="${not empty NoticeList}">
+					<tbody class="notice-tbody">
+						<c:forEach var="Notice" items="${NoticeList}">
+							<tr class="notice-tr">
+								<td class="notice-tdd">${Notice.noticeID}</td>
+								<td class="notice-td"><a
+									href="getWtNotice.do?noticeTitle=${Notice.noticeTitle}">
+										${Notice.noticeTitle} </a></td>
+								<td class="notice-td">${Notice.managerID}</td>
+								<td class="notice-td">${Notice.noticeDate}</td>
+								<td class="notice-td">${Notice.noticeViews}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</c:when>
+			</c:choose>
             <tbody class="wtbody">
                 <c:choose>
                     <c:when test="${empty WtList}">
@@ -41,7 +59,8 @@
                         <c:forEach var="WtpostList" items="${WtList}">
                             <tr class="wtr">
                                 <td class="wtd">${WtpostList.wtID}</td>
-                                <td class="wtd"><a href="getWtpost.do?wtID=${WtpostList.wtID}">${WtpostList.wtTitle}</td>
+                                <td class="wtd"><a href="getWtpost.do?wtID=${WtpostList.wtID}">${WtpostList.wtTitle}
+                                <a>[<c:out value="${WTcommentConunts[WtpostList.wtID]}" />]</a></td>
                                 <td class="wtd">${WtpostList.userID}</td>
                                 <td class="wtd">${WtpostList.wtDate}</td>
                                 <td class="wtd">${WtpostList.wtViews}</td>

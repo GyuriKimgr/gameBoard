@@ -172,7 +172,7 @@ div {
 }
 
 .btn_board1:hover {
-    background-color: #f19a09;
+    background-color: #97a5e6;
 }
 .btn_board:hover {
     text-decoration: none;
@@ -238,8 +238,6 @@ a {
     background: no-repeat;
 }
 
-
-
 a {
     color: #333;
     text-decoration: none;
@@ -261,4 +259,273 @@ a {
     height: 7px;
     margin-top: 22px;
     background-position: -45px -40px;
+}
+
+div .answer{
+	margin: 10px 20px 20px 20px;
+    padding: 5px 20px 20px 40px;
+    background-color: #aabcd440;
+}
+<!-- 댓글 기능 -->
+div {
+	margin: 0;
+	padding: 0;
+}
+
+.cmt_head .tit_cmt {
+	font-size: 19px;
+	line-height: 24px;
+}
+
+.cmt_head .tit_cmt .emph_g2 {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.emph_g2 {
+	color: #2d9ace;
+}
+
+.screen_out {
+	overflow: hidden;
+	position: absolute;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	text-indent: -9999px;
+}
+
+.cmt_head .fld_cmt {
+	position: relative;
+	margin-top: 12px;
+	padding: 25px 25px 53px;
+	background: #f8f8f8;
+}
+
+.screen_out {
+	overflow: hidden;
+	position: absolute;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	text-indent: -9999px;
+}
+
+.form legend {
+	margin: 0;
+	padding: 0;
+}
+
+fieldset {
+	border: 0 none;
+}
+
+.cmt_head .fld_cmt .tf_cmt {
+	width: 500px;
+	height: 66px;
+	padding: 11px 15px;
+}
+
+.view_cmt .tf_cmt {
+	border: 1px solid #c3c3c3;
+	resize: none;
+}
+
+.view_cmt .desc_cmt {
+	position: absolute;
+	top: 37px;
+	left: 41px;
+	font-size: 14px;
+	color: #585858;
+}
+
+.cmt_head .info_byte {
+	position: absolute;
+	right: 0;
+	top: -36px;
+	font-size: 14px;
+	color: #b9b9b9;
+}
+
+.link_rule {
+	color: #b9b9b9;
+}
+
+a {
+	color: #3d3962;
+	text-decoration: none;
+}
+
+.cmt_head .btn_register {
+	float: right;
+	width: 174px;
+	height: 90px;
+	font-size: 18px;
+	font-weight: bold;
+	background: #aabcd4;
+	color: #fff;
+}
+
+button {
+	vertical-align: middle;
+	background-color: transparent;
+	cursor: pointer;
+	border: 0 none;
+	border-radius: 0;
+	font-size: 14px;
+	line-height: 1.5;
+	font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+	color: #333;
+}
+
+button:hover {
+	background-color: #97a5e6;
+}
+
+<!-- 댓글 목록 -->
+
+div {
+	margin: 0;
+	padding: 0;
+}
+.list_cmt {
+	font-size: 13px;
+}
+.list_cmt .cont_cmt {
+    overflow: hidden;
+}
+
+
+.list_cmt .cmt_cont {
+	border-bottom: 1px solid #d9dbde;
+	padding: 35px 0 38px;
+}
+
+
+.list_cmt .cmt_cont .txt_desc {
+	position: relative;
+	padding: 0 20px;
+	line-height: 21px;
+	color: #787a82;
+}
+
+
+.list_cmt .cmt_cont .info_opt {
+	display: block;
+	padding-top: 16px;
+	font-size: 0;
+}
+
+.list_cmt .info_opt .txt_date {
+	font-size: 14px;
+	color: #959595;
+}
+
+.list_cmt .info_opt .btn_recomm {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin: 3px 3px 0 16px;
+	background-position: -55px -65px;
+}
+
+<!-- 드롭다운 박스 -->
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background-color: #ca99e3;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+    background-color: #fff;
+    color: #ca99e3;
+}
+
+.arrow {
+    margin-left: 10px;
+    font-size: 14px;
+    transition: transform 0.3s;
+}
+
+/* 드롭다운 버튼 스타일 */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background-color: #ca99e3;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative; /* For positioning the arrow */
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+   background-color: #fff;
+   color: #ca99e3;
+}
+
+.arrow {
+    margin-left: 10px;
+    font-size: 10px;
+    transition: transform 0.3s;
+}
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Ensure it appears below the button */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+    font-size : 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu li:hover {
+    background-color: #d1d9e4;
+}
+
+/* 드롭다운 메뉴가 열린 상태 */
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown.open .arrow {
+    transform: rotate(180deg); /* 화살표 방향 변경 */
 }

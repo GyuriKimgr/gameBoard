@@ -14,5 +14,6 @@ public interface ModService {
 	public Mod getNextMod(int mID);
 	public Mod getPrevMod(int mID);
 	public void updateModViews(int mID);
+	public List<Mod> getRecentMdPosts(int limit);
 
 }

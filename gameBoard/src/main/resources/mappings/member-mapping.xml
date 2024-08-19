@@ -35,6 +35,12 @@
 		]]>
 	</select>
 	
+	<select id="getJoinDateById" parameterType="string" resultType="string">
+        SELECT member_join_date 
+        FROM GAME_MEMBER 
+        WHERE member_id = #{memberId}
+    </select>
+	
 	<select id = "getGameMemberId" parameterType = "string">
 		<![CDATA[
 			SELECT * FROM GAME_MEMBER WHERE member_id = #{memberId}
@@ -88,5 +94,12 @@
         FROM GAME_MEMBER
         WHERE member_id = #{memberId} AND member_name = #{memberName} AND member_email = #{memberEmail}
     </select>
+    
+    <select id="findMemberByIdAndPw" parameterType="hashMap" resultType="String">
+    	 SELECT member_name
+    	FROM GAME_MEMBER
+    	WHERE member_id = #{memberId} AND member_pw = #{memberPw}
+    </select>
+    
 	
 </mapper>

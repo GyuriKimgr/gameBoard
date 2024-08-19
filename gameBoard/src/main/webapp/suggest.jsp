@@ -22,6 +22,26 @@
 					<th class="wth">조회수</th>
 				</tr>
 			</thead>
+			<!-- 공지사항 -->
+			<c:choose>
+				<c:when test="${not empty NoticeList}">
+					<tbody class="notice-tbody">
+						<c:forEach var="Notice" items="${NoticeList}">
+							<tr class="notice-tr">
+								<td class="notice-tdd">${Notice.noticeID}</td>
+								<td class="notice-td">
+									<a href="getSgNotice.do?noticeTitle=${Notice.noticeTitle}">
+										${Notice.noticeTitle}
+									</a>
+								</td>
+								<td class="notice-td">${Notice.managerID}</td>
+								<td class="notice-td">${Notice.noticeDate}</td>
+								<td class="notice-td">${Notice.noticeViews}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</c:when>
+			</c:choose>
 			<tbody class="wtbody">
 				<c:choose>
 					<c:when test="${empty SgList}">
@@ -41,8 +61,8 @@
 						<c:forEach var="SgpostList" items="${SgList}">
 							<tr class="wtr">
 								<td class="wtd">${SgpostList.sgID}</td>
-								<td class="wtd"><a
-									href="getSgpost.do?sgID=${SgpostList.sgID}">${SgpostList.sgTitle}</td>
+								<td class="wtd"><a href="getSgpost.do?sgID=${SgpostList.sgID}">${SgpostList.sgTitle}
+								<a>[<c:out value="${SGcommentCounts[SgpostList.sgID]}" />]</a></td>
 								<td class="wtd">${SgpostList.userID}</td>
 								<td class="wtd">${SgpostList.sgDate}</td>
 								<td class="wtd">${SgpostList.sgViews}</td>
