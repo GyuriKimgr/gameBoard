@@ -97,9 +97,11 @@
 |---|---|---|
 |![image](https://github.com/user-attachments/assets/664684c5-6b73-4a50-80bd-09e40c0dc451)|![image](https://github.com/user-attachments/assets/9fe21136-889e-4fc5-ad66-a580aa4a2ec0)|![image](https://github.com/user-attachments/assets/30466e5a-a38d-404f-93cf-1ca43e156fc9)|
 
-|게시물 이미지 삽입|
-|---|
-|![image](https://github.com/user-attachments/assets/9c679eba-7055-45af-b594-258e44ddf280)|
+|게시물 이미지 삽입|문의 답변 기능|
+|---|---|
+|![image](https://github.com/user-attachments/assets/9c679eba-7055-45af-b594-258e44ddf280)|![image](https://github.com/user-attachments/assets/e0594daa-298e-4cff-91a4-5db98838257c)|
+
+
 
 ## 설치 및 실행방법 💙
 이 프로젝트는 Maven을 사용하여 관리되는 Spring 애플리케이션으로<br>
