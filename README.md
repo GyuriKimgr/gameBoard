@@ -101,6 +101,8 @@
 |---|---|
 |![image](https://github.com/user-attachments/assets/9c679eba-7055-45af-b594-258e44ddf280)|![image](https://github.com/user-attachments/assets/e0594daa-298e-4cff-91a4-5db98838257c)|
 
+-그외 : 다크모드, 아이디 유효성 검사, 작성한 본인만 게시물 수정·삭제 및 댓글 삭제 가능
+
 
 
 ## 설치 및 실행방법 💙
