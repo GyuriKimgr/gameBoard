@@ -30,6 +30,37 @@
     background-color: #b9b9b9; 
 }
 
+/* 공지사항 영역 스타일링 */
+.notice-tbody {
+	background-color: #b1b1b1; /* 부드러운 회색 배경 */
+}
+
+.notice-tdd {
+	padding: 12px;
+	text-align: center;
+	color: #3f29d6;
+	font-weight: bold;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.notice-td {
+	padding: 12px;
+	text-align: center;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.notice-td a {
+	color: #4a4a4a;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.notice-td a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+
+
 .wtd a:link,
 .wtd a:visited {
     color: inherit; /* 부모 요소의 색상을 상속받도록 설정 */

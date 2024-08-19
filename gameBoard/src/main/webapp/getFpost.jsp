@@ -100,9 +100,7 @@ function checkEditPermissionF(fID) {
             	<p>${answer}</p>
 			</div>
 			</c:if>
-			
 		</div>
-
 	<div class="view_btn">
 			<div class="wrap_modify">
 				<button type = "button" class="btn_board btn_board1 edit_btn"
