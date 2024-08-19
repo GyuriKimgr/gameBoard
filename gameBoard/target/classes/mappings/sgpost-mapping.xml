@@ -2,28 +2,41 @@
 <!DOCTYPE mapper 
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	
+
 <mapper namespace="SgpostDao">
-	<resultMap type="com.gameboard.biz.post.Sgpost" id="sgIDResult">
-		<id property="sgID" column="sgID"/>
-		<result property="sgTitle" column="sgTitle"/>
-		<result property="userID" column="userID"/>
-		<result property="sgDate" column="sgDate"/>
-		<result property="sgContent" column="sgContent"/>
+	<resultMap type="com.gameboard.biz.post.Sgpost"
+		id="sgIDResult">
+		<id property="sgID" column="sgID" />
+		<result property="sgTitle" column="sgTitle" />
+		<result property="userID" column="userID" />
+		<result property="sgDate" column="sgDate" />
+		<result property="sgContent" column="sgContent" />
 	</resultMap>
-	
-	
+
+
 	<insert id="insertSgpost">
 		<![CDATA[
 			INSERT INTO SG_BOARD_POST(sgID, sgTitle, userID, sgDate, sgContent)
 			VALUES(#{sgID}, #{sgTitle}, #{userID}, #{sgDate}, #{sgContent})
 		]]>
 	</insert>
-	<!--  게시물에 이미지 추가  -->
-<insert id="insertSgPostImage">
-<![CDATA[ INSERT INTO SG_BOARD_IMAGE(sgimageID, sgID, sgimageUrl) VALUES(SEQ_SG_BOARD_IMAGE.NEXTVAL, #{sgID}, #{sgimageUrl}) ]]>
-</insert>
-<select id="getImagesBySgID" parameterType="int" resultType="com.gameboard.biz.post.SgpostImage"> SELECT * FROM SG_BOARD_IMAGE WHERE sgID = #{sgID} </select>
+	<!-- 게시물에 이미지 추가 -->
+	<insert id="insertSgPostImage">
+	<![CDATA[ INSERT INTO SG_BOARD_IMAGE(sgimageID, sgID, sgimageUrl) 
+	VALUES(SEQ_SG_BOARD_IMAGE.NEXTVAL, #{sgID}, #{sgimageUrl}) ]]>
+	</insert>
+
+	<select id="getImagesBySgID" parameterType="int"
+		resultType="com.gameboard.biz.post.SgpostImage">
+		SELECT * FROM SG_BOARD_IMAGE WHERE sgID = #{sgID}
+	</select>
+
+
+	<delete id="deleteSgAllImage" parameterType="int">
+		DELETE FROM
+		SG_BOARD_IMAGE
+		WHERE sgID = #{sgID}
+	</delete>
 	
 	<update id="updateSgpost">
 		<![CDATA[
@@ -35,42 +48,45 @@
 			WHERE sgID = #{sgID}
 		]]>
 	</update>
-	
+
 	<delete id="deleteSgpost">
 		<![CDATA[
 			DELETE FROM SG_BOARD_POST
 			WHERE sgID = #{sgID}
 		]]>
 	</delete>
-	
+
 	<select id="getSgID" resultType="int">
 		<![CDATA[
 			SELECT NVL(MAX(sgID), 0) + 1
 			FROM SG_BOARD_POST
 		]]>
 	</select>
-	
+
 	<select id="getSgDate" resultType="string">
     <![CDATA[
         SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI') AS currentDateTime FROM DUAL
     ]]>
 	</select>
-	
-	<select id="getSgpost" resultType="com.gameboard.biz.post.Sgpost">
+
+	<select id="getSgpost"
+		resultType="com.gameboard.biz.post.Sgpost">
 		<![CDATA[
 			SELECT * FROM SG_BOARD_POST
 			WHERE sgID = #{sgID}
 		]]>
 	</select>
-	
-	<select id="getSgpostList" resultType="com.gameboard.biz.post.Sgpost">
+
+	<select id="getSgpostList"
+		resultType="com.gameboard.biz.post.Sgpost">
 		<![CDATA[
 			SELECT * FROM SG_BOARD_POST WHERE 1 = 1
 			ORDER BY sgID DESC
 		]]>
 	</select>
-	
-	<select id="searchSgpost" resultType="com.gameboard.biz.post.Sgpost">
+
+	<select id="searchSgpost"
+		resultType="com.gameboard.biz.post.Sgpost">
 		<![CDATA[
 		    SELECT * FROM SG_BOARD_POST
 		    WHERE
@@ -107,8 +123,9 @@
         WHERE sgID = #{sgID}
     ]]>
 	</update>
-	
-	<select id="getRecentSgposts" parameterType="int" resultType="com.gameboard.biz.post.Sgpost">
+
+	<select id="getRecentSgposts" parameterType="int"
+		resultType="com.gameboard.biz.post.Sgpost">
        <![CDATA[
         SELECT *
         FROM (
@@ -118,6 +135,6 @@
         )
         WHERE rn <= #{limit}
     ]]>
-</select>
-	
+	</select>
+
 </mapper>

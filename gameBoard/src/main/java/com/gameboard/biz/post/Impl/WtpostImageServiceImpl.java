@@ -25,4 +25,8 @@ public class WtpostImageServiceImpl implements WtpostImageService {
 		return wtpostImageDao.getImagesByWtID(wtID);
 	}
 
+	@Override
+	public void deleteWtAllImage(int wtID) {
+		wtpostImageDao.deleteWtAllImage(wtID);
+	}
 }

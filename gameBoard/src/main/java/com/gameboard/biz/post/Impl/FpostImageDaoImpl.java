@@ -25,4 +25,8 @@ public class FpostImageDaoImpl implements FpostImageDao {
 		return mybatis.selectList("FpostDao.getImagesByFID", fID);
 	}
 
+	@Override
+	public void deleteFAllImage(int fID) {
+		mybatis.delete("FpostDao.deleteFAllImage", fID);
+	}
 }

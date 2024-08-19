@@ -1,396 +1,395 @@
 .box1 {
-   margin-top: 80px;
-   display: block; 
+	margin-top: 80px;
+	display: block;
 }
 
 .middle1 {
-   overflow: hidden;
-   justify-content: space-between;
-   max-width: 1500px;
-   margin: 0 auto;
-   padding: 0 54px;
+	overflow: hidden;
+	justify-content: space-between;
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 0 54px;
 }
 
 ul .middle1 {
-   list-style: none;
-   margin-block-start: 1em;
-   margin-block-end: 1em;
-   margin-inline-start: 0px;
-   margin-inline-end: 0px;
-   padding-inline-start: 40px;
-   padding-inline-end: 40px;
-   unicode-bidi: isolate;
+	list-style: none;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+	padding-inline-end: 40px;
+	unicode-bidi: isolate;
 }
 
 .middle1 li {
-   float: left;
-   width: 30%;
+	float: left;
+	width: 30%;
 }
 
 .middle1 li+li {
-   margin-left: 3%;
+	margin-left: 3%;
 }
 
 a:-webkit-any-link {
-   
-   cursor: pointer;
+	cursor: pointer;
 }
 
 li {
-   display: list-item;
-   text-align: -webkit-match-parent;
-   unicode-bidi: isolate;
+	display: list-item;
+	text-align: -webkit-match-parent;
+	unicode-bidi: isolate;
 }
 
 .middle1 .link_card1 {
-   display: block;
-   overflow: hidden;
-   height: 46px;
-   text-decoration: none;
+	display: block;
+	overflow: hidden;
+	height: 46px;
+	text-decoration: none;
 }
 
 a {
-   text-decoration: none;
-   color: #cfcfcf;
+	text-decoration: none;
+	color: #cfcfcf;
 }
 
 .middle1 .title {
-   float: left;
-   font-weight: normal;
-   font-size: 23px;
-   line-height: 30px;
-   font-family: '맑은 고딕', 'Malgun Gothic', '돋움', dotum, sans-serif;
+	float: left;
+	font-weight: normal;
+	font-size: 23px;
+	line-height: 30px;
+	font-family: '留묒� 怨좊뵓', 'Malgun Gothic', '�룍��', dotum, sans-serif;
 }
 
-
 .middle1 .link_card1 .img_comm1 {
-   float: right;
-   width: 18px;
-   height: 18px;
-   margin: 9px 1px 0 0;
-   background-position: -140px -90px;
+	float: right;
+	width: 18px;
+	height: 18px;
+	margin: 9px 1px 0 0;
+	background-position: -140px -90px;
 }
 
 .img_comm1 {
-   display: block;
-   overflow: hidden;
-   font-size: 0;
-   line-height: 0;
-   text-indent: -9999px;
+	display: block;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
 }
 
 .middle1 .news1 {
-   background-color: #fff;
+	background-color: #fff;
 }
 
 .middle1 .gamenews {
-   display: block;
+	display: block;
 }
-
 
 .middle1 .gamenews_1 {
-   position: relative;
-   overflow: hidden;
-   padding-top: 57.293%;
-   margin-bottom: 23px;
-   transition: transform .5s; 
+	position: relative;
+	overflow: hidden;
+	padding-top: 57.293%;
+	margin-bottom: 23px;
+	transition: transform .5s;
 }
-  
-.middle1 .gamenews_1 .news_img,
+
+.middle1 .gamenews_1 .news_img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	vertical-align: top;
+	transition: transform .5s;
+}
+
 .middle1 .gamenews_1 .news_img_2 {
-   position: absolute;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   vertical-align: top;
-   transition: transform .5s;
+	position: absolute;
+	top: -40px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	vertical-align: top;
+	transition: transform .5s;
+	z-index: 1; /* �떎瑜� �씠誘몄� �쐞�뿉 �몴�떆 */
 }
 
-.middle1 .news_img_2 {
-   top: -40px; /* 이미지가 위쪽으로 -40px 이동 */
-   z-index: 1; /* 다른 이미지 위에 표시 */
-}
-
-.middle1 .gamenews_1:hover .news_img,
-.middle1 .gamenews_1:hover .news_img_2 {
-   transform: scale(1.1); /* 호버 시 확대 효과 */
+.middle1 .gamenews_1:hover .news_img, .middle1 .gamenews_1:hover .news_img_2
+	{
+	transform: scale(1.1); /* �샇踰� �떆 �솗�� �슚怨� */
 }
 
 .middle1 .tit1 {
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-    max-width: 100%;
-    padding: 0 60px 0 20px;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 20px;
-    color: #0e0e0e;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    vertical-align: top;
-    box-sizing: border-box;
-    transition: text-decoration 0.3s ease;
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	max-width: 100%;
+	padding: 0 60px 0 20px;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 20px;
+	color: #0e0e0e;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	vertical-align: top;
+	box-sizing: border-box;
+	transition: text-decoration 0.3s ease;
 }
 
 .middle1 .tit1:hover {
-    text-decoration: underline; /* 커서를 올렸을 때 밑줄 추가 */
-}
-.middle1 .tit2 {
-   display: block;
-   display: -webkit-box;
-   overflow: hidden;
-   position: relative;
-   height: 75px;
-   padding: 8px 20px 28px;
-   font-size: 14px;
-   line-height: 25px;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 3;
-   word-wrap: break-word;
+	text-decoration: underline; /* 而ㅼ꽌瑜� �삱�졇�쓣 �븣 諛묒쨪 異붽� */
 }
 
+.middle1 .tit2 {
+	display: block;
+	display: -webkit-box;
+	overflow: hidden;
+	position: relative;
+	height: 75px;
+	padding: 8px 20px 28px;
+	font-size: 14px;
+	line-height: 25px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	word-wrap: break-word;
+}
 
 .middle1 .tit2:after {
-   
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   height: 28px;
-   background-color: #fff;
-   content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 28px;
+	background-color: #fff;
+	content: '';
 }
 
 .middle1 .group_tit1 {
-   height: 116px;
+	height: 116px;
 }
 
 .middle1 .group_tit1 .gamenews {
-   padding: 20px 0 16px;
-   border-top: 1px solid #f7f7f7;
+	padding: 20px 0 16px;
+	border-top: 1px solid #f7f7f7;
 }
 
 .today div {
-    height: auto; /* 자동 높이 조정 */
-    max-height: 300px; /* 최대 높이 설정 (필요에 따라 조정) */
-    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
-    box-sizing: border-box; /* 패딩과 보더를 포함한 높이 계산 */
+	height: auto; /* �옄�룞 �넂�씠 議곗젙 */
+	max-height: 300px; /* 理쒕� �넂�씠 �꽕�젙 (�븘�슂�뿉 �뵲�씪 議곗젙) */
+	overflow: hidden; /* �궡�슜�씠 �꽆移� 寃쎌슦 �닲源� */
+	box-sizing: border-box; /* �뙣�뵫怨� 蹂대뜑瑜� �룷�븿�븳 �넂�씠 怨꾩궛 */
 }
 
-/* 기본 스타일 설정 */
+/* 湲곕낯 �뒪���씪 �꽕�젙 */
 .today {
-    margin: 0; /* 기본 마진 제거 */
-    padding: 0; /* 기본 패딩 제거 */
+	margin: 0; /* 湲곕낯 留덉쭊 �젣嫄� */
+	padding: 0; /* 湲곕낯 �뙣�뵫 �젣嫄� */
 }
 
 .today .tit3 {
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-    max-width: 100%;
-    padding: 3px 6px 0 20px;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 20px;
-    color: #0e0e0e;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    vertical-align: top;
-    box-sizing: border-box;
-    transition: text-decoration 0.3s ease;
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	max-width: 100%;
+	padding: 3px 6px 0 20px;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 20px;
+	color: #0e0e0e;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	vertical-align: top;
+	box-sizing: border-box;
+	transition: text-decoration 0.3s ease;
 }
 
 .today .tit3:hover {
-    text-decoration: underline; /* 커서를 올렸을 때 밑줄 추가 */
+	text-decoration: underline; /* 而ㅼ꽌瑜� �삱�졇�쓣 �븣 諛묒쨪 異붽� */
 }
 
 .today .tit4 {
-    display: block;
-    display: -webkit-box;
-    overflow: hidden;
-    position: relative;
-    height: 50px;
-    padding: 8px 20px 1px;
-    font-size: 14px;
-    line-height: 25px;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    word-wrap: break-word;
+	display: block;
+	display: -webkit-box;
+	overflow: hidden;
+	position: relative;
+	height: 50px;
+	padding: 8px 20px 1px;
+	font-size: 14px;
+	line-height: 25px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	word-wrap: break-word;
 }
 
 .today .tit4:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 28px;
-    background-color: #fff;
-    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 28px;
+	background-color: #fff;
+	content: '';
 }
 
-<!-- 로그인 -->
-
-* {
-   padding: 0;
-   margin: 0;
-   border: none;
+<!--
+濡쒓렇�씤 -->* {
+	padding: 0;
+	margin: 0;
+	border: none;
 }
 
 body {
-   font-size: 14px;
-   font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
 }
 
 .login {
-   margin-top: 46px;
-   width: 400px;
-   height: 380px;
-   padding: 40px;
-   box-sizing: border-box;
-   background-color: #2b2648;
-   border-radius: 10px;
+	margin-top: 46px;
+	width: 400px;
+	height: 380px;
+	padding: 40px;
+	box-sizing: border-box;
+	background-color: #2b2648;
+	border-radius: 10px;
 }
 
 .login>h2 {
-   font-size: 24px;
-   color: #6A24FE;
-   margin-bottom: 20px;
+	font-size: 24px;
+	color: #6A24FE;
+	margin-bottom: 20px;
 }
 
 #login-form>input {
-   width: 100%;
-   height: 48px;
-   padding: 0 10px;
-   box-sizing: border-box;
-   margin-bottom: 9px;
-   border-radius: 6px;
-   background-color: #F8F8F8;
+	width: 100%;
+	height: 48px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-bottom: 9px;
+	border-radius: 6px;
+	background-color: #F8F8F8;
 }
 
 #login-form>input::placeholder {
-   color: #D2D2D2;
+	color: #D2D2D2;
 }
 
 #login-form>input[type="submit"] {
-   color: #fff;
-   font-size: 16px;
-   background-color: #6A24FE;
-   margin-top: 0px;
-   border: 1px solid #6A24FE;
-   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+	color: #fff;
+	font-size: 16px;
+	background-color: #6A24FE;
+	margin-top: 0px;
+	border: 1px solid #6A24FE;
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 #login-form>input[type="submit"]:hover {
-   cursor: pointer; 
-   background-color: #5c1ca2;
-   border-color: #5c1ca2;
+	cursor: pointer;
+	background-color: #5c1ca2;
+	border-color: #5c1ca2;
 }
 
 #login-form>input[type="checkbox"] {
-   display: none;
+	display: none;
 }
 
 #login-form>label {
-   margin-top: 10px;
-   color: #999999;
-    height: 20px;
-    display: inline-block; 
+	margin-top: 10px;
+	color: #999999;
+	height: 20px;
+	display: inline-block;
 }
 
 #login-form input[type="checkbox"]+label {
-   cursor: default;
-   padding-left: 26px;
-   background-image: url("checkbox.png");
-   background-repeat: no-repeat;
-   background-size: contain;
+	cursor: default;
+	padding-left: 26px;
+	background-image: url("checkbox.png");
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 #login-form input[type="checkbox"]:checked+label {
-   background-image: url("checkbox-active.png");
-   background-repeat: no-repeat;
-   background-size: contain;
+	background-image: url("checkbox-active.png");
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
-<!-- 아이디찾기, 비밀번호찾기, 회원가입 -->
-
-body {
-    font-family: 'Roboto', sans-serif;
+<!--
+�븘�씠�뵒李얘린, 鍮꾨�踰덊샇李얘린, �쉶�썝媛��엯 -->body {
+	font-family: 'Roboto', sans-serif;
 }
 
 .find_wrap {
-    text-align: center;
-    margin-top: 10px;
-   margin-bottom: 10px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .find_text {
-   font-size: 13px;
-    text-decoration: none;
-    color: #888;
-    
+	font-size: 13px;
+	text-decoration: none;
+	color: #888;
 }
 
 .find_wrap span {
-    color: #888;
+	color: #888;
 }
 
 .find_wrap a .accent {
-   font-size: 13px;
-    color: #8080ff;
-    text-decoration: none;
+	font-size: 13px;
+	color: #8080ff;
+	text-decoration: none;
 }
 
 .welcome {
-    margin-top: 15%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(255 255 255 / 20%);
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	margin-top: 15%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(255 255 255/ 20%);
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 환영 메시지 스타일 */
+/* �솚�쁺 硫붿떆吏� �뒪���씪 */
 .welcome h2 {
-    font-size: 16px;
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 10px;
+	font-size: 16px;
+	color: #fff;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
-/* 가입일 스타일 */
+/* 媛��엯�씪 �뒪���씪 */
 .welcome p {
-    font-size: 14px;
-    color:#eadbf7;
-    margin-bottom: 20px; /* 간격 조정 */
+	font-size: 14px;
+	color: #eadbf7;
+	margin-bottom: 20px; /* 媛꾧꺽 議곗젙 */
 }
 
-/* 로그아웃 폼 스타일 */
+/* 濡쒓렇�븘�썐 �뤌 �뒪���씪 */
 #logout-form {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
-/* 로그아웃 버튼 스타일 */
+/* 濡쒓렇�븘�썐 踰꾪듉 �뒪���씪 */
 #logout-form input[type="submit"] {
-    background-color: #9498b4;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
+	background-color: #9498b4;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 8px 12px;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 #logout-form input[type="submit"]:hover {
-    background-color: #55b5ee;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	background-color: #55b5ee;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #logout-form input[type="submit"]:active {
-    background-color: #55b5ee;
+	background-color: #55b5ee;
 }

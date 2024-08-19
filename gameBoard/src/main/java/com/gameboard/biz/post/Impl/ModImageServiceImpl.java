@@ -25,4 +25,8 @@ public class ModImageServiceImpl implements ModImageService {
 		return modImageDao.getImagesByMID(mID);
 	}
 
+	@Override
+	public void deleteModAllImage(int mID) {
+		modImageDao.deleteModAllImage(mID);
+	}
 }

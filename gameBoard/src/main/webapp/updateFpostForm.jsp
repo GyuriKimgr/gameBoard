@@ -35,7 +35,7 @@
     function validateForm() {
         // 제목과 내용을 가져옵니다.
         var fTitle = document.getElementById("fTitle").value.trim();
-        var fContent = document.getElementById("fContent").value.trim();
+        var fContent = document.getElementById("fContent").innerHTML.trim();
         
         // 제목이 비어 있는지 확인합니다.
         if (fTitle === "") {
@@ -55,6 +55,9 @@
             return false;
         }
         
+     // Hidden input에 content 값을 설정합니다.
+		document.getElementById("fContentHidden").value = fContent;
+     
         // 모든 검증을 통과하면 true를 반환하여 제출을 허용합니다.
         return true;
     }

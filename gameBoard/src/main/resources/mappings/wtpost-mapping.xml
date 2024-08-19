@@ -2,28 +2,43 @@
 <!DOCTYPE mapper 
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	
+
 <mapper namespace="WtpostDao">
-	<resultMap type="com.gameboard.biz.post.Wtpost" id="wtIDResult">
-		<id property="wtID" column="wtID"/>
-		<result property="wtTitle" column="wtTitle"/>
-		<result property="userID" column="userID"/>
-		<result property="wtDate" column="wtDate"/>
-		<result property="wtContent" column="wtContent"/>
+	<resultMap type="com.gameboard.biz.post.Wtpost"
+		id="wtIDResult">
+		<id property="wtID" column="wtID" />
+		<result property="wtTitle" column="wtTitle" />
+		<result property="userID" column="userID" />
+		<result property="wtDate" column="wtDate" />
+		<result property="wtContent" column="wtContent" />
 	</resultMap>
-	
+
 	<insert id="insertWtpost">
 		<![CDATA[
 			INSERT INTO WT_BOARD_POST(wtID, wtTitle, userID, wtDate, wtContent)
 			VALUES(#{wtID}, #{wtTitle}, #{userID}, #{wtDate}, #{wtContent})
 		]]>
 	</insert>
-	<!--  게시물에 이미지 추가  -->
-<insert id="insertWtPostImage">
-<![CDATA[ INSERT INTO WT_BOARD_IMAGE(wtimageID, wtID, wtimageUrl) VALUES(SEQ_WT_BOARD_IMAGE.NEXTVAL, #{wtID}, #{wtimageUrl}) ]]>
-</insert>
-<select id="getImagesByWtID" parameterType="int" resultType="com.gameboard.biz.post.WtpostImage"> SELECT * FROM WT_BOARD_IMAGE WHERE wtID = #{wtID} </select>
+	<!-- 게시물에 이미지 추가 -->
+	<insert id="insertWtPostImage">
+	<![CDATA[ 
+	INSERT INTO WT_BOARD_IMAGE(wtimageID, wtID, wtimageUrl) 
+	VALUES(SEQ_WT_BOARD_IMAGE.NEXTVAL, #{wtID}, #{wtimageUrl}) 
+	]]>
+	</insert>
 	
+	<select id="getImagesByWtID" parameterType="int"
+		resultType="com.gameboard.biz.post.WtpostImage">
+		SELECT * FROM WT_BOARD_IMAGE WHERE wtID = #{wtID}
+	</select>
+	
+	 
+    <delete id="deleteWtAllImage" parameterType = "int">
+    	DELETE FROM WT_BOARD_IMAGE
+    	WHERE wtID = #{wtID}
+    </delete>
+    
+
 	<update id="updateWtpost">
 		<![CDATA[
 			UPDATE WT_BOARD_POST 
@@ -34,48 +49,52 @@
 			WHERE wtID = #{wtID}
 		]]>
 	</update>
-	
+
 	<delete id="deleteWtpost">
 		<![CDATA[
 			DELETE FROM WT_BOARD_POST
 			WHERE wtID = #{wtID}
 		]]>
 	</delete>
-	
+
 	<select id="getWtID" resultType="int">
 		<![CDATA[
 			SELECT NVL(MAX(wtID), 0) + 1
 			FROM WT_BOARD_POST
 		]]>
 	</select>
-	
+
 	<select id="getWtDate" resultType="string">
     <![CDATA[
         SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI') AS currentDateTime FROM DUAL
     ]]>
 	</select>
-	
-	<select id="getWtpost" resultType="com.gameboard.biz.post.Wtpost">
+
+	<select id="getWtpost"
+		resultType="com.gameboard.biz.post.Wtpost">
 		<![CDATA[
 			SELECT * FROM WT_BOARD_POST
 			WHERE wtID = #{wtID}
 		]]>
 	</select>
-	
-	<select id="getWtpostList" resultType="com.gameboard.biz.post.Wtpost">
+
+	<select id="getWtpostList"
+		resultType="com.gameboard.biz.post.Wtpost">
 		<![CDATA[
 			SELECT * FROM WT_BOARD_POST WHERE 1 = 1
 			ORDER BY wtID DESC
 		]]>
 	</select>
-	
-	<select id="findMemberByIdAndName" parameterType="map" resultType="int">
+
+	<select id="findMemberByIdAndName" parameterType="map"
+		resultType="int">
 	<![CDATA[
     SELECT COUNT(*) FROM GAME_MEMBER WHERE member_id = #{memberId} AND member_name = #{memberName}
 	]]>
-</select>
+	</select>
 
-	<select id="searchWtpost" resultType="com.gameboard.biz.post.Wtpost">
+	<select id="searchWtpost"
+		resultType="com.gameboard.biz.post.Wtpost">
 		<![CDATA[
 		    SELECT * FROM WT_BOARD_POST
 		    WHERE
@@ -112,8 +131,9 @@
         WHERE wtID = #{wtID}
     ]]>
 	</update>
-	
-<select id="getRecentWtposts" parameterType="int" resultType="com.gameboard.biz.post.Wtpost">
+
+	<select id="getRecentWtposts" parameterType="int"
+		resultType="com.gameboard.biz.post.Wtpost">
        <![CDATA[
         SELECT *
         FROM (
@@ -123,5 +143,5 @@
         )
         WHERE rn <= #{limit}
     ]]>
-</select>
+	</select>
 </mapper>
