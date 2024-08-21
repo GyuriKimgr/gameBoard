@@ -1,273 +1,282 @@
 @charset "UTF-8";
 
 .inner_atc {
-    margin: 0 auto;
-    padding-bottom: 200px;
+	margin: 0 auto;
+	padding-bottom: 200px;
 }
 
 .tit_atc {
 	height: 100px;
-    text-align: center;
-    background: #ca99e3;
-    line-height: 100px;
-    width : 100%;
-    margin-bottom : 10px;
+	text-align: center;
+	background: #ca99e3;
+	line-height: 100px;
+	width: 100%;
+	margin-bottom: 10px;
 }
+
 .tit_atc h3 {
 	color: white;
-    font-size: 24px;
-    text-align: center;
-    margin-top: 20px;
+	font-size: 24px;
+	text-align: center;
+	margin-top: 20px;
 }
 
 body {
-    font-size: 19px;
-    line-height: 1.5;
-    color: #333;
-    margin : 0;
+	font-size: 19px;
+	line-height: 1.5;
+	color: #333;
+	margin: 0;
 }
 
 .board_comm {
 	width: 800px;
-    border-top: 2px solid #000;
-    margin: 0 auto;
+	border-top: 2px solid #000;
+	margin: 0 auto;
 }
 
 .view_head .tit_view {
 	margin: 0;
 	padding: 0;
-    height: 70px;
-    padding: 0 30px;
-    line-height: 68px;
-    background: #c1b9d0;
-    color: #fff;
+	height: 70px;
+	padding: 0 30px;
+	line-height: 68px;
+	background: #c1b9d0;
+	color: #fff;
 }
-
 
 .view_head .info_head {
-    height: 30px;
-    padding: 21px 30px 19px;
-    line-height: 27px;
-    background: #e3e3e6;
-    color: #919191;
+	height: 30px;
+	padding: 21px 30px 19px;
+	line-height: 27px;
+	background: #e3e3e6;
+	color: #919191;
 }
+
 .view_head .writer_info {
-    float: left;
-    min-width: 50%;
+	float: left;
+	min-width: 50%;
 }
 
 .info_head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .info_head dl {
-    margin: 0; /* dl 요소의 기본 마진을 제거합니다. */
-    display: flex;
-    align-items: center;
+	margin: 0; /* dl 요소의 기본 마진을 제거합니다. */
+	display: flex;
+	align-items: center;
 }
 
 dd {
-    display: block;
-    margin-inline-start: 5px;
-    unicode-bidi: isolate;
+	display: block;
+	margin-inline-start: 5px;
+	unicode-bidi: isolate;
 }
 
 .info_head .writer_info {
-    flex-grow: 1; /* 작성자 정보를 최대한 확장합니다. */
+	flex-grow: 1; /* 작성자 정보를 최대한 확장합니다. */
 }
 
 .info_head .date_info {
-    flex-shrink: 0; /* 작성일, 조회수 정보를 축소하지 않습니다. */
+	flex-shrink: 0; /* 작성일, 조회수 정보를 축소하지 않습니다. */
 }
-
-
 
 .view_head .info_head dt:after {
-    content: '';
-    display: inline-block;
-    width: 1px;
-    height: 13px;
-    margin: 2px 7px 0 10px;
-    background: #cecece;
-}
-.view_head .info_head dt, .view_head .info_head dd {
-    display: inline;
-}
-.view_head .link_writer {
-    display: inline-block;
-}
-.view_head .link_writer .ico_board_tier {
-    position: relative;
-    top: -2px;
-    margin-right: 3px;
-    background-position: -60px -120px;
-    display: inline-block;
-    width: 28px;
-    height: 28px;
-}
-.view_head .link_writer .txt_writer {
-    color: #333;
-    font-size: 14px;
-    vertical-align: top;
-}
-.view_head .date_info {
-    float: right;
-}
-.view_head .date_info .tit_info ~ .tit_info {
-    margin-left: 15px;
+	content: '';
+	display: inline-block;
+	width: 1px;
+	height: 13px;
+	margin: 2px 7px 0 10px;
+	background: #cecece;
 }
 
+.view_head .info_head dt, .view_head .info_head dd {
+	display: inline;
+}
+
+.view_head .link_writer {
+	display: inline-block;
+}
+
+.view_head .link_writer .ico_board_tier {
+	position: relative;
+	top: -2px;
+	margin-right: 3px;
+	background-position: -60px -120px;
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+}
+
+.view_head .link_writer .txt_writer {
+	color: #333;
+	font-size: 14px;
+	vertical-align: top;
+}
+
+.view_head .date_info {
+	float: right;
+}
+
+.view_head .date_info .tit_info ~ .tit_info {
+	margin-left: 15px;
+}
 
 .view_cont {
-    overflow: hidden;
-    position: relative;
-    padding: 25px 0;
-    border-bottom: 1px solid #d9dbde;
-    word-break: break-all;
-    background-color: #ffffff;
+	overflow: hidden;
+	position: relative;
+	padding: 25px 0;
+	border-bottom: 1px solid #d9dbde;
+	word-break: break-all;
+	background-color: #ffffff;
 }
 
 .content {
-	 padding: 25px 30px !important;
-    -webkit-backface-visibility: hidden;
-    margin: 0;
-    word-wrap: break-word;
-    color: #333;
-    font-size: 20px;
-    min-height: 370px;
-    font-family: -apple-system, BlinkMacSystemFont, AppleSDGothicNeo-Regular, 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    letter-spacing: 0;
-     line-height: 1.7;
-}
-.content > :first-child {
-    margin-top: 0 !important;
+	padding: 25px 30px !important;
+	-webkit-backface-visibility: hidden;
+	margin: 0;
+	word-wrap: break-word;
+	color: #333;
+	font-size: 20px;
+	min-height: 370px;
+	font-family: -apple-system, BlinkMacSystemFont, AppleSDGothicNeo-Regular,
+		'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: 0;
+	line-height: 1.7;
 }
 
-<!--수정, 삭제, 윗글, 아랫글, 목록 -->
+.content>:first-child {
+	margin-top: 0 !important;
+}
 
-div {
-    display: block;
-    unicode-bidi: isolate;
-   
+<!--
+수정, 삭제, 윗글, 아랫글, 목록 -->div {
+	display: block;
+	unicode-bidi: isolate;
 }
 
 .board_comm .view_btn {
-    padding: 20px 0 70px;
-    font-size: 0;
-}
-.view_btn .wrap_modify {
-    float: right;
-}
-div {
-    margin: 0;
-    padding: 0;
+	padding: 20px 0 70px;
+	font-size: 0;
 }
 
+.view_btn .wrap_modify {
+	float: right;
+}
+
+div {
+	margin: 0;
+	padding: 0;
+}
 
 .view_btn .wrap_modify .btn_board {
-    width: 140px;    
+	width: 140px;
 }
 
 .btn_board1:hover {
-    background-color: #97a5e6;
-}
-.btn_board:hover {
-    text-decoration: none;
+	background-color: #97a5e6;
 }
 
+.btn_board:hover {
+	text-decoration: none;
+}
 
 .btn_board+.btn_board {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 .btn_board1 {
-    background-color: #ca99e3;
+	background-color: #ca99e3;
 }
+
 .btn_board {
-    display: inline-block;
-    width: 160px;
-    height: 52px;
-    line-height: 48px;
-    border: 1px solid #d9dedb;
-    font-size: 16px;
-    box-sizing: border-box;
-    text-align: center;
-    color: #646464;
-    vertical-align: top;
+	display: inline-block;
+	width: 160px;
+	height: 52px;
+	line-height: 48px;
+	border: 1px solid #d9dedb;
+	font-size: 16px;
+	box-sizing: border-box;
+	text-align: center;
+	color: #646464;
+	vertical-align: top;
 }
-
-
 
 .view_btn .wrap_page a {
-    overflow: hidden;
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    border: 1px solid #d9dbde;
-    background-color: #f0f1f2;
+	overflow: hidden;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+	border: 1px solid #d9dbde;
+	background-color: #f0f1f2;
 }
+
 a {
-    color: #333;
-    text-decoration: none;
+	color: #333;
+	text-decoration: none;
 }
+
 .view_btn .wrap_page .img_board {
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
 .view_btn .btn_list .img_board {
-    width: 15px;
-    height: 12px;
-    margin-top: 19px;
-    background-position: -60px -20px;
+	width: 15px;
+	height: 12px;
+	margin-top: 19px;
+	background-position: -60px -20px;
 }
 
 .img_board {
-    background-image: url(//t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_board_200821.png);
+	background-image:
+		url(//t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_board_200821.png);
 }
 
 .img_board {
-    display: block;
-    overflow: hidden;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-    background: no-repeat;
+	display: block;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
+	background: no-repeat;
 }
 
 a {
-    color: #333;
-    text-decoration: none;
+	color: #333;
+	text-decoration: none;
 }
 
-
 .view_btn .btn_next .img_board {
-    width: 14px;
-    height: 7px;
-    margin-top: 22px;
-    background-position: -45px -30px;
+	width: 14px;
+	height: 7px;
+	margin-top: 22px;
+	background-position: -45px -30px;
 }
 
 .img_board {
-    background-image: url(//t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_board_200821.png);
-}
-.view_btn .btn_prev .img_board {
-    width: 14px;
-    height: 7px;
-    margin-top: 22px;
-    background-position: -45px -40px;
+	background-image:
+		url(//t1.kakaocdn.net/gamepub/pub/battlegrounds/images/img_board_200821.png);
 }
 
-div .answer{
-	margin: 10px 20px 20px 20px;
-    padding: 5px 20px 20px 40px;
-    background-color: #aabcd440;
+.view_btn .btn_prev .img_board {
+	width: 14px;
+	height: 7px;
+	margin-top: 22px;
+	background-position: -45px -40px;
 }
-<!-- 댓글 기능 -->
-div {
+
+div .answer {
+	margin: 10px 20px 20px 20px;
+	padding: 5px 20px 20px 40px;
+	background-color: #aabcd440;
+}
+
+<!--
+댓글 기능 -->div {
 	margin: 0;
 	padding: 0;
 }
@@ -275,6 +284,10 @@ div {
 .cmt_head .tit_cmt {
 	font-size: 19px;
 	line-height: 24px;
+}
+
+.cmt_head b {
+	color: #2d9ace;
 }
 
 .cmt_head .tit_cmt .emph_g2 {
@@ -382,25 +395,24 @@ button:hover {
 	background-color: #97a5e6;
 }
 
-<!-- 댓글 목록 -->
-
-div {
+<!--
+댓글 목록 -->div {
 	margin: 0;
 	padding: 0;
 }
+
 .list_cmt {
 	font-size: 13px;
 }
-.list_cmt .cont_cmt {
-    overflow: hidden;
-}
 
+.list_cmt .cont_cmt {
+	overflow: hidden;
+}
 
 .list_cmt .cmt_cont {
 	border-bottom: 1px solid #d9dbde;
 	padding: 35px 0 38px;
 }
-
 
 .list_cmt .cmt_cont .txt_desc {
 	position: relative;
@@ -408,7 +420,6 @@ div {
 	line-height: 21px;
 	color: #787a82;
 }
-
 
 .list_cmt .cmt_cont .info_opt {
 	display: block;
@@ -429,103 +440,101 @@ div {
 	background-position: -55px -65px;
 }
 
-<!-- 드롭다운 박스 -->
-
-.dropdown {
-    position: relative;
-    display: inline-block;
+<!--
+드롭다운 박스 -->.dropdown {
+	position: relative;
+	display: inline-block;
 }
 
 .dropdown-toggle {
-    background-color: #ca99e3;
-    color: #fff;
-    padding: 5px 10px;
-    font-size: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    outline: none;
-    transition: background-color 0.3s, color 0.3s;
+	background-color: #ca99e3;
+	color: #fff;
+	padding: 5px 10px;
+	font-size: 10px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	outline: none;
+	transition: background-color 0.3s, color 0.3s;
 }
 
-.dropdown-toggle:hover,
-.dropdown-toggle:focus {
-    background-color: #fff;
-    color: #ca99e3;
+.dropdown-toggle:hover, .dropdown-toggle:focus {
+	background-color: #fff;
+	color: #ca99e3;
 }
 
 .arrow {
-    margin-left: 10px;
-    font-size: 14px;
-    transition: transform 0.3s;
+	margin-left: 10px;
+	font-size: 14px;
+	transition: transform 0.3s;
 }
 
 /* 드롭다운 버튼 스타일 */
 .dropdown {
-    position: relative;
-    display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .dropdown-toggle {
-    background-color: #ca99e3;
-    color: #fff;
-    padding: 5px 10px;
-    font-size: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    outline: none;
-    transition: background-color 0.3s, color 0.3s;
-    position: relative; /* For positioning the arrow */
+	background-color: #ca99e3;
+	color: #fff;
+	padding: 5px 10px;
+	font-size: 10px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	outline: none;
+	transition: background-color 0.3s, color 0.3s;
+	position: relative; /* For positioning the arrow */
 }
 
-.dropdown-toggle:hover,
-.dropdown-toggle:focus {
-   background-color: #fff;
-   color: #ca99e3;
+.dropdown-toggle:hover, .dropdown-toggle:focus {
+	background-color: #fff;
+	color: #ca99e3;
 }
 
 .arrow {
-    margin-left: 10px;
-    font-size: 10px;
-    transition: transform 0.3s;
+	margin-left: 10px;
+	font-size: 10px;
+	transition: transform 0.3s;
 }
 
 /* 드롭다운 메뉴 스타일 */
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%; /* Ensure it appears below the button */
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1000;
-    width: 100%;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+	display: none;
+	position: absolute;
+	top: 100%; /* Ensure it appears below the button */
+	left: 0;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	width: 100%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	/* Ensure padding and border are included in width */
 }
 
 .dropdown-menu li {
-    padding: 10px 20px;
-    font-size : 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+	padding: 10px 20px;
+	font-size: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s;
 }
 
 .dropdown-menu li:hover {
-    background-color: #d1d9e4;
+	background-color: #d1d9e4;
 }
 
 /* 드롭다운 메뉴가 열린 상태 */
 .dropdown.open .dropdown-menu {
-    display: block;
+	display: block;
 }
 
 .dropdown.open .arrow {
-    transform: rotate(180deg); /* 화살표 방향 변경 */
+	transform: rotate(180deg); /* 화살표 방향 변경 */
 }
