@@ -123,7 +123,16 @@ public class WtpostController {
 	@RequestMapping(value = "searchWtpost.do")
 	public String searchWtpost(Wtpost vo, Model model) {
 		List<Wtpost> WtList = wt.searchWtpost(vo);
+
+		Map<Integer, Integer> WTcommentCounts = new HashMap<>();
+		
+		for (Wtpost post : WtList) {
+			int commentCount = commentService.countWtCommentsByPostId(post.getWtID());
+			WTcommentCounts.put(post.getWtID(), commentCount);
+		}
+
 		model.addAttribute("WtList", WtList);
+		model.addAttribute("WTcommentCounts", WTcommentCounts);
 		return "searchWt.jsp";
 	}
 
@@ -171,14 +180,13 @@ public class WtpostController {
 		if (post != null && post.getUserID().equals(loggedInMemberId)) {
 			commentService.deleteWtAllComment(wtID);
 			ImageService.deleteWtAllImage(wtID);
-			
+
 			wt.deleteWtpost(wtID);
 			return "deleteSuccess";
 		} else {
 			return "deleteFailed";
 		}
-		
-		
+
 	}
 
 	@RequestMapping(value = "checkEditPermissionWT.do", method = RequestMethod.GET)

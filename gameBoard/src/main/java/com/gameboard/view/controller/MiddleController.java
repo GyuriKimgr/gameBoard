@@ -48,8 +48,6 @@ public class MiddleController {
         for (Wtpost post : recentWtPosts) {
             sj.add(post.getWtID() + "|" + post.getWtTitle() + "|" + post.getWtDate() + "|" + post.getWtContent());
         }
-        System.out.println("sjsjsjsj");
-        System.out.println(sj.toString());
 		return sj.toString();
     }
 

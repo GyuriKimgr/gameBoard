@@ -28,6 +28,7 @@ import com.gameboard.biz.post.ModCommentService;
 import com.gameboard.biz.post.ModImage;
 import com.gameboard.biz.post.ModImageService;
 import com.gameboard.biz.post.ModService;
+import com.gameboard.biz.post.Sgpost;
 
 @Controller
 public class ModController {
@@ -120,7 +121,15 @@ public class ModController {
 	@RequestMapping(value = "searchMod.do")
 	public String searchMod(Mod vo, Model model) {
 		List<Mod> ModList = m.searchMod(vo);
+		
+		Map<Integer, Integer> MODcommentCounts = new HashMap<>();
+		for (Mod post : ModList) {
+			int commentCount = ms.countModCommentsByPostId(post.getmID());
+			MODcommentCounts.put(post.getmID(), commentCount);
+		}
+		
 		model.addAttribute("ModList", ModList);
+		model.addAttribute("MODcommentCounts", MODcommentCounts);
 		return "searchMod.jsp";
 	}
 

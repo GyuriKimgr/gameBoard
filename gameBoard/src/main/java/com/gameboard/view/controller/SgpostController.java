@@ -28,7 +28,6 @@ import com.gameboard.biz.post.SgpostCommentService;
 import com.gameboard.biz.post.SgpostImage;
 import com.gameboard.biz.post.SgpostImageService;
 import com.gameboard.biz.post.SgpostService;
-import com.gameboard.biz.post.WtpostImage;
 
 @Controller
 public class SgpostController {
@@ -123,7 +122,15 @@ public class SgpostController {
 	@RequestMapping(value = "searchSgpost.do")
 	public String searchSgpost(Sgpost vo, Model model) {
 		List<Sgpost> SgList = sg.searchSgpost(vo);
+		
+		Map<Integer, Integer> SGcommentCounts = new HashMap<>();
+		for (Sgpost post : SgList) {
+			int commentCount = sgCommentService.countSgCommentsByPostId(post.getSgID());
+			SGcommentCounts.put(post.getSgID(), commentCount);
+		}
+		
 		model.addAttribute("SgList", SgList);
+		model.addAttribute("SGcommentCounts", SGcommentCounts);
 		return "searchSg.jsp";
 	}
 
