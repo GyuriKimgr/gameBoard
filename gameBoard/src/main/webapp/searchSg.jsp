@@ -40,7 +40,7 @@
 										value="${SGcommentCounts[SgpostList.sgID]}" />]</a></td>
                     <td class = "wtd">${SgpostList.userID}</td>
                     <td class = "wtd">${SgpostList.sgDate}</td>
-                    <td class="wtd">&nbsp;</td>
+                     <td class="wtd">${SgpostList.sgViews}</td>
                 </tr>
             </c:forEach>
             </c:otherwise>

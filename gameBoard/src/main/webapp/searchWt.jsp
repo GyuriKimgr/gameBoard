@@ -44,7 +44,7 @@
 										value="${WTcommentCounts[WtpostList.wtID]}" />]</a></td>
 								<td class="wtd">${WtpostList.userID}</td>
 								<td class="wtd">${WtpostList.wtDate}</td>
-								<td class="wtd">&nbsp;</td>
+								 <td class="wtd">${WtpostList.wtViews}</td>
 							</tr>
 						</c:forEach>
 					</c:otherwise>

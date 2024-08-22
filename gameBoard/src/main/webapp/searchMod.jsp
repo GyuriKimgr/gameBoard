@@ -40,7 +40,7 @@
 										value="${MODcommentCounts[ModList.mID]}" />]</a></td>
                     <td class = "wtd">${ModList.userID}</td>
                     <td class = "wtd">${ModList.mDate}</td>
-                    <td class="wtd">&nbsp;</td>
+                     <td class="wtd">${ModList.mViews}</td>
                 </tr>
             </c:forEach>
             </c:otherwise>
