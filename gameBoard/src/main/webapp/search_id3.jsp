@@ -66,7 +66,7 @@ $(document).ready(function() {
             </div>
             <div class="button_container3">
                 <button type="button" id="next_button3" name="next_button3"><h2>확인</h2></button>
-                <a href="./search_id1.jsp">
+                <a href="./index.jsp">
                     <button type="button" id="return_button3" name="return_button3"><h2>돌아가기</h2></button>
                 </a>
             </div>
