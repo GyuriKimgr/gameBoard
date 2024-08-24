@@ -41,7 +41,8 @@ ul {
 	font-weight: normal;
 	line-height: 30px;
 	font-size: 23px;
-	font-family: '留묒� 怨좊뵓', 'Malgun Gothic', '�룍��', dotum, sans-serif;
+	font-family: 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Segoe UI', Tahoma, Geneva, sans-serif;
+
 }
 
 .middle2 .link_card .img_comm2 {
@@ -123,6 +124,7 @@ ul {
 }
 
 .middle2 .tit4 {
+	font-weight: normal; 
 	display: block;
 	display: -webkit-box;
 	overflow: hidden;

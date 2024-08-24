@@ -207,12 +207,18 @@ a {
 	box-sizing: border-box;
 	transition: text-decoration 0.3s ease;
 }
+.tit3 a {
+	text-decoration: none;
+   color: #0e0e0e;
+}
 
 .today .tit3:hover {
 	text-decoration: underline;
 }
 
 .today .tit4 {
+	font-weight: normal; 
+	color: #cfcfcf;
 	display: block;
 	display: -webkit-box;
 	overflow: hidden;
