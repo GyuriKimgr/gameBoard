@@ -12,6 +12,8 @@
 }
 
 ul .middle1 {
+	padding: 0; /* 패딩 제거 */
+	margin: 0;
 	list-style: none;
 	margin-block-start: 1em;
 	margin-block-end: 1em;
@@ -58,7 +60,8 @@ a {
 	font-weight: normal;
 	font-size: 23px;
 	line-height: 30px;
-	font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Spoqa Han Sans', 'Dotum', sans-serif;
+	font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Nanum Gothic',
+		'Spoqa Han Sans', 'Dotum', sans-serif;
 }
 
 .middle1 .link_card1 .img_comm1 {
@@ -122,7 +125,8 @@ a {
 	z-index: 1;
 }
 
-.middle1 .gamenews_1:hover .news_img, .middle1 .gamenews_2:hover .news_img_2 {
+.middle1 .gamenews_1:hover .news_img, .middle1 .gamenews_2:hover .news_img_2
+	{
 	transform: scale(1.1);
 }
 
@@ -182,7 +186,7 @@ a {
 
 .today div {
 	height: auto;
-	max-height: 86.6px;px;
+	max-height: 86.6px; px;
 	overflow: hidden;
 	box-sizing: border-box;
 	border-bottom: 1px solid #f7f7f7;
@@ -191,7 +195,6 @@ a {
 .today {
 	margin: 0;
 	padding: 0;
-	
 }
 
 .today .tit3 {
@@ -210,17 +213,18 @@ a {
 	box-sizing: border-box;
 	transition: text-decoration 0.3s ease;
 }
+
 .tit3 a {
 	text-decoration: none;
-   color: #0e0e0e;
+	color: #0e0e0e;
 }
 
 .today .tit3:hover {
 	text-decoration: underline;
 }
 
-.today .tit4 { 
-	font-weight: normal; 
+.today .tit4 {
+	font-weight: normal;
 	color: #cfcfcf;
 	display: block;
 	display: -webkit-box;

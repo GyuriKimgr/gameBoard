@@ -23,6 +23,7 @@ ul {
 .middle2 li {
 	float: left;
 	width: 30%;
+	
 }
 
 .middle2 li+li {
