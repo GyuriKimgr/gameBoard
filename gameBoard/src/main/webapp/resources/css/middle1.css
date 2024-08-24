@@ -58,7 +58,7 @@ a {
 	font-weight: normal;
 	font-size: 23px;
 	line-height: 30px;
-	font-family: '留묒� 怨좊뵓', 'Malgun Gothic', '�룍��', dotum, sans-serif;
+	font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Spoqa Han Sans', 'Dotum', sans-serif;
 }
 
 .middle1 .link_card1 .img_comm1 {
@@ -103,7 +103,14 @@ a {
 	transition: transform .5s;
 }
 
-.middle1 .gamenews_1 .news_img_2 {
+.middle1 .gamenews_2 {
+	position: relative;
+	overflow: hidden;
+	padding-top: 56%;
+	transition: transform .5s;
+}
+
+.middle1 .gamenews_2 .news_img_2 {
 	position: absolute;
 	top: -40px;
 	left: 0;
@@ -111,12 +118,11 @@ a {
 	width: 100%;
 	vertical-align: top;
 	transition: transform .5s;
-	z-index: 1; /* �떎瑜� �씠誘몄� �쐞�뿉 �몴�떆 */
+	z-index: 1;
 }
 
-.middle1 .gamenews_1:hover .news_img, .middle1 .gamenews_1:hover .news_img_2
-	{
-	transform: scale(1.1); /* �샇踰� �떆 �솗�� �슚怨� */
+.middle1 .gamenews_1:hover .news_img, .middle1 .gamenews_2:hover .news_img_2 {
+	transform: scale(1.1);
 }
 
 .middle1 .tit1 {
@@ -137,7 +143,7 @@ a {
 }
 
 .middle1 .tit1:hover {
-	text-decoration: underline; /* 而ㅼ꽌瑜� �삱�졇�쓣 �븣 諛묒쨪 異붽� */
+	text-decoration: underline;
 }
 
 .middle1 .tit2 {
@@ -174,16 +180,15 @@ a {
 }
 
 .today div {
-	height: auto; /* �옄�룞 �넂�씠 議곗젙 */
-	max-height: 300px; /* 理쒕� �넂�씠 �꽕�젙 (�븘�슂�뿉 �뵲�씪 議곗젙) */
-	overflow: hidden; /* �궡�슜�씠 �꽆移� 寃쎌슦 �닲源� */
-	box-sizing: border-box; /* �뙣�뵫怨� 蹂대뜑瑜� �룷�븿�븳 �넂�씠 怨꾩궛 */
+	height: auto;
+	max-height: 300px;
+	overflow: hidden;
+	box-sizing: border-box;
 }
 
-/* 湲곕낯 �뒪���씪 �꽕�젙 */
 .today {
-	margin: 0; /* 湲곕낯 留덉쭊 �젣嫄� */
-	padding: 0; /* 湲곕낯 �뙣�뵫 �젣嫄� */
+	margin: 0;
+	padding: 0;
 }
 
 .today .tit3 {
@@ -191,7 +196,7 @@ a {
 	overflow: hidden;
 	position: relative;
 	max-width: 100%;
-	padding: 3px 6px 0 20px;
+	padding: 15px 60px 0 20px;
 	font-weight: normal;
 	font-size: 15px;
 	line-height: 20px;
@@ -204,7 +209,7 @@ a {
 }
 
 .today .tit3:hover {
-	text-decoration: underline; /* 而ㅼ꽌瑜� �삱�졇�쓣 �븣 諛묒쨪 異붽� */
+	text-decoration: underline;
 }
 
 .today .tit4 {
@@ -212,7 +217,7 @@ a {
 	display: -webkit-box;
 	overflow: hidden;
 	position: relative;
-	height: 50px;
+	height: 48px;
 	padding: 8px 20px 1px;
 	font-size: 14px;
 	line-height: 25px;
@@ -229,10 +234,10 @@ a {
 	height: 28px;
 	background-color: #fff;
 	content: '';
+	border-bottom: 1px solid #f7f7f7;
 }
 
-<!--
-濡쒓렇�씤 -->* {
+* {
 	padding: 0;
 	margin: 0;
 	border: none;
@@ -313,8 +318,7 @@ body {
 	background-size: contain;
 }
 
-<!--
-�븘�씠�뵒李얘린, 鍮꾨�踰덊샇李얘린, �쉶�썝媛��엯 -->body {
+body {
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -353,7 +357,6 @@ body {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* �솚�쁺 硫붿떆吏� �뒪���씪 */
 .welcome h2 {
 	font-size: 16px;
 	color: #fff;
@@ -361,19 +364,16 @@ body {
 	margin-bottom: 10px;
 }
 
-/* 媛��엯�씪 �뒪���씪 */
 .welcome p {
 	font-size: 14px;
 	color: #eadbf7;
-	margin-bottom: 20px; /* 媛꾧꺽 議곗젙 */
+	margin-bottom: 20px;
 }
 
-/* 濡쒓렇�븘�썐 �뤌 �뒪���씪 */
 #logout-form {
 	margin-top: 10px;
 }
 
-/* 濡쒓렇�븘�썐 踰꾪듉 �뒪���씪 */
 #logout-form input[type="submit"] {
 	background-color: #9498b4;
 	color: #fff;

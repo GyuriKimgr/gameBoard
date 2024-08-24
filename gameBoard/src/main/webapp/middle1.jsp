@@ -175,7 +175,7 @@ $(document).ready(function() {
                 <span class="img_comm1">더보기</span>
             </a>
             <div class="news1">
-                <div class="gamenews_1">
+                <div class="gamenews_2">
                     <img src="./resources/images/Today.jpg" class="news_img_2">
                 </div> 
                 <div class="today">
