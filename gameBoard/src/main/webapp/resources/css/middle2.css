@@ -4,7 +4,7 @@
 
 .middle2 {
 	overflow: hidden;
-	max-width: 1500px;
+	max-width: 1300px;
 	margin: 0 auto;
 	padding: 0 54px;
 }
@@ -104,7 +104,7 @@ ul {
 	position: relative;
 	max-width: 100%;
 	padding: 15px 60px 0 20px;
-	font-weight: normal;
+	font-weight: 520;
 	font-size: 15px;
 	line-height: 20px;
 	color: #0e0e0e;
