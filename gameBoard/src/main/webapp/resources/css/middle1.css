@@ -172,7 +172,7 @@ a {
 }
 
 .middle1 .group_tit1 {
-	height: 130px;
+	height: 114px;
 }
 
 .middle1 .group_tit1 .gamenews {
@@ -182,10 +182,10 @@ a {
 
 .today div {
 	height: auto;
-	max-height: 300px;
+	max-height: 86.6px;px;
 	overflow: hidden;
 	box-sizing: border-box;
-	
+	border-bottom: 1px solid #f7f7f7;
 }
 
 .today {
@@ -199,7 +199,7 @@ a {
 	overflow: hidden;
 	position: relative;
 	max-width: 100%;
-	padding: 15px 60px 0 20px;
+	padding: 12px 60px 0 20px;
 	font-weight: 520;
 	font-size: 15px;
 	line-height: 20px;
@@ -243,7 +243,6 @@ a {
 	height: 28px;
 	background-color: #fff;
 	content: '';
-	border-bottom: 1px solid #f7f7f7;
 }
 
 * {
